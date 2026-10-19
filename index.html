@@ -1,0 +1,1533 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Léna Rofé · Portfolio</title>
+<meta name="description" content="Léna Rofé, administratrice systèmes et réseaux en alternance chez MediReport, BTS SIO option SISR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: une scène de particules en fond qui change de forme à chaque chapitre (sphère réseau → 12 templates → pyramide → anneau), le contenu flotte au-dessus en verre dépoli. */
+:root{
+  --bg:#06070c; --bg-2:#0c0e16; --fg:#eef0f6; --muted:#9aa1b4; --faint:#5d6478;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --glass:rgba(255,255,255,.035); --glass-2:rgba(255,255,255,.06);
+  --a1:#7ef0cf; --a2:#8fa9ff; --a1-soft:rgba(126,240,207,.12);
+  --ok:#6fe3a5; --crit:#ff7a86; --warn:#ffd27a;
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:dark;
+}
+:root[data-amb="braise"]{--a1:#ffa070;--a2:#ffd38a;--a1-soft:rgba(255,160,112,.13)}
+:root[data-amb="glacier"]{--a1:#a6dcff;--a2:#d0bcff;--a1-soft:rgba(166,220,255,.12)}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html{scroll-padding-top:90px}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--bg)}
+::selection{background:var(--a1);color:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:4px}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:1;text-wrap:balance}
+p{margin:0}
+em.s,.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.grad{background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+.label::before{content:"";width:28px;height:1px;background:var(--a1)}
+.h2{font-size:clamp(2.6rem,6.4vw,5.6rem);margin-top:22px}
+.lead{color:var(--muted);font-size:clamp(1.05rem,1.4vw,1.22rem);max-width:58ch;margin-top:22px}
+section{position:relative;padding-block:clamp(90px,14vw,170px)}
+
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity 1s var(--ease)}
+main,footer{position:relative;z-index:1}
+.grain{position:fixed;inset:-50%;z-index:2;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── loader ── */
+.loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;padding:max(28px,env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-right,0px)) max(28px,env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px))}
+.loader b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2rem,5vw,3.4rem)}
+.loader span{font-family:var(--mono);font-size:clamp(3rem,10vw,7rem);font-variant-numeric:tabular-nums;line-height:.8;color:var(--a1)}
+
+/* ── nav ── */
+.nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);left:50%;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:6px;padding:7px 8px 7px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(10,12,20,.55);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);width:max-content;max-width:calc(100% - 32px)}
+.nav .me{font-weight:600;font-size:.92rem;text-decoration:none;margin-right:10px;white-space:nowrap}
+.nav .links{display:flex;gap:2px}
+.nav .links a{font-size:.84rem;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;transition:color .3s,background .3s}
+.nav .links a:hover,.nav .links a.on{color:var(--fg);background:var(--glass-2)}
+.amb{display:flex;gap:6px;padding:0 6px 0 10px;border-left:1px solid var(--line);margin-left:6px}
+.amb button{width:16px;height:16px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;background:linear-gradient(135deg,var(--c1),var(--c2));outline-offset:2px}
+.amb button[aria-pressed="true"]{border-color:var(--fg)}
+.menu-btn{display:none;font:inherit;font-size:.84rem;color:var(--fg);background:var(--glass-2);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.sheet{position:fixed;inset:0;z-index:79;background:rgba(6,7,12,.94);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding-inline:max(28px,env(safe-area-inset-left,0px))}
+.sheet a{font-size:2.6rem;letter-spacing:-.03em;text-decoration:none}
+.sheet a i{font-family:var(--mono);font-style:normal;font-size:.8rem;color:var(--a1);margin-right:14px;vertical-align:middle}
+@media (max-width:860px){.nav .links{display:none}.menu-btn{display:block}}
+
+/* ── hero ── */
+.hero{min-height:min(100svh,980px);display:flex;flex-direction:column;justify-content:flex-end;padding-block:130px 40px}
+.hero-top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:.92rem;margin-bottom:auto;padding-top:40px}
+.hero-top span{display:flex;align-items:center;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(111,227,165,.15);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(111,227,165,0)}}
+.hero h1{font-size:clamp(5rem,17.5vw,17rem);line-height:.84;letter-spacing:-.06em;font-weight:600;margin:40px 0 0 -.04em}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .in{display:inline-block}
+.hero h1 .s{font-weight:400;letter-spacing:-.03em;padding-right:.08em}
+.hero-bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:36px}
+.hero-bottom>*{min-width:0}
+.hero-bottom p{font-size:clamp(1.15rem,1.9vw,1.6rem);line-height:1.35;max-width:30ch;letter-spacing:-.01em}
+.hero-bottom p .s{color:var(--a1)}
+.scroll{justify-self:end;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.scroll i{width:1px;height:46px;background:linear-gradient(var(--a1),transparent);animation:drip 2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:760px){.hero-bottom{grid-template-columns:1fr}.scroll{justify-self:start}}
+
+.marquee{border-block:1px solid var(--line);padding-block:22px;overflow:hidden;white-space:nowrap;position:relative;z-index:1;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee .track{display:inline-flex;gap:48px;animation:slide 38s linear infinite;padding-right:48px}
+.marquee span{font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:-.02em;color:var(--muted);display:inline-flex;align-items:center;gap:48px}
+.marquee span::after{content:"✦";font-size:.7em;color:var(--a1)}
+.marquee span:nth-child(even){font-family:var(--serif);font-style:italic;color:var(--fg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ── à propos ── */
+.about .big{font-size:clamp(1.25rem,2.2vw,1.8rem);line-height:1.45;letter-spacing:-.015em;max-width:40ch;margin-top:24px;color:var(--fg)}
+.about .big .s{color:var(--a1);font-size:1.12em}
+.path{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:180px 1fr 1.2fr;gap:30px;padding:26px 0;border-bottom:1px solid var(--line);position:relative;align-items:baseline}
+.row>*{min-width:0}
+.row::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--a1);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.row:hover::after{transform:scaleX(1)}
+.row time{font-family:var(--mono);font-size:.82rem;color:var(--a1)}
+.row h3{font-size:clamp(1.25rem,2vw,1.65rem);letter-spacing:-.02em}
+.row p{color:var(--muted);font-size:1rem}
+.row .now{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;color:var(--ok);letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
+@media (max-width:860px){.row{grid-template-columns:1fr;gap:8px}}
+
+/* ── portail ── */
+.p-head{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.p-head>*{min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-top:1px solid var(--line)}
+.kpi{padding:26px 24px 0 0;min-width:0}
+.kpi b{display:block;font-size:clamp(3rem,6vw,5.4rem);font-weight:500;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi b small{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.5em;color:var(--a1);letter-spacing:0}
+.kpi>span{display:block;color:var(--muted);font-size:.92rem;margin-top:10px;max-width:22ch}
+@media (max-width:860px){.p-head{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr;row-gap:30px}}
+
+.story{display:grid;grid-template-columns:1fr 1.15fr;gap:6vw;margin-top:clamp(80px,10vw,140px)}
+.story>*{min-width:0}
+.st{min-height:78vh;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity .6s var(--ease)}
+.st.on{opacity:1}
+.st:first-child{min-height:60vh}
+.st i{font-style:normal;font-family:var(--mono);font-size:.8rem;color:var(--a1)}
+.st h3{font-size:clamp(2rem,3.6vw,3.2rem);margin:14px 0 18px}
+.st p{color:var(--muted);font-size:1.08rem;max-width:44ch}
+.st .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.tag{font-family:var(--mono);font-size:.72rem;padding:5px 11px;border:1px solid var(--line-2);border-radius:999px;color:var(--fg);background:var(--glass)}
+.sv{position:sticky;top:14vh;height:72vh;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.win{border:1px solid var(--line-2);border-radius:18px;background:rgba(14,16,26,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);overflow:hidden;box-shadow:0 40px 120px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.02) inset}
+.win-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.win-bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.win-bar span{margin-left:12px;flex:1;font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--glass-2);padding:5px 12px;border-radius:999px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.win-body{position:relative;height:400px}
+.ly{position:absolute;inset:0;padding:26px;opacity:0;transform:translateY(14px) scale(.985);transition:opacity .6s var(--ease),transform .7s var(--ease);pointer-events:none;display:flex;flex-direction:column;gap:14px}
+.ly.on{opacity:1;transform:none}
+.ly h4{margin:0;font-size:1.3rem;font-weight:500;letter-spacing:-.02em}
+.ly .sub{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.field{border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;display:grid;gap:2px;background:var(--glass)}
+.field small{font-family:var(--mono);font-size:.66rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.field b{font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts span{font-size:.78rem;padding:6px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted)}
+.opts span.sel{border-color:var(--a1);color:var(--bg);background:var(--a1)}
+.fakebtn{margin-top:auto;align-self:flex-start;background:var(--fg);color:var(--bg);font-weight:600;font-size:.9rem;padding:11px 20px;border-radius:999px}
+.check{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;background:var(--glass);border:1px solid var(--line)}
+.check::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--ok);flex:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10'/%3E%3C/svg%3E");box-shadow:inset 0 0 0 2px var(--bg)}
+.check span{color:var(--muted);margin-left:auto;font-family:var(--mono);font-size:.74rem}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1}
+.tiles div{border-radius:10px;border:1px solid var(--line);background:var(--glass);position:relative}
+.tiles div.hl{border-color:var(--a1);background:var(--a1-soft);box-shadow:0 0 30px -6px var(--a1)}
+.tiles div.hl::after{content:"FortiClient";position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:.64rem;color:var(--a1)}
+.prog{height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.ly.on .prog i{animation:fill 2.4s var(--ease) forwards}
+@keyframes fill{to{width:100%}}
+.bootscr{flex:1;border-radius:12px;background:#08101c;display:grid;place-items:center;align-content:center;gap:22px}
+.spin{width:44px;height:44px;position:relative}
+.spin i{position:absolute;left:50%;top:0;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#dbe8ff;transform-origin:2.5px 22px;animation:orbit 1.6s cubic-bezier(.5,.15,.5,.85) infinite}
+.spin i:nth-child(2){animation-delay:.12s}.spin i:nth-child(3){animation-delay:.24s}.spin i:nth-child(4){animation-delay:.36s}.spin i:nth-child(5){animation-delay:.48s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.bootscr p{font-family:var(--mono);font-size:.74rem;color:#9fb4d6}
+.desk{flex:1;border-radius:12px;position:relative;overflow:hidden;background:radial-gradient(120% 90% at 20% 10%,#2b5a86,#10243f 60%,#0a1626)}
+.desk .w1{position:absolute;left:8%;top:12%;width:58%;background:#f4f7fb;color:#13253a;border-radius:8px;padding:12px 14px;box-shadow:0 18px 40px rgba(0,0,0,.4);font-size:.82rem}
+.desk .w1 b{display:block;font-size:.9rem;margin-bottom:6px}
+.desk .w1 em{font-style:normal;color:#11804a;font-weight:600}
+.desk .bar2{position:absolute;inset:auto 0 0;height:26px;background:rgba(5,10,20,.7);display:flex;align-items:center;gap:8px;padding:0 10px}
+.desk .bar2 i{width:12px;height:12px;border-radius:3px;background:rgba(255,255,255,.35)}
+.toast{position:absolute;right:12px;top:12px;background:rgba(10,14,24,.85);border:1px solid var(--line-2);color:var(--fg);border-radius:10px;padding:8px 12px;font-size:.78rem;display:flex;align-items:center;gap:8px}
+.toast::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.shatter{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;height:120px}
+.shatter i{border-radius:3px;background:var(--a1-soft);border:1px solid var(--line)}
+.ly.on .shatter i{animation:gone 1.6s var(--ease) forwards}
+@keyframes gone{to{opacity:0;transform:translateY(-18px) scale(.4)}}
+.logs{font-family:var(--mono);font-size:.76rem;line-height:1.9;color:var(--muted)}
+.logs b{font-weight:500;color:var(--crit)} .logs u{text-decoration:none;color:var(--ok)}
+.sv .note{font-family:var(--mono);font-size:.7rem;color:var(--faint);text-align:center}
+.steps-dots{display:flex;gap:6px;justify-content:center}
+.steps-dots i{width:22px;height:3px;border-radius:2px;background:var(--line-2);transition:background .4s}
+.steps-dots i.on{background:var(--a1)}
+@media (max-width:900px){
+  .story{grid-template-columns:1fr;gap:0}
+  .sv{order:-1;top:calc(env(safe-area-inset-top,0px) + 70px);height:auto;z-index:3;padding-bottom:18px;background:linear-gradient(var(--bg) 88%,transparent)}
+  .win-body{height:300px}.ly{padding:18px;gap:10px}
+  .st{min-height:62vh}.st:first-child{min-height:50vh}
+}
+
+.under{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:clamp(70px,9vw,120px)}
+.card{border:1px solid var(--line);border-radius:20px;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:30px;min-width:0;transition:border-color .5s,background .5s}
+.card:hover{border-color:var(--line-2);background:var(--glass-2)}
+.card .n{font-family:var(--mono);font-size:.74rem;color:var(--a1)}
+.card h3{font-size:1.5rem;margin:14px 0 12px;letter-spacing:-.025em}
+.card p{color:var(--muted)}
+.card p+p{margin-top:12px;color:var(--fg)}
+.card p+p::before{content:"→ ";color:var(--a1)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+@media (max-width:760px){.under{grid-template-columns:1fr}}
+
+/* ── labo ── */
+.seg{display:inline-flex;gap:4px;padding:5px;border-radius:999px;border:1px solid var(--line);background:var(--glass);margin-top:44px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:.9rem;border:0;background:none;color:var(--muted);padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
+.seg button[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+.labp{margin-top:18px;padding:clamp(20px,3vw,36px)}
+.lab-grid{display:grid;grid-template-columns:340px 1fr;gap:clamp(20px,4vw,48px)}
+.lab-grid>*{min-width:0}
+label{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:grid;gap:7px}
+input,select,textarea{font-family:var(--mono);font-size:.92rem;color:var(--fg);background:rgba(0,0,0,.3);border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;width:100%;min-width:0;text-transform:none;letter-spacing:0;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{border-color:var(--a1);outline:none}
+input[aria-invalid="true"]{border-color:var(--crit)}
+textarea{min-height:150px;resize:vertical;line-height:1.55}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:10px 26px;font-size:.98rem;margin:0}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;word-break:break-all}
+.kv dd.big{font-family:var(--sans);font-size:2.2rem;font-weight:500;letter-spacing:-.04em;line-height:1}
+.bits{font-family:var(--mono);font-size:.8rem;line-height:2;margin-top:22px;overflow-x:auto;white-space:nowrap}
+.bits .n{color:var(--a1)} .bits .h{color:var(--a2);opacity:.75} .bits .lbl{display:inline-block;width:78px;color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips button{font-family:var(--mono);font-size:.74rem;background:var(--glass);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 11px;cursor:pointer;transition:color .3s,border-color .3s}
+.chips button:hover{color:var(--fg);border-color:var(--a1)}
+.err{color:var(--crit);font-family:var(--mono);font-size:.8rem}
+.mini{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+.sub-h{font-size:1.4rem;letter-spacing:-.02em;margin:46px 0 18px;padding-top:30px;border-top:1px solid var(--line)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--mono);font-size:.68rem;font-weight:400;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+td{font-variant-numeric:tabular-nums}
+.bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.fw td{padding:6px}
+.fw input,.fw select{padding:7px 9px;font-size:.8rem;border-radius:8px}
+.fw tr.hit td{background:var(--a1-soft)}
+.fw .num{font-family:var(--mono);color:var(--faint)}
+.ib{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:.8rem}
+.ib:hover{border-color:var(--a1);color:var(--fg)}
+.verdict{margin-top:16px;padding:20px;border-radius:14px;border:1px solid var(--line-2);display:grid;gap:6px}
+.verdict b{font-size:1.9rem;font-weight:500;letter-spacing:-.04em;line-height:1}
+.verdict.allow{border-color:color-mix(in srgb,var(--ok) 60%,transparent);background:color-mix(in srgb,var(--ok) 8%,transparent)} .verdict.allow b{color:var(--ok)}
+.verdict.deny{border-color:color-mix(in srgb,var(--crit) 60%,transparent);background:color-mix(in srgb,var(--crit) 8%,transparent)} .verdict.deny b{color:var(--crit)}
+.verdict span{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+.pill{font:inherit;font-size:.86rem;display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;border:1px solid var(--line-2);background:var(--glass);color:var(--fg);cursor:pointer;text-decoration:none;transition:background .3s,color .3s,border-color .3s}
+.pill:hover{border-color:var(--fg)}
+.pill.solid{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+.game{display:grid;grid-template-columns:1fr 240px;gap:40px}
+.game>*{min-width:0}
+.q{font-size:clamp(1.4rem,2.6vw,2.1rem);letter-spacing:-.03em;line-height:1.2;margin:22px 0 24px;min-height:2.6em}
+.q small{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a1);margin-bottom:10px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choices button{font-family:var(--mono);font-size:1.02rem;padding:18px;background:var(--glass);color:var(--fg);border:1px solid var(--line-2);border-radius:14px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s var(--ease)}
+.choices button:hover:not(:disabled){border-color:var(--a1);transform:translateY(-2px)}
+.choices button.good{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.choices button.bad{border-color:var(--crit);background:color-mix(in srgb,var(--crit) 14%,transparent)}
+.hud{display:grid;gap:22px;align-content:start}
+.hud div{border-top:1px solid var(--line);padding-top:12px}
+.hud span{font-family:var(--mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.hud b{display:block;font-size:3rem;font-weight:500;letter-spacing:-.05em;line-height:1.05;font-variant-numeric:tabular-nums}
+.timebar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.timebar i{display:block;height:100%;background:linear-gradient(90deg,var(--a1),var(--a2));transition:width .25s linear}
+@media (max-width:900px){.lab-grid,.game{grid-template-columns:1fr}.hud{grid-template-columns:repeat(3,1fr)}.hud b{font-size:2rem}}
+@media (max-width:480px){.choices{grid-template-columns:1fr}}
+
+/* ── projets ── */
+.projects{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:60px}
+.proj{border-radius:24px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:18px;min-width:0;transform-style:preserve-3d;transition:transform .6s var(--ease),border-color .5s}
+.proj .meta,.demo .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.proj .meta .st2{color:var(--warn)}
+.proj h3{font-size:clamp(2.6rem,5vw,4.2rem);letter-spacing:-.05em}
+.proj p{color:var(--muted)}
+.proj ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:.95rem}
+.proj li{padding-left:20px;position:relative;color:var(--muted)}
+.proj li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--a1)}
+.proj li strong{color:var(--fg);font-weight:500}
+.visual{border-radius:16px;background:radial-gradient(100% 120% at 50% 100%,var(--a1-soft),transparent 70%);border:1px solid var(--line);aspect-ratio:16/8;max-width:100%;display:grid;place-items:end center;overflow:hidden}
+.pyr{width:88%;height:auto;display:block}
+.pyr rect{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.14)}
+.pyr rect.lit{fill:var(--a1-soft);stroke:var(--a1)}
+.pyr circle{transition:transform .6s cubic-bezier(.3,1.5,.6,1)}
+.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.feature>*{min-width:0}
+.feature .txt{display:flex;flex-direction:column;gap:18px}
+.demos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.demo{display:flex;flex-direction:column;gap:14px;min-width:0;padding:22px;border-radius:24px;transition:transform .6s var(--ease),border-color .5s,background .5s}
+.demo h3{font-size:clamp(2rem,3.4vw,2.8rem);letter-spacing:-.045em}
+.demo p{color:var(--muted);font-size:.98rem}
+.demo .pill{align-self:flex-start;margin-top:auto}
+.dv{height:170px;border-radius:16px;border:1px solid var(--line);background:radial-gradient(120% 120% at 50% 110%,var(--a1-soft),transparent 65%);position:relative;overflow:hidden}
+.dv svg{position:absolute;inset:0;width:100%;height:100%}
+.dv .spk{fill:none;stroke:var(--a1);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.dv .spk2{fill:none;stroke:var(--a2);stroke-width:2;opacity:.6}
+.dv-pass{display:grid;place-content:center;gap:16px;justify-items:center}
+.dv-pass b{font-family:var(--mono);font-weight:400;font-size:1.5rem;letter-spacing:.2em}
+.dv-pass .m4{display:flex;gap:6px}
+.dv-pass .m4 i{width:44px;height:6px;border-radius:3px;background:var(--line-2)}
+.dv-pass .m4 i.f{background:linear-gradient(90deg,var(--a1),var(--a2))}
+.dv-pass .m4 i:nth-child(4){animation:blink4 2.4s ease-in-out infinite}
+@keyframes blink4{50%{background:linear-gradient(90deg,var(--a1),var(--a2))}}
+.dv-dns .pk{fill:var(--a1);filter:drop-shadow(0 0 6px var(--a1))}
+.dv-dns circle.nd{fill:var(--bg-2);stroke:var(--line-2);stroke-width:1.5}
+.dv-dns path{fill:none;stroke:var(--line-2);stroke-dasharray:3 4}
+.dv-dns text{fill:var(--muted);font-family:var(--mono);font-size:9px}
+.dv-run{display:grid;grid-template-columns:repeat(3,1fr);padding:0 22%}
+.dv-run div{border-left:1px dashed var(--line-2);position:relative}
+.dv-run div:last-child{border-right:1px dashed var(--line-2)}
+.dv-run i{position:absolute;left:18%;right:18%;height:16px;border-radius:4px;top:-20px;animation:fall 2.6s linear infinite}
+.dv-run i.x{background:color-mix(in srgb,var(--crit) 70%,transparent)}
+.dv-run i.a{background:var(--ok);border-radius:50%;left:36%;right:36%;height:auto;aspect-ratio:1}
+@keyframes fall{to{top:110%}}
+.dv-run b{position:absolute;bottom:14px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:5px;background:var(--a1);box-shadow:0 0 18px var(--a1)}
+@media (max-width:900px){.projects{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.demos{grid-template-columns:1fr}}
+
+/* ── fenêtre de démo ── */
+.modal{position:fixed;inset:0;z-index:95;background:rgba(4,5,9,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.m-box{width:min(1060px,100%);max-height:100%;overflow:auto;background:rgba(12,14,22,.96);padding:clamp(18px,3vw,32px);border-radius:24px;animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.m-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+.m-head h3{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;margin-top:10px}
+.m-close{width:42px;height:42px;border-radius:50%;font-size:1rem;flex:none}
+.m-note{font-family:var(--mono);font-size:.7rem;color:var(--faint);margin-top:16px}
+/* sentinel */
+.sn-k{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.sn-k div{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.sn-k span{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sn-k b{display:block;font-size:2rem;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1.1}
+.sn-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.sn-grid>*{min-width:0}
+.host{display:grid;grid-template-columns:96px 1fr 120px 64px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.host>*{min-width:0}
+.host .nm{font-family:var(--mono);font-size:.84rem}
+.host .nm small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st3{font-family:var(--mono);font-size:.68rem;display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;border:1px solid currentColor;justify-self:start;white-space:nowrap}
+.st3.ok{color:var(--ok)} .st3.warn{color:var(--warn)} .st3.down{color:var(--crit)}
+.host svg{width:100%;height:36px;display:block;overflow:visible}
+.host .ln{fill:none;stroke:var(--a1);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.host .ar{fill:var(--a1-soft)}
+.host .end{fill:var(--a1);stroke:var(--bg);stroke-width:2}
+.host .grid{stroke:var(--line);stroke-width:1}
+.host .val{font-family:var(--mono);font-size:.84rem;text-align:right;font-variant-numeric:tabular-nums;color:var(--fg)}
+.alerts{border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.84rem;display:flex;flex-direction:column;gap:2px;max-height:380px;overflow:auto}
+.alerts h4{margin:0 0 8px;font-weight:500;font-size:1rem}
+.alerts div{display:grid;grid-template-columns:64px 1fr;gap:8px;padding:6px 0;border-top:1px solid var(--line)}
+.alerts time{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+.alerts .crit{color:var(--crit)} .alerts .warn{color:var(--warn)} .alerts .ok{color:var(--ok)}
+.tip{position:absolute;pointer-events:none;font-family:var(--mono);font-size:.72rem;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:3px 7px;transform:translate(-50%,-130%);white-space:nowrap}
+@media (max-width:760px){.sn-grid{grid-template-columns:1fr}.host{grid-template-columns:84px 1fr 56px}.host .stc{display:none}.sn-k{gap:8px}.sn-k div{padding:10px 12px}.sn-k b{font-size:1.25rem}}
+/* entropia */
+.en{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,36px)}
+.en>*{min-width:0}
+.en h4{margin:0 0 12px;font-weight:500;font-size:1.15rem}
+.pw{display:flex;gap:8px}
+.pw input{font-size:1.05rem}
+.meter{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0 10px}
+.meter i{height:7px;border-radius:4px;background:var(--line-2);transition:background .3s}
+.verd{font-size:1.6rem;font-weight:500;letter-spacing:-.03em}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:14px 0;font-size:.92rem}
+.facts dt{color:var(--muted)} .facts dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.9rem}
+.checks li{display:flex;gap:8px;color:var(--muted)}
+.checks li::before{content:"✕";color:var(--crit);font-family:var(--mono);width:14px}
+.checks li.y{color:var(--fg)} .checks li.y::before{content:"✓";color:var(--ok)}
+.gen-out{font-family:var(--mono);font-size:1.05rem;word-break:break-all;padding:16px;border-radius:12px;border:1px solid var(--line-2);background:rgba(0,0,0,.3);min-height:60px;margin:12px 0}
+.opts2{display:grid;gap:10px;margin:14px 0}
+.opts2 label{display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:.92rem;color:var(--fg)}
+.opts2 input[type=checkbox]{width:18px;height:18px;accent-color:var(--a1)}
+input[type=range]{accent-color:var(--a1);padding:0;border:0;background:none}
+.row2{display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:760px){.en{grid-template-columns:1fr}}
+/* resolve */
+.dns{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+.dns>*{min-width:0}
+.dns-svg{width:100%;height:auto;display:block}
+.dns-svg .ed{fill:none;stroke:var(--line-2);stroke-width:1.5}
+.dns-svg .ed.on{stroke:var(--a1)}
+.dns-svg .nd rect{fill:var(--bg-2);stroke:var(--line-2);stroke-width:1.5}
+.dns-svg .nd.on rect{stroke:var(--a1);fill:var(--a1-soft)}
+.dns-svg .nd text{fill:var(--fg);font-family:var(--sans);font-size:13px}
+.dns-svg .nd text.s2{fill:var(--muted);font-family:var(--mono);font-size:10px}
+.dns-svg .pk{fill:var(--a1)}
+.dlog{font-family:var(--mono);font-size:.76rem;line-height:1.8;color:var(--muted);border:1px solid var(--line);border-radius:14px;padding:12px 14px;height:290px;overflow:auto}
+.dlog b{font-weight:500;color:var(--a1)} .dlog u{text-decoration:none;color:var(--ok)}
+.dns-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.dns-form input{flex:1 1 220px;width:auto}
+@media (max-width:760px){.dns{grid-template-columns:1fr}.dlog{height:200px}}
+/* packet run */
+.run{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);touch-action:none}
+.run canvas{display:block;width:100%;height:min(460px,60svh)}
+.run .ov{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;background:rgba(6,7,12,.6);padding:20px}
+.run .ov b{font-size:clamp(2rem,5vw,3rem);font-weight:500;letter-spacing:-.04em}
+.run .ov p{color:var(--muted);max-width:40ch}
+.run-hud{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.run-hud b{color:var(--fg);font-weight:500}
+
+/* ── veille ── */
+.veille-head{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end}
+.veille-head>*{min-width:0}
+.cves{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,1fr);gap:14px;overflow-x:auto;margin-top:60px;padding-bottom:12px;scroll-snap-type:x mandatory}
+.cve{scroll-snap-align:start;padding:26px;display:flex;flex-direction:column;gap:10px;min-height:270px}
+.cve time{font-size:2.2rem;font-weight:500;letter-spacing:-.04em;line-height:1}
+.cve time small{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--crit);margin-top:8px}
+.cve h3{font-size:1.15rem;letter-spacing:-.015em;margin-top:8px}
+.cve p{color:var(--muted);font-size:.92rem}
+.cve a{margin-top:auto;font-family:var(--mono);font-size:.76rem;color:var(--a1);text-decoration:none}
+.cve a:hover{text-decoration:underline}
+.cve.ref time small{color:var(--a2)}
+.vs{display:grid;grid-template-columns:1fr 1fr;margin-top:60px;border-top:1px solid var(--line)}
+.vs>div{padding:30px 30px 0 0;min-width:0}
+.vs>div+div{padding-left:30px;border-left:1px solid var(--line)}
+.vs h3{font-size:1.8rem;letter-spacing:-.03em}
+.vs dl{margin:20px 0 0;display:grid;gap:16px}
+.vs dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.vs dd{margin:4px 0 0;color:var(--muted)}
+.vs .zt dd{color:var(--fg)}
+.quote{margin-top:70px;font-size:clamp(1.6rem,3.4vw,2.8rem);line-height:1.18;letter-spacing:-.03em;max-width:30ch}
+.quote .s{color:var(--a1)}
+.src{margin-top:28px;font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+.src a{color:var(--muted)}
+@media (max-width:860px){.veille-head,.vs{grid-template-columns:1fr}.vs>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:30px}}
+
+/* ── compétences ── */
+.mx{margin-top:50px;padding:10px 6px}
+.mx th.c{text-align:center;white-space:normal;min-width:120px;vertical-align:bottom;text-transform:none;letter-spacing:0;font-size:.74rem;line-height:1.35}
+.mx th.c button{all:unset;cursor:pointer;display:block;padding:6px;border-radius:8px}
+.mx th.c button:focus-visible{outline:2px solid var(--a1)}
+.mx th.c b{display:block;font-size:1rem;color:var(--a1);font-weight:500;margin-bottom:4px}
+.mx th.c.sel button{background:var(--a1-soft)}
+.mx td.c{text-align:center}
+.mx td.c span{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--a1);box-shadow:0 0 14px var(--a1)}
+.mx td.c span.no{background:transparent;box-shadow:none;border:1px solid var(--line-2)}
+.mx tr.dim td{opacity:.25}
+.mx td strong{font-weight:500}
+.mx td small{display:block;color:var(--faint);font-size:.8rem;white-space:normal}
+
+/* ── veille : structure ── */
+.explain{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.explain .card h3{font-size:1.25rem;margin:12px 0 10px}
+.explain .card p{color:var(--muted);font-size:.95rem}
+.explain .n{font-family:var(--mono);font-size:.72rem;color:var(--a1);text-transform:uppercase;letter-spacing:.1em}
+.vstep{display:flex;gap:18px;align-items:baseline;margin-top:clamp(64px,8vw,100px);padding-top:28px;border-top:1px solid var(--line)}
+.vstep b{font-family:var(--mono);font-weight:400;font-size:.85rem;color:var(--a1)}
+.vstep h3{font-size:clamp(1.7rem,3.2vw,2.6rem);letter-spacing:-.035em}
+.vstep+.lead{margin-top:16px}
+.vstep+.lead a,.lead a{color:var(--a1)}
+.cves{margin-top:32px}
+.vs{margin-top:32px}
+.cve .kind{align-self:flex-start;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--crit);border:1px solid color-mix(in srgb,var(--crit) 50%,transparent);border-radius:999px;padding:3px 9px}
+.takeaways{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.takeaways li{border-left:2px solid var(--a1);padding:4px 0 4px 18px;color:var(--muted)}
+.takeaways li span{display:block;color:var(--fg);font-size:1.15rem;letter-spacing:-.02em;margin-bottom:6px}
+@media (max-width:860px){.explain,.takeaways{grid-template-columns:1fr}}
+
+/* ── contact ── */
+.contact{text-align:center;padding-block:clamp(120px,18vw,220px)}
+.contact h2{font-size:clamp(4rem,13vw,12rem);letter-spacing:-.06em;line-height:.9}
+.contact .lead{margin-inline:auto}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.cta .pill{padding:16px 28px;font-size:1rem}
+footer{border-top:1px solid var(--line);padding-block:26px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.84rem;color:var(--faint)}
+
+.cursor{position:fixed;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--fg);pointer-events:none;z-index:120;mix-blend-mode:difference;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease)}
+.cursor.big{width:54px;height:54px;margin:-27px 0 0 -27px}
+@media (pointer:coarse){.cursor{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.st{opacity:1}}
+</style>
+</head><body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Navigation">
+  <a class="me" href="#top">Léna Rofé</a>
+  <div class="links">
+    <a href="#apropos">Parcours</a><a href="#portail">Portail cloud</a><a href="#labo">Labo</a><a href="#projets">Projets</a><a href="#veille">Veille</a><a href="#competences">Compétences</a><a href="#contact">Contact</a>
+  </div>
+  <div class="amb" role="group" aria-label="Ambiance de couleurs">
+    <button type="button" data-amb="aurore" style="--c1:#7ef0cf;--c2:#8fa9ff" aria-label="Ambiance aurore" aria-pressed="true"></button>
+    <button type="button" data-amb="braise" style="--c1:#ffa070;--c2:#ffd38a" aria-label="Ambiance braise" aria-pressed="false"></button>
+    <button type="button" data-amb="glacier" style="--c1:#a6dcff;--c2:#d0bcff" aria-label="Ambiance glacier" aria-pressed="false"></button>
+  </div>
+  <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu</button>
+</nav>
+<div class="sheet" id="sheet" hidden>
+  <a href="#apropos"><i>01</i>Parcours</a><a href="#portail"><i>02</i>Portail cloud</a><a href="#labo"><i>03</i>Labo</a><a href="#projets"><i>04</i>Projets</a><a href="#veille"><i>05</i>Veille</a><a href="#competences"><i>06</i>Compétences</a><a href="#contact"><i>07</i>Contact</a>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" data-shape="sphere">
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1">
+    <div class="hero-top">
+      <span><i class="dot"></i>Alternante chez MediReport</span>
+      <span>BTS SIO · option SISR · 2026–2027</span>
+    </div>
+    <h1 aria-label="Léna Rofé"><span class="line"><span class="in">Léna</span></span><span class="line"><span class="in s grad">Rofé</span></span></h1>
+    <div class="hero-bottom">
+      <p>J'administre des systèmes et des réseaux, et je construis <span class="s">les outils</span> qui les rendent simples à utiliser.</p>
+      <a class="scroll" href="#apropos"><i></i>Découvrir</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq">
+  <span>Proxmox VE</span><span>Apache Guacamole</span><span>Python</span><span>Flask</span><span>Windows</span><span>Clients VPN</span><span>API Jira</span><span>SQLite</span><span>TypeScript</span><span>React Native</span><span>Node.js</span><span>Socket.IO</span>
+</div></div>
+
+<!-- À PROPOS -->
+<section id="apropos" class="about" data-shape="scatter">
+  <div class="wrap">
+    <span class="label">Parcours</span>
+    <p class="big" id="manifest">J'ai commencé par le BTS CIEL. Mon école a fermé la formation, alors j'ai rejoint le BTS SIO pour ma deuxième année. Depuis décembre 2025, je suis alternante chez MediReport, où j'ai conçu seule un portail qui crée un poste sécurisé <span class="s">en moins d'une minute</span>, puis le fait disparaître.</p>
+    <div class="path">
+      <div class="row"><time>2025 — 2026</time><h3>BTS CIEL, 1<sup>re</sup> année</h3><p>Cybersécurité, informatique et réseaux, électronique. Option A, informatique et réseaux.</p></div>
+      <div class="row"><time>Depuis déc. 2025</time><h3>Alternance MediReport</h3><div><p>Administratrice systèmes et réseaux. Virtualisation Proxmox, accès sécurisés aux réseaux des clients, et le portail cloud, de la conception à la production.</p><span class="now"><i class="dot"></i>En cours</span></div></div>
+      <div class="row"><time>2026 — 2027</time><h3>BTS SIO, 2<sup>e</sup> année</h3><div><p>Option SISR, solutions d'infrastructure, systèmes et réseaux. Transfert après la fermeture du BTS CIEL dans mon école.</p><span class="now"><i class="dot"></i>En cours</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAIL -->
+<section id="portail" data-shape="grid">
+  <div class="wrap">
+    <div class="p-head">
+      <div>
+        <span class="label">Réalisation professionnelle</span>
+        <h2 class="h2">Le portail <em class="s grad">cloud</em></h2>
+      </div>
+      <p class="lead">Chaque client de MediReport impose son propre VPN. Plutôt que d'installer tous ces logiciels sur les postes, j'ai créé un portail qui fournit à la demande un poste Windows isolé, ouvert dans le navigateur, puis détruit après usage.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b data-count="12">12</b><span>templates de VM, un par type d'accès client</span></div>
+      <div class="kpi"><b><small>&lt;</small>1<small> min</small></b><span>entre la demande et le poste prêt</span></div>
+      <div class="kpi"><b data-count="0">0</b><span>VM conservée après la fin de la session</span></div>
+      <div class="kpi"><b><span data-count="100">100</span><small> %</small></b><span>des sessions consignées dans les journaux</span></div>
+    </div>
+
+    <div class="story" id="story">
+      <div class="steps">
+        <div class="st on" data-step="0"><i>01 / 06</i><h3>Une demande, un ticket</h3><p>Le technicien saisit son ticket et choisit le template qui correspond au client : Windows avec FortiClient, Stormshield, GlobalProtect, Cisco, et d'autres.</p></div>
+        <div class="st" data-step="1"><i>02 / 06</i><h3>Le bon client, automatiquement</h3><p>Le portail interroge l'API de Jira, retrouve l'organisation liée au ticket et présélectionne le bon profil VPN dans la VM.</p><div class="tags"><span class="tag">API REST Jira</span></div></div>
+        <div class="st" data-step="2"><i>03 / 06</i><h3>Un clone à la demande</h3><p>Proxmox clone l'un des 12 templates. Deux clonages au plus tournent en parallèle pour ne pas saturer le disque, et des VM sont préparées à l'avance pour les templates les plus demandés.</p><div class="tags"><span class="tag">API Proxmox VE</span><span class="tag">file d'attente</span><span class="tag">pool de VM</span></div></div>
+        <div class="st" data-step="3"><i>04 / 06</i><h3>Démarrage et adresse IP</h3><p>La VM démarre. Le portail récupère son adresse IP et crée automatiquement la connexion RDP dans Apache Guacamole.</p><div class="tags"><span class="tag">Apache Guacamole</span><span class="tag">RDP</span></div></div>
+        <div class="st" data-step="4"><i>05 / 06</i><h3>Le poste, dans un onglet</h3><p>En moins d'une minute, la session s'ouvre dans le navigateur. Rien à installer sur le poste du technicien. Un collègue peut même rejoindre la session par lien pour aider.</p></div>
+        <div class="st" data-step="5"><i>06 / 06</i><h3>Fin de session, zéro trace</h3><p>Quand la session se termine, la VM est supprimée de Proxmox et la connexion de Guacamole. Qui, quel ticket, quel client, combien de temps : tout est consigné dans les journaux.</p><div class="tags"><span class="tag">SQLite</span><span class="tag">rétention 90 jours</span></div></div>
+      </div>
+      <div class="sv" aria-hidden="true">
+        <div class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span id="url">portail-cloud / nouveau-poste</span></div>
+          <div class="win-body">
+            <div class="ly on" data-l="0">
+              <div><h4>Nouveau poste</h4><span class="sub">technicien.demo</span></div>
+              <div class="field"><small>Ticket Jira</small><b>SUP-1042</b></div>
+              <div class="field"><small>Template</small><div class="opts"><span>Windows</span><span class="sel">FortiClient</span><span>Stormshield</span><span>GlobalProtect</span><span>Cisco</span><span>OpenVPN</span><span>+6</span></div></div>
+              <span class="fakebtn">Créer mon poste</span>
+            </div>
+            <div class="ly" data-l="1">
+              <div><h4>SUP-1042</h4><span class="sub">ticket lu dans Jira</span></div>
+              <div class="check">Organisation trouvée<span>Client démo</span></div>
+              <div class="check">Profil VPN présélectionné<span>FortiClient</span></div>
+              <div class="check">Template choisi<span>Windows + FortiClient</span></div>
+            </div>
+            <div class="ly" data-l="2">
+              <div><h4>Clonage en cours</h4><span class="sub">template → VM 214</span></div>
+              <div class="tiles"><div></div><div class="hl"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="prog"><i></i></div>
+            </div>
+            <div class="ly" data-l="3">
+              <div class="bootscr"><div class="spin"><i></i><i></i><i></i><i></i><i></i></div><p>Démarrage de Windows · IP 192.0.2.41 détectée</p></div>
+            </div>
+            <div class="ly" data-l="4">
+              <div class="desk"><div class="w1"><b>FortiClient</b>Tunnel VPN vers le client : <em>connecté</em></div><div class="toast">Poste prêt en 49 s</div><div class="bar2"><i></i><i></i><i></i></div></div>
+            </div>
+            <div class="ly" data-l="5">
+              <div><h4>Session terminée</h4><span class="sub">VM 214 · 38 min</span></div>
+              <div class="shatter" id="shatter"></div>
+              <div class="logs"><div><b>✕</b> VM 214 supprimée de Proxmox</div><div><b>✕</b> Connexion Guacamole supprimée</div><div><u>✓</u> Session consignée dans les journaux</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="steps-dots" id="sdots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="note">Reconstitution animée · aucune donnée réelle</p>
+      </div>
+    </div>
+
+    <div class="under">
+      <div class="card"><span class="n">Problème 01</span><h3>Le disque saturait</h3><p>Plusieurs Windows qui démarrent en même temps saturaient le disque de l'hôte Proxmox.</p><p>Deux clonages simultanés au maximum, une file d'attente, et un pool de VM prêtes à l'avance.</p></div>
+      <div class="card"><span class="n">Problème 02</span><h3>Guacamole manquait de mémoire</h3><p>Le serveur Guacamole recevait une requête par VM active toutes les 30 secondes.</p><p>Un seul processus interroge l'API toutes les 15 secondes et partage le résultat.</p></div>
+      <div class="card"><span class="n">Problème 03</span><h3>Des VM orphelines</h3><p>Après un redémarrage du portail, certaines VM restaient allumées sans surveillance.</p><p>Au démarrage, le portail les détecte, les supprime et met les journaux à jour.</p></div>
+      <div class="card"><span class="n">Problème 04</span><h3>Des secrets en clair</h3><p>Les jetons d'API apparaissaient dans la configuration.</p><p>Chiffrement avec Fernet, la clé reste sur le serveur, hors du code.</p></div>
+    </div>
+    <div class="stack"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Proxmox VE</span><span class="tag">Apache Guacamole</span><span class="tag">RDP</span><span class="tag">API Jira</span><span class="tag">SQLite</span><span class="tag">Windows</span><span class="tag">Clients VPN</span><span class="tag">Fernet</span></div>
+  </div>
+</section>
+
+<!-- LABO -->
+<section id="labo" data-shape="scatter">
+  <div class="wrap">
+    <span class="label">Le labo</span>
+    <h2 class="h2">Des outils réseau, <em class="s grad">à tester ici</em></h2>
+    <p class="lead">Trois outils que j'ai développés autour de mon métier. Ils tournent directement dans votre navigateur.</p>
+    <div class="seg" role="tablist" aria-label="Outils">
+      <button role="tab" aria-selected="true" aria-controls="lab-ip" id="t-ip">Calculateur IPv4</button>
+      <button role="tab" aria-selected="false" aria-controls="lab-fw" id="t-fw">Pare-feu</button>
+      <button role="tab" aria-selected="false" aria-controls="lab-game" id="t-game">Subnet Rush</button>
+    </div>
+
+    <div class="card labp" role="tabpanel" id="lab-ip" aria-labelledby="t-ip">
+      <div class="lab-grid">
+        <div>
+          <label for="ipIn">Adresse en notation CIDR<input id="ipIn" value="192.168.10.37/26" spellcheck="false" autocomplete="off"></label>
+          <p class="err" id="ipErr" hidden></p>
+          <div class="chips" id="ipPresets"><button type="button">10.0.0.130/25</button><button type="button">172.16.4.9/22</button><button type="button">192.168.1.1/30</button><button type="button">100.64.3.7/10</button></div>
+        </div>
+        <div><dl class="kv" id="ipOut"></dl><div class="bits" id="ipBits"></div></div>
+      </div>
+      <h3 class="sub-h">Découpage VLSM</h3>
+      <div class="lab-grid">
+        <div style="display:grid;gap:14px;align-content:start">
+          <label for="vlsmBase">Réseau à découper<input id="vlsmBase" value="172.16.0.0/22" spellcheck="false" autocomplete="off"></label>
+          <label for="vlsmNeeds">Besoins, un par ligne<textarea id="vlsmNeeds" spellcheck="false">Wi-Fi invités : 200
+Administratif : 120
+Production : 60
+Serveurs : 20
+Liaison routeurs : 2</textarea></label>
+        </div>
+        <div class="tbl"><table id="vlsmOut"></table><p class="mini" id="vlsmNote" style="margin-top:12px"></p></div>
+      </div>
+    </div>
+
+    <div class="card labp" role="tabpanel" id="lab-fw" aria-labelledby="t-fw" hidden>
+      <p class="mini" style="margin-bottom:14px">Les règles sont lues de haut en bas : la première qui correspond s'applique. Le reste est refusé.</p>
+      <div class="tbl"><table class="fw" id="fwTable"><thead><tr><th>#</th><th>Action</th><th>Proto</th><th>Source</th><th>Destination</th><th>Port</th><th>Commentaire</th><th></th></tr></thead><tbody></tbody></table></div>
+      <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="pill" type="button" id="fwAdd">+ Ajouter une règle</button><button class="pill" type="button" id="fwReset">Rétablir l'exemple</button></div>
+      <h3 class="sub-h">Tester un paquet</h3>
+      <div class="lab-grid">
+        <div style="display:grid;gap:12px">
+          <label for="pkSrc">IP source<input id="pkSrc" value="192.168.10.25" spellcheck="false"></label>
+          <label for="pkDst">IP destination<input id="pkDst" value="10.0.0.10" spellcheck="false"></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <label for="pkProto">Protocole<select id="pkProto"><option>TCP</option><option>UDP</option><option>ICMP</option></select></label>
+            <label for="pkPort">Port<input id="pkPort" value="22" inputmode="numeric"></label>
+          </div>
+        </div>
+        <div>
+          <div class="chips" id="pkPresets" style="margin-top:0">
+            <button type="button" data-p="192.168.10.25,203.0.113.80,TCP,443">Poste → site HTTPS</button>
+            <button type="button" data-p="192.168.10.25,10.0.0.10,TCP,22">Poste → SSH serveur</button>
+            <button type="button" data-p="192.168.20.5,10.0.0.10,TCP,22">Admin → SSH serveur</button>
+            <button type="button" data-p="192.168.10.25,10.0.0.53,UDP,53">Poste → DNS interne</button>
+            <button type="button" data-p="192.168.30.7,10.0.0.10,TCP,3389">Invité → RDP serveur</button>
+          </div>
+          <div class="verdict" id="fwVerdict"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card labp" role="tabpanel" id="lab-game" aria-labelledby="t-game" hidden>
+      <div class="game">
+        <div>
+          <div class="timebar"><i id="gTime" style="width:100%"></i></div>
+          <div class="q" id="gQ"><small>Subnet Rush</small>60 secondes, des questions de sous-réseaux. Enchaînez les bonnes réponses pour multiplier les points.</div>
+          <div class="choices" id="gChoices"></div>
+          <div style="margin-top:20px"><button class="pill solid" type="button" id="gStart">Lancer la partie</button></div>
+        </div>
+        <div class="hud">
+          <div><span>Score</span><b id="gScore">0</b></div>
+          <div><span>Série</span><b id="gStreak">×1</b></div>
+          <div><span>Record</span><b id="gBest">0</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" data-shape="pyramid">
+  <div class="wrap">
+    <span class="label">Projets</span>
+    <h2 class="h2">Ce que je construis <em class="s grad">à côté</em></h2>
+    <p class="lead">J'aime concevoir des applications et des jeux : je définis le besoin, je développe, je teste et j'itère jusqu'à ce que ce soit fiable. Les démos s'ouvrent directement ici.</p>
+    <article class="card proj feature tilt" style="margin-top:60px">
+      <div class="txt">
+        <div class="meta"><span>Jeu mobile multijoueur</span><span class="st2">Prototype jouable · v0.1</span></div>
+        <h3>Pyra<em class="s grad">mind</em></h3>
+        <p>Un quiz pour smartphone en 12 manches : des portes à choisir, des pouvoirs à lancer sur les adversaires, des mini-jeux et une finale pour gravir la pyramide.</p>
+        <ul>
+          <li><strong>Serveur autoritaire</strong> en Node.js et Socket.IO : les téléphones envoient des intentions, le serveur calcule chronos, votes et points.</li>
+          <li><strong>Messages validés</strong> avec zod, contrat réseau typé de bout en bout en TypeScript.</li>
+          <li><strong>Application React Native</strong> avec Expo : solo contre des bots à 3 niveaux de difficulté, ou parties privées jusqu'à 6 joueurs.</li>
+          <li><strong>Tests de bout en bout</strong> avec Playwright, qui jouent de vraies parties.</li>
+        </ul>
+      </div>
+      <div class="visual"><svg class="pyr" viewBox="0 0 420 160" id="pyr" aria-label="La pyramide de la finale, 12 marches"></svg></div>
+    </article>
+    <div class="demos">
+      <article class="card demo tilt">
+        <div class="dv" aria-hidden="true"><svg viewBox="0 0 300 170" preserveAspectRatio="none"><polyline class="spk2" points="0,120 30,112 60,118 90,104 120,110 150,96 180,102 210,92 240,98 270,88 300,94"/><polyline class="spk" points="0,96 30,88 60,92 90,70 120,84 150,52 180,64 210,40 240,58 270,36 300,44"/></svg></div>
+        <div class="meta"><span>Supervision réseau</span><span>Démo intégrée</span></div>
+        <h3>Senti<em class="s grad">nel</em></h3>
+        <p>Un tableau de bord de supervision : état des équipements, latence en temps réel, détection des pannes et journal d'alertes.</p>
+        <button class="pill solid" type="button" data-open="sentinel">Ouvrir la démo ↗</button>
+      </article>
+      <article class="card demo tilt">
+        <div class="dv dv-pass" aria-hidden="true"><b>••••••••••••</b><div class="m4"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div>
+        <div class="meta"><span>Sécurité</span><span>Démo intégrée</span></div>
+        <h3>Entro<em class="s grad">pia</em></h3>
+        <p>Un analyseur et un générateur de mots de passe : entropie, temps de cassage estimé, phrases de passe. Rien ne quitte le navigateur.</p>
+        <button class="pill solid" type="button" data-open="entropia">Ouvrir la démo ↗</button>
+      </article>
+      <article class="card demo tilt">
+        <div class="dv dv-dns" aria-hidden="true"><svg viewBox="0 0 300 170"><path id="dvp" d="M40 120 L110 60 L190 40 L260 80 L190 130 L110 60"/><circle class="nd" cx="40" cy="120" r="9"/><circle class="nd" cx="110" cy="60" r="9"/><circle class="nd" cx="190" cy="40" r="9"/><circle class="nd" cx="260" cy="80" r="9"/><circle class="nd" cx="190" cy="130" r="9"/><text x="24" y="146">client</text><text x="118" y="84">résolveur</text><text x="176" y="24">racine</text><text x="244" y="104">.fr</text><text x="170" y="156">autorité</text><circle class="pk" r="5"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#dvp"/></animateMotion></circle></svg></div>
+        <div class="meta"><span>Réseau · DNS</span><span>Démo intégrée</span></div>
+        <h3>Reso<em class="s grad">lve</em></h3>
+        <p>Une résolution DNS animée pas à pas : du résolveur à la racine, au TLD, puis au serveur faisant autorité. Avec le cache.</p>
+        <button class="pill solid" type="button" data-open="resolve">Ouvrir la démo ↗</button>
+      </article>
+      <article class="card demo tilt">
+        <div class="dv dv-run" aria-hidden="true"><div><i class="x"></i></div><div><i class="a" style="animation-delay:-1.2s"></i></div><div><i class="x" style="animation-delay:-.6s"></i></div><b></b></div>
+        <div class="meta"><span>Jeu d'arcade</span><span>Jouable ici</span></div>
+        <h3>Packet <em class="s grad">Run</em></h3>
+        <p>Vous êtes un paquet. Esquivez les règles DENY, attrapez les ACK. Au clavier, ou en touchant l'écran.</p>
+        <button class="pill solid" type="button" data-open="run">Jouer ↗</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VEILLE -->
+<section id="veille" data-shape="ring">
+  <div class="wrap">
+    <span class="label">Veille technologique</span>
+    <h2 class="h2">Du VPN au <em class="s grad">Zero Trust</em></h2>
+    <div class="explain">
+      <div class="card"><span class="n">Le sujet</span><h3>La sécurité des accès à distance</h3><p>Faire une veille, c'est suivre l'actualité d'un domaine pour anticiper les risques et les évolutions. Le mien : comment on se connecte à distance aux réseaux d'entreprise, et comment on le sécurise.</p></div>
+      <div class="card"><span class="n">Pourquoi</span><h3>Il touche mon travail</h3><p>Mon portail cloud ouvre l'accès aux réseaux des clients de MediReport à travers leurs VPN. Une faille dans ces VPN me concerne directement.</p></div>
+      <div class="card"><span class="n">À savoir</span><h3>Des faits réels</h3><p>Les failles présentées ci-dessous sont des événements réels, publiés par les éditeurs et les autorités. Ce ne sont pas mes réalisations : c'est l'actualité que je suis.</p></div>
+    </div>
+
+    <div class="vstep"><b>01</b><h3>Ce qui s'est passé</h3></div>
+    <p class="lead">Depuis 2024, des failles critiques ont touché les VPN des plus grands éditeurs. Plusieurs ont été exploitées par des attaquants avant même qu'un correctif existe. Chaque fiche renvoie vers la base officielle des vulnérabilités.</p>
+    <div class="cves">
+      <article class="card cve"><time>01.2024<small>Ivanti Connect Secure</small></time><span class="kind">Faille réelle · exploitée</span><h3>Deux failles enchaînées</h3><p>Contournement de l'authentification puis injection de commandes, exploités avant le correctif.</p><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-21887" target="_blank" rel="noopener">CVE-2023-46805 · CVE-2024-21887 ↗</a></article>
+      <article class="card cve"><time>02.2024<small>Fortinet FortiOS</small></time><span class="kind">Faille réelle · exploitée</span><h3>VPN SSL vulnérable</h3><p>Écriture hors limites permettant d'exécuter du code à distance, sans authentification.</p><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-21762" target="_blank" rel="noopener">CVE-2024-21762 ↗</a></article>
+      <article class="card cve"><time>04.2024<small>Palo Alto GlobalProtect</small></time><span class="kind">Faille réelle · exploitée</span><h3>Sévérité maximale</h3><p>Injection de commandes dans la passerelle GlobalProtect, notée 10 sur 10.</p><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-3400" target="_blank" rel="noopener">CVE-2024-3400 ↗</a></article>
+      <article class="card cve"><time>01.2025<small>Ivanti Connect Secure</small></time><span class="kind">Faille réelle · exploitée</span><h3>À nouveau visé</h3><p>Dépassement de tampon exploité pour exécuter du code à distance, sans authentification.</p><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-0282" target="_blank" rel="noopener">CVE-2025-0282 ↗</a></article>
+    </div>
+
+    <div class="vstep"><b>02</b><h3>La réponse : le Zero Trust</h3></div>
+    <p class="lead">L'idée : ne plus faire confiance à quelqu'un simplement parce qu'il est connecté au réseau. Chaque accès est vérifié et limité à une application précise. Le NIST a formalisé ce modèle dans sa publication <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener">SP 800-207</a>.</p>
+    <div class="vs">
+      <div>
+        <h3>VPN d'accès distant</h3>
+        <dl><div><dt>Ce qui est ouvert</dt><dd>Le réseau entier, ou un large segment.</dd></div><div><dt>Confiance</dt><dd>Accordée une fois, à la connexion.</dd></div><div><dt>Exposition</dt><dd>Une passerelle visible sur Internet, cible directe.</dd></div><div><dt>Poste compromis</dt><dd>Mouvement latéral possible dans le réseau.</dd></div></dl>
+      </div>
+      <div class="zt">
+        <h3 class="grad" style="display:inline-block">Zero Trust (ZTNA)</h3>
+        <dl><div><dt>Ce qui est ouvert</dt><dd>Une application précise, rien d'autre.</dd></div><div><dt>Confiance</dt><dd>Réévaluée à chaque requête : identité, état du poste, contexte.</dd></div><div><dt>Exposition</dt><dd>Les applications restent invisibles tant que l'accès n'est pas accordé.</dd></div><div><dt>Poste compromis</dt><dd>Impact limité à ce que la session autorise.</dd></div></dl>
+      </div>
+    </div>
+
+    <div class="vstep"><b>03</b><h3>Ce que j'en retiens</h3></div>
+    <ul class="takeaways">
+      <li><span>Les VPN sont devenus une cible prioritaire.</span> Leurs mises à jour doivent passer en premier, y compris dans les templates du portail.</li>
+      <li><span>Les postes jetables limitent les dégâts.</span> Une VM compromise ne survit pas à la session, et chaque client a son propre environnement.</li>
+      <li><span>Le Zero Trust est la suite logique.</span> À terme, des accès par application pourraient remplacer certains VPN complets.</li>
+    </ul>
+    <p class="src">Sources : NVD (NIST) · CERT-FR <a href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noopener">cert.ssi.gouv.fr</a> · ANSSI <a href="https://cyber.gouv.fr/" target="_blank" rel="noopener">cyber.gouv.fr</a> · NIST <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener">SP 800-207</a></p>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences" data-shape="scatter">
+  <div class="wrap">
+    <span class="label">Référentiel BTS SIO</span>
+    <h2 class="h2">Mes <em class="s grad">compétences</em></h2>
+    <p class="lead">Les six compétences du bloc 1 du BTS SIO, « Support et mise à disposition de services informatiques ». Touchez une compétence pour voir les réalisations qui la mobilisent.</p>
+    <div class="card mx tbl"><table id="matrix"><thead><tr><th>Réalisation</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact" data-shape="sphere">
+  <div class="wrap">
+    <span class="label" style="justify-content:center">Contact</span>
+    <h2 style="margin-top:26px">Parlons<em class="s grad">-en.</em></h2>
+    <p class="lead">Une alternance, une poursuite d'études, une question sur le portail cloud ? Écrivez-moi sur LinkedIn.</p>
+    <div class="cta">
+      <a class="pill solid magnetic" href="https://www.linkedin.com/in/lena-rof%C3%A9-4952b6365" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="pill magnetic" href="https://github.com/lenarofe25-coder" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 Léna Rofé</span><span>BTS SIO · option SISR</span></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="card m-box">
+    <header class="m-head"><div><span class="label" id="mKicker"></span><h3 id="mTitle"></h3></div><button class="ib m-close" type="button" id="mClose" aria-label="Fermer la démo">✕</button></header>
+    <div id="mBody"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine = matchMedia("(pointer: fine)").matches;
+const mobile = innerWidth < 760;
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const hasGsap = !!(window.gsap && window.ScrollTrigger);
+if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+/* ── ambiance ── */
+const AMB = ["aurore", "braise", "glacier"];
+let onAmb = () => {};
+function setAmb(a) {
+  if (!AMB.includes(a)) a = "aurore";
+  if (a === "aurore") delete document.documentElement.dataset.amb; else document.documentElement.dataset.amb = a;
+  $$(".amb button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.amb === a)));
+  store.set("amb", a); onAmb();
+}
+$$(".amb button").forEach(b => b.addEventListener("click", () => setAmb(b.dataset.amb)));
+setAmb(store.get("amb") || "aurore");
+
+/* ── défilement fluide ── */
+let lenis = null;
+if (window.Lenis && !reduce) {
+  lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 });
+  if (hasGsap) { lenis.on("scroll", ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+  else { const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+}
+const sheet = $("#sheet"), menuBtn = $("#menuBtn");
+const closeSheet = () => { sheet.hidden = true; menuBtn.setAttribute("aria-expanded", "false"); menuBtn.textContent = "Menu"; lenis && lenis.start(); };
+menuBtn.addEventListener("click", () => { const open = sheet.hidden; sheet.hidden = !open; menuBtn.setAttribute("aria-expanded", String(open)); menuBtn.textContent = open ? "Fermer" : "Menu"; if (lenis) open ? lenis.stop() : lenis.start(); });
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href"); const el = id === "#top" ? document.body : $(id); if (!el) return;
+  e.preventDefault(); closeSheet();
+  if (lenis) lenis.scrollTo(id === "#top" ? 0 : el, { offset: -70, duration: 1.4 }); else el.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+});
+
+/* ── particules ── */
+const shapeState = { name: "sphere" };
+(function particles() {
+  const canvas = $("#bg");
+  if (!window.THREE) { canvas.remove(); return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "high-performance" }); }
+  catch { canvas.remove(); return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100); camera.position.z = 8;
+  const N = mobile ? 2600 : 5600;
+  const shapes = {};
+  const gen = (fn) => { const a = new Float32Array(N * 3); for (let i = 0; i < N; i++) { const p = fn(i); a[i * 3] = p[0]; a[i * 3 + 1] = p[1]; a[i * 3 + 2] = p[2]; } return a; };
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  shapes.sphere = gen(i => { const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), t = i * golden, R = 2.3 * (1 + (Math.random() - .5) * .06); return [Math.cos(t) * r * R, y * R, Math.sin(t) * r * R]; });
+  shapes.scatter = gen(() => [(Math.random() - .5) * 16, (Math.random() - .5) * 10, (Math.random() - .5) * 8]);
+  shapes.grid = gen(i => {
+    const k = i % 12, col = k % 4, row = Math.floor(k / 4), s = .78, g = .34;
+    const cx = (col - 1.5) * (s + g), cy = (1 - row) * (s + g), h = s / 2;
+    const f = rnd(0, 5), u = (Math.random() - .5) * s, v = (Math.random() - .5) * s;
+    const p = [[h, u, v], [-h, u, v], [u, h, v], [u, -h, v], [u, v, h], [u, v, -h]][f];
+    return [cx + p[0], cy + p[1], p[2]];
+  });
+  shapes.pyramid = gen(() => {
+    const L = 12; let k; const wts = []; let tot = 0;
+    for (let j = 0; j < L; j++) { const w = 1 - j / L; wts.push(w); tot += w; }
+    let r = Math.random() * tot; for (k = 0; k < L; k++) { r -= wts[k]; if (r <= 0) break; }
+    const w = 2.6 * (1 - k / L), y = -1.7 + k * .3;
+    const side = rnd(0, 3), t = (Math.random() * 2 - 1) * w, dy = Math.random() < .5 ? 0 : -Math.random() * .3;
+    const p = [[t, w], [t, -w], [w, t], [-w, t]][side];
+    return [p[0], y + dy, p[1]];
+  });
+  shapes.ring = gen(() => { const a = Math.random() * Math.PI * 2, b = Math.random() * Math.PI * 2, R = 2.3, r = .32 + Math.random() * .12; return [(R + r * Math.cos(b)) * Math.cos(a), r * Math.sin(b), (R + r * Math.cos(b)) * Math.sin(a)]; });
+  const cur = Float32Array.from(shapes.sphere);
+  const pos = new Float32Array(N * 3);
+  const col = new Float32Array(N * 3);
+  const seed = new Float32Array(N); for (let i = 0; i < N; i++) seed[i] = Math.random() * 6.283;
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  const sprite = (() => { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"); const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, "rgba(255,255,255,1)"); g.addColorStop(.35, "rgba(255,255,255,.55)"); g.addColorStop(1, "rgba(255,255,255,0)"); x.fillStyle = g; x.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+  const mat = new THREE.PointsMaterial({ size: mobile ? .055 : .045, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: .9 });
+  const pts = new THREE.Points(geo, mat);
+  const group = new THREE.Group(); group.add(pts); scene.add(group);
+  const paint = () => {
+    const cs = getComputedStyle(document.documentElement);
+    const c1 = new THREE.Color(cs.getPropertyValue("--a1").trim()), c2 = new THREE.Color(cs.getPropertyValue("--a2").trim()), w = new THREE.Color("#ffffff");
+    for (let i = 0; i < N; i++) { const t = (shapes.sphere[i * 3 + 1] / 2.3 + 1) / 2; const c = c1.clone().lerp(c2, t); if (Math.random() < .06) c.lerp(w, .7); col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b; }
+    geo.attributes.color.needsUpdate = true;
+  };
+  paint(); onAmb = paint;
+  const CFG = {
+    sphere: { x: mobile ? 0 : 2.1, y: mobile ? .9 : .1, s: mobile ? .78 : 1, o: .95 },
+    scatter: { x: 0, y: 0, s: 1, o: .38 },
+    grid: { x: mobile ? 0 : 2.6, y: mobile ? 1.6 : .2, s: mobile ? .62 : .95, o: .5 },
+    pyramid: { x: mobile ? 0 : 2.4, y: mobile ? 1.8 : 0, s: mobile ? .6 : .9, o: .45 },
+    ring: { x: mobile ? 0 : 2.6, y: mobile ? 1.6 : .2, s: mobile ? .62 : 1, o: .5 }
+  };
+  const live = { x: CFG.sphere.x, y: CFG.sphere.y, s: 1, o: 0 };
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  // pointeur (souris ou doigt) : les particules s'écartent autour, un tap envoie une onde de choc
+  const ptr = { nx: 0, ny: 0, on: 0, tOn: 0, shock: 0 };
+  const setPtr = (x, y) => { ptr.nx = x / innerWidth * 2 - 1; ptr.ny = -(y / innerHeight * 2 - 1); ptr.tOn = 1; mouse.tx = x / innerWidth - .5; mouse.ty = y / innerHeight - .5; };
+  addEventListener("pointermove", e => setPtr(e.clientX, e.clientY), { passive: true });
+  addEventListener("pointerdown", e => { setPtr(e.clientX, e.clientY); ptr.shock = 1; }, { passive: true });
+  addEventListener("touchstart", e => { const t = e.touches[0]; if (t) { setPtr(t.clientX, t.clientY); ptr.shock = 1; } }, { passive: true });
+  addEventListener("touchmove", e => { const t = e.touches[0]; if (t) setPtr(t.clientX, t.clientY); }, { passive: true });
+  addEventListener("touchend", () => { ptr.tOn = 0; }, { passive: true });
+  document.addEventListener("mouseleave", () => { ptr.tOn = 0; });
+  const ray = new THREE.Vector3(), hitW = new THREE.Vector3(), axis = new THREE.Vector3(), inv = new THREE.Matrix4();
+  const resize = () => { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  addEventListener("resize", resize); resize();
+  let t = 0, last = performance.now();
+  const frame = now => {
+    const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt;
+    const tgt = shapes[shapeState.name], cfg = CFG[shapeState.name];
+    const k = reduce ? 1 : Math.min(1, dt * 2.6);
+    for (let i = 0; i < N * 3; i++) cur[i] += (tgt[i] - cur[i]) * k;
+    const kk = reduce ? 1 : Math.min(1, dt * 2);
+    live.x += (cfg.x - live.x) * kk; live.y += (cfg.y - live.y) * kk; live.s += (cfg.s - live.s) * kk; live.o += (cfg.o - live.o) * kk;
+    mouse.x += (mouse.tx - mouse.x) * .05; mouse.y += (mouse.ty - mouse.y) * .05;
+    group.position.set(live.x, live.y, 0); group.scale.setScalar(live.s); mat.opacity = live.o;
+    if (!reduce) { pts.rotation.y += dt * (shapeState.name === "grid" || shapeState.name === "pyramid" ? .18 : .1); }
+    group.rotation.x = mouse.y * .35 + (shapeState.name === "ring" ? .5 : 0); group.rotation.y = mouse.x * .5;
+    // point visé, ramené dans le repère des particules
+    ptr.on += (ptr.tOn - ptr.on) * Math.min(1, dt * 4); ptr.shock *= Math.exp(-dt * 2.4);
+    const force = ptr.on * .55 + ptr.shock * 1.6;
+    let px = 0, py = 0, pz = 0, ax = 0, ay = 0, az = 0, R = 0, R2 = 0;
+    if (force > .01) {
+      pts.updateMatrixWorld(true);
+      ray.set(ptr.nx, ptr.ny, .5).unproject(camera).sub(camera.position).normalize();
+      hitW.copy(camera.position).addScaledVector(ray, -camera.position.z / ray.z);
+      inv.copy(pts.matrixWorld).invert(); hitW.applyMatrix4(inv);
+      axis.set(0, 0, 1).transformDirection(inv);
+      px = hitW.x; py = hitW.y; pz = hitW.z; ax = axis.x; ay = axis.y; az = axis.z;
+      R = (1.1 + (1 - ptr.shock) * ptr.shock * 6) / live.s; R2 = R * R;
+    }
+    const amp = reduce ? 0 : .035;
+    for (let i = 0; i < N; i++) {
+      const s = seed[i], j = i * 3;
+      let x = cur[j] + Math.sin(t * .9 + s) * amp, y = cur[j + 1] + Math.cos(t * .7 + s * 1.3) * amp, z = cur[j + 2];
+      if (force > .01) {
+        let dx = x - px, dy = y - py, dz = z - pz;
+        const along = dx * ax + dy * ay + dz * az;
+        dx -= ax * along; dy -= ay * along; dz -= az * along;
+        const d2 = dx * dx + dy * dy + dz * dz;
+        if (d2 < R2 && d2 > 1e-6) { const d = Math.sqrt(d2), f = (1 - d / R) ** 2 * force / d; x += dx * f; y += dy * f; z += dz * f; }
+      }
+      pos[j] = x; pos[j + 1] = y; pos[j + 2] = z;
+    }
+    geo.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+})();
+
+/* sections → forme */
+const secObs = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  shapeState.name = e.target.dataset.shape || "scatter";
+  const id = e.target.id; $$(".nav .links a").forEach(a => a.classList.toggle("on", id && a.getAttribute("href") === "#" + id));
+}), { rootMargin: "-45% 0px -45% 0px" });
+$$("section[data-shape]").forEach(s => secObs.observe(s));
+
+/* ── histoire du portail ── */
+const layers = $$(".ly"), dots = $$("#sdots i"), steps = $$(".st");
+const urls = ["portail-cloud / nouveau-poste", "portail-cloud / ticket SUP-1042", "portail-cloud / clonage", "portail-cloud / démarrage", "portail-cloud / session", "portail-cloud / journaux"];
+$("#shatter").innerHTML = "<i></i>".repeat(36);
+$$("#shatter i").forEach((el, i) => el.style.animationDelay = (rnd(0, 60) / 100) + "s");
+function setStep(n) {
+  layers.forEach((l, i) => l.classList.toggle("on", i === n));
+  dots.forEach((d, i) => d.classList.toggle("on", i <= n));
+  steps.forEach((s, i) => s.classList.toggle("on", i === n));
+  $("#url").textContent = urls[n];
+}
+const stepObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setStep(+e.target.dataset.step); }), { rootMargin: "-48% 0px -48% 0px" });
+steps.forEach(s => stepObs.observe(s));
+
+/* ── animations GSAP ── */
+const intro = () => {
+  if (!hasGsap || reduce) return;
+  gsap.from(".hero h1 .in", { yPercent: 110, duration: 1.4, ease: "expo.out", stagger: .12 });
+  gsap.from(".hero-top span, .hero-bottom > *", { y: 24, opacity: 0, duration: 1.2, ease: "expo.out", stagger: .08, delay: .35 });
+};
+if (hasGsap && !reduce) {
+  $$(".h2, #manifest, .row, .kpi, .under .card, .proj, .demo, .cve, .vs > div, .quote").forEach(el => {
+    gsap.from(el, { y: 50, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 92%" } });
+  });
+  $$("[data-count]").forEach(el => {
+    const end = +el.dataset.count; if (!end) return; const o = { v: 0 };
+    gsap.to(o, { v: end, duration: 1.6, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" }, onUpdate: () => el.textContent = Math.round(o.v) });
+  });
+  gsap.to(".hero h1", { yPercent: -18, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+}
+
+/* ── loader ── */
+(function loader() {
+  if (reduce || navigator.webdriver || !hasGsap) { intro(); return; }
+  const L = document.createElement("div"); L.className = "loader"; L.setAttribute("aria-hidden", "true");
+  L.innerHTML = '<b>Léna Rofé</b><span>000</span>';
+  document.body.appendChild(L); lenis && lenis.stop();
+  const o = { v: 0 }, num = L.querySelector("span");
+  gsap.timeline()
+    .to(o, { v: 100, duration: 1.3, ease: "power2.inOut", onUpdate: () => num.textContent = String(Math.round(o.v)).padStart(3, "0") })
+    .to(L, { clipPath: "inset(0 0 100% 0)", duration: 1, ease: "expo.inOut", onStart: intro }, "+=.1")
+    .add(() => { L.remove(); lenis && lenis.start(); });
+})();
+
+/* ── curseur & effets ── */
+if (fine && !reduce) {
+  const c = $("#cursor"); let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
+  addEventListener("pointermove", e => { x = e.clientX; y = e.clientY; }, { passive: true });
+  const loop = () => { cx += (x - cx) * .2; cy += (y - cy) * .2; c.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); }; loop();
+  document.addEventListener("pointerover", e => c.classList.toggle("big", !!e.target.closest("a,button,[role=tab]")));
+  $$(".magnetic").forEach(el => {
+    el.addEventListener("pointermove", e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    el.addEventListener("pointerleave", () => el.style.transform = "");
+  });
+  $$(".tilt").forEach(el => {
+    el.addEventListener("pointermove", e => { const r = el.getBoundingClientRect(); const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5; el.style.transform = `perspective(1200px) rotateY(${px * 5}deg) rotateX(${-py * 5}deg)`; });
+    el.addEventListener("pointerleave", () => el.style.transform = "");
+  });
+} else $("#cursor").remove();
+$("#mq").innerHTML += $("#mq").innerHTML;
+
+/* ── IPv4 ── */
+const ipToInt = s => { const p = String(s).trim().split("."); if (p.length !== 4) return null; let n = 0; for (const x of p) { if (!/^\d{1,3}$/.test(x) || +x > 255) return null; n = n * 256 + +x; } return n >>> 0; };
+const intToIp = n => [n >>> 24, (n >>> 16) & 255, (n >>> 8) & 255, n & 255].join(".");
+const maskOf = c => c === 0 ? 0 : (0xFFFFFFFF << (32 - c)) >>> 0;
+const parseCidr = s => { const m = String(s).trim().match(/^([\d.]+)(?:\/(\d{1,2}))?$/); if (!m) return null; const ip = ipToInt(m[1]), c = m[2] === undefined ? 32 : +m[2]; if (ip === null || c > 32) return null; return { ip, c, mask: maskOf(c) }; };
+const info = (ip, c) => { const mask = maskOf(c), net = (ip & mask) >>> 0, bc = (net | (~mask >>> 0)) >>> 0; return { mask, net, bc, wild: (~mask) >>> 0, hosts: c === 32 ? 1 : c === 31 ? 2 : 2 ** (32 - c) - 2, first: c >= 31 ? net : net + 1, last: c >= 31 ? bc : bc - 1 }; };
+const kind = ip => { const inR = (b, c) => ((ip & maskOf(c)) >>> 0) === ipToInt(b); if (inR("10.0.0.0", 8) || inR("172.16.0.0", 12) || inR("192.168.0.0", 16)) return "Privée (RFC 1918)"; if (inR("100.64.0.0", 10)) return "Partagée CGNAT (RFC 6598)"; if (inR("127.0.0.0", 8)) return "Boucle locale"; if (inR("169.254.0.0", 16)) return "Lien local (APIPA)"; if (inR("224.0.0.0", 4)) return "Multicast"; if (inR("192.0.2.0", 24) || inR("198.51.100.0", 24) || inR("203.0.113.0", 24)) return "Documentation (RFC 5737)"; return "Publique"; };
+const fmt = n => n.toLocaleString("fr-FR");
+function calcIp() {
+  const v = $("#ipIn").value, p = parseCidr(v), err = $("#ipErr");
+  if (!p || !v.includes("/")) { err.hidden = false; err.textContent = "Format attendu : a.b.c.d/n, avec n entre 0 et 32."; $("#ipIn").setAttribute("aria-invalid", "true"); return; }
+  err.hidden = true; $("#ipIn").removeAttribute("aria-invalid");
+  const r = info(p.ip, p.c);
+  $("#ipOut").innerHTML = [["Hôtes utilisables", fmt(r.hosts), "big"], ["Réseau", intToIp(r.net) + "/" + p.c], ["Masque", intToIp(r.mask)], ["Masque inverse", intToIp(r.wild)], ["Plage", intToIp(r.first) + " – " + intToIp(r.last)], ["Diffusion", p.c >= 31 ? "aucune" : intToIp(r.bc)], ["Type", kind(p.ip)]]
+    .map(([k, v, c]) => `<dt>${k}</dt><dd class="${c || ""}">${esc(v)}</dd>`).join("");
+  const dotted = n => { const b = n.toString(2).padStart(32, "0"); let o = ""; for (let k = 0; k < 32; k++) { if (k && k % 8 === 0) o += "."; o += `<span class="${k < p.c ? "n" : "h"}">${b[k]}</span>`; } return o; };
+  $("#ipBits").innerHTML = `<div><span class="lbl">adresse</span>${dotted(p.ip)}</div><div><span class="lbl">masque</span>${dotted(r.mask)}</div><div><span class="lbl">réseau</span>${dotted(r.net)}</div><div class="mini"><span class="lbl"></span><span class="n">■</span> réseau, ${p.c} bits · <span class="h">■</span> hôtes, ${32 - p.c} bits</div>`;
+}
+$("#ipIn").addEventListener("input", calcIp);
+$$("#ipPresets button").forEach(b => b.addEventListener("click", () => { $("#ipIn").value = b.textContent; calcIp(); }));
+calcIp();
+function vlsm() {
+  const base = parseCidr($("#vlsmBase").value), out = $("#vlsmOut"), note = $("#vlsmNote");
+  if (!base || !$("#vlsmBase").value.includes("/")) { out.innerHTML = ""; note.innerHTML = '<span class="err">Réseau invalide : utilisez a.b.c.d/n.</span>'; return; }
+  const needs = $("#vlsmNeeds").value.split("\n").map(l => l.trim()).filter(Boolean).map(l => { const m = l.match(/^(.*?)[\s:=]+(\d+)\s*$/); return m ? { name: m[1].replace(/[:=]\s*$/, "").trim() || "Réseau", h: +m[2] } : null; }).filter(n => n && n.h > 0);
+  if (!needs.length) { out.innerHTML = ""; note.textContent = "Ajoutez un besoin par ligne, par exemple « Serveurs : 20 »."; return; }
+  needs.sort((a, b) => b.h - a.h);
+  const start = (base.ip & base.mask) >>> 0, end = start + 2 ** (32 - base.c); let cur = start, rows = [], fail = null;
+  for (const n of needs) {
+    let bits = 2; while (2 ** bits - 2 < n.h) bits++;
+    const size = 2 ** bits, c = 32 - bits;
+    if (c < base.c || cur + size > end) { fail = n; break; }
+    const r = info(cur, c);
+    rows.push(`<tr><td>${esc(n.name)}</td><td>${fmt(n.h)}</td><td>${intToIp(r.net)}/${c}</td><td>${intToIp(r.first)} – ${intToIp(r.last)}</td><td>${intToIp(r.bc)}</td><td><div class="bar"><i style="width:${n.h / r.hosts * 100}%"></i></div></td></tr>`);
+    cur += size;
+  }
+  out.innerHTML = `<thead><tr><th>Réseau</th><th>Besoin</th><th>Sous-réseau</th><th>Plage</th><th>Diffusion</th><th>Remplissage</th></tr></thead><tbody>${rows.join("")}</tbody>`;
+  note.innerHTML = fail ? `<span class="err">Plus assez d'espace pour « ${esc(fail.name)} » (${fmt(fail.h)} hôtes). Agrandissez le réseau de départ.</span>` : `${fmt(cur - start)} adresses attribuées sur ${fmt(end - start)} · ${fmt(end - cur)} restantes à partir de ${intToIp(cur)}`;
+}
+$("#vlsmBase").addEventListener("input", vlsm); $("#vlsmNeeds").addEventListener("input", vlsm); vlsm();
+
+/* ── pare-feu ── */
+const FW_DEFAULT = [
+  { a: "ALLOW", p: "TCP", s: "192.168.10.0/24", d: "any", port: "443", c: "LAN → web HTTPS" },
+  { a: "ALLOW", p: "TCP", s: "192.168.10.0/24", d: "any", port: "80", c: "LAN → web HTTP" },
+  { a: "ALLOW", p: "UDP", s: "192.168.0.0/16", d: "10.0.0.53", port: "53", c: "DNS interne" },
+  { a: "ALLOW", p: "TCP", s: "192.168.20.0/24", d: "10.0.0.0/24", port: "22", c: "Admins → SSH serveurs" },
+  { a: "DENY", p: "any", s: "192.168.30.0/24", d: "10.0.0.0/8", port: "any", c: "Wi-Fi invités isolé" }
+];
+let rules = FW_DEFAULT.map(r => ({ ...r }));
+const okAddr = v => v.trim().toLowerCase() === "any" || !!parseCidr(v);
+const okPort = v => { v = v.trim().toLowerCase(); if (v === "any") return true; const m = v.match(/^(\d{1,5})(?:-(\d{1,5}))?$/); return !!m && +m[1] <= 65535 && (!m[2] || (+m[2] <= 65535 && +m[2] >= +m[1])); };
+const mAddr = (rule, ip) => { if (rule.trim().toLowerCase() === "any") return true; const p = parseCidr(rule); return !!p && ((ip & p.mask) >>> 0) === ((p.ip & p.mask) >>> 0); };
+const mPort = (rule, port, proto) => { const v = rule.trim().toLowerCase(); if (v === "any" || proto === "ICMP") return true; const [a, b] = v.split("-").map(Number); return port >= a && port <= (b || a); };
+function renderRules() {
+  $("#fwTable tbody").innerHTML = rules.map((r, i) => `<tr data-i="${i}"><td class="num">${i + 1}</td>
+    <td><select data-k="a" aria-label="Action règle ${i + 1}"><option${r.a === "ALLOW" ? " selected" : ""}>ALLOW</option><option${r.a === "DENY" ? " selected" : ""}>DENY</option></select></td>
+    <td><select data-k="p" aria-label="Protocole règle ${i + 1}">${["any", "TCP", "UDP", "ICMP"].map(p => `<option${r.p === p ? " selected" : ""}>${p}</option>`).join("")}</select></td>
+    <td><input data-k="s" value="${esc(r.s)}" size="15" aria-label="Source règle ${i + 1}"${okAddr(r.s) ? "" : ' aria-invalid="true"'}></td>
+    <td><input data-k="d" value="${esc(r.d)}" size="15" aria-label="Destination règle ${i + 1}"${okAddr(r.d) ? "" : ' aria-invalid="true"'}></td>
+    <td><input data-k="port" value="${esc(r.port)}" size="8" aria-label="Port règle ${i + 1}"${okPort(r.port) ? "" : ' aria-invalid="true"'}></td>
+    <td><input data-k="c" value="${esc(r.c)}" size="20" aria-label="Commentaire règle ${i + 1}"></td>
+    <td style="white-space:nowrap"><button class="ib" data-act="up" aria-label="Monter la règle ${i + 1}">↑</button> <button class="ib" data-act="down" aria-label="Descendre la règle ${i + 1}">↓</button> <button class="ib" data-act="del" aria-label="Supprimer la règle ${i + 1}">✕</button></td></tr>`).join("")
+    + `<tr><td class="num">∗</td><td colspan="7" class="mini">DENY · any → any · refus par défaut implicite</td></tr>`;
+  evalPacket();
+}
+$("#fwTable").addEventListener("input", e => {
+  const tr = e.target.closest("tr[data-i]"), k = e.target.dataset.k; if (!tr || !k) return;
+  rules[+tr.dataset.i][k] = e.target.value;
+  if (k === "s" || k === "d") e.target.toggleAttribute("aria-invalid", !okAddr(e.target.value));
+  if (k === "port") e.target.toggleAttribute("aria-invalid", !okPort(e.target.value));
+  evalPacket();
+});
+$("#fwTable").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]"); if (!b) return;
+  const i = +b.closest("tr").dataset.i, act = b.dataset.act;
+  if (act === "del") rules.splice(i, 1);
+  if (act === "up" && i > 0) [rules[i - 1], rules[i]] = [rules[i], rules[i - 1]];
+  if (act === "down" && i < rules.length - 1) [rules[i + 1], rules[i]] = [rules[i], rules[i + 1]];
+  renderRules();
+});
+$("#fwAdd").addEventListener("click", () => { rules.push({ a: "ALLOW", p: "TCP", s: "any", d: "any", port: "any", c: "Nouvelle règle" }); renderRules(); });
+$("#fwReset").addEventListener("click", () => { rules = FW_DEFAULT.map(r => ({ ...r })); renderRules(); });
+function evalPacket() {
+  const v = $("#fwVerdict"), src = ipToInt($("#pkSrc").value), dst = ipToInt($("#pkDst").value), proto = $("#pkProto").value, port = +$("#pkPort").value;
+  $("#pkSrc").toggleAttribute("aria-invalid", src === null); $("#pkDst").toggleAttribute("aria-invalid", dst === null);
+  const portOk = proto === "ICMP" || (/^\d+$/.test($("#pkPort").value.trim()) && port >= 1 && port <= 65535);
+  $("#pkPort").toggleAttribute("aria-invalid", !portOk); $("#pkPort").disabled = proto === "ICMP";
+  $$("#fwTable tr.hit").forEach(t => t.classList.remove("hit"));
+  if (src === null || dst === null || !portOk) { v.className = "verdict"; v.innerHTML = '<span class="err">Renseignez des adresses IPv4 valides et un port entre 1 et 65535.</span>'; return; }
+  let hit = -1;
+  for (let i = 0; i < rules.length; i++) { const r = rules[i]; if (!okAddr(r.s) || !okAddr(r.d) || !okPort(r.port)) continue; if ((r.p === "any" || r.p === proto) && mAddr(r.s, src) && mAddr(r.d, dst) && mPort(r.port, port, proto)) { hit = i; break; } }
+  const pk = `${$("#pkSrc").value.trim()} → ${$("#pkDst").value.trim()} · ${proto}${proto === "ICMP" ? "" : " " + port}`;
+  if (hit < 0) { v.className = "verdict deny"; v.innerHTML = `<b>Refusé</b><span>${esc(pk)}</span><span>Aucune règle ne correspond : refus par défaut.</span>`; return; }
+  const r = rules[hit]; $(`#fwTable tr[data-i="${hit}"]`).classList.add("hit");
+  v.className = "verdict " + (r.a === "ALLOW" ? "allow" : "deny");
+  v.innerHTML = `<b>${r.a === "ALLOW" ? "Autorisé" : "Refusé"}</b><span>${esc(pk)}</span><span>Règle n° ${hit + 1} : ${esc(r.c || "sans commentaire")}</span>`;
+}
+["#pkSrc", "#pkDst", "#pkPort", "#pkProto"].forEach(s => $(s).addEventListener("input", evalPacket));
+$$("#pkPresets button").forEach(b => b.addEventListener("click", () => { const [s, d, p, port] = b.dataset.p.split(","); $("#pkSrc").value = s; $("#pkDst").value = d; $("#pkProto").value = p; $("#pkPort").value = port; evalPacket(); }));
+renderRules();
+
+/* ── onglets ── */
+const tabs = $$(".seg [role=tab]");
+const openTab = (t, focus) => { tabs.forEach(x => { const on = x === t; x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1; $("#" + x.getAttribute("aria-controls")).hidden = !on; }); if (focus) t.focus(); hasGsap && ScrollTrigger.refresh(); };
+tabs.forEach((t, i) => { t.addEventListener("click", () => openTab(t)); t.addEventListener("keydown", e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); openTab(tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length], true); } }); });
+openTab(tabs[0]);
+
+/* ── Subnet Rush ── */
+const G = { on: false, score: 0, streak: 0, t: 60, timer: null, ans: null };
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = rnd(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const randIp = () => { const pre = [[10, rnd(0, 255)], [172, rnd(16, 31)], [192, 168]][rnd(0, 2)]; return pre.concat([rnd(0, 255), rnd(1, 254)]).slice(0, 4).join("."); };
+function question() {
+  const type = rnd(0, 3), hl = x => `<span class="grad">${x}</span>`;
+  if (type === 0) { const c = rnd(20, 30), good = 2 ** (32 - c) - 2; const o = new Set([good]); [2 ** (32 - c), 2 ** (31 - c) - 2, 2 ** (33 - c) - 2, good - 1].forEach(x => x > 0 && o.add(x)); return { q: `Combien d'hôtes utilisables dans un ${hl("/" + c)} ?`, good: fmt(good), opts: shuffle([...o].slice(0, 4).map(fmt)) }; }
+  if (type === 1) { const c = rnd(16, 30), good = intToIp(maskOf(c)); const o = new Set([good, intToIp(maskOf(c - 1)), intToIp(maskOf(c + 1 > 32 ? c - 2 : c + 1)), intToIp(maskOf(c < 24 ? c + 8 : c - 8))]); return { q: `Quel masque correspond à ${hl("/" + c)} ?`, good, opts: shuffle([...o].slice(0, 4)) }; }
+  const c = rnd(22, 29), ip = ipToInt(randIp()), r = info(ip, c), size = 2 ** (32 - c);
+  if (type === 2) { const good = intToIp(r.net); return { q: `Adresse réseau de ${hl(intToIp(ip) + "/" + c)} ?`, good, opts: shuffle([...new Set([good, intToIp((r.net + size) >>> 0), intToIp((r.net - size) >>> 0), intToIp((r.net + 1) >>> 0)])]) }; }
+  const good = intToIp(r.bc); return { q: `Adresse de diffusion de ${hl(intToIp(ip) + "/" + c)} ?`, good, opts: shuffle([...new Set([good, intToIp((r.bc - 1) >>> 0), intToIp((r.bc + size) >>> 0), intToIp(r.net)])]) };
+}
+const best = () => +(store.get("subnetRushBest") || 0);
+$("#gBest").textContent = best();
+const ask = () => { const q = question(); G.ans = q.good; $("#gQ").innerHTML = `<small>Question</small>${q.q}`; $("#gChoices").innerHTML = q.opts.map(o => `<button type="button">${o}</button>`).join(""); };
+$("#gChoices").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || !G.on || b.disabled) return;
+  const right = b.textContent === G.ans;
+  $$("#gChoices button").forEach(x => { x.disabled = true; if (x.textContent === G.ans) x.classList.add("good"); });
+  if (right) { G.streak++; G.score += 10 * Math.min(G.streak, 5); } else { b.classList.add("bad"); G.streak = 0; G.t = Math.max(0, G.t - 3); }
+  $("#gScore").textContent = G.score; $("#gStreak").textContent = "×" + Math.max(1, Math.min(G.streak, 5));
+  setTimeout(() => G.on && ask(), right ? 350 : 900);
+});
+function end() {
+  G.on = false; clearInterval(G.timer);
+  const b = best(), rec = G.score > b; if (rec) store.set("subnetRushBest", G.score);
+  $("#gBest").textContent = Math.max(b, G.score);
+  $("#gQ").innerHTML = `<small>Partie terminée</small>${G.score} points${rec ? ", nouveau record" : ""}`;
+  $("#gChoices").innerHTML = ""; $("#gStart").hidden = false; $("#gStart").textContent = "Rejouer";
+}
+$("#gStart").addEventListener("click", () => {
+  Object.assign(G, { on: true, score: 0, streak: 0, t: 60 });
+  $("#gScore").textContent = 0; $("#gStreak").textContent = "×1"; $("#gStart").hidden = true; $("#gTime").style.width = "100%";
+  ask(); clearInterval(G.timer);
+  G.timer = setInterval(() => { G.t -= .25; $("#gTime").style.width = Math.max(0, G.t / 60 * 100) + "%"; if (G.t <= 0) end(); }, 250);
+});
+
+/* ── pyramide Pyramind ── */
+(() => {
+  const svg = $("#pyr"), L = 12, W = 420, H = 160, sh = 11.5, ns = "http://www.w3.org/2000/svg";
+  for (let i = 0; i < L; i++) { const w = W - i * 30, r = document.createElementNS(ns, "rect"); Object.entries({ x: (W - w) / 2, y: H - (i + 1) * sh - 4, width: w, height: sh - 2, rx: 2, "data-i": i }).forEach(([k, v]) => r.setAttribute(k, v)); svg.appendChild(r); }
+  const cols = ["var(--a1)", "var(--a2)", "#ffffff"];
+  const ds = cols.map((c, k) => { const d = document.createElementNS(ns, "circle"); d.setAttribute("r", 5); d.setAttribute("fill", c); d.setAttribute("cx", W / 2 - 34 + k * 34); d.setAttribute("cy", H - 1); svg.appendChild(d); return { el: d, lvl: 0, k }; });
+  const place = () => { let top = 0; ds.forEach(d => { top = Math.max(top, d.lvl); d.el.style.transform = `translate(${(d.k - 1) * -Math.min(d.lvl, 10) * 3}px,${-d.lvl * sh}px)`; }); $$("rect", svg).forEach(r => r.classList.toggle("lit", +r.dataset.i < top)); };
+  if (reduce) { ds.forEach((d, k) => d.lvl = [9, 7, 5][k]); place(); return; }
+  place();
+  setInterval(() => { if (ds.some(d => d.lvl >= 12)) ds.forEach(d => d.lvl = 0); else { const d = ds[rnd(0, 2)]; d.lvl = Math.min(12, d.lvl + rnd(1, 3)); } place(); }, 900);
+})();
+
+/* ── matrice des compétences ── */
+const COMP = [["B1.1", "Gérer le patrimoine informatique"], ["B1.2", "Répondre aux incidents et aux demandes"], ["B1.3", "Développer la présence en ligne"], ["B1.4", "Travailler en mode projet"], ["B1.5", "Mettre à disposition un service informatique"], ["B1.6", "Organiser son développement professionnel"]];
+const REAL = [
+  { n: "Portail cloud MediReport", d: "Alternance · VM éphémères Proxmox, accès Guacamole, journaux", c: [1, 1, 0, 1, 1, 0] },
+  { n: "Veille : sécurité des accès distants", d: "Failles des passerelles VPN, modèle Zero Trust", c: [0, 0, 0, 0, 0, 1] },
+  { n: "Portfolio en ligne", d: "Conception, outils intégrés, publication", c: [0, 0, 1, 0, 0, 1] }
+];
+let sel = -1;
+function drawMatrix() {
+  $("#matrix thead tr").innerHTML = "<th>Réalisation</th>" + COMP.map((c, i) => `<th class="c${sel === i ? " sel" : ""}"><button type="button" data-c="${i}" aria-pressed="${sel === i}"><b>${c[0]}</b>${c[1]}</button></th>`).join("");
+  $("#matrix tbody").innerHTML = REAL.map(r => `<tr class="${sel >= 0 && !r.c[sel] ? "dim" : ""}"><td><strong>${r.n}</strong><small>${r.d}</small></td>${r.c.map((v, i) => `<td class="c"><span class="${v ? "" : "no"}" aria-label="${COMP[i][0]} : ${v ? "oui" : "non"}"></span></td>`).join("")}</tr>`).join("");
+}
+$("#matrix").addEventListener("click", e => { const b = e.target.closest("button[data-c]"); if (!b) return; const i = +b.dataset.c; sel = sel === i ? -1 : i; drawMatrix(); });
+drawMatrix();
+
+/* ══ fenêtre de démo ══ */
+const modal = $("#modal"), mBody = $("#mBody");
+let cleanup = null, lastFocus = null;
+const hhmmss = () => new Date().toTimeString().slice(0, 8);
+function openApp(id) {
+  const a = APPS[id]; if (!a) return;
+  lastFocus = document.activeElement;
+  $("#mKicker").textContent = a.k; $("#mTitle").innerHTML = a.t;
+  mBody.innerHTML = ""; modal.hidden = false;
+  lenis && lenis.stop(); document.documentElement.style.overflow = "hidden";
+  cleanup = a.run(mBody) || null;
+  $("#mClose").focus();
+}
+function closeApp() {
+  if (modal.hidden) return;
+  cleanup && cleanup(); cleanup = null;
+  modal.hidden = true; mBody.innerHTML = "";
+  lenis && lenis.start(); document.documentElement.style.overflow = "";
+  lastFocus && lastFocus.focus();
+}
+modal.setAttribute("data-lenis-prevent", "");
+$("#mClose").addEventListener("click", closeApp);
+modal.addEventListener("click", e => { if (e.target === modal) closeApp(); });
+addEventListener("keydown", e => {
+  if (modal.hidden) return;
+  if (e.key === "Escape") closeApp();
+  if (e.key === "Tab") {
+    const f = $$("button, input, select, textarea, a[href]", modal).filter(x => !x.disabled && x.offsetParent !== null);
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  }
+});
+$$("[data-open]").forEach(b => b.addEventListener("click", () => openApp(b.dataset.open)));
+
+/* ── Sentinel : supervision ── */
+function sentinel(root) {
+  const HOSTS = [
+    { n: "pve-01", r: "Hyperviseur Proxmox", b: 1.8 }, { n: "guac-01", r: "Passerelle Guacamole", b: 3.2 },
+    { n: "fw-01", r: "Pare-feu", b: 0.9 }, { n: "dns-01", r: "DNS / DHCP", b: 2.4 },
+    { n: "nas-01", r: "Stockage", b: 4.6 }, { n: "wan", r: "Lien Internet", b: 16 }
+  ];
+  const M = 40, W = 220, H = 36;
+  HOSTS.forEach(h => { h.hist = Array.from({ length: M }, () => h.b * (.8 + Math.random() * .45)); h.down = 0; h.slow = 0; });
+  root.innerHTML = `<div class="sn-k"><div><span>En ligne</span><b id="snUp"></b></div><div><span>Latence moyenne</span><b id="snLat"></b></div><div><span>Incidents en cours</span><b id="snAl"></b></div></div>
+  <div class="sn-grid"><div>${HOSTS.map((h, i) => `<div class="host"><div class="nm">${h.n}<small>${h.r}</small></div><div style="position:relative" data-h="${i}"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="Latence de ${h.n}"><line class="grid" x1="0" x2="${W}" y1="${H}" y2="${H}"/><path class="ar"/><path class="ln"/><circle class="end" r="3.5"/></svg></div><span class="st3 stc"></span><span class="val"></span></div>`).join("")}</div>
+  <div class="alerts" data-lenis-prevent><h4>Journal d'alertes</h4><div id="snLog" style="display:block;border:0;padding:0"></div></div></div>
+  <p class="m-note">Données simulées · un ping par seconde vers chaque équipement · survolez une courbe pour lire une valeur</p>`;
+  const log = (cls, msg) => { $("#snLog", root).insertAdjacentHTML("afterbegin", `<div><time>${hhmmss()}</time><span class="${cls}">${msg}</span></div>`); };
+  log("ok", "Supervision démarrée : 6 équipements surveillés");
+  const rows = $$(".host", root);
+  const draw = () => {
+    let up = 0, sum = 0, cnt = 0, inc = 0;
+    HOSTS.forEach((h, i) => {
+      const row = rows[i], vals = h.hist, max = Math.max(h.b * 2.2, ...vals.filter(v => v != null)) * 1.15;
+      const X = k => k / (M - 1) * W, Y = v => H - v / max * (H - 4);
+      let d = "", a = "", seg = [];
+      const flush = () => { if (seg.length > 1) { d += "M" + seg.map(p => p.join(",")).join("L"); a += `M${seg[0][0]},${H}L` + seg.map(p => p.join(",")).join("L") + `L${seg[seg.length - 1][0]},${H}Z`; } seg = []; };
+      vals.forEach((v, k) => { if (v == null) flush(); else seg.push([X(k).toFixed(1), Y(v).toFixed(1)]); }); flush();
+      $(".ln", row).setAttribute("d", d); $(".ar", row).setAttribute("d", a);
+      const last = vals[M - 1], end = $(".end", row);
+      if (last == null) end.setAttribute("r", 0); else { end.setAttribute("r", 3.5); end.setAttribute("cx", W); end.setAttribute("cy", Y(last)); }
+      const st = h.down ? ["down", "✕ Hors ligne"] : h.slow ? ["warn", "▲ Lent"] : ["ok", "● OK"];
+      const pill = $(".st3", row); pill.className = "st3 stc " + st[0]; pill.textContent = st[1];
+      $(".val", row).textContent = last == null ? "—" : last.toFixed(1) + " ms";
+      if (!h.down) { up++; sum += last; cnt++; }
+      if (h.down || h.slow) inc++;
+      row._max = max;
+    });
+    $("#snUp", root).textContent = `${up}/${HOSTS.length}`;
+    $("#snLat", root).textContent = cnt ? (sum / cnt).toFixed(1) + " ms" : "—";
+    $("#snAl", root).textContent = inc;
+  };
+  let tick = 0, next = 6;
+  const step = () => {
+    tick++;
+    if (tick >= next) {
+      const ok = HOSTS.filter(h => !h.down && !h.slow), h = ok[rnd(0, ok.length - 1)];
+      if (h) {
+        if (Math.random() < .5) { h.down = rnd(5, 8); log("crit", `${h.n} ne répond plus au ping`); }
+        else { h.slow = rnd(6, 10); log("warn", `${h.n} : latence anormale`); }
+      }
+      next = tick + rnd(8, 14);
+    }
+    HOSTS.forEach(h => {
+      let v;
+      if (h.down) { v = null; if (--h.down === 0) log("ok", `${h.n} est de nouveau joignable`); }
+      else if (h.slow) { v = h.b * (4 + Math.random() * 3); if (--h.slow === 0) log("ok", `${h.n} : latence revenue à la normale`); }
+      else v = h.b * (.8 + Math.random() * .45) * (Math.random() < .06 ? 1.8 : 1);
+      h.hist.push(v); h.hist.shift();
+    });
+    draw();
+  };
+  draw();
+  const timer = setInterval(step, 1000);
+  $$(".host [data-h]", root).forEach(box => {
+    const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; box.appendChild(tip);
+    box.addEventListener("pointermove", e => {
+      const r = box.getBoundingClientRect(), k = Math.round((e.clientX - r.left) / r.width * (M - 1));
+      const h = HOSTS[+box.dataset.h], v = h.hist[Math.max(0, Math.min(M - 1, k))];
+      tip.hidden = false; tip.style.left = (k / (M - 1) * 100) + "%"; tip.style.top = "0";
+      tip.textContent = `il y a ${M - 1 - k} s · ${v == null ? "pas de réponse" : v.toFixed(1) + " ms"}`;
+    });
+    box.addEventListener("pointerleave", () => tip.hidden = true);
+  });
+  return () => clearInterval(timer);
+}
+
+/* ── Entropia : mots de passe ── */
+function entropia(root) {
+  const COMMON = ["password", "motdepasse", "azerty", "qwerty", "123456", "admin", "soleil", "bonjour", "marseille", "paris", "football", "iloveyou", "welcome", "dragon", "chocolat", "loulou", "doudou", "princesse", "letmein", "master"];
+  const WORDS = "falaise orage cactus lanterne boussole pixel routeur comète marée granit fenouil tambour velours cobalt prairie rivage lynx sirop quartz volcan hibou sentier glacier cerise horizon zèbre fusée brume cristal ancre banjo citron dune écorce flamme galet hamac igloo jasmin kayak lagune mangue nuage olive papaye radar safran tulipe vanille yaourt abricot bambou corail délice étoile faucon girafe harpe iris jungle koala lilas menthe".split(" ");
+  const SYM = "!@#$%&*()-_=+[]{};:,.?/";
+  const pick = n => { const a = new Uint32Array(1), lim = Math.floor(4294967296 / n) * n; do crypto.getRandomValues(a); while (a[0] >= lim); return a[0] % n; };
+  root.innerHTML = `<div class="en">
+    <div><h4>Analyser</h4>
+      <label for="enPw">Mot de passe à tester<div class="pw"><input id="enPw" type="password" value="azerty2024" autocomplete="off" spellcheck="false"><button class="pill" type="button" id="enShow">Afficher</button></div></label>
+      <div class="meter" id="enMeter"><i></i><i></i><i></i><i></i></div>
+      <div class="verd" id="enVerd"></div>
+      <dl class="facts" id="enFacts"></dl>
+      <ul class="checks" id="enChecks"></ul>
+      <p class="m-note">Temps estimé pour une attaque hors ligne à 10 milliards d'essais par seconde. Rien n'est envoyé : tout est calculé dans votre navigateur.</p>
+    </div>
+    <div><h4>Générer</h4>
+      <div class="seg" role="tablist" aria-label="Type" style="margin-top:0"><button role="tab" aria-selected="true" id="enM1" type="button">Aléatoire</button><button role="tab" aria-selected="false" id="enM2" type="button">Phrase de passe</button></div>
+      <div class="opts2">
+        <label for="enLen"><span>Longueur : <b id="enLenV"></b></span></label><input type="range" id="enLen" min="8" max="40" value="20">
+        <div id="enRand" class="opts2" style="margin:0"><label><input type="checkbox" id="enU" checked> Majuscules</label><label><input type="checkbox" id="enD" checked> Chiffres</label><label><input type="checkbox" id="enS" checked> Symboles</label></div>
+      </div>
+      <div class="gen-out" id="enOut" aria-live="polite"></div>
+      <div class="row2"><button class="pill solid" type="button" id="enGen">Générer</button><button class="pill" type="button" id="enCopy">Copier</button><button class="pill" type="button" id="enTest">Analyser ce mot de passe</button></div>
+    </div></div>`;
+  const pw = $("#enPw", root);
+  const fmtTime = s => {
+    if (s < 1) return "instantané"; if (s < 60) return Math.round(s) + " secondes"; if (s < 3600) return Math.round(s / 60) + " minutes";
+    if (s < 86400) return Math.round(s / 3600) + " heures"; const y = s / 31557600; if (y < 1) return Math.round(s / 86400) + " jours";
+    if (y < 100) return Math.round(y) + " ans"; if (y < 1e6) return Math.round(y / 100).toLocaleString("fr-FR") + " siècles";
+    if (y < 1.38e10) return "plus d'un million d'années"; return "plus que l'âge de l'univers";
+  };
+  function analyze(p) {
+    const lc = p.toLowerCase(), has = { l: /[a-z]/.test(p), u: /[A-Z]/.test(p), d: /\d/.test(p), s: /[^A-Za-z0-9]/.test(p) };
+    const pool = (has.l ? 26 : 0) + (has.u ? 26 : 0) + (has.d ? 10 : 0) + (has.s ? 33 : 0);
+    let bits = p.length && pool ? p.length * Math.log2(pool) : 0;
+    const word = COMMON.find(w => lc.includes(w));
+    if (word) bits = lc === word ? 6 : Math.max(8, bits - word.length * Math.log2(pool) * .8);
+    const rep = /(.)\1{2,}/.test(p); if (rep) bits -= 10;
+    let seqs = 0; ["abcdefghijklmnopqrstuvwxyz", "0123456789", "azertyuiop", "qwertyuiop"].forEach(s => { for (let i = 0; i + 3 <= s.length; i++) if (lc.includes(s.slice(i, i + 3))) { seqs++; break; } });
+    bits -= Math.min(2, seqs) * 8;
+    const year = /(19|20)\d\d/.test(p); if (year) bits -= 6;
+    bits = Math.max(0, bits);
+    return { bits, pool, has, word, rep, seqs, year, secs: 2 ** bits / 2 / 1e10 };
+  }
+  function show() {
+    const p = pw.value, a = analyze(p);
+    const lvl = !p ? 0 : a.bits < 36 ? 1 : a.bits < 60 ? 2 : a.bits < 80 ? 3 : 4;
+    const col = ["var(--line-2)", "var(--crit)", "var(--warn)", "var(--ok)", "var(--ok)"][lvl];
+    $$("#enMeter i", root).forEach((i, k) => i.style.background = k < lvl ? col : "");
+    $("#enVerd", root).textContent = ["Saisissez un mot de passe", "Très faible", "Moyen", "Fort", "Très fort"][lvl];
+    $("#enVerd", root).style.color = lvl ? col : "var(--muted)";
+    $("#enFacts", root).innerHTML = `<dt>Longueur</dt><dd>${p.length} caractères</dd><dt>Alphabet</dt><dd>${a.pool} symboles possibles</dd><dt>Entropie</dt><dd>≈ ${Math.round(a.bits)} bits</dd><dt>Temps de cassage</dt><dd>${p ? fmtTime(a.secs) : "—"}</dd>`;
+    $("#enChecks", root).innerHTML = [[p.length >= 12, "Au moins 12 caractères"], [a.has.l && a.has.u, "Minuscules et majuscules"], [a.has.d, "Des chiffres"], [a.has.s, "Des symboles"], [!a.word, "Aucun mot de passe courant"], [!a.rep && !a.seqs && !a.year, "Pas de suite, de répétition ni d'année"]]
+      .map(([ok, t]) => `<li class="${ok ? "y" : ""}">${t}</li>`).join("");
+  }
+  let mode = "rand";
+  const gen = () => {
+    const len = +$("#enLen", root).value; let out = "";
+    if (mode === "rand") {
+      const sets = ["abcdefghijklmnopqrstuvwxyz"]; if ($("#enU", root).checked) sets.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); if ($("#enD", root).checked) sets.push("0123456789"); if ($("#enS", root).checked) sets.push(SYM);
+      const all = sets.join("");
+      for (let tries = 0; tries < 50; tries++) { out = Array.from({ length: len }, () => all[pick(all.length)]).join(""); if (sets.every(s => [...out].some(c => s.includes(c)))) break; }
+    } else {
+      const w = Array.from({ length: len }, () => WORDS[pick(WORDS.length)]);
+      w[pick(w.length)] += pick(10); out = w.join("-");
+    }
+    $("#enOut", root).textContent = out;
+  };
+  const syncMode = () => {
+    const r = mode === "rand", L = $("#enLen", root);
+    $("#enM1", root).setAttribute("aria-selected", r); $("#enM2", root).setAttribute("aria-selected", !r);
+    $("#enRand", root).hidden = !r;
+    L.min = r ? 8 : 3; L.max = r ? 40 : 8; L.value = r ? 20 : 5;
+    $("#enLenV", root).textContent = L.value + (r ? " caractères" : " mots"); gen();
+  };
+  $("#enM1", root).addEventListener("click", () => { mode = "rand"; syncMode(); });
+  $("#enM2", root).addEventListener("click", () => { mode = "phrase"; syncMode(); });
+  $("#enLen", root).addEventListener("input", e => { $("#enLenV", root).textContent = e.target.value + (mode === "rand" ? " caractères" : " mots"); gen(); });
+  ["#enU", "#enD", "#enS"].forEach(s => $(s, root).addEventListener("change", gen));
+  $("#enGen", root).addEventListener("click", gen);
+  $("#enTest", root).addEventListener("click", () => { pw.value = $("#enOut", root).textContent; show(); });
+  $("#enCopy", root).addEventListener("click", e => {
+    const b = e.currentTarget, txt = $("#enOut", root).textContent;
+    const done = ok => { b.textContent = ok ? "Copié" : "Sélectionné, faites Ctrl+C"; setTimeout(() => b.textContent = "Copier", 1600); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents($("#enOut", root)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false); };
+    try { navigator.clipboard.writeText(txt).then(() => done(true), sel); } catch { sel(); }
+  });
+  $("#enShow", root).addEventListener("click", e => { const v = pw.type === "password"; pw.type = v ? "text" : "password"; e.currentTarget.textContent = v ? "Masquer" : "Afficher"; });
+  pw.addEventListener("input", show);
+  show(); syncMode();
+}
+
+/* ── Resolve : DNS ── */
+function resolve(root) {
+  root.innerHTML = `<form class="dns-form" id="dnsF"><label for="dnsIn" class="sr">Nom de domaine</label><input id="dnsIn" value="www.exemple.fr" spellcheck="false" autocomplete="off" autocapitalize="off"><button class="pill solid" type="submit" id="dnsGo">Résoudre</button><button class="pill" type="button" id="dnsClr">Vider le cache</button></form>
+  <div class="dns"><svg class="dns-svg" viewBox="0 0 560 300" aria-label="Chemin de la requête DNS">
+    <path class="ed" data-e="c-r" d="M130 150 L200 150"/><path class="ed" data-e="r-root" d="M330 140 L410 45"/><path class="ed" data-e="r-tld" d="M330 150 L410 150"/><path class="ed" data-e="r-auth" d="M330 160 L410 255"/>
+    <g class="nd" data-n="c"><rect x="0" y="125" width="130" height="50" rx="10"/><text x="14" y="147">Votre poste</text><text class="s2" x="14" y="164">client DNS</text></g>
+    <g class="nd" data-n="r"><rect x="200" y="125" width="130" height="50" rx="10"/><text x="214" y="147">Résolveur</text><text class="s2" x="214" y="164">récursif · cache</text></g>
+    <g class="nd" data-n="root"><rect x="410" y="20" width="140" height="50" rx="10"/><text x="424" y="42">Serveur racine</text><text class="s2" x="424" y="59">.</text></g>
+    <g class="nd" data-n="tld"><rect x="410" y="125" width="140" height="50" rx="10"/><text x="424" y="147">Serveur TLD</text><text class="s2" x="424" y="164" id="dTld">.fr</text></g>
+    <g class="nd" data-n="auth"><rect x="410" y="230" width="140" height="50" rx="10"/><text x="424" y="252">Faisant autorité</text><text class="s2" x="424" y="269" id="dAuth">ns1.exemple.fr</text></g>
+    <circle class="pk" id="dPk" r="6" cx="65" cy="150" opacity="0"/>
+  </svg><div class="dlog" id="dLog" data-lenis-prevent></div></div>
+  <p class="m-note">Résolution simulée · les adresses renvoyées appartiennent à la plage réservée à la documentation (203.0.113.0/24)</p>`;
+  const P = { "c-r": [[130, 150], [200, 150]], "r-root": [[330, 140], [410, 45]], "r-tld": [[330, 150], [410, 150]], "r-auth": [[330, 160], [410, 255]] };
+  const cache = new Map(); let busy = false, dead = false;
+  const L = $("#dLog", root), pk = $("#dPk", root);
+  const log = h => { L.insertAdjacentHTML("beforeend", `<div>${h}</div>`); L.scrollTop = L.scrollHeight; };
+  const lit = n => $$(".nd", root).forEach(g => g.classList.toggle("on", g.dataset.n === n));
+  const travel = (e, back) => new Promise(res => {
+    const [a, b] = back ? [...P[e]].reverse() : P[e]; const edge = $(`.ed[data-e="${e}"]`, root); edge.classList.add("on"); pk.setAttribute("opacity", 1);
+    const t0 = performance.now(), D = reduce ? 0 : 520;
+    const f = now => { if (dead) return; const k = D ? Math.min(1, (now - t0) / D) : 1, q = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2; pk.setAttribute("cx", a[0] + (b[0] - a[0]) * q); pk.setAttribute("cy", a[1] + (b[1] - a[1]) * q); if (k < 1) requestAnimationFrame(f); else { edge.classList.remove("on"); res(); } };
+    requestAnimationFrame(f);
+  });
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  log('Tapez un nom de domaine puis « Résoudre ».');
+  $("#dnsClr", root).addEventListener("click", () => { cache.clear(); log("<b>Cache vidé.</b>"); });
+  $("#dnsF", root).addEventListener("submit", async e => {
+    e.preventDefault(); if (busy) return;
+    const d = $("#dnsIn", root).value.trim().toLowerCase().replace(/\.$/, "");
+    if (!/^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(d)) { log('<span style="color:var(--crit)">Nom invalide : essayez par exemple www.exemple.fr</span>'); return; }
+    busy = true; $("#dnsGo", root).disabled = true;
+    const labels = d.split("."), tld = labels[labels.length - 1], zone = labels.slice(-2).join(".");
+    $("#dTld", root).textContent = "." + tld; $("#dAuth", root).textContent = "ns1." + zone;
+    let h = 0; for (const c of d) h = (h * 31 + c.charCodeAt(0)) >>> 0; const ip = "203.0.113." + (h % 254 + 1);
+    log(`<br><b>${hhmmss()}</b> · ${d} ?`);
+    lit("c"); await travel("c-r"); lit("r");
+    if (cache.has(d)) {
+      const left = Math.max(1, 3600 - Math.round((Date.now() - cache.get(d)) / 1000));
+      log(`Résolveur : présent dans le cache (TTL restant ${left} s)`); await wait(250);
+      await travel("c-r", true); lit("c"); log(`<u>Réponse : ${d} A ${ip}</u> · 2 ms`);
+    } else {
+      let ms = rnd(2, 6); log("Résolveur : absent du cache, je pars de la racine");
+      await travel("r-root"); lit("root"); ms += rnd(10, 30); await wait(200); log(`Racine : je ne connais pas ${d}, voici les serveurs de .${tld}`); await travel("r-root", true); lit("r");
+      await travel("r-tld"); lit("tld"); ms += rnd(10, 30); await wait(200); log(`.${tld} : la zone ${zone} est gérée par ns1.${zone}`); await travel("r-tld", true); lit("r");
+      await travel("r-auth"); lit("auth"); ms += rnd(8, 25); await wait(200); log(`ns1.${zone} : ${d} A ${ip} (TTL 3600 s)`); await travel("r-auth", true); lit("r");
+      cache.set(d, Date.now()); log("Résolveur : réponse mise en cache pour 3600 s");
+      await travel("c-r", true); lit("c"); log(`<u>Réponse : ${d} A ${ip}</u> · ${ms} ms`);
+    }
+    if (dead) return;
+    pk.setAttribute("opacity", 0); busy = false; $("#dnsGo", root).disabled = false;
+    $("#dnsGo", root).textContent = cache.has(d) ? "Résoudre à nouveau" : "Résoudre";
+  });
+  return () => { dead = true; };
+}
+
+/* ── Packet Run : jeu ── */
+function packetRun(root) {
+  root.innerHTML = `<div class="run-hud"><span>Score <b id="prS">0</b></span><span>Vitesse <b id="prV">×1.0</b></span><span>Record <b id="prB">${+(store.get("packetRunBest") || 0)}</b></span></div>
+  <div class="run"><canvas id="prC" aria-label="Zone de jeu"></canvas><div class="ov" id="prO"><b>Packet Run</b><p>Vous êtes un paquet en route vers son serveur. Évitez les règles <strong style="color:var(--crit)">DENY</strong>, attrapez les <strong style="color:var(--ok)">ACK</strong> pour des points bonus.</p><button class="pill solid" type="button" id="prGo">Jouer</button><span class="mini">← → ou A / D au clavier · touchez la moitié gauche ou droite de l'écran</span></div></div>`;
+  const cv = $("#prC", root), ctx = cv.getContext("2d"), ov = $("#prO", root);
+  let W = 0, H = 0, dpr = 1, raf = 0, alive = false, dead = false;
+  const S = { lane: 1, x: 1, objs: [], speed: 1, score: 0, spawn: 0, trail: [] };
+  const cs = getComputedStyle(document.documentElement);
+  const C = { a1: cs.getPropertyValue("--a1").trim(), a2: cs.getPropertyValue("--a2").trim(), ok: cs.getPropertyValue("--ok").trim(), crit: cs.getPropertyValue("--crit").trim() };
+  const size = () => { const r = cv.getBoundingClientRect(); dpr = Math.min(devicePixelRatio, 2); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  size(); addEventListener("resize", size);
+  const laneW = () => Math.min(W / 3, 150), laneX = l => W / 2 + (l - 1) * laneW();
+  const move = d => { if (alive) S.lane = Math.max(0, Math.min(2, S.lane + d)); };
+  const key = e => { if (["ArrowLeft", "a", "q", "A", "Q"].includes(e.key)) { e.preventDefault(); move(-1); } if (["ArrowRight", "d", "D"].includes(e.key)) { e.preventDefault(); move(1); } };
+  addEventListener("keydown", key);
+  cv.addEventListener("pointerdown", e => { const r = cv.getBoundingClientRect(); move(e.clientX - r.left < r.width / 2 ? -1 : 1); });
+  const rr = (x, y, w, h, r) => { ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, y, w, h, r) : ctx.rect(x, y, w, h); };
+  let last = 0, off = 0;
+  const frame = now => {
+    if (dead) return;
+    const dt = Math.min(.05, (now - last) / 1000 || 0); last = now;
+    if (alive) {
+      S.speed += dt * .03; S.score += dt * 10 * S.speed; S.spawn -= dt;
+      if (S.spawn <= 0) { const l = rnd(0, 2); S.objs.push({ l, y: -40, t: Math.random() < .22 ? "ack" : "deny" }); if (Math.random() < .25 * S.speed) S.objs.push({ l: (l + rnd(1, 2)) % 3, y: -40, t: "deny" }); S.spawn = Math.max(.32, .95 / S.speed); }
+      const v = H * .55 * S.speed;
+      S.objs.forEach(o => o.y += v * dt);
+      const py = H - 70;
+      for (const o of S.objs) {
+        if (o.hit || Math.abs(o.y - py) > 24 || Math.abs(laneX(o.l) - (W / 2 + (S.x - 1) * laneW())) > laneW() * .4) continue;
+        if (o.t === "ack") { o.hit = true; S.score += 25; }
+        else { alive = false; const best = +(store.get("packetRunBest") || 0), sc = Math.floor(S.score); if (sc > best) store.set("packetRunBest", sc); $("#prB", root).textContent = Math.max(best, sc); ov.hidden = false; ov.querySelector("b").textContent = "Paquet rejeté"; ov.querySelector("p").innerHTML = `Score : <strong>${sc}</strong>${sc > best ? " · nouveau record" : ""}`; $("#prGo", root).textContent = "Rejouer"; }
+      }
+      S.objs = S.objs.filter(o => o.y < H + 40 && !o.hit);
+      $("#prS", root).textContent = Math.floor(S.score); $("#prV", root).textContent = "×" + S.speed.toFixed(1);
+      off = (off + v * dt) % 40;
+    }
+    S.x += (S.lane - S.x) * Math.min(1, dt * 14);
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "rgba(10,12,20,.9)"; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = "rgba(255,255,255,.08)"; ctx.setLineDash([14, 26]); ctx.lineDashOffset = -off; ctx.lineWidth = 1;
+    for (let k = 0; k < 4; k++) { const x = W / 2 + (k - 1.5) * laneW(); ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+    ctx.setLineDash([]);
+    ctx.font = "600 11px 'Geist Mono', monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    S.objs.forEach(o => {
+      const x = laneX(o.l), w = laneW() * .7;
+      if (o.t === "deny") { ctx.fillStyle = C.crit; ctx.globalAlpha = .9; rr(x - w / 2, o.y - 16, w, 32, 8); ctx.fill(); ctx.globalAlpha = 1; ctx.fillStyle = "#1a0508"; ctx.fillText("DENY", x, o.y); }
+      else { ctx.fillStyle = C.ok; ctx.beginPath(); ctx.arc(x, o.y, 17, 0, 6.283); ctx.fill(); ctx.fillStyle = "#04180d"; ctx.fillText("ACK", x, o.y); }
+    });
+    const px = W / 2 + (S.x - 1) * laneW(), py = H - 70;
+    S.trail.push([px, py]); if (S.trail.length > 14) S.trail.shift();
+    S.trail.forEach(([x, y], k) => { ctx.fillStyle = C.a1; ctx.globalAlpha = k / S.trail.length * .25; ctx.beginPath(); ctx.arc(x, y + (S.trail.length - k) * (alive ? 5 : 0), 6, 0, 6.283); ctx.fill(); });
+    ctx.globalAlpha = 1; ctx.shadowColor = C.a1; ctx.shadowBlur = 24; ctx.fillStyle = C.a1; rr(px - 14, py - 14, 28, 28, 7); ctx.fill(); ctx.shadowBlur = 0;
+    raf = requestAnimationFrame(frame);
+  };
+  raf = requestAnimationFrame(frame);
+  $("#prGo", root).addEventListener("click", () => { Object.assign(S, { lane: 1, x: 1, objs: [], speed: 1, score: 0, spawn: .6, trail: [] }); alive = true; ov.hidden = true; cv.focus && cv.focus(); });
+  return () => { dead = true; cancelAnimationFrame(raf); removeEventListener("keydown", key); removeEventListener("resize", size); };
+}
+
+const APPS = {
+  sentinel: { k: "Supervision réseau", t: 'Senti<em class="s grad">nel</em>', run: sentinel },
+  entropia: { k: "Sécurité", t: 'Entro<em class="s grad">pia</em>', run: entropia },
+  resolve: { k: "Réseau · DNS", t: 'Reso<em class="s grad">lve</em>', run: resolve },
+  run: { k: "Jeu d'arcade", t: 'Packet <em class="s grad">Run</em>', run: packetRun }
+};
+})();
+</script>
+
+</body></html>
