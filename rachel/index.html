@@ -421,7 +421,9 @@ function startRitual(s) {
   const dots = STEPS.map((_, i) => `<span class="${i <= s ? "on" : ""}"></span>`).join("");
   let body = "";
   if (step.visual) body = `<div class="visual">${step.visual()}</div><p class="center muted">${step.text}<br><span class="small">Touchez l'image une fois que c'est fait.</span></p>`;
-  if (s === 2) body = `<p class="center muted">${step.text}</p><div class="card" style="background:var(--bg-2)"><div class="wish-text">${esc(state.wish)}</div></div>`;
+  if (s === 2) body = `<p class="center muted">${step.text}</p><div class="card" style="background:var(--bg-2)"><div class="wish-text">${esc(state.wish)}</div></div>
+    <p class="center muted small" style="margin-bottom:4px">Puis terminez en disant :</p>
+    <div class="card" style="background:var(--bg-2)"><div class="wish-text" style="font-size:21px;color:var(--gold)">« Je Te demande, Hachem, d'exaucer mon vœu par le mérite de Rachel Imenou. »</div></div>`;
   if (s === 3) body = `<div class="card" style="background:var(--bg-2)"><div class="prayer">${esc(document.getElementById("priere").content.textContent.trim())}</div></div>`;
 
   app.innerHTML = `
