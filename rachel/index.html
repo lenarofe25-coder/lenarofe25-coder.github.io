@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>40 jours · Rachel Imenou</title>
+<meta name="description" content="Suivez les 40 jours de Rachel Imenou : tsedaka, bougie, vœu et prière, avec un rappel chaque soir.">
+<meta name="theme-color" content="#1b1733">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rachel 40j">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1733;
+    --bg-2: #262046;
+    --card: #2e2752;
+    --line: #463d73;
+    --text: #f6f1e7;
+    --muted: #b9b0d4;
+    --gold: #f2c46d;
+    --gold-deep: #d99a3a;
+    --rose: #e7a7b4;
+    --ok: #8fd6a8;
+    --radius: 18px;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Nunito Sans", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 60% at 50% 0%, #3a2f63 0%, var(--bg) 60%) fixed, var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.5;
+    min-height: 100dvh;
+  }
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: calc(env(safe-area-inset-top) + 20px) 16px calc(env(safe-area-inset-bottom) + 28px);
+  }
+  h1, h2 { font-family: var(--serif); font-weight: 600; margin: 0; line-height: 1.15; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 28px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+  .center { text-align: center; }
+  .hidden { display: none !important; }
+
+  .card {
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: block; width: 100%;
+    border: 0; border-radius: 14px;
+    padding: 15px 18px;
+    font: 700 17px var(--sans);
+    color: #2a1c05;
+    background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+    cursor: pointer;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn.link { background: none; color: var(--muted); font-weight: 600; padding: 10px; }
+  .btn + .btn { margin-top: 10px; }
+  .btn:disabled { opacity: .45; }
+
+  label { display: block; font-weight: 600; margin: 14px 0 6px; }
+  input, textarea, select {
+    width: 100%;
+    font: 400 17px var(--sans);
+    color: var(--text);
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+  /* Header */
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .top .hello { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--muted); }
+  .icon-btn {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--card); color: var(--text);
+    display: grid; place-items: center; cursor: pointer;
+  }
+
+  /* Progress */
+  .progress { display: flex; align-items: center; gap: 18px; }
+  .ring { width: 96px; height: 96px; flex: none; }
+  .ring circle { fill: none; stroke-width: 9; }
+  .ring .track { stroke: var(--line); }
+  .ring .bar { stroke: var(--gold); stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+  .ring text { fill: var(--text); font: 600 26px var(--serif); }
+  .grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 7px; margin-top: 16px; }
+  .day {
+    aspect-ratio: 1; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--bg-2);
+    color: var(--muted); font: 600 13px var(--sans);
+    display: grid; place-items: center; cursor: pointer; padding: 0;
+  }
+  .day.done { background: var(--gold); border-color: var(--gold); color: #2a1c05; }
+  .day.next { border: 2px solid var(--gold); color: var(--text); }
+
+  /* Steps */
+  .steps-dots { display: flex; gap: 6px; justify-content: center; margin: 4px 0 18px; }
+  .steps-dots span { width: 28px; height: 5px; border-radius: 3px; background: var(--line); }
+  .steps-dots span.on { background: var(--gold); }
+  .step-label { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+  .visual { display: grid; place-items: center; height: 170px; margin: 6px 0 14px; }
+
+  /* Candle */
+  .candle { position: relative; width: 70px; height: 160px; cursor: pointer; }
+  .candle .wax { position: absolute; bottom: 0; left: 15px; width: 40px; height: 100px; border-radius: 8px 8px 6px 6px; background: linear-gradient(90deg, #efe6d6, #fffaf0 45%, #d9cdb8); }
+  .candle .wick { position: absolute; bottom: 100px; left: 34px; width: 2px; height: 12px; background: #3b2f2f; }
+  .candle .flame {
+    position: absolute; bottom: 108px; left: 23px; width: 24px; height: 44px;
+    border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+    background: radial-gradient(circle at 50% 75%, #fffbe6 0%, #ffd56b 35%, #ff9d2e 70%, rgba(255,120,30,0) 72%);
+    transform-origin: 50% 90%;
+    opacity: 0; transform: scale(.2);
+    transition: opacity .5s, transform .5s;
+  }
+  .candle .glow { position: absolute; bottom: 70px; left: -45px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, rgba(255,200,90,.35), rgba(255,200,90,0) 65%); opacity: 0; transition: opacity .8s; }
+  .candle.lit .flame { opacity: 1; transform: scale(1); animation: flicker 1.6s infinite ease-in-out; }
+  .candle.lit .glow { opacity: 1; }
+  @keyframes flicker {
+    0%, 100% { transform: scale(1) rotate(-1deg); }
+    30% { transform: scale(1.05, .96) rotate(2deg); }
+    60% { transform: scale(.97, 1.04) rotate(-2deg); }
+  }
+
+  /* Coin */
+  .box { position: relative; width: 130px; height: 150px; cursor: pointer; }
+  .box .tin { position: absolute; bottom: 0; width: 130px; height: 90px; border-radius: 10px; background: linear-gradient(180deg, #4b8bb8, #2f6790); display: grid; place-items: center; color: #e9f4ff; font: 600 20px var(--serif); }
+  .box .slot { position: absolute; bottom: 82px; left: 40px; width: 50px; height: 8px; border-radius: 4px; background: #17324a; }
+  .box .coin { position: absolute; bottom: 110px; left: 47px; width: 36px; height: 36px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff2c2, var(--gold) 45%, var(--gold-deep)); box-shadow: 0 0 0 3px rgba(0,0,0,.12) inset; transition: transform .7s cubic-bezier(.5,0,.8,.4), opacity .2s .55s; }
+  .box.in .coin { transform: translateY(42px) scaleX(.25); opacity: 0; }
+
+  .wish-text { font-family: var(--serif); font-size: 24px; font-style: italic; text-align: center; padding: 8px 4px 2px; white-space: pre-wrap; }
+  .prayer { font-family: var(--serif); font-size: 21px; line-height: 1.55; white-space: pre-wrap; max-height: 52vh; overflow-y: auto; padding-right: 4px; }
+
+  .done-star { font-size: 64px; line-height: 1; }
+  .confirm { display: flex; align-items: center; gap: 10px; color: var(--ok); font-weight: 700; justify-content: center; min-height: 26px; margin-bottom: 10px; }
+
+  .sheet-backdrop { position: fixed; inset: 0; background: rgba(8,6,20,.6); z-index: 10; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 480px; max-height: 92dvh; overflow-y: auto; background: var(--bg-2); border-radius: 22px 22px 0 0; border-top: 1px solid var(--line); padding: 22px 16px calc(env(safe-area-inset-bottom) + 22px); }
+  .sheet h2 { margin-bottom: 12px; }
+  .sheet hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
+  .toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom) + 24px); transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 15px; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+  .install-tip { border-style: dashed; }
+  .row { display: flex; gap: 10px; }
+  .row > * { flex: 1; }
+  .row .btn + .btn { margin-top: 0; }
+</style>
+</head>
+<body>
+<main class="app" id="app"></main>
+
+<!--
+  ✏️ TEXTE DE LA PRIÈRE
+  Remplacez le texte entre <template id="priere"> et </template> par la prière en français.
+  Les retours à la ligne sont conservés tels quels.
+-->
+<template id="priere">Ici s'affichera la prière en français.
+
+(Texte à ajouter : envoyez-le et il sera placé ici.)</template>
+
+<script>
+"use strict";
+
+const TOTAL = 40;
+const KEY = "rachel40:v1";
+const CITIES = [
+  { name: "Paris", lat: 48.8566, lon: 2.3522 },
+  { name: "Lyon", lat: 45.764, lon: 4.8357 },
+  { name: "Marseille", lat: 43.2965, lon: 5.3698 },
+  { name: "Nice", lat: 43.7102, lon: 7.262 },
+  { name: "Strasbourg", lat: 48.5734, lon: 7.7521 },
+  { name: "Toulouse", lat: 43.6047, lon: 1.4442 },
+  { name: "Bruxelles", lat: 50.8503, lon: 4.3517 },
+  { name: "Genève", lat: 46.2044, lon: 6.1432 },
+  { name: "Montréal", lat: 45.5019, lon: -73.5674 },
+  { name: "Jérusalem", lat: 31.7683, lon: 35.2137 },
+  { name: "Tel Aviv", lat: 32.0853, lon: 34.7818 },
+  { name: "Netanya", lat: 32.3215, lon: 34.8532 },
+];
+
+/* ---------- Storage (local to each phone) ---------- */
+function load() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {}
+}
+let state = load() || {
+  name: "", wish: "", start: todayStr(), done: Array(TOTAL).fill(null),
+  city: CITIES[0], reminderMin: 0, onboarded: false,
+};
+
+/* ---------- Dates ---------- */
+function todayStr(d = new Date()) {
+  const p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+function parseDay(s) { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); }
+function addDays(d, n) { const x = new Date(d); x.setDate(x.getDate() + n); return x; }
+function fmtDate(d) { return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }); }
+function fmtTime(d) { return d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }); }
+
+/* ---------- Sunset (NOAA-style sunrise equation, ~1 min accuracy) ---------- */
+function sunset(day, lat, lon) {
+  const rad = Math.PI / 180;
+  const jdNoon = Date.UTC(day.getFullYear(), day.getMonth(), day.getDate(), 12) / 86400000 + 2440587.5;
+  const jStar = Math.round(jdNoon - 2451545) - lon / 360;
+  const M = (357.5291 + 0.98560028 * jStar) % 360;
+  const C = 1.9148 * Math.sin(M * rad) + 0.02 * Math.sin(2 * M * rad) + 0.0003 * Math.sin(3 * M * rad);
+  const L = (M + C + 180 + 102.9372) % 360;
+  const jTransit = 2451545 + jStar + 0.0053 * Math.sin(M * rad) - 0.0069 * Math.sin(2 * L * rad);
+  const decl = Math.asin(Math.sin(L * rad) * Math.sin(23.4397 * rad));
+  const cosW = (Math.sin(-0.833 * rad) - Math.sin(lat * rad) * Math.sin(decl)) / (Math.cos(lat * rad) * Math.cos(decl));
+  const w = Math.acos(Math.min(1, Math.max(-1, cosW))) / rad;
+  return new Date((jTransit + w / 360 - 2440587.5) * 86400000);
+}
+
+/* ---------- Progress helpers ---------- */
+const doneCount = () => state.done.filter(Boolean).length;
+const nextIndex = () => state.done.findIndex(v => !v);
+const doneToday = () => state.done.includes(todayStr());
+
+/* ---------- Rendering ---------- */
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+function render() {
+  if (!state.onboarded) return renderOnboarding();
+  renderHome();
+}
+
+function renderOnboarding() {
+  app.innerHTML = `
+    <div class="center" style="margin:18px 0 22px">
+      <div class="visual" style="height:150px">${candleHTML(true)}</div>
+      <h1>Les 40 jours<br>de Rachel Imenou</h1>
+      <p class="muted" style="margin-top:10px">Chaque soir : la tsedaka, la bougie, votre vœu et la prière.</p>
+    </div>
+    <div class="card">
+      <label for="f-name">Votre prénom</label>
+      <input id="f-name" autocomplete="given-name" value="${esc(state.name)}" placeholder="Ex. Léna">
+      <label for="f-wish">Votre vœu</label>
+      <textarea id="f-wish" placeholder="Écrivez ici le vœu que vous formulerez chaque soir…">${esc(state.wish)}</textarea>
+      <p class="small muted" style="margin-top:6px">Votre vœu reste uniquement sur votre téléphone.</p>
+      <label for="f-start">Date du jour 1</label>
+      <input id="f-start" type="date" value="${state.start}">
+    </div>
+    <button class="btn" id="go">Commencer</button>
+  `;
+  document.getElementById("go").onclick = () => {
+    const name = document.getElementById("f-name").value.trim();
+    const wish = document.getElementById("f-wish").value.trim();
+    if (!wish) return toast("Écrivez votre vœu pour commencer");
+    state.name = name;
+    state.wish = wish;
+    state.start = document.getElementById("f-start").value || todayStr();
+    state.onboarded = true;
+    save();
+    render();
+    openReminder();
+  };
+}
+
+function ringHTML(n) {
+  const r = 40, c = 2 * Math.PI * r;
+  return `<svg class="ring" viewBox="0 0 96 96" aria-label="${n} jours sur ${TOTAL}">
+    <circle class="track" cx="48" cy="48" r="${r}"/>
+    <circle class="bar" cx="48" cy="48" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n / TOTAL)}" transform="rotate(-90 48 48)"/>
+    <text x="48" y="57" text-anchor="middle">${n}</text>
+  </svg>`;
+}
+
+function renderHome() {
+  const n = doneCount();
+  const next = nextIndex();
+  const finished = next === -1;
+  const city = state.city || CITIES[0];
+  const ss = sunset(new Date(), city.lat, city.lon);
+
+  let main;
+  if (finished) {
+    main = `<div class="card center">
+      <div class="done-star">✨</div>
+      <h2 style="margin:10px 0 8px">Les 40 jours sont accomplis</h2>
+      <p class="muted">Que votre vœu soit exaucé, par le mérite de Rachel Imenou.</p>
+    </div>`;
+  } else if (doneToday()) {
+    main = `<div class="card center">
+      <div class="confirm">✓ Jour ${n} accompli ce soir</div>
+      <p class="muted">À demain soir pour le jour ${next + 1}. Coucher du soleil ce soir à ${fmtTime(ss)} (${esc(city.name)}).</p>
+    </div>`;
+  } else {
+    main = `<div class="card">
+      <div class="step-label">Ce soir</div>
+      <h2 style="margin-bottom:6px">Jour ${next + 1}</h2>
+      <p class="muted">Coucher du soleil à ${fmtTime(ss)} (${esc(city.name)})</p>
+      <button class="btn" id="start-ritual">Commencer le jour ${next + 1}</button>
+    </div>`;
+  }
+
+  const cells = state.done.map((v, i) =>
+    `<button class="day ${v ? "done" : ""} ${i === next ? "next" : ""}" data-i="${i}" aria-label="Jour ${i + 1}${v ? ", fait" : ""}">${v ? "✓" : i + 1}</button>`
+  ).join("");
+
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+
+  app.innerHTML = `
+    <div class="top">
+      <div>
+        <div class="hello">${state.name ? "Bonsoir " + esc(state.name) : "Bonsoir"}</div>
+        <h1 style="font-size:28px">Rachel Imenou</h1>
+      </div>
+      <button class="icon-btn" id="settings" aria-label="Réglages">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      </button>
+    </div>
+    ${main}
+    <div class="card">
+      <div class="progress">
+        ${ringHTML(n)}
+        <div>
+          <div style="font-weight:700">${n} / ${TOTAL} jours</div>
+          <div class="small muted">Touchez un jour pour le cocher ou le décocher.</div>
+        </div>
+      </div>
+      <div class="grid">${cells}</div>
+    </div>
+    <div class="card">
+      <div class="step-label">Mon vœu</div>
+      <div class="wish-text">${esc(state.wish)}</div>
+    </div>
+    <div class="row">
+      <button class="btn ghost" id="reminder">🔔 Rappel</button>
+      <button class="btn ghost" id="share">Partager</button>
+    </div>
+    ${standalone ? "" : `<div class="card install-tip small muted" style="margin-top:16px">
+      <b style="color:var(--text)">Mettre l'appli sur l'écran d'accueil :</b><br>
+      iPhone (Safari) : bouton Partager ⬆️ puis « Sur l'écran d'accueil ».<br>
+      Android (Chrome) : menu ⋮ puis « Ajouter à l'écran d'accueil ».
+    </div>`}
+  `;
+
+  document.getElementById("start-ritual")?.addEventListener("click", () => startRitual(0));
+  document.getElementById("settings").onclick = openSettings;
+  document.getElementById("reminder").onclick = openReminder;
+  document.getElementById("share").onclick = shareApp;
+  app.querySelectorAll(".day").forEach(b => b.onclick = () => toggleDay(+b.dataset.i));
+}
+
+function toggleDay(i) {
+  if (state.done[i]) {
+    if (!confirm(`Décocher le jour ${i + 1} ?`)) return;
+    state.done[i] = null;
+  } else {
+    state.done[i] = todayStr();
+  }
+  save();
+  render();
+}
+
+/* ---------- The nightly ritual ---------- */
+const STEPS = [
+  {
+    label: "Étape 1", title: "La tsedaka",
+    text: "Mettez une pièce dans la boîte de tsedaka.",
+    visual: () => `<div class="box" id="v"><div class="coin"></div><div class="slot"></div><div class="tin">צדקה</div></div>`,
+    action: "J'ai mis ma pièce",
+    animate: el => el.classList.add("in"),
+  },
+  {
+    label: "Étape 2", title: "La bougie",
+    text: "Allumez la bougie en l'honneur de Rachel Imenou.",
+    visual: () => candleHTML(false),
+    action: "J'ai allumé la bougie",
+    animate: el => el.classList.add("lit"),
+  },
+  {
+    label: "Étape 3", title: "Mon vœu",
+    text: "Prenez un instant et formulez votre vœu.",
+    visual: null,
+    action: "J'ai fait mon vœu",
+  },
+  {
+    label: "Étape 4", title: "La prière",
+    text: "",
+    visual: null,
+    action: "Amen",
+  },
+];
+
+function candleHTML(lit) {
+  return `<div class="candle ${lit ? "lit" : ""}" id="v"><div class="glow"></div><div class="flame"></div><div class="wick"></div><div class="wax"></div></div>`;
+}
+
+function startRitual(s) {
+  const step = STEPS[s];
+  const dayNum = nextIndex() + 1;
+  const dots = STEPS.map((_, i) => `<span class="${i <= s ? "on" : ""}"></span>`).join("");
+  let body = "";
+  if (step.visual) body = `<div class="visual">${step.visual()}</div><p class="center muted">${step.text}<br><span class="small">Touchez l'image une fois que c'est fait.</span></p>`;
+  if (s === 2) body = `<p class="center muted">${step.text}</p><div class="card" style="background:var(--bg-2)"><div class="wish-text">${esc(state.wish)}</div></div>`;
+  if (s === 3) body = `<div class="card" style="background:var(--bg-2)"><div class="prayer">${esc(document.getElementById("priere").content.textContent.trim())}</div></div>`;
+
+  app.innerHTML = `
+    <div class="top">
+      <button class="icon-btn" id="back" aria-label="Retour">←</button>
+      <div class="small muted">Jour ${dayNum} / ${TOTAL}</div>
+      <span style="width:42px"></span>
+    </div>
+    <div class="steps-dots">${dots}</div>
+    <div class="step-label center">${step.label}</div>
+    <h2 class="center" style="margin-bottom:8px">${step.title}</h2>
+    ${body}
+    <button class="btn" id="next">${step.action}</button>
+  `;
+  window.scrollTo(0, 0);
+  document.getElementById("back").onclick = () => s === 0 ? render() : startRitual(s - 1);
+  const v = document.getElementById("v");
+  const go = () => {
+    if (s < STEPS.length - 1) return startRitual(s + 1);
+    finishDay();
+  };
+  if (v && step.animate) {
+    v.onclick = () => { step.animate(v); setTimeout(go, 900); };
+    document.getElementById("next").onclick = () => { step.animate(v); setTimeout(go, 700); };
+  } else {
+    document.getElementById("next").onclick = go;
+  }
+}
+
+function finishDay() {
+  const i = nextIndex();
+  if (i !== -1) state.done[i] = todayStr();
+  save();
+  const n = doneCount();
+  app.innerHTML = `
+    <div class="center" style="padding-top:40px">
+      <div class="visual">${candleHTML(true)}</div>
+      <h1>${n === TOTAL ? "Les 40 jours sont accomplis" : `Jour ${n} accompli`}</h1>
+      <p class="muted" style="margin:12px 0 26px">${n === TOTAL ? "Que votre vœu soit exaucé, par le mérite de Rachel Imenou." : `Plus que ${TOTAL - n} jour${TOTAL - n > 1 ? "s" : ""}. À demain soir.`}</p>
+      <button class="btn" id="home">Terminer</button>
+    </div>`;
+  document.getElementById("home").onclick = render;
+}
+
+/* ---------- Sheets ---------- */
+function sheet(html) {
+  const wrap = document.createElement("div");
+  wrap.className = "sheet-backdrop";
+  wrap.innerHTML = `<div class="sheet" role="dialog" aria-modal="true">${html}</div>`;
+  wrap.addEventListener("click", e => { if (e.target === wrap) wrap.remove(); });
+  document.body.appendChild(wrap);
+  return wrap;
+}
+
+function openSettings() {
+  const w = sheet(`
+    <h2>Réglages</h2>
+    <label for="s-name">Prénom</label>
+    <input id="s-name" value="${esc(state.name)}">
+    <label for="s-wish">Mon vœu</label>
+    <textarea id="s-wish">${esc(state.wish)}</textarea>
+    <label for="s-start">Date du jour 1</label>
+    <input id="s-start" type="date" value="${state.start}">
+    <button class="btn" id="s-save" style="margin-top:18px">Enregistrer</button>
+    <button class="btn link" id="s-close">Fermer</button>
+    <hr>
+    <button class="btn ghost" id="s-reset">Tout recommencer (effacer les 40 jours)</button>
+  `);
+  w.querySelector("#s-save").onclick = () => {
+    state.name = w.querySelector("#s-name").value.trim();
+    state.wish = w.querySelector("#s-wish").value.trim() || state.wish;
+    state.start = w.querySelector("#s-start").value || state.start;
+    save(); w.remove(); render(); toast("Enregistré");
+  };
+  w.querySelector("#s-close").onclick = () => w.remove();
+  w.querySelector("#s-reset").onclick = () => {
+    if (!confirm("Effacer toute la progression et recommencer au jour 1 ?")) return;
+    state.done = Array(TOTAL).fill(null);
+    state.start = todayStr();
+    save(); w.remove(); render();
+  };
+}
+
+function openReminder() {
+  const c = state.city || CITIES[0];
+  const opts = CITIES.map(x => `<option ${x.name === c.name ? "selected" : ""}>${esc(x.name)}</option>`).join("");
+  const custom = !CITIES.some(x => x.name === c.name);
+  const w = sheet(`
+    <h2>Rappel chaque soir</h2>
+    <p class="muted">Ajoute 40 rendez-vous dans le calendrier de votre téléphone, à l'heure du coucher du soleil de chaque jour, avec une alerte.</p>
+    <label for="r-city">Ville</label>
+    <select id="r-city">${custom ? `<option selected>${esc(c.name)}</option>` : ""}${opts}</select>
+    <button class="btn link" id="r-geo" style="text-align:left;padding-left:0">📍 Utiliser ma position</button>
+    <label for="r-off">Moment du rappel</label>
+    <select id="r-off">
+      <option value="0">Au coucher du soleil</option>
+      <option value="-15">15 min avant le coucher du soleil</option>
+      <option value="20">20 min après (tombée de la nuit)</option>
+      <option value="40">40 min après (nuit noire)</option>
+    </select>
+    <p class="small muted" id="r-preview" style="margin-top:10px"></p>
+    <button class="btn" id="r-add" style="margin-top:8px">Ajouter au calendrier</button>
+    <button class="btn link" id="r-close">Plus tard</button>
+    <p class="small muted">Sur iPhone, choisissez « Tout ajouter ». Sur Android, ouvrez le fichier avec Google Agenda.</p>
+  `);
+  const sel = w.querySelector("#r-city");
+  const off = w.querySelector("#r-off");
+  off.value = String(state.reminderMin || 0);
+  const preview = () => {
+    const ss = sunset(new Date(), state.city.lat, state.city.lon);
+    const t = new Date(ss.getTime() + (+off.value) * 60000);
+    w.querySelector("#r-preview").textContent = `Ce soir à ${state.city.name} : rappel à ${fmtTime(t)}.`;
+  };
+  sel.onchange = () => {
+    const found = CITIES.find(x => x.name === sel.value);
+    if (found) { state.city = found; save(); preview(); }
+  };
+  off.onchange = () => { state.reminderMin = +off.value; save(); preview(); };
+  w.querySelector("#r-geo").onclick = () => {
+    if (!navigator.geolocation) return toast("Position indisponible");
+    navigator.geolocation.getCurrentPosition(p => {
+      state.city = { name: "Ma position", lat: p.coords.latitude, lon: p.coords.longitude };
+      save();
+      sel.insertAdjacentHTML("afterbegin", `<option selected>Ma position</option>`);
+      preview();
+    }, () => toast("Impossible d'obtenir la position"), { timeout: 10000 });
+  };
+  w.querySelector("#r-add").onclick = () => { downloadICS(); };
+  w.querySelector("#r-close").onclick = () => { w.remove(); render(); };
+  preview();
+}
+
+/* ---------- Calendar reminders (.ics) ---------- */
+function icsDate(d) { return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
+
+function downloadICS() {
+  const city = state.city || CITIES[0];
+  const start = parseDay(state.start);
+  const from = Math.max(0, nextIndex());
+  const url = location.href.split("#")[0];
+  const stamp = icsDate(new Date());
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Rachel40//FR", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:40 jours Rachel Imenou"];
+  for (let i = from; i < TOTAL; i++) {
+    // Remaining days are counted from today when the user is mid-way, from the start date otherwise.
+    const day = from > 0 ? addDays(new Date(), i - from) : addDays(start, i);
+    const t = new Date(sunset(day, city.lat, city.lon).getTime() + (state.reminderMin || 0) * 60000);
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:rachel40-${state.start}-${i + 1}@${location.host || "local"}`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART:${icsDate(t)}`,
+      `DTEND:${icsDate(new Date(t.getTime() + 15 * 60000))}`,
+      `SUMMARY:🕯️ Rachel Imenou – jour ${i + 1}/${TOTAL}`,
+      `DESCRIPTION:Tsedaka\\, bougie\\, vœu et prière. ${url}`,
+      `URL:${url}`,
+      "BEGIN:VALARM", "ACTION:DISPLAY", `DESCRIPTION:Rachel Imenou – jour ${i + 1}`, "TRIGGER:PT0M", "END:VALARM",
+      "END:VEVENT"
+    );
+  }
+  lines.push("END:VCALENDAR");
+  const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "rachel-imenou-40-jours.ics";
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+}
+
+/* ---------- Share ---------- */
+async function shareApp() {
+  const url = location.href.split("#")[0];
+  const data = { title: "Les 40 jours de Rachel Imenou", text: "Je fais les 40 jours de Rachel Imenou, rejoins-moi 🕯️", url };
+  try {
+    if (navigator.share) return await navigator.share(data);
+    await navigator.clipboard.writeText(url);
+    toast("Lien copié");
+  } catch { /* partage annulé */ }
+}
+
+/* ---------- Toast ---------- */
+function toast(msg) {
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+render();
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+</script>
+</body>
+</html>

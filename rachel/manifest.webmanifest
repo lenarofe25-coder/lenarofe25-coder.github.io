@@ -1,0 +1,17 @@
+{
+  "name": "Les 40 jours de Rachel Imenou",
+  "short_name": "Rachel 40j",
+  "description": "Tsedaka, bougie, vœu et prière : 40 soirs en l'honneur de Rachel Imenou.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1b1733",
+  "theme_color": "#1b1733",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
