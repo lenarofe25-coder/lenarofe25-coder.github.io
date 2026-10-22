@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&family=Noto+Serif+Hebrew:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #1b1733;
@@ -154,6 +154,10 @@
 
   .wish-text { font-family: var(--serif); font-size: 24px; font-style: italic; text-align: center; padding: 8px 4px 2px; white-space: pre-wrap; }
   .prayer { font-family: var(--serif); font-size: 21px; line-height: 1.55; white-space: pre-wrap; }
+  .prayer[lang="he"] { font-family: "Noto Serif Hebrew", "Times New Roman", serif; font-size: 23px; line-height: 1.9; text-align: right; }
+  .langs { display: flex; gap: 8px; }
+  .langs button { flex: 1; padding: 12px 6px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text); font: 600 15px var(--sans); cursor: pointer; }
+  .langs button.on { background: var(--gold); border-color: var(--gold); color: #2a1c05; }
 
   .done-star { font-size: 64px; line-height: 1; }
   .confirm { display: flex; align-items: center; gap: 10px; color: var(--ok); font-weight: 700; justify-content: center; min-height: 26px; margin-bottom: 10px; }
@@ -173,10 +177,24 @@
 <main class="app" id="app"></main>
 
 <!--
-  ✏️ TEXTE DE LA PRIÈRE
-  Remplacez le texte entre <template id="priere"> et </template> par la prière en français.
+  ✏️ TEXTES DE LA PRIÈRE
+  priere = français, priere-he = hébreu, priere-ph = phonétique.
   Les retours à la ligne sont conservés tels quels.
 -->
+<template id="priere-he">קוּמִי רָחֵל אִמֵּנוּ הַקְּדוֹשָׁה וְתִהְיִי מְלִיצַת יֹשֶׁר עֲבוּרִי, וַאֲנִי בִּתֵּךְ בָּאָה לְבַקֵּשׁ לִהְיוֹת אֵם וְרַעְיָה.
+
+קוּמִי אִמִּי כִּי עָיְפָה נִשְׁמָתִי, וְאַתְּ אִמִּי, רָחֵל אִמֵּנוּ הַקְּדוֹשָׁה, שֶׁיּוֹדַעַת אֶת צַעֲרָם שֶׁל בָּנַיִךְ וּבְנוֹתַיִךְ, תִּהְיִי מְלִיצַת יֹשֶׁר שֶׁלִּי אֵצֶל הַקָּדוֹשׁ בָּרוּךְ הוּא, תֹּאמְרִי לוֹ עַל אַף שֶׁלֹּא דִּיַּקְתִּי בְּמַחֲשָׁבָה בְּדִבּוּר וּבְמַעֲשֶׂה אֲנִי רוֹצָה לִזְכּוֹת לִהְיוֹת אֵם וְרַעְיָה, וַאֲנִי יוֹדַעַת שֶׁעֲדַיִן לֹא מְאֻחָר כִּי גְּדוֹלִים חֲסָדָיו שֶׁל הַקָּדוֹשׁ בָּרוּךְ הוּא.
+
+קוּמִי אִמִּי רָחֵל וּמִסְרִי תְּפִלָּתִי לְאֵל חַי, אֲדוֹן הָאֲדוֹנִים, מֶלֶךְ הַמְּלָכִים, וּתְשַׂמְּחִינִי נָא וְתָאִירִי לִי אוֹר תְּפִלָּתִי, יְשׁוּעָתִי וְשַׁוְעָתִי אֵלָיו יִתְבָּרַךְ, אֵל מֶלֶךְ חַי, בְּאָמְרִי:
+
+שְׁמַע יִשְׂרָאֵל ה' אֱלֹהֵינוּ ה' אֶחָד וּשְׁמוֹ אֶחָד, אָמֵן</template>
+<template id="priere-ph">Koumi Ra’hel iménou hakédosha vétihyi mélitsat yoshér avouri vaani bite’h baa levakesh lihyot ét véraya.
+
+Koumi imi ki aypha nichmati véaté imi Ra’hel iménou hakédosha, chéyodaat ét tsaaram chel banayi’h ouvnotayi’h tihyi mélitsat yoshér chéli étsél hakadosh barou’h hou. Tomri lo al aph chélo diyakti bama’hachava badibour ouvamaasé ani rotsa lizkot lihyot ét véraya. Vaani yodaat chéadayin lo méou’har ki guédolim ’hassadav chel hakadosh barou’h hou.
+
+Koumi imi Ra’hel oumisri téphilati léél hay, adon haadonim, mele’h hamela’him. Outchamé’hini na vérahiri li or téphilati, yéchouati véchavhati élav yitbarah, el mele’h ’hay, béamri :
+
+Chéma yisrael ado-nay élohénou ado-nay é’had ouchmo né’had, amen.</template>
 <template id="priere">Lève-toi, Rahel, notre sainte mère, et sois pour moi un défenseur devant la justice céleste. Et moi, ta fille, je suis venue demander à être mère et épouse.
 
 Lève-toi, ma mère, car mon âme est fatiguée. Et toi, ma mère, notre sainte mère Rahel, qui connaît les souffrances de tes fils et de tes filles, sois mon défenseur auprès du Saint Béni soit-t-Il, dis Lui que bien que je ne me sois pas appliquée dans la pensée, la parole et l'acte, je veux avoir le privilège d'être mère et épouse. Et je sais qu'il n'est pas encore trop tard, car grandes sont les bontés du Saint Béni soit-t-Il.
@@ -216,6 +234,25 @@ let state = load() || {
   name: "", wish: "", start: todayStr(), done: Array(TOTAL).fill(null),
   city: CITIES[0], reminderMin: 0, onboarded: false,
 };
+state.lang ||= "fr";
+
+const LANGS = [
+  { id: "fr", label: "Français", tpl: "priere" },
+  { id: "he", label: "Hébreu", tpl: "priere-he" },
+  { id: "ph", label: "Phonétique", tpl: "priere-ph" },
+];
+function langsHTML(current) {
+  return `<div class="langs">${LANGS.map(l => `<button type="button" data-lang="${l.id}" class="${l.id === current ? "on" : ""}">${l.label}</button>`).join("")}</div>`;
+}
+// Wires a .langs picker inside root; returns a getter for the chosen language.
+function bindLangs(root, current) {
+  let lang = current;
+  root.querySelectorAll(".langs button").forEach(b => b.onclick = () => {
+    lang = b.dataset.lang;
+    root.querySelectorAll(".langs button").forEach(x => x.classList.toggle("on", x === b));
+  });
+  return () => lang;
+}
 
 /* ---------- Dates ---------- */
 function todayStr(d = new Date()) {
@@ -271,10 +308,14 @@ function renderOnboarding() {
       <p class="small muted" style="margin-top:6px">Votre vœu reste uniquement sur votre téléphone.</p>
       <label for="f-start">Date du jour 1</label>
       <input id="f-start" type="date" value="${state.start}">
+      <label>Langue de la prière</label>
+      ${langsHTML(state.lang)}
     </div>
     <button class="btn" id="go">Commencer</button>
   `;
+  const getLang = bindLangs(app, state.lang);
   document.getElementById("go").onclick = () => {
+    state.lang = getLang();
     const name = document.getElementById("f-name").value.trim();
     const wish = document.getElementById("f-wish").value.trim();
     if (!wish) return toast("Écrivez votre vœu pour commencer");
@@ -422,7 +463,11 @@ function startRitual(s, day = nextIndex()) {
   if (s === 2) body = `<p class="center muted">${step.text}</p><div class="card" style="background:var(--bg-2)"><div class="wish-text">${esc(state.wish)}</div></div>
     <p class="center muted small" style="margin-bottom:4px">Puis terminez en disant :</p>
     <div class="card" style="background:var(--bg-2)"><div class="wish-text" style="font-size:21px;color:var(--gold)">« Je Te demande, Hachem, d'exaucer mon vœu par le mérite de Rachel Imenou. »</div></div>`;
-  if (s === 3) body = `<div class="card" style="background:var(--bg-2)"><div class="prayer">${esc(document.getElementById("priere").content.textContent.trim())}</div></div>`;
+  if (s === 3) {
+    const l = LANGS.find(x => x.id === state.lang) || LANGS[0];
+    const attrs = l.id === "he" ? ` lang="he" dir="rtl"` : "";
+    body = `<div class="card" style="background:var(--bg-2)"><div class="prayer"${attrs}>${esc(document.getElementById(l.tpl).content.textContent.trim())}</div></div>`;
+  }
 
   app.innerHTML = `
     <div class="top">
@@ -484,12 +529,16 @@ function openSettings() {
     <textarea id="s-wish">${esc(state.wish)}</textarea>
     <label for="s-start">Date du jour 1</label>
     <input id="s-start" type="date" value="${state.start}">
+    <label>Langue de la prière</label>
+    ${langsHTML(state.lang)}
     <button class="btn" id="s-save" style="margin-top:18px">Enregistrer</button>
     <button class="btn link" id="s-close">Fermer</button>
     <hr>
     <button class="btn ghost" id="s-reset">Tout recommencer (effacer les 40 jours)</button>
   `);
+  const getLang = bindLangs(w, state.lang);
   w.querySelector("#s-save").onclick = () => {
+    state.lang = getLang();
     state.name = w.querySelector("#s-name").value.trim();
     state.wish = w.querySelector("#s-wish").value.trim() || state.wish;
     state.start = w.querySelector("#s-start").value || state.start;
