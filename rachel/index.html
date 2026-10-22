@@ -311,13 +311,9 @@ function renderHome() {
       <h2 style="margin:10px 0 8px">Les 40 jours sont accomplis</h2>
       <p class="muted">Que votre vœu soit exaucé, par le mérite de Rachel Imenou.</p>
     </div>`;
-  } else if (doneToday()) {
-    main = `<div class="card center">
-      <div class="confirm">✓ Jour ${n} accompli ce soir</div>
-      <p class="muted">À demain soir pour le jour ${next + 1}. Coucher du soleil ce soir à ${fmtTime(ss)} (${esc(city.name)}).</p>
-    </div>`;
   } else {
     main = `<div class="card">
+      ${doneToday() ? `<div class="confirm" style="justify-content:flex-start">✓ Un jour déjà coché ce soir</div>` : ""}
       <div class="step-label">Ce soir</div>
       <h2 style="margin-bottom:6px">Jour ${next + 1}</h2>
       <p class="muted">Coucher du soleil à ${fmtTime(ss)} (${esc(city.name)})</p>
@@ -347,7 +343,7 @@ function renderHome() {
         ${ringHTML(n)}
         <div>
           <div style="font-weight:700">${n} / ${TOTAL} jours</div>
-          <div class="small muted">Touchez un jour pour le cocher ou le décocher.</div>
+          <div class="small muted">Touchez un jour pour faire les étapes et le cocher.</div>
         </div>
       </div>
       <div class="grid">${cells}</div>
@@ -375,12 +371,9 @@ function renderHome() {
 }
 
 function toggleDay(i) {
-  if (state.done[i]) {
-    if (!confirm(`Décocher le jour ${i + 1} ?`)) return;
-    state.done[i] = null;
-  } else {
-    state.done[i] = todayStr();
-  }
+  if (!state.done[i]) return startRitual(0, i);
+  if (!confirm(`Décocher le jour ${i + 1} ?`)) return;
+  state.done[i] = null;
   save();
   render();
 }
@@ -419,9 +412,10 @@ function candleHTML(lit) {
   return `<div class="candle ${lit ? "lit" : ""}" id="v"><div class="glow"></div><div class="flame"></div><div class="wick"></div><div class="wax"></div></div>`;
 }
 
-function startRitual(s) {
+// day: index of the day being done (the next unchecked one, or the one tapped in the grid)
+function startRitual(s, day = nextIndex()) {
   const step = STEPS[s];
-  const dayNum = nextIndex() + 1;
+  const dayNum = day + 1;
   const dots = STEPS.map((_, i) => `<span class="${i <= s ? "on" : ""}"></span>`).join("");
   let body = "";
   if (step.visual) body = `<div class="visual">${step.visual()}</div><p class="center muted">${step.text}<br><span class="small">Touchez l'image une fois que c'est fait.</span></p>`;
@@ -443,11 +437,11 @@ function startRitual(s) {
     <button class="btn" id="next">${step.action}</button>
   `;
   window.scrollTo(0, 0);
-  document.getElementById("back").onclick = () => s === 0 ? render() : startRitual(s - 1);
+  document.getElementById("back").onclick = () => s === 0 ? render() : startRitual(s - 1, day);
   const v = document.getElementById("v");
   const go = () => {
-    if (s < STEPS.length - 1) return startRitual(s + 1);
-    finishDay();
+    if (s < STEPS.length - 1) return startRitual(s + 1, day);
+    finishDay(day);
   };
   if (v && step.animate) {
     v.onclick = () => { step.animate(v); setTimeout(go, 900); };
@@ -457,16 +451,15 @@ function startRitual(s) {
   }
 }
 
-function finishDay() {
-  const i = nextIndex();
+function finishDay(i) {
   if (i !== -1) state.done[i] = todayStr();
   save();
   const n = doneCount();
   app.innerHTML = `
     <div class="center" style="padding-top:40px">
       <div class="visual">${candleHTML(true)}</div>
-      <h1>${n === TOTAL ? "Les 40 jours sont accomplis" : `Jour ${n} accompli`}</h1>
-      <p class="muted" style="margin:12px 0 26px">${n === TOTAL ? "Que votre vœu soit exaucé, par le mérite de Rachel Imenou." : `Plus que ${TOTAL - n} jour${TOTAL - n > 1 ? "s" : ""}. À demain soir.`}</p>
+      <h1>${n === TOTAL ? "Les 40 jours sont accomplis" : `Jour ${i + 1} accompli`}</h1>
+      <p class="muted" style="margin:12px 0 26px">${n === TOTAL ? "Que votre vœu soit exaucé, par le mérite de Rachel Imenou." : `Plus que ${TOTAL - n} jour${TOTAL - n > 1 ? "s" : ""}.`}</p>
       <button class="btn" id="home">Terminer</button>
     </div>`;
   document.getElementById("home").onclick = render;
