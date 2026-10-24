@@ -3,7 +3,7 @@ name: Import des memes (MDR)
 # Lancé quand la liste des memes ou le collecteur change, ou à la main.
 on:
   push:
-    paths: ['server/memes/wanted.txt', 'server/memes/rejected.txt', 'server/memes/collect.py', '.github/workflows/memes-import.yml']
+    paths: ['server/memes/wanted.txt', 'server/memes/rejected.txt', 'server/memes/collect.py', 'server/memes/check-browser.mjs', '.github/workflows/memes-import.yml']
   workflow_dispatch:
 
 permissions:
@@ -38,6 +38,14 @@ jobs:
           wc -c server/memes/report/terms/*
       - name: Collecte, vérification des images et déduplication
         run: python server/memes/collect.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Affichage réel de chaque meme dans Chromium
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          node server/memes/check-browser.mjs
       - name: Enregistrer le résultat sur la branche
         run: |
           git config user.name "github-actions[bot]"
