@@ -1,0 +1,5 @@
+# Copie ce fichier en .dev.vars pour le développement local (aucun secret n'est nécessaire).
+# Vide = bibliothèque embarquée dans le Worker ; sinon URL du dossier jeu/data/ publié.
+CONTENT_URL=
+# Limite d'actions par connexion et par tranche de 10 s (30 en production). Les tests e2e jouent très vite.
+ACTIONS_PER_10S=200

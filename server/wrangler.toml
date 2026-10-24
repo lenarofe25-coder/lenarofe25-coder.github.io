@@ -1,0 +1,25 @@
+name = "mdr-memes"
+main = "src/worker.js"
+compatibility_date = "2025-09-01"
+
+# Origines autorisées à appeler l'API (site GitHub Pages + développement local).
+[vars]
+ALLOWED_ORIGINS = "https://lenarofe25-coder.github.io,http://localhost:8080,http://127.0.0.1:8080"
+# Bibliothèque publiée sur le site : permet d'ajouter des cartes sans redéployer le Worker.
+CONTENT_URL = "https://lenarofe25-coder.github.io/jeu/data/"
+
+[[durable_objects.bindings]]
+name = "ROOMS"
+class_name = "Room"
+
+[[durable_objects.bindings]]
+name = "LIMITER"
+class_name = "Limiter"
+
+# Durable Objects à stockage SQLite : disponibles sur l'offre gratuite de Cloudflare.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Room", "Limiter"]
+
+[observability]
+enabled = true

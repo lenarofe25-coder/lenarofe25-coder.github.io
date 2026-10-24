@@ -1,0 +1,3534 @@
+{
+ "version": "2026-10-24",
+ "count": 504,
+ "situations": [
+  {
+   "id": "s-0001",
+   "text": "Quand ta copine t’appelle en visio sans prévenir alors que tu as un masque sur le visage.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine t appelle en visio sans prevenir alors que tu as un masque sur le visage"
+  },
+  {
+   "id": "s-0002",
+   "text": "Quand ta best te dit « faut que je te raconte un truc » et qu’elle ne répond plus.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best te dit faut que je te raconte un truc et qu elle ne repond plus"
+  },
+  {
+   "id": "s-0003",
+   "text": "Quand ta copine te demande ton avis sur son nouveau mec et que tu le détestes déjà.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine te demande ton avis sur son nouveau mec et que tu le detestes deja"
+  },
+  {
+   "id": "s-0004",
+   "text": "Quand le groupe planifie des vacances depuis 3 ans et que personne n’a réservé.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand le groupe planifie des vacances depuis 3 ans et que personne n a reserve"
+  },
+  {
+   "id": "s-0005",
+   "text": "Quand ta pote te raconte la même histoire pour la quatrième fois.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote te raconte la meme histoire pour la quatrieme fois"
+  },
+  {
+   "id": "s-0006",
+   "text": "Quand tu découvres que tes copines ont un groupe WhatsApp sans toi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que tes copines ont un groupe whatsapp sans toi"
+  },
+  {
+   "id": "s-0007",
+   "text": "Quand ta best arrive avec la même tenue que toi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best arrive avec la meme tenue que toi"
+  },
+  {
+   "id": "s-0008",
+   "text": "Quand ta copine dit « je viens juste 5 minutes » et qu’elle dort chez toi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine dit je viens juste 5 minutes et qu elle dort chez toi"
+  },
+  {
+   "id": "s-0009",
+   "text": "Quand on te demande qui est ta meilleure amie devant tout le groupe.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand on te demande qui est ta meilleure amie devant tout le groupe"
+  },
+  {
+   "id": "s-0010",
+   "text": "Quand ta pote te montre 47 photos de son chat.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote te montre 47 photos de son chat"
+  },
+  {
+   "id": "s-0011",
+   "text": "Ta tête quand ta copine dit qu’elle a « tourné la page » pour la dixième fois.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "ta tete quand ta copine dit qu elle a tourne la page pour la dixieme fois"
+  },
+  {
+   "id": "s-0012",
+   "text": "Quand ta best te prête un vêtement et que tu le taches dans la minute.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best te prete un vetement et que tu le taches dans la minute"
+  },
+  {
+   "id": "s-0013",
+   "text": "Quand tu retrouves une amie d’enfance et que vous n’avez plus rien en commun.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu retrouves une amie d enfance et que vous n avez plus rien en commun"
+  },
+  {
+   "id": "s-0014",
+   "text": "Quand la copine qui ne paie jamais propose de partager l’addition « équitablement ».",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand la copine qui ne paie jamais propose de partager l addition equitablement"
+  },
+  {
+   "id": "s-0015",
+   "text": "Quand tu dois garder un secret énorme et que tout le monde te pose des questions.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu dois garder un secret enorme et que tout le monde te pose des questions"
+  },
+  {
+   "id": "s-0016",
+   "text": "Quand ta pote commence sa phrase par « sans vouloir te vexer ».",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote commence sa phrase par sans vouloir te vexer"
+  },
+  {
+   "id": "s-0017",
+   "text": "Quand ta copine poste la seule photo où tu as l’air d’une pomme de terre.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine poste la seule photo ou tu as l air d une pomme de terre"
+  },
+  {
+   "id": "s-0018",
+   "text": "Quand tu entends ta best mentir à ses parents avec un aplomb terrifiant.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu entends ta best mentir a ses parents avec un aplomb terrifiant"
+  },
+  {
+   "id": "s-0019",
+   "text": "Quand le groupe vote et que tu es la seule à avoir voté contre.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand le groupe vote et que tu es la seule a avoir vote contre"
+  },
+  {
+   "id": "s-0020",
+   "text": "Quand ta pote te demande si tu dors encore à 3 h du matin pour te parler de son ex.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote te demande si tu dors encore a 3 h du matin pour te parler de son ex"
+  },
+  {
+   "id": "s-0021",
+   "text": "Quand ta best rencontre ta nouvelle amie et que l’ambiance est tendue.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best rencontre ta nouvelle amie et que l ambiance est tendue"
+  },
+  {
+   "id": "s-0022",
+   "text": "Quand ta copine raconte ton histoire mieux que toi, mais en inventant la moitié.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine raconte ton histoire mieux que toi mais en inventant la moitie"
+  },
+  {
+   "id": "s-0023",
+   "text": "Quand tu reçois un vocal de 9 minutes de ta best.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu recois un vocal de 9 minutes de ta best"
+  },
+  {
+   "id": "s-0024",
+   "text": "Quand ta pote dit « on se fait un truc cette semaine » et qu’on est en 2027.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote dit on se fait un truc cette semaine et qu on est en 2027"
+  },
+  {
+   "id": "s-0025",
+   "text": "Quand tu annules un plan et que ton amie est soulagée aussi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu annules un plan et que ton amie est soulagee aussi"
+  },
+  {
+   "id": "s-0026",
+   "text": "Quand ta copine te demande de l’accompagner « juste pour une course » et que ça dure 4 heures.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine te demande de l accompagner juste pour une course et que ca dure 4 heures"
+  },
+  {
+   "id": "s-0027",
+   "text": "Quand le groupe se rend compte que c’est toi qui as cassé le verre.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand le groupe se rend compte que c est toi qui as casse le verre"
+  },
+  {
+   "id": "s-0028",
+   "text": "Quand ta best tombe amoureuse et disparaît de la circulation.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best tombe amoureuse et disparait de la circulation"
+  },
+  {
+   "id": "s-0029",
+   "text": "Quand ta pote te fait découvrir sa série préférée et que tu t’endors.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote te fait decouvrir sa serie preferee et que tu t endors"
+  },
+  {
+   "id": "s-0030",
+   "text": "Quand tu attends depuis 20 minutes que ta copine finisse de se préparer.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu attends depuis 20 minutes que ta copine finisse de se preparer"
+  },
+  {
+   "id": "s-0031",
+   "text": "Quand ta best te dit « fais-moi confiance » juste avant une très mauvaise idée.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best te dit fais moi confiance juste avant une tres mauvaise idee"
+  },
+  {
+   "id": "s-0032",
+   "text": "Ta réaction quand ta copine se coupe une frange à minuit.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "ta reaction quand ta copine se coupe une frange a minuit"
+  },
+  {
+   "id": "s-0033",
+   "text": "Quand ton amie essaie de te caser avec son cousin.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ton amie essaie de te caser avec son cousin"
+  },
+  {
+   "id": "s-0034",
+   "text": "Quand la seule pote qui conduit annonce qu’elle ne vient pas.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand la seule pote qui conduit annonce qu elle ne vient pas"
+  },
+  {
+   "id": "s-0035",
+   "text": "Quand ta best lit ton journal intime « par accident ».",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best lit ton journal intime par accident"
+  },
+  {
+   "id": "s-0036",
+   "text": "Quand le groupe essaie de prendre une photo et que personne n’est d’accord sur l’angle.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand le groupe essaie de prendre une photo et que personne n est d accord sur l angle"
+  },
+  {
+   "id": "s-0037",
+   "text": "Quand ta copine t’envoie une capture d’écran d’une conversation sans le contexte.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine t envoie une capture d ecran d une conversation sans le contexte"
+  },
+  {
+   "id": "s-0038",
+   "text": "Quand ta pote demande « tu es libre samedi ? » sans dire pourquoi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote demande tu es libre samedi sans dire pourquoi"
+  },
+  {
+   "id": "s-0039",
+   "text": "Quand on fête l’anniversaire surprise et que la concernée l’a deviné depuis un mois.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand on fete l anniversaire surprise et que la concernee l a devine depuis un mois"
+  },
+  {
+   "id": "s-0040",
+   "text": "Quand tu te rends compte que ta best a les mêmes défauts que toi.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que ta best a les memes defauts que toi"
+  },
+  {
+   "id": "s-0041",
+   "text": "Quand ta copine te prend en photo sans prévenir.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine te prend en photo sans prevenir"
+  },
+  {
+   "id": "s-0042",
+   "text": "Quand une amie commence un régime le jour de ton anniversaire.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand une amie commence un regime le jour de ton anniversaire"
+  },
+  {
+   "id": "s-0043",
+   "text": "Quand ta best t’annonce qu’elle déménage à l’autre bout du pays.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta best t annonce qu elle demenage a l autre bout du pays"
+  },
+  {
+   "id": "s-0044",
+   "text": "Quand le groupe découvre ton compte secret.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand le groupe decouvre ton compte secret"
+  },
+  {
+   "id": "s-0045",
+   "text": "Quand ta pote te dit qu’elle a « quelque chose d’important » à t’annoncer.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta pote te dit qu elle a quelque chose d important a t annoncer"
+  },
+  {
+   "id": "s-0046",
+   "text": "Quand ta copine t’explique ta propre vie avec une assurance incroyable.",
+   "category": "amitie",
+   "active": true,
+   "dedupeKey": "quand ta copine t explique ta propre vie avec une assurance incroyable"
+  },
+  {
+   "id": "s-0047",
+   "text": "Quand ton crush te répond après 8 heures.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush te repond apres 8 heures"
+  },
+  {
+   "id": "s-0048",
+   "text": "Quand ton crush like ta story au bout de 2 secondes.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush like ta story au bout de 2 secondes"
+  },
+  {
+   "id": "s-0049",
+   "text": "Quand il t’envoie « tu dors ? » à 2 h du matin.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand il t envoie tu dors a 2 h du matin"
+  },
+  {
+   "id": "s-0050",
+   "text": "Quand ton date arrive et qu’il ne ressemble pas du tout à ses photos.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date arrive et qu il ne ressemble pas du tout a ses photos"
+  },
+  {
+   "id": "s-0051",
+   "text": "Quand ton crush t’appelle « frérot ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush t appelle frerot"
+  },
+  {
+   "id": "s-0052",
+   "text": "Quand ton ex te souhaite ton anniversaire avec un an de retard.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton ex te souhaite ton anniversaire avec un an de retard"
+  },
+  {
+   "id": "s-0053",
+   "text": "Quand ton mec dit « je suis prêt dans 2 minutes ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton mec dit je suis pret dans 2 minutes"
+  },
+  {
+   "id": "s-0054",
+   "text": "Quand ton crush passe devant toi et que tu oublies comment marcher.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush passe devant toi et que tu oublies comment marcher"
+  },
+  {
+   "id": "s-0055",
+   "text": "Quand tu vois ton ex avec une personne qui te ressemble.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu vois ton ex avec une personne qui te ressemble"
+  },
+  {
+   "id": "s-0056",
+   "text": "Quand ton date commande pour toi sans te demander.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date commande pour toi sans te demander"
+  },
+  {
+   "id": "s-0057",
+   "text": "Quand ton crush te dit « t’es comme une sœur pour moi ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush te dit t es comme une s ur pour moi"
+  },
+  {
+   "id": "s-0058",
+   "text": "Quand ton copain dit qu’il n’a pas faim et mange toutes tes frites.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain dit qu il n a pas faim et mange toutes tes frites"
+  },
+  {
+   "id": "s-0059",
+   "text": "Quand tu découvres que ton crush aime les mêmes séries que toi.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que ton crush aime les memes series que toi"
+  },
+  {
+   "id": "s-0060",
+   "text": "Quand ton date parle de son ex pendant tout le repas.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date parle de son ex pendant tout le repas"
+  },
+  {
+   "id": "s-0061",
+   "text": "Quand tu relis la conversation avec ton crush pour la vingtième fois.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu relis la conversation avec ton crush pour la vingtieme fois"
+  },
+  {
+   "id": "s-0062",
+   "text": "Quand il met « mdr » à la fin d’une déclaration.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand il met mdr a la fin d une declaration"
+  },
+  {
+   "id": "s-0063",
+   "text": "Quand ton crush t’ajoute à la story « amis proches ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush t ajoute a la story amis proches"
+  },
+  {
+   "id": "s-0064",
+   "text": "Quand ton mec essaie de cuisiner un dîner romantique.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton mec essaie de cuisiner un diner romantique"
+  },
+  {
+   "id": "s-0065",
+   "text": "Quand ton date te propose de partager l’addition au centime près.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date te propose de partager l addition au centime pres"
+  },
+  {
+   "id": "s-0066",
+   "text": "Quand ton copain oublie votre anniversaire de couple.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain oublie votre anniversaire de couple"
+  },
+  {
+   "id": "s-0067",
+   "text": "Quand ta mère demande « alors, toujours célibataire ? ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ta mere demande alors toujours celibataire"
+  },
+  {
+   "id": "s-0068",
+   "text": "Quand ton crush te demande ton avis sur une autre fille.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush te demande ton avis sur une autre fille"
+  },
+  {
+   "id": "s-0069",
+   "text": "Quand ton date te dit qu’il « n’aime pas les animaux ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date te dit qu il n aime pas les animaux"
+  },
+  {
+   "id": "s-0070",
+   "text": "Quand tu reçois un message de ton ex qui commence par « salut toi ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu recois un message de ton ex qui commence par salut toi"
+  },
+  {
+   "id": "s-0071",
+   "text": "Quand ton copain te présente ses parents sans prévenir.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain te presente ses parents sans prevenir"
+  },
+  {
+   "id": "s-0072",
+   "text": "Quand ton crush tape un message pendant 5 minutes et envoie « ok ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush tape un message pendant 5 minutes et envoie ok"
+  },
+  {
+   "id": "s-0073",
+   "text": "Quand tu matches avec ton prof de sport sur une appli de rencontre.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu matches avec ton prof de sport sur une appli de rencontre"
+  },
+  {
+   "id": "s-0074",
+   "text": "Quand ton date arrive avec 40 minutes de retard et sans excuse.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date arrive avec 40 minutes de retard et sans excuse"
+  },
+  {
+   "id": "s-0075",
+   "text": "Quand ton crush te dit bonjour pour la première fois.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush te dit bonjour pour la premiere fois"
+  },
+  {
+   "id": "s-0076",
+   "text": "Quand ton mec fait la sieste au milieu d’une dispute.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton mec fait la sieste au milieu d une dispute"
+  },
+  {
+   "id": "s-0077",
+   "text": "Quand tu réalises que tu stalkes l’ex de l’ex de ton crush.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu realises que tu stalkes l ex de l ex de ton crush"
+  },
+  {
+   "id": "s-0078",
+   "text": "Quand ton copain t’offre un aspirateur pour la Saint-Valentin.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain t offre un aspirateur pour la saint valentin"
+  },
+  {
+   "id": "s-0079",
+   "text": "Quand ton date rit à toutes tes blagues, même les nulles.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date rit a toutes tes blagues meme les nulles"
+  },
+  {
+   "id": "s-0080",
+   "text": "Quand ton crush te dit « on devrait se voir » et ne propose aucune date.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush te dit on devrait se voir et ne propose aucune date"
+  },
+  {
+   "id": "s-0081",
+   "text": "Quand ton ex t’a bloquée, mais regarde encore tes stories.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton ex t a bloquee mais regarde encore tes stories"
+  },
+  {
+   "id": "s-0082",
+   "text": "Quand ton mec dit « c’est rien » avec une voix qui veut tout dire.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton mec dit c est rien avec une voix qui veut tout dire"
+  },
+  {
+   "id": "s-0083",
+   "text": "Quand ton crush t’écrit enfin et que tu attends 3 minutes pour paraître occupée.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush t ecrit enfin et que tu attends 3 minutes pour paraitre occupee"
+  },
+  {
+   "id": "s-0084",
+   "text": "Quand ton date te montre ses abdos en photo dès le deuxième message.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date te montre ses abdos en photo des le deuxieme message"
+  },
+  {
+   "id": "s-0085",
+   "text": "Quand ton copain décide de se laisser pousser la moustache.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain decide de se laisser pousser la moustache"
+  },
+  {
+   "id": "s-0086",
+   "text": "Quand tu entends votre chanson à la radio juste après la rupture.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu entends votre chanson a la radio juste apres la rupture"
+  },
+  {
+   "id": "s-0087",
+   "text": "Quand ton crush porte le parfum qui te fait perdre tous tes moyens.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush porte le parfum qui te fait perdre tous tes moyens"
+  },
+  {
+   "id": "s-0088",
+   "text": "Quand ton date te demande ton signe astrologique et fait la grimace.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton date te demande ton signe astrologique et fait la grimace"
+  },
+  {
+   "id": "s-0089",
+   "text": "Quand ton copain dit « on a tout notre temps » devant une bijouterie.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton copain dit on a tout notre temps devant une bijouterie"
+  },
+  {
+   "id": "s-0090",
+   "text": "Quand tu retrouves le premier message que ton mec t’a envoyé.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu retrouves le premier message que ton mec t a envoye"
+  },
+  {
+   "id": "s-0091",
+   "text": "Quand ton crush partage une photo avec une fille et que c’est sa cousine.",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand ton crush partage une photo avec une fille et que c est sa cousine"
+  },
+  {
+   "id": "s-0092",
+   "text": "Quand tu demandes « on est quoi, nous ? » et qu’il répond « des humains ».",
+   "category": "couple",
+   "active": true,
+   "dedupeKey": "quand tu demandes on est quoi nous et qu il repond des humains"
+  },
+  {
+   "id": "s-0093",
+   "text": "Quand tu réponds « merci, toi aussi » à quelqu’un qui te souhaite un joyeux anniversaire.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu reponds merci toi aussi a quelqu un qui te souhaite un joyeux anniversaire"
+  },
+  {
+   "id": "s-0094",
+   "text": "Quand tu croises quelqu’un que tu évites depuis 3 ans.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu croises quelqu un que tu evites depuis 3 ans"
+  },
+  {
+   "id": "s-0095",
+   "text": "Quand tu réalises que tu as envoyé un message à la mauvaise personne.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu realises que tu as envoye un message a la mauvaise personne"
+  },
+  {
+   "id": "s-0096",
+   "text": "Quand tu entends ton prénom dans une conversation qui ne te concerne pas.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu entends ton prenom dans une conversation qui ne te concerne pas"
+  },
+  {
+   "id": "s-0097",
+   "text": "Quand tu fais coucou à quelqu’un qui ne te faisait pas coucou.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu fais coucou a quelqu un qui ne te faisait pas coucou"
+  },
+  {
+   "id": "s-0098",
+   "text": "Quand le serveur dit « bon appétit » et que tu réponds « vous aussi ».",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand le serveur dit bon appetit et que tu reponds vous aussi"
+  },
+  {
+   "id": "s-0099",
+   "text": "Quand tu ris toute seule et que tout le monde te regarde dans le métro.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu ris toute seule et que tout le monde te regarde dans le metro"
+  },
+  {
+   "id": "s-0100",
+   "text": "Quand tu dis au revoir à quelqu’un et que vous partez dans la même direction.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu dis au revoir a quelqu un et que vous partez dans la meme direction"
+  },
+  {
+   "id": "s-0101",
+   "text": "Quand tu oublies le prénom de la personne qui te parle depuis 20 minutes.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu oublies le prenom de la personne qui te parle depuis 20 minutes"
+  },
+  {
+   "id": "s-0102",
+   "text": "Quand ton ventre gargouille dans une salle silencieuse.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ton ventre gargouille dans une salle silencieuse"
+  },
+  {
+   "id": "s-0103",
+   "text": "Quand tu tires une porte où c’est écrit « poussez ».",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu tires une porte ou c est ecrit poussez"
+  },
+  {
+   "id": "s-0104",
+   "text": "Quand ta caméra est allumée alors que tu pensais qu’elle était coupée.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ta camera est allumee alors que tu pensais qu elle etait coupee"
+  },
+  {
+   "id": "s-0105",
+   "text": "Quand tu appelles la prof « maman ».",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu appelles la prof maman"
+  },
+  {
+   "id": "s-0106",
+   "text": "Quand tu te prends en selfie et que quelqu’un te voit.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu te prends en selfie et que quelqu un te voit"
+  },
+  {
+   "id": "s-0107",
+   "text": "Quand tu chantes à fond dans la voiture au feu rouge.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu chantes a fond dans la voiture au feu rouge"
+  },
+  {
+   "id": "s-0108",
+   "text": "Quand tu fais semblant de connaître la chanson et que tu inventes les paroles.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu fais semblant de connaitre la chanson et que tu inventes les paroles"
+  },
+  {
+   "id": "s-0109",
+   "text": "Quand ton téléphone sonne à fond au cinéma.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ton telephone sonne a fond au cinema"
+  },
+  {
+   "id": "s-0110",
+   "text": "Quand tu te trompes de bise et que vous vous embrassez presque.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu te trompes de bise et que vous vous embrassez presque"
+  },
+  {
+   "id": "s-0111",
+   "text": "Quand tu reconnais quelqu’un de loin et que ce n’est pas du tout elle.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu reconnais quelqu un de loin et que ce n est pas du tout elle"
+  },
+  {
+   "id": "s-0112",
+   "text": "Quand tu glisses devant tout le monde et que tu fais comme si de rien n’était.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu glisses devant tout le monde et que tu fais comme si de rien n etait"
+  },
+  {
+   "id": "s-0113",
+   "text": "Quand tu racontes une anecdote et qu’elle était là quand c’est arrivé.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu racontes une anecdote et qu elle etait la quand c est arrive"
+  },
+  {
+   "id": "s-0114",
+   "text": "Quand ton écran partagé affiche tes messages privés en réunion.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ton ecran partage affiche tes messages prives en reunion"
+  },
+  {
+   "id": "s-0115",
+   "text": "Quand tu rentres dans une pièce et que tout le monde se tait.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu rentres dans une piece et que tout le monde se tait"
+  },
+  {
+   "id": "s-0116",
+   "text": "Quand tu dis « moi aussi » alors que quelqu’un vient d’annoncer un décès.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu dis moi aussi alors que quelqu un vient d annoncer un deces"
+  },
+  {
+   "id": "s-0117",
+   "text": "Quand tu ris d’une blague que tu n’as pas entendue.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu ris d une blague que tu n as pas entendue"
+  },
+  {
+   "id": "s-0118",
+   "text": "Quand le vendeur te demande si tu as besoin d’aide et que tu paniques.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand le vendeur te demande si tu as besoin d aide et que tu paniques"
+  },
+  {
+   "id": "s-0119",
+   "text": "Quand tu marches au même rythme qu’un inconnu sur 200 mètres.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu marches au meme rythme qu un inconnu sur 200 metres"
+  },
+  {
+   "id": "s-0120",
+   "text": "Quand ta mère t’appelle par ton nom complet devant tes amis.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ta mere t appelle par ton nom complet devant tes amis"
+  },
+  {
+   "id": "s-0121",
+   "text": "Quand tu fais tomber ton plateau à la cantine.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu fais tomber ton plateau a la cantine"
+  },
+  {
+   "id": "s-0122",
+   "text": "Quand tu demandes « c’est pour quand ? » à une femme qui n’est pas enceinte.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu demandes c est pour quand a une femme qui n est pas enceinte"
+  },
+  {
+   "id": "s-0123",
+   "text": "Quand tu ouvres un story-sondage et que tu votes par erreur.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu ouvres un story sondage et que tu votes par erreur"
+  },
+  {
+   "id": "s-0124",
+   "text": "Quand tu réalises que tu as un bout de salade entre les dents depuis le matin.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu realises que tu as un bout de salade entre les dents depuis le matin"
+  },
+  {
+   "id": "s-0125",
+   "text": "Quand tu dis « bonne soirée » à 9 h du matin.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu dis bonne soiree a 9 h du matin"
+  },
+  {
+   "id": "s-0126",
+   "text": "Quand ta carte est refusée devant une longue file d’attente.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ta carte est refusee devant une longue file d attente"
+  },
+  {
+   "id": "s-0127",
+   "text": "Quand tu cries une réponse en classe et que c’est complètement faux.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu cries une reponse en classe et que c est completement faux"
+  },
+  {
+   "id": "s-0128",
+   "text": "Quand tu passes devant un miroir de magasin et que tu te découvres sous un mauvais angle.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu passes devant un miroir de magasin et que tu te decouvres sous un mauvais angle"
+  },
+  {
+   "id": "s-0129",
+   "text": "Quand l’ascenseur s’arrête et qu’il n’y a que toi et ton ex dedans.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand l ascenseur s arrete et qu il n y a que toi et ton ex dedans"
+  },
+  {
+   "id": "s-0130",
+   "text": "Quand tu lèves la main pour taper dans celle de quelqu’un qui ne te voit pas.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu leves la main pour taper dans celle de quelqu un qui ne te voit pas"
+  },
+  {
+   "id": "s-0131",
+   "text": "Quand tu te présentes à quelqu’un que tu connais déjà.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu te presentes a quelqu un que tu connais deja"
+  },
+  {
+   "id": "s-0132",
+   "text": "Quand ton estomac répond à la place de toi pendant un oral.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand ton estomac repond a la place de toi pendant un oral"
+  },
+  {
+   "id": "s-0133",
+   "text": "Quand tu envoies un « je t’aime » à ton patron au lieu de ton copain.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu envoies un je t aime a ton patron au lieu de ton copain"
+  },
+  {
+   "id": "s-0134",
+   "text": "Quand tu retrouves un vieil message gênant que tu avais oublié.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu retrouves un vieil message genant que tu avais oublie"
+  },
+  {
+   "id": "s-0135",
+   "text": "Quand tu prends la photo de quelqu’un et que le flash se déclenche en plein musée.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu prends la photo de quelqu un et que le flash se declenche en plein musee"
+  },
+  {
+   "id": "s-0136",
+   "text": "Quand tu te mets à pleurer devant un dessin animé au cinéma.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu te mets a pleurer devant un dessin anime au cinema"
+  },
+  {
+   "id": "s-0137",
+   "text": "Quand tu demandes ton chemin et que tu n’écoutes pas la réponse.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand tu demandes ton chemin et que tu n ecoutes pas la reponse"
+  },
+  {
+   "id": "s-0138",
+   "text": "Quand un inconnu te sourit et que tu te retournes pour vérifier.",
+   "category": "gene",
+   "active": true,
+   "dedupeKey": "quand un inconnu te sourit et que tu te retournes pour verifier"
+  },
+  {
+   "id": "s-0139",
+   "text": "Quand le prof dit « sortez une feuille ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof dit sortez une feuille"
+  },
+  {
+   "id": "s-0140",
+   "text": "Quand ta collègue répond « comme vu ensemble » alors que vous n’avez rien vu ensemble.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ta collegue repond comme vu ensemble alors que vous n avez rien vu ensemble"
+  },
+  {
+   "id": "s-0141",
+   "text": "Quand tu fais semblant d’avoir compris une explication pour la troisième fois.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu fais semblant d avoir compris une explication pour la troisieme fois"
+  },
+  {
+   "id": "s-0142",
+   "text": "Quand le réveil sonne le lundi matin.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le reveil sonne le lundi matin"
+  },
+  {
+   "id": "s-0143",
+   "text": "Quand le prof appelle le seul élève qui n’a pas fait le devoir : toi.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof appelle le seul eleve qui n a pas fait le devoir toi"
+  },
+  {
+   "id": "s-0144",
+   "text": "Quand ton patron dit « tu as cinq minutes ? ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton patron dit tu as cinq minutes"
+  },
+  {
+   "id": "s-0145",
+   "text": "Quand tu rends un devoir que tu as fait la nuit d’avant en écoutant de la musique triste.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu rends un devoir que tu as fait la nuit d avant en ecoutant de la musique triste"
+  },
+  {
+   "id": "s-0146",
+   "text": "Quand le travail de groupe repose entièrement sur toi.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le travail de groupe repose entierement sur toi"
+  },
+  {
+   "id": "s-0147",
+   "text": "Quand la réunion de 10 minutes dure 2 heures.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand la reunion de 10 minutes dure 2 heures"
+  },
+  {
+   "id": "s-0148",
+   "text": "Quand tu vois ta note et que tu ne sais pas si c’est sur 20 ou sur 100.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu vois ta note et que tu ne sais pas si c est sur 20 ou sur 100"
+  },
+  {
+   "id": "s-0149",
+   "text": "Quand le prof dit « ça, ce sera à l’examen » et que tu n’as rien noté.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof dit ca ce sera a l examen et que tu n as rien note"
+  },
+  {
+   "id": "s-0150",
+   "text": "Quand ton ordinateur redémarre pour une mise à jour avant ta présentation.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton ordinateur redemarre pour une mise a jour avant ta presentation"
+  },
+  {
+   "id": "s-0151",
+   "text": "Quand ton collègue mange ton yaourt dans le frigo commun.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton collegue mange ton yaourt dans le frigo commun"
+  },
+  {
+   "id": "s-0152",
+   "text": "Quand tu reçois un mail à 18 h 01 un vendredi.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu recois un mail a 18 h 01 un vendredi"
+  },
+  {
+   "id": "s-0153",
+   "text": "Quand tu oublies de couper ton micro en visio.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu oublies de couper ton micro en visio"
+  },
+  {
+   "id": "s-0154",
+   "text": "Quand la prof annonce que l’oral commence par ordre alphabétique et que tu t’appelles Adèle.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand la prof annonce que l oral commence par ordre alphabetique et que tu t appelles adele"
+  },
+  {
+   "id": "s-0155",
+   "text": "Quand tu demandes une augmentation et qu’on te propose une plante verte.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu demandes une augmentation et qu on te propose une plante verte"
+  },
+  {
+   "id": "s-0156",
+   "text": "Quand tu révises le mauvais chapitre.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu revises le mauvais chapitre"
+  },
+  {
+   "id": "s-0157",
+   "text": "Quand ton chef te félicite pour le travail de ta collègue.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton chef te felicite pour le travail de ta collegue"
+  },
+  {
+   "id": "s-0158",
+   "text": "Quand l’imprimante tombe en panne à 7 h 59 le jour du rendu.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand l imprimante tombe en panne a 7 h 59 le jour du rendu"
+  },
+  {
+   "id": "s-0159",
+   "text": "Quand tu entends la sonnerie de fin de cours pendant ta réponse.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu entends la sonnerie de fin de cours pendant ta reponse"
+  },
+  {
+   "id": "s-0160",
+   "text": "Quand ton nouveau collègue te tutoie dès la première seconde.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton nouveau collegue te tutoie des la premiere seconde"
+  },
+  {
+   "id": "s-0161",
+   "text": "Quand tu comptes les heures avant le week-end dès lundi 9 h.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu comptes les heures avant le week end des lundi 9 h"
+  },
+  {
+   "id": "s-0162",
+   "text": "Quand le prof de sport annonce le test d’endurance.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof de sport annonce le test d endurance"
+  },
+  {
+   "id": "s-0163",
+   "text": "Quand tu découvres qu’il y avait un devoir à rendre aujourd’hui.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu decouvres qu il y avait un devoir a rendre aujourd hui"
+  },
+  {
+   "id": "s-0164",
+   "text": "Quand ton collègue dit « petite question rapide » et qu’il reste une heure.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton collegue dit petite question rapide et qu il reste une heure"
+  },
+  {
+   "id": "s-0165",
+   "text": "Quand tu reçois un message de ton chef qui dit juste « appelle-moi ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu recois un message de ton chef qui dit juste appelle moi"
+  },
+  {
+   "id": "s-0166",
+   "text": "Quand tu dois faire une présentation sur un sujet que tu découvres ce matin.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu dois faire une presentation sur un sujet que tu decouvres ce matin"
+  },
+  {
+   "id": "s-0167",
+   "text": "Quand ton stage consiste surtout à faire des photocopies.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton stage consiste surtout a faire des photocopies"
+  },
+  {
+   "id": "s-0168",
+   "text": "Quand tu te réveilles et qu’il est 8 h 45 alors que l’examen est à 8 h 30.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu te reveilles et qu il est 8 h 45 alors que l examen est a 8 h 30"
+  },
+  {
+   "id": "s-0169",
+   "text": "Quand le prof dit « ceux qui veulent passer au tableau ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof dit ceux qui veulent passer au tableau"
+  },
+  {
+   "id": "s-0170",
+   "text": "Quand ton manager t’ajoute à une réunion intitulée « point rapide ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton manager t ajoute a une reunion intitulee point rapide"
+  },
+  {
+   "id": "s-0171",
+   "text": "Quand la cantine sert ton plat préféré et qu’il n’en reste plus.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand la cantine sert ton plat prefere et qu il n en reste plus"
+  },
+  {
+   "id": "s-0172",
+   "text": "Quand tu ouvres ton bulletin et que ta mère est derrière toi.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu ouvres ton bulletin et que ta mere est derriere toi"
+  },
+  {
+   "id": "s-0173",
+   "text": "Quand la pause déjeuner est finie depuis 10 minutes et que tu es encore en train de manger.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand la pause dejeuner est finie depuis 10 minutes et que tu es encore en train de manger"
+  },
+  {
+   "id": "s-0174",
+   "text": "Quand tu fais le compte de tes absences avant la fin du semestre.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu fais le compte de tes absences avant la fin du semestre"
+  },
+  {
+   "id": "s-0175",
+   "text": "Quand ton collègue présente ton idée comme si c’était la sienne.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton collegue presente ton idee comme si c etait la sienne"
+  },
+  {
+   "id": "s-0176",
+   "text": "Quand le prof rend les copies dans l’ordre des notes.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le prof rend les copies dans l ordre des notes"
+  },
+  {
+   "id": "s-0177",
+   "text": "Quand ton logiciel plante et que tu n’as pas sauvegardé depuis 3 heures.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ton logiciel plante et que tu n as pas sauvegarde depuis 3 heures"
+  },
+  {
+   "id": "s-0178",
+   "text": "Quand tu entends « on va faire un petit tour de table ».",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu entends on va faire un petit tour de table"
+  },
+  {
+   "id": "s-0179",
+   "text": "Quand tu passes ton oral et que ta voix décide de trembler.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu passes ton oral et que ta voix decide de trembler"
+  },
+  {
+   "id": "s-0180",
+   "text": "Quand tu dis « je vais travailler ce week-end » vendredi soir.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu dis je vais travailler ce week end vendredi soir"
+  },
+  {
+   "id": "s-0181",
+   "text": "Quand le Wi-Fi coupe pile au moment d’envoyer ton devoir.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand le wi fi coupe pile au moment d envoyer ton devoir"
+  },
+  {
+   "id": "s-0182",
+   "text": "Quand tu écris ton mail de démission dans ta tête toute la journée.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand tu ecris ton mail de demission dans ta tete toute la journee"
+  },
+  {
+   "id": "s-0183",
+   "text": "Quand ta prof te demande de lire ta copie à voix haute.",
+   "category": "ecole-travail",
+   "active": true,
+   "dedupeKey": "quand ta prof te demande de lire ta copie a voix haute"
+  },
+  {
+   "id": "s-0184",
+   "text": "Quand ta mère te demande de lui montrer « le truc du téléphone » pour la quinzième fois.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere te demande de lui montrer le truc du telephone pour la quinzieme fois"
+  },
+  {
+   "id": "s-0185",
+   "text": "Quand ton père fait un discours au mariage de ta cousine.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere fait un discours au mariage de ta cousine"
+  },
+  {
+   "id": "s-0186",
+   "text": "Quand ta mère dit « on en reparlera à la maison ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere dit on en reparlera a la maison"
+  },
+  {
+   "id": "s-0187",
+   "text": "Quand ta grand-mère te demande « et ton amoureux ? » à chaque repas.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta grand mere te demande et ton amoureux a chaque repas"
+  },
+  {
+   "id": "s-0188",
+   "text": "Quand ton père essaie d’utiliser un mot de jeune.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere essaie d utiliser un mot de jeune"
+  },
+  {
+   "id": "s-0189",
+   "text": "Quand ta mère t’appelle et que tu sais déjà que c’est pour une corvée.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere t appelle et que tu sais deja que c est pour une corvee"
+  },
+  {
+   "id": "s-0190",
+   "text": "Quand ton petit frère révèle tous tes secrets au dîner.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton petit frere revele tous tes secrets au diner"
+  },
+  {
+   "id": "s-0191",
+   "text": "Quand ta tante t’offre un pull qu’elle a tricoté elle-même.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta tante t offre un pull qu elle a tricote elle meme"
+  },
+  {
+   "id": "s-0192",
+   "text": "Quand ta mère dit « je ne suis pas en colère » avec ce ton-là.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere dit je ne suis pas en colere avec ce ton la"
+  },
+  {
+   "id": "s-0193",
+   "text": "Quand ton père raconte la même blague à chaque réunion de famille.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere raconte la meme blague a chaque reunion de famille"
+  },
+  {
+   "id": "s-0194",
+   "text": "Quand ta mère regarde ton historique de recherche.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere regarde ton historique de recherche"
+  },
+  {
+   "id": "s-0195",
+   "text": "Quand tes parents découvrent ce que coûte vraiment ton forfait.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tes parents decouvrent ce que coute vraiment ton forfait"
+  },
+  {
+   "id": "s-0196",
+   "text": "Quand ta grand-mère te sert une troisième assiette alors que tu as dit non deux fois.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta grand mere te sert une troisieme assiette alors que tu as dit non deux fois"
+  },
+  {
+   "id": "s-0197",
+   "text": "Quand ta mère te demande d’allumer l’ordinateur « juste pour imprimer un truc ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere te demande d allumer l ordinateur juste pour imprimer un truc"
+  },
+  {
+   "id": "s-0198",
+   "text": "Quand ton père rentre dans ta chambre sans frapper.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere rentre dans ta chambre sans frapper"
+  },
+  {
+   "id": "s-0199",
+   "text": "Quand ta sœur emprunte tes vêtements sans demander.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta s ur emprunte tes vetements sans demander"
+  },
+  {
+   "id": "s-0200",
+   "text": "Quand ta mère poste une photo de toi bébé sur Facebook.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere poste une photo de toi bebe sur facebook"
+  },
+  {
+   "id": "s-0201",
+   "text": "Quand ton oncle commence à parler politique au repas de Noël.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton oncle commence a parler politique au repas de noel"
+  },
+  {
+   "id": "s-0202",
+   "text": "Quand tes parents disent « nous, à ton âge… ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tes parents disent nous a ton age"
+  },
+  {
+   "id": "s-0203",
+   "text": "Quand ta mère trouve la bouteille cachée dans ta chambre.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere trouve la bouteille cachee dans ta chambre"
+  },
+  {
+   "id": "s-0204",
+   "text": "Quand tu ramènes ton copain et que ton père le fixe sans parler.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tu ramenes ton copain et que ton pere le fixe sans parler"
+  },
+  {
+   "id": "s-0205",
+   "text": "Quand ta mère dit « demande à ton père » et que ton père dit « demande à ta mère ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere dit demande a ton pere et que ton pere dit demande a ta mere"
+  },
+  {
+   "id": "s-0206",
+   "text": "Quand ton petit frère casse un truc et dit que c’est toi.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton petit frere casse un truc et dit que c est toi"
+  },
+  {
+   "id": "s-0207",
+   "text": "Quand ta grand-mère découvre les messages vocaux.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta grand mere decouvre les messages vocaux"
+  },
+  {
+   "id": "s-0208",
+   "text": "Quand tes parents se mettent à danser devant tes amies.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tes parents se mettent a danser devant tes amies"
+  },
+  {
+   "id": "s-0209",
+   "text": "Quand ta mère dit « range ta chambre » alors que tu viens de la ranger.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere dit range ta chambre alors que tu viens de la ranger"
+  },
+  {
+   "id": "s-0210",
+   "text": "Quand ton père s’endort devant le film qu’il voulait absolument voir.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere s endort devant le film qu il voulait absolument voir"
+  },
+  {
+   "id": "s-0211",
+   "text": "Quand ta famille te demande ce que tu comptes faire de ta vie.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta famille te demande ce que tu comptes faire de ta vie"
+  },
+  {
+   "id": "s-0212",
+   "text": "Quand tu entends ta mère dire « ma fille, elle est tellement sage » au téléphone.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tu entends ta mere dire ma fille elle est tellement sage au telephone"
+  },
+  {
+   "id": "s-0213",
+   "text": "Quand ton père essaie de monter un meuble sans la notice.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere essaie de monter un meuble sans la notice"
+  },
+  {
+   "id": "s-0214",
+   "text": "Quand ta cousine parfaite annonce encore une bonne nouvelle.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta cousine parfaite annonce encore une bonne nouvelle"
+  },
+  {
+   "id": "s-0215",
+   "text": "Quand ta mère commente tes photos avec des émojis bizarres.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere commente tes photos avec des emojis bizarres"
+  },
+  {
+   "id": "s-0216",
+   "text": "Quand tu rentres à 4 h du matin et que ta mère est assise dans le noir.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tu rentres a 4 h du matin et que ta mere est assise dans le noir"
+  },
+  {
+   "id": "s-0217",
+   "text": "Quand ton père se perd en refusant d’utiliser le GPS.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere se perd en refusant d utiliser le gps"
+  },
+  {
+   "id": "s-0218",
+   "text": "Quand ta famille compare tes notes à celles de ta cousine.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta famille compare tes notes a celles de ta cousine"
+  },
+  {
+   "id": "s-0219",
+   "text": "Quand ta mère t’envoie un article sur les dangers de dormir avec son téléphone.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere t envoie un article sur les dangers de dormir avec son telephone"
+  },
+  {
+   "id": "s-0220",
+   "text": "Quand tes parents découvrent ton tatouage.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tes parents decouvrent ton tatouage"
+  },
+  {
+   "id": "s-0221",
+   "text": "Quand ta grand-mère te glisse un billet en cachette.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta grand mere te glisse un billet en cachette"
+  },
+  {
+   "id": "s-0222",
+   "text": "Quand ton petit frère imite ta voix au téléphone.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton petit frere imite ta voix au telephone"
+  },
+  {
+   "id": "s-0223",
+   "text": "Quand ta mère dit « mets un pull, j’ai froid ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere dit mets un pull j ai froid"
+  },
+  {
+   "id": "s-0224",
+   "text": "Quand le groupe WhatsApp de la famille s’active à 6 h du matin.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand le groupe whatsapp de la famille s active a 6 h du matin"
+  },
+  {
+   "id": "s-0225",
+   "text": "Quand ta tante dit que tu as « pris un peu de joues ».",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta tante dit que tu as pris un peu de joues"
+  },
+  {
+   "id": "s-0226",
+   "text": "Quand ta mère découvre que tu sais cuisiner seulement des pâtes.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere decouvre que tu sais cuisiner seulement des pates"
+  },
+  {
+   "id": "s-0227",
+   "text": "Quand ton père annonce qu’il s’est mis au jogging.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton pere annonce qu il s est mis au jogging"
+  },
+  {
+   "id": "s-0228",
+   "text": "Quand tes parents parlent de toi comme si tu n’étais pas dans la pièce.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand tes parents parlent de toi comme si tu n etais pas dans la piece"
+  },
+  {
+   "id": "s-0229",
+   "text": "Quand ta mère te demande « tu as mangé ? » au téléphone, encore.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ta mere te demande tu as mange au telephone encore"
+  },
+  {
+   "id": "s-0230",
+   "text": "Quand ton grand-père raconte la guerre à ton copain qui voulait juste dîner.",
+   "category": "famille",
+   "active": true,
+   "dedupeKey": "quand ton grand pere raconte la guerre a ton copain qui voulait juste diner"
+  },
+  {
+   "id": "s-0231",
+   "text": "Quand tu arrives à la soirée en tenue de gala et que tout le monde est en jogging.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu arrives a la soiree en tenue de gala et que tout le monde est en jogging"
+  },
+  {
+   "id": "s-0232",
+   "text": "Quand tu dis que tu rentres tôt ce soir.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu rentres tot ce soir"
+  },
+  {
+   "id": "s-0233",
+   "text": "Quand la soirée est nulle mais que tu es venue avec la personne qui conduit.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la soiree est nulle mais que tu es venue avec la personne qui conduit"
+  },
+  {
+   "id": "s-0234",
+   "text": "Quand ta chanson préférée passe en soirée.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta chanson preferee passe en soiree"
+  },
+  {
+   "id": "s-0235",
+   "text": "Quand tu te réveilles et que tu vois l’heure de tes derniers messages.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu te reveilles et que tu vois l heure de tes derniers messages"
+  },
+  {
+   "id": "s-0236",
+   "text": "Quand quelqu’un propose de jouer à « action ou vérité » et que ton ex est là.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand quelqu un propose de jouer a action ou verite et que ton ex est la"
+  },
+  {
+   "id": "s-0237",
+   "text": "Quand tu arrives à une soirée où tu ne connais que l’hôte et qu’il a disparu.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu arrives a une soiree ou tu ne connais que l hote et qu il a disparu"
+  },
+  {
+   "id": "s-0238",
+   "text": "Quand la police frappe à la porte pour le bruit.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la police frappe a la porte pour le bruit"
+  },
+  {
+   "id": "s-0239",
+   "text": "Quand ta copine bourrée te dit qu’elle t’aime toutes les 3 minutes.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine bourree te dit qu elle t aime toutes les 3 minutes"
+  },
+  {
+   "id": "s-0240",
+   "text": "Quand tu retrouves ta photo de soirée la plus gênante en story.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu retrouves ta photo de soiree la plus genante en story"
+  },
+  {
+   "id": "s-0241",
+   "text": "Quand le DJ passe une chanson que personne ne connaît.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand le dj passe une chanson que personne ne connait"
+  },
+  {
+   "id": "s-0242",
+   "text": "Quand on te demande de prendre la photo de groupe toute la soirée.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand on te demande de prendre la photo de groupe toute la soiree"
+  },
+  {
+   "id": "s-0243",
+   "text": "Quand tu cherches tes clés à 4 h du matin devant chez toi.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu cherches tes cles a 4 h du matin devant chez toi"
+  },
+  {
+   "id": "s-0244",
+   "text": "Quand ta copine veut faire un karaoké et qu’elle chante faux.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine veut faire un karaoke et qu elle chante faux"
+  },
+  {
+   "id": "s-0245",
+   "text": "Quand tu as dit « juste un dernier verre » il y a trois verres.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu as dit juste un dernier verre il y a trois verres"
+  },
+  {
+   "id": "s-0246",
+   "text": "Quand la soirée déguisée était en fait une soirée normale.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la soiree deguisee etait en fait une soiree normale"
+  },
+  {
+   "id": "s-0247",
+   "text": "Quand tu manges un kebab à 5 h du matin et que c’est le meilleur repas de ta vie.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu manges un kebab a 5 h du matin et que c est le meilleur repas de ta vie"
+  },
+  {
+   "id": "s-0248",
+   "text": "Quand tu reçois la note du restaurant à 12.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu recois la note du restaurant a 12"
+  },
+  {
+   "id": "s-0249",
+   "text": "Quand l’after se termine au lever du soleil.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand l after se termine au lever du soleil"
+  },
+  {
+   "id": "s-0250",
+   "text": "Quand ta copine pleure aux toilettes de la soirée pour une raison mystérieuse.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine pleure aux toilettes de la soiree pour une raison mysterieuse"
+  },
+  {
+   "id": "s-0251",
+   "text": "Quand tu fais la queue 45 minutes et que le videur te refuse.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu fais la queue 45 minutes et que le videur te refuse"
+  },
+  {
+   "id": "s-0252",
+   "text": "Quand ton crush arrive à la soirée et que tu es en train de danser n’importe comment.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ton crush arrive a la soiree et que tu es en train de danser n importe comment"
+  },
+  {
+   "id": "s-0253",
+   "text": "Quand le lendemain de soirée, ton groupe reconstitue ta nuit.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand le lendemain de soiree ton groupe reconstitue ta nuit"
+  },
+  {
+   "id": "s-0254",
+   "text": "Quand quelqu’un met la musique trop fort au moment des confidences.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand quelqu un met la musique trop fort au moment des confidences"
+  },
+  {
+   "id": "s-0255",
+   "text": "Quand tu proposes une soirée tranquille et qu’il y a 40 personnes.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu proposes une soiree tranquille et qu il y a 40 personnes"
+  },
+  {
+   "id": "s-0256",
+   "text": "Quand ta copine dit qu’elle ne boit pas ce soir.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine dit qu elle ne boit pas ce soir"
+  },
+  {
+   "id": "s-0257",
+   "text": "Quand tu te rends compte que tu as dansé sur une chanson d’enterrement.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que tu as danse sur une chanson d enterrement"
+  },
+  {
+   "id": "s-0258",
+   "text": "Quand le Uber met 30 minutes à arriver et coûte 40 euros.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand le uber met 30 minutes a arriver et coute 40 euros"
+  },
+  {
+   "id": "s-0259",
+   "text": "Quand ta copine parle à un inconnu depuis une heure et veut te le présenter.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine parle a un inconnu depuis une heure et veut te le presenter"
+  },
+  {
+   "id": "s-0260",
+   "text": "Quand la soirée pyjama se transforme en séance de pleurs sur les ex.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la soiree pyjama se transforme en seance de pleurs sur les ex"
+  },
+  {
+   "id": "s-0261",
+   "text": "Quand le seul garçon de la soirée prend la guitare.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand le seul garcon de la soiree prend la guitare"
+  },
+  {
+   "id": "s-0262",
+   "text": "Quand la playlist passe d’un son festif à une ballade déprimante.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la playlist passe d un son festif a une ballade deprimante"
+  },
+  {
+   "id": "s-0263",
+   "text": "Quand tu remets tes talons après les avoir enlevés et que tu regrettes.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu remets tes talons apres les avoir enleves et que tu regrettes"
+  },
+  {
+   "id": "s-0264",
+   "text": "Quand il ne reste que des chips au paprika.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand il ne reste que des chips au paprika"
+  },
+  {
+   "id": "s-0265",
+   "text": "Quand ton amie disparaît de la soirée et réapparaît avec un nouveau copain.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ton amie disparait de la soiree et reapparait avec un nouveau copain"
+  },
+  {
+   "id": "s-0266",
+   "text": "Quand on te tend le micro pour faire un discours improvisé.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand on te tend le micro pour faire un discours improvise"
+  },
+  {
+   "id": "s-0267",
+   "text": "Quand la soirée commence à 20 h et que les premières arrivent à 23 h.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la soiree commence a 20 h et que les premieres arrivent a 23 h"
+  },
+  {
+   "id": "s-0268",
+   "text": "Quand le lendemain, tu reçois une demande d’ami de quelqu’un dont tu n’as aucun souvenir.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand le lendemain tu recois une demande d ami de quelqu un dont tu n as aucun souvenir"
+  },
+  {
+   "id": "s-0269",
+   "text": "Quand tu fais une entrée remarquée et que tu trébuches sur le tapis.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu fais une entree remarquee et que tu trebuches sur le tapis"
+  },
+  {
+   "id": "s-0270",
+   "text": "Quand ta copine décide qu’il faut appeler son ex à 2 h du matin.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand ta copine decide qu il faut appeler son ex a 2 h du matin"
+  },
+  {
+   "id": "s-0271",
+   "text": "Quand tu découvres que le « petit apéro » est un dîner assis à 8 plats.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que le petit apero est un diner assis a 8 plats"
+  },
+  {
+   "id": "s-0272",
+   "text": "Quand tu as promis à ta mère de rentrer à minuit.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu as promis a ta mere de rentrer a minuit"
+  },
+  {
+   "id": "s-0273",
+   "text": "Quand quelqu’un propose un jeu à boire dont tu ne comprends pas les règles.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand quelqu un propose un jeu a boire dont tu ne comprends pas les regles"
+  },
+  {
+   "id": "s-0274",
+   "text": "Quand la dernière part de pizza est en jeu.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand la derniere part de pizza est en jeu"
+  },
+  {
+   "id": "s-0275",
+   "text": "Quand tu proposes de rentrer et que personne ne veut partir.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu proposes de rentrer et que personne ne veut partir"
+  },
+  {
+   "id": "s-0276",
+   "text": "Quand tu te rends compte que la soirée se passe chez ton ex.",
+   "category": "soirees",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que la soiree se passe chez ton ex"
+  },
+  {
+   "id": "s-0277",
+   "text": "Quand ton crush voit ta story mais pas ton message.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton crush voit ta story mais pas ton message"
+  },
+  {
+   "id": "s-0278",
+   "text": "Quand ton message est « vu » mais toujours sans réponse.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton message est vu mais toujours sans reponse"
+  },
+  {
+   "id": "s-0279",
+   "text": "Quand tu likes par erreur une photo de 2014 en stalkant.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu likes par erreur une photo de 2014 en stalkant"
+  },
+  {
+   "id": "s-0280",
+   "text": "Quand ta story n’a eu que 3 vues, dont ta mère.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ta story n a eu que 3 vues dont ta mere"
+  },
+  {
+   "id": "s-0281",
+   "text": "Quand quelqu’un écrit « on peut s’appeler ? » sans dire pourquoi.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand quelqu un ecrit on peut s appeler sans dire pourquoi"
+  },
+  {
+   "id": "s-0282",
+   "text": "Quand tu reçois une notification « X a mentionné votre nom ».",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu recois une notification x a mentionne votre nom"
+  },
+  {
+   "id": "s-0283",
+   "text": "Quand le groupe WhatsApp a 248 messages non lus.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand le groupe whatsapp a 248 messages non lus"
+  },
+  {
+   "id": "s-0284",
+   "text": "Quand tu écris un long message et que l’autre répond « ok ».",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu ecris un long message et que l autre repond ok"
+  },
+  {
+   "id": "s-0285",
+   "text": "Quand ton téléphone affiche « Batterie faible » au moment de la photo parfaite.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton telephone affiche batterie faible au moment de la photo parfaite"
+  },
+  {
+   "id": "s-0286",
+   "text": "Quand ta vidéo fait un flop et que celle de ton chat devient virale.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ta video fait un flop et que celle de ton chat devient virale"
+  },
+  {
+   "id": "s-0287",
+   "text": "Quand quelqu’un commente « première » sous ta publication.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand quelqu un commente premiere sous ta publication"
+  },
+  {
+   "id": "s-0288",
+   "text": "Quand tu passes une heure à choisir un filtre.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu passes une heure a choisir un filtre"
+  },
+  {
+   "id": "s-0289",
+   "text": "Quand ton oncle partage une fausse information dans le groupe familial.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton oncle partage une fausse information dans le groupe familial"
+  },
+  {
+   "id": "s-0290",
+   "text": "Quand tu vois « en train d’écrire… » puis plus rien.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu vois en train d ecrire puis plus rien"
+  },
+  {
+   "id": "s-0291",
+   "text": "Quand tu postes une photo et que personne ne like pendant 10 minutes.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu postes une photo et que personne ne like pendant 10 minutes"
+  },
+  {
+   "id": "s-0292",
+   "text": "Quand tu découvres que ton ex t’a enlevée de ses abonnés.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que ton ex t a enlevee de ses abonnes"
+  },
+  {
+   "id": "s-0293",
+   "text": "Quand l’appli te rappelle tes souvenirs d’il y a 7 ans.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand l appli te rappelle tes souvenirs d il y a 7 ans"
+  },
+  {
+   "id": "s-0294",
+   "text": "Quand tu reçois un message vocal de ta grand-mère qui dure 0,5 seconde.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu recois un message vocal de ta grand mere qui dure 0 5 seconde"
+  },
+  {
+   "id": "s-0295",
+   "text": "Quand l’algorithme te propose le profil de la personne que tu évites.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand l algorithme te propose le profil de la personne que tu evites"
+  },
+  {
+   "id": "s-0296",
+   "text": "Quand tu te rends compte que ton compte n’était pas privé.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que ton compte n etait pas prive"
+  },
+  {
+   "id": "s-0297",
+   "text": "Quand ton message vocal fait 6 minutes et que tu dis « bref » à la fin.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton message vocal fait 6 minutes et que tu dis bref a la fin"
+  },
+  {
+   "id": "s-0298",
+   "text": "Quand un inconnu t’écrit « coucou ma belle ».",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand un inconnu t ecrit coucou ma belle"
+  },
+  {
+   "id": "s-0299",
+   "text": "Quand tu fais une capture d’écran d’une conversation et que tu l’envoies à la personne concernée.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu fais une capture d ecran d une conversation et que tu l envoies a la personne concernee"
+  },
+  {
+   "id": "s-0300",
+   "text": "Quand ton influenceuse préférée fait une pub pour une crème miracle.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton influenceuse preferee fait une pub pour une creme miracle"
+  },
+  {
+   "id": "s-0301",
+   "text": "Quand tu envoies un message et que la personne sort du groupe.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu envoies un message et que la personne sort du groupe"
+  },
+  {
+   "id": "s-0302",
+   "text": "Quand tu vois que ta copine est en ligne mais qu’elle ne te répond pas.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu vois que ta copine est en ligne mais qu elle ne te repond pas"
+  },
+  {
+   "id": "s-0303",
+   "text": "Quand tu as 14 % de batterie et une journée entière devant toi.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu as 14 de batterie et une journee entiere devant toi"
+  },
+  {
+   "id": "s-0304",
+   "text": "Quand tu as oublié de répondre à un message depuis 3 semaines.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu as oublie de repondre a un message depuis 3 semaines"
+  },
+  {
+   "id": "s-0305",
+   "text": "Quand ton message part avant que tu aies fini de l’écrire.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton message part avant que tu aies fini de l ecrire"
+  },
+  {
+   "id": "s-0306",
+   "text": "Quand l’autocorrecteur transforme ton message en déclaration bizarre.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand l autocorrecteur transforme ton message en declaration bizarre"
+  },
+  {
+   "id": "s-0307",
+   "text": "Quand ton pouce reste sur le bouton « j’aime » trop longtemps.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton pouce reste sur le bouton j aime trop longtemps"
+  },
+  {
+   "id": "s-0308",
+   "text": "Quand tu reçois un mème de ta mère et qu’il est drôle.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu recois un meme de ta mere et qu il est drole"
+  },
+  {
+   "id": "s-0309",
+   "text": "Quand la personne répond « haha » à ta meilleure blague.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand la personne repond haha a ta meilleure blague"
+  },
+  {
+   "id": "s-0310",
+   "text": "Quand tu passes de « je regarde une vidéo » à 3 h de scroll.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu passes de je regarde une video a 3 h de scroll"
+  },
+  {
+   "id": "s-0311",
+   "text": "Quand tu vois un TikTok qui te décrit parfaitement.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu vois un tiktok qui te decrit parfaitement"
+  },
+  {
+   "id": "s-0312",
+   "text": "Quand tu te rends compte que ton fond d’écran est un selfie de ton ex.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que ton fond d ecran est un selfie de ton ex"
+  },
+  {
+   "id": "s-0313",
+   "text": "Quand ton appel vidéo s’ouvre sur ton menton.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton appel video s ouvre sur ton menton"
+  },
+  {
+   "id": "s-0314",
+   "text": "Quand quelqu’un répond à ta story avec juste un émoji flamme.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand quelqu un repond a ta story avec juste un emoji flamme"
+  },
+  {
+   "id": "s-0315",
+   "text": "Quand ton pote publie une photo de groupe où tout le monde est bien sauf toi.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton pote publie une photo de groupe ou tout le monde est bien sauf toi"
+  },
+  {
+   "id": "s-0316",
+   "text": "Quand tu ouvres le message de quelqu’un et qu’il voit que tu l’as lu instantanément.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu ouvres le message de quelqu un et qu il voit que tu l as lu instantanement"
+  },
+  {
+   "id": "s-0317",
+   "text": "Quand ton téléphone tombe sur ton visage au lit.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton telephone tombe sur ton visage au lit"
+  },
+  {
+   "id": "s-0318",
+   "text": "Quand tu découvres que tu suis 1 200 comptes de recettes que tu ne cuisineras jamais.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que tu suis 1 200 comptes de recettes que tu ne cuisineras jamais"
+  },
+  {
+   "id": "s-0319",
+   "text": "Quand ta copine t’envoie 12 TikToks d’affilée sans commentaire.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ta copine t envoie 12 tiktoks d affilee sans commentaire"
+  },
+  {
+   "id": "s-0320",
+   "text": "Quand on t’ajoute à un nouveau groupe appelé « Surprise pour toi » par erreur.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand on t ajoute a un nouveau groupe appele surprise pour toi par erreur"
+  },
+  {
+   "id": "s-0321",
+   "text": "Quand ton commentaire reçoit plus de likes que la publication.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand ton commentaire recoit plus de likes que la publication"
+  },
+  {
+   "id": "s-0322",
+   "text": "Quand tu écris « mdr » sans même sourire.",
+   "category": "reseaux",
+   "active": true,
+   "dedupeKey": "quand tu ecris mdr sans meme sourire"
+  },
+  {
+   "id": "s-0323",
+   "text": "Quand un pigeon te fixe dans les yeux en mangeant ton sandwich.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand un pigeon te fixe dans les yeux en mangeant ton sandwich"
+  },
+  {
+   "id": "s-0324",
+   "text": "Quand ton chat te regarde comme s’il connaissait tous tes secrets.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton chat te regarde comme s il connaissait tous tes secrets"
+  },
+  {
+   "id": "s-0325",
+   "text": "Quand tu ouvres le frigo pour la dixième fois en espérant un miracle.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu ouvres le frigo pour la dixieme fois en esperant un miracle"
+  },
+  {
+   "id": "s-0326",
+   "text": "Quand une mouette te vole une frite en pleine conversation.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand une mouette te vole une frite en pleine conversation"
+  },
+  {
+   "id": "s-0327",
+   "text": "Quand ta plante meurt alors que tu lui parlais tous les jours.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ta plante meurt alors que tu lui parlais tous les jours"
+  },
+  {
+   "id": "s-0328",
+   "text": "Quand tu entres dans une pièce et que tu oublies pourquoi.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu entres dans une piece et que tu oublies pourquoi"
+  },
+  {
+   "id": "s-0329",
+   "text": "Quand ton aspirateur robot reste bloqué sous le canapé pour la cinquième fois.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton aspirateur robot reste bloque sous le canape pour la cinquieme fois"
+  },
+  {
+   "id": "s-0330",
+   "text": "Quand tu découvres qu’un escargot traverse ta salle de bain.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu decouvres qu un escargot traverse ta salle de bain"
+  },
+  {
+   "id": "s-0331",
+   "text": "Quand ton grille-pain éjecte le pain avec une violence inouïe.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton grille pain ejecte le pain avec une violence inouie"
+  },
+  {
+   "id": "s-0332",
+   "text": "Quand la machine à café te rend la monnaie mais pas le café.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand la machine a cafe te rend la monnaie mais pas le cafe"
+  },
+  {
+   "id": "s-0333",
+   "text": "Quand une chèvre crie au milieu d’un moment très calme.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand une chevre crie au milieu d un moment tres calme"
+  },
+  {
+   "id": "s-0334",
+   "text": "Quand ton GPS te dit de tourner dans un lac.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton gps te dit de tourner dans un lac"
+  },
+  {
+   "id": "s-0335",
+   "text": "Quand tu te bats contre une housse de couette.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu te bats contre une housse de couette"
+  },
+  {
+   "id": "s-0336",
+   "text": "Quand tu cherches tes lunettes alors qu’elles sont sur ta tête.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu cherches tes lunettes alors qu elles sont sur ta tete"
+  },
+  {
+   "id": "s-0337",
+   "text": "Quand ton chien aboie contre son propre reflet.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton chien aboie contre son propre reflet"
+  },
+  {
+   "id": "s-0338",
+   "text": "Quand tu marches sur une brique de construction en pleine nuit.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu marches sur une brique de construction en pleine nuit"
+  },
+  {
+   "id": "s-0339",
+   "text": "Quand un moustique te tourne autour de l’oreille à 3 h du matin.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand un moustique te tourne autour de l oreille a 3 h du matin"
+  },
+  {
+   "id": "s-0340",
+   "text": "Quand tu te rends compte que tu parles à voix haute toute seule depuis 10 minutes.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que tu parles a voix haute toute seule depuis 10 minutes"
+  },
+  {
+   "id": "s-0341",
+   "text": "Quand ton chat fait tomber un verre en te regardant droit dans les yeux.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton chat fait tomber un verre en te regardant droit dans les yeux"
+  },
+  {
+   "id": "s-0342",
+   "text": "Quand le distributeur garde ton paquet de chips suspendu dans le vide.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand le distributeur garde ton paquet de chips suspendu dans le vide"
+  },
+  {
+   "id": "s-0343",
+   "text": "Quand une abeille entre dans la voiture sur l’autoroute.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand une abeille entre dans la voiture sur l autoroute"
+  },
+  {
+   "id": "s-0344",
+   "text": "Quand tu fais un rêve si bizarre que tu veux le raconter à tout le monde.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu fais un reve si bizarre que tu veux le raconter a tout le monde"
+  },
+  {
+   "id": "s-0345",
+   "text": "Quand tu découvres une chaussette orpheline dans le congélateur.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu decouvres une chaussette orpheline dans le congelateur"
+  },
+  {
+   "id": "s-0346",
+   "text": "Quand tu essaies d’ouvrir un pot de cornichons depuis 10 minutes.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies d ouvrir un pot de cornichons depuis 10 minutes"
+  },
+  {
+   "id": "s-0347",
+   "text": "Quand ton horoscope annonce exactement ce qui vient de t’arriver.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton horoscope annonce exactement ce qui vient de t arriver"
+  },
+  {
+   "id": "s-0348",
+   "text": "Quand le canard du parc te poursuit pour du pain.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand le canard du parc te poursuit pour du pain"
+  },
+  {
+   "id": "s-0349",
+   "text": "Quand ta voix intérieure fait une remarque très inappropriée.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ta voix interieure fait une remarque tres inappropriee"
+  },
+  {
+   "id": "s-0350",
+   "text": "Quand la lumière du frigo est la seule qui te comprend.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand la lumiere du frigo est la seule qui te comprend"
+  },
+  {
+   "id": "s-0351",
+   "text": "Quand tu te réveilles 5 minutes avant ton réveil.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu te reveilles 5 minutes avant ton reveil"
+  },
+  {
+   "id": "s-0352",
+   "text": "Quand ton parapluie se retourne avec le vent devant tout le monde.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton parapluie se retourne avec le vent devant tout le monde"
+  },
+  {
+   "id": "s-0353",
+   "text": "Quand tu imagines une dispute dans ta tête et que tu la perds.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu imagines une dispute dans ta tete et que tu la perds"
+  },
+  {
+   "id": "s-0354",
+   "text": "Quand un oiseau fait ses besoins sur toi le jour de ton rendez-vous.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand un oiseau fait ses besoins sur toi le jour de ton rendez vous"
+  },
+  {
+   "id": "s-0355",
+   "text": "Quand ta lessive ressort plus sale qu’avant.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ta lessive ressort plus sale qu avant"
+  },
+  {
+   "id": "s-0356",
+   "text": "Quand tu trouves une frite dans ton sac trois jours après.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu trouves une frite dans ton sac trois jours apres"
+  },
+  {
+   "id": "s-0357",
+   "text": "Quand ta tartine tombe du côté de la confiture.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ta tartine tombe du cote de la confiture"
+  },
+  {
+   "id": "s-0358",
+   "text": "Quand un écureuil te regarde avec un air supérieur.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand un ecureuil te regarde avec un air superieur"
+  },
+  {
+   "id": "s-0359",
+   "text": "Quand tu fais une sieste de 20 minutes et que tu te réveilles 3 heures plus tard.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu fais une sieste de 20 minutes et que tu te reveilles 3 heures plus tard"
+  },
+  {
+   "id": "s-0360",
+   "text": "Quand ton chat dort sur ton clavier pendant que tu travailles.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton chat dort sur ton clavier pendant que tu travailles"
+  },
+  {
+   "id": "s-0361",
+   "text": "Quand tu rêves que tu tombes et que tu sursautes en vrai.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu reves que tu tombes et que tu sursautes en vrai"
+  },
+  {
+   "id": "s-0362",
+   "text": "Quand tu prépares un plat et que tu ne sais pas du tout ce que c’est devenu.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu prepares un plat et que tu ne sais pas du tout ce que c est devenu"
+  },
+  {
+   "id": "s-0363",
+   "text": "Quand tu entends un bruit bizarre dans l’appartement à minuit.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu entends un bruit bizarre dans l appartement a minuit"
+  },
+  {
+   "id": "s-0364",
+   "text": "Quand le hamster s’échappe et qu’il reste introuvable depuis 3 jours.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand le hamster s echappe et qu il reste introuvable depuis 3 jours"
+  },
+  {
+   "id": "s-0365",
+   "text": "Quand tu dis « à vos souhaits » à un chat.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu dis a vos souhaits a un chat"
+  },
+  {
+   "id": "s-0366",
+   "text": "Quand ton ventilateur se met à faire un bruit d’hélicoptère.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand ton ventilateur se met a faire un bruit d helicoptere"
+  },
+  {
+   "id": "s-0367",
+   "text": "Quand une coccinelle se pose sur toi et que tu fais un vœu au cas où.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand une coccinelle se pose sur toi et que tu fais un v u au cas ou"
+  },
+  {
+   "id": "s-0368",
+   "text": "Quand tu dis « j’ai eu un imprévu » et que l’imprévu, c’était une sieste.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j ai eu un imprevu et que l imprevu c etait une sieste"
+  },
+  {
+   "id": "s-0369",
+   "text": "Quand tu dis que tu arrives dans 5 minutes alors que tu es encore chez toi.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu arrives dans 5 minutes alors que tu es encore chez toi"
+  },
+  {
+   "id": "s-0370",
+   "text": "Quand tu dis « je suis en bas » alors que tu es encore sous la douche.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je suis en bas alors que tu es encore sous la douche"
+  },
+  {
+   "id": "s-0371",
+   "text": "Quand tu prétends que ton téléphone était en silencieux.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends que ton telephone etait en silencieux"
+  },
+  {
+   "id": "s-0372",
+   "text": "Quand tu dis « j’ai pas vu ton message » alors que tu l’as lu 12 fois.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j ai pas vu ton message alors que tu l as lu 12 fois"
+  },
+  {
+   "id": "s-0373",
+   "text": "Quand tu annules en disant que tu es malade et qu’on te croise au cinéma.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu annules en disant que tu es malade et qu on te croise au cinema"
+  },
+  {
+   "id": "s-0374",
+   "text": "Quand tu dis « c’est le réseau » pour raccrocher.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis c est le reseau pour raccrocher"
+  },
+  {
+   "id": "s-0375",
+   "text": "Quand tu dis « j’ai déjà mangé » pour éviter la cuisine de ta tante.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j ai deja mange pour eviter la cuisine de ta tante"
+  },
+  {
+   "id": "s-0376",
+   "text": "Quand tu jures que tu n’as rien mangé et que tu as du chocolat sur la joue.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu jures que tu n as rien mange et que tu as du chocolat sur la joue"
+  },
+  {
+   "id": "s-0377",
+   "text": "Quand tu dis « j’adore ! » en ouvrant un cadeau horrible.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j adore en ouvrant un cadeau horrible"
+  },
+  {
+   "id": "s-0378",
+   "text": "Quand tu dis « je l’ai lu » à propos d’un livre que tu n’as jamais ouvert.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je l ai lu a propos d un livre que tu n as jamais ouvert"
+  },
+  {
+   "id": "s-0379",
+   "text": "Quand tu dis que c’était ton plan depuis le début.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que c etait ton plan depuis le debut"
+  },
+  {
+   "id": "s-0380",
+   "text": "Quand tu prétends que le bus était en retard.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends que le bus etait en retard"
+  },
+  {
+   "id": "s-0381",
+   "text": "Quand tu dis « j’allais justement t’appeler ».",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j allais justement t appeler"
+  },
+  {
+   "id": "s-0382",
+   "text": "Quand tu dis « c’est pas moi » et que tu es la seule dans la pièce.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis c est pas moi et que tu es la seule dans la piece"
+  },
+  {
+   "id": "s-0383",
+   "text": "Quand tu fais semblant de dormir pour éviter une corvée.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu fais semblant de dormir pour eviter une corvee"
+  },
+  {
+   "id": "s-0384",
+   "text": "Quand tu dis « j’ai adoré ton plat » en cachant la moitié dans ta serviette.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j ai adore ton plat en cachant la moitie dans ta serviette"
+  },
+  {
+   "id": "s-0385",
+   "text": "Quand tu dis que tu as un empêchement et que l’empêchement c’est ton canapé.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu as un empechement et que l empechement c est ton canape"
+  },
+  {
+   "id": "s-0386",
+   "text": "Quand tu prétends connaître le film dont tout le monde parle.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends connaitre le film dont tout le monde parle"
+  },
+  {
+   "id": "s-0387",
+   "text": "Quand tu dis « c’est le chien qui l’a mangé » à 25 ans.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis c est le chien qui l a mange a 25 ans"
+  },
+  {
+   "id": "s-0388",
+   "text": "Quand tu prétends que tu étais « à deux doigts » d’aller au sport.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends que tu etais a deux doigts d aller au sport"
+  },
+  {
+   "id": "s-0389",
+   "text": "Quand tu dis « je suis super occupée » en regardant une série.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je suis super occupee en regardant une serie"
+  },
+  {
+   "id": "s-0390",
+   "text": "Quand tu prétends avoir déjà fait tes devoirs.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends avoir deja fait tes devoirs"
+  },
+  {
+   "id": "s-0391",
+   "text": "Quand tu dis « j’avais pas faim » après avoir fini le paquet de biscuits.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j avais pas faim apres avoir fini le paquet de biscuits"
+  },
+  {
+   "id": "s-0392",
+   "text": "Quand tu fais semblant de réfléchir alors que tu as déjà dit non.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu fais semblant de reflechir alors que tu as deja dit non"
+  },
+  {
+   "id": "s-0393",
+   "text": "Quand tu dis « je l’ai trouvé comme ça » devant le vase cassé.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je l ai trouve comme ca devant le vase casse"
+  },
+  {
+   "id": "s-0394",
+   "text": "Quand tu dis que tu es « presque prête » alors que tu n’as pas commencé.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu es presque prete alors que tu n as pas commence"
+  },
+  {
+   "id": "s-0395",
+   "text": "Quand ton excuse est tellement nulle que tu y crois toi-même.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand ton excuse est tellement nulle que tu y crois toi meme"
+  },
+  {
+   "id": "s-0396",
+   "text": "Quand tu dis « on verra » en sachant très bien que c’est non.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis on verra en sachant tres bien que c est non"
+  },
+  {
+   "id": "s-0397",
+   "text": "Quand tu prétends avoir oublié ton porte-monnaie.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends avoir oublie ton porte monnaie"
+  },
+  {
+   "id": "s-0398",
+   "text": "Quand tu dis « j’étais en train de répondre ! » juste après l’appel de reproche.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j etais en train de repondre juste apres l appel de reproche"
+  },
+  {
+   "id": "s-0399",
+   "text": "Quand tu dis « je fais ça demain » pour la sixième semaine d’affilée.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je fais ca demain pour la sixieme semaine d affilee"
+  },
+  {
+   "id": "s-0400",
+   "text": "Quand tu prétends que le texto venait de ta petite sœur.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends que le texto venait de ta petite s ur"
+  },
+  {
+   "id": "s-0401",
+   "text": "Quand tu dis que tu es en retard « à cause des travaux ».",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu es en retard a cause des travaux"
+  },
+  {
+   "id": "s-0402",
+   "text": "Quand tu dis « j’ai juste reposé mes yeux » en te réveillant d’une sieste.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis j ai juste repose mes yeux en te reveillant d une sieste"
+  },
+  {
+   "id": "s-0403",
+   "text": "Quand tu inventes une réunion pour quitter une conversation.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu inventes une reunion pour quitter une conversation"
+  },
+  {
+   "id": "s-0404",
+   "text": "Quand tu dis « c’est de la salade » à propos de ta pizza.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis c est de la salade a propos de ta pizza"
+  },
+  {
+   "id": "s-0405",
+   "text": "Quand tu dis « je n’ai pas entendu ton appel » alors que tu l’as regardé sonner.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je n ai pas entendu ton appel alors que tu l as regarde sonner"
+  },
+  {
+   "id": "s-0406",
+   "text": "Quand tu dis que tu as « un truc de prévu » sans savoir lequel.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu as un truc de prevu sans savoir lequel"
+  },
+  {
+   "id": "s-0407",
+   "text": "Quand tu dis « je connais quelqu’un qui… » alors que c’est toi.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je connais quelqu un qui alors que c est toi"
+  },
+  {
+   "id": "s-0408",
+   "text": "Quand tu dis « c’est parfait » à ta coiffeuse alors que tu as envie de pleurer.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis c est parfait a ta coiffeuse alors que tu as envie de pleurer"
+  },
+  {
+   "id": "s-0409",
+   "text": "Quand tu dis « je n’ai rien dit » juste après avoir tout dit.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je n ai rien dit juste apres avoir tout dit"
+  },
+  {
+   "id": "s-0410",
+   "text": "Quand tu dis que tu as lu tout le dossier et qu’on te pose une question précise.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis que tu as lu tout le dossier et qu on te pose une question precise"
+  },
+  {
+   "id": "s-0411",
+   "text": "Quand tu fais croire que ton chat a marché sur ton clavier.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu fais croire que ton chat a marche sur ton clavier"
+  },
+  {
+   "id": "s-0412",
+   "text": "Quand tu dis « je pensais que c’était demain ».",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu dis je pensais que c etait demain"
+  },
+  {
+   "id": "s-0413",
+   "text": "Quand tu prétends que ton réveil n’a pas sonné alors qu’il a sonné 7 fois.",
+   "category": "excuses",
+   "active": true,
+   "dedupeKey": "quand tu pretends que ton reveil n a pas sonne alors qu il a sonne 7 fois"
+  },
+  {
+   "id": "s-0414",
+   "text": "Ce que tu veux qu’on écrive sur ta tombe.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "ce que tu veux qu on ecrive sur ta tombe"
+  },
+  {
+   "id": "s-0415",
+   "text": "Quand ton médecin dit « hmm » en regardant ta radio.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton medecin dit hmm en regardant ta radio"
+  },
+  {
+   "id": "s-0416",
+   "text": "Quand tu fais ton testament et que tu n’as que des dettes à léguer.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu fais ton testament et que tu n as que des dettes a leguer"
+  },
+  {
+   "id": "s-0417",
+   "text": "Quand ton compte en banque affiche un chiffre en rouge le 3 du mois.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton compte en banque affiche un chiffre en rouge le 3 du mois"
+  },
+  {
+   "id": "s-0418",
+   "text": "Ta réaction le jour où tu découvres que tu es la méchante de l’histoire.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "ta reaction le jour ou tu decouvres que tu es la mechante de l histoire"
+  },
+  {
+   "id": "s-0419",
+   "text": "Quand ton poisson rouge meurt et que tu dois faire un discours.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton poisson rouge meurt et que tu dois faire un discours"
+  },
+  {
+   "id": "s-0420",
+   "text": "Quand ta plante verte rend l’âme pour la troisième fois.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta plante verte rend l ame pour la troisieme fois"
+  },
+  {
+   "id": "s-0421",
+   "text": "Quand tu réalises que tu as passé la moitié de ta vie à attendre le week-end.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu realises que tu as passe la moitie de ta vie a attendre le week end"
+  },
+  {
+   "id": "s-0422",
+   "text": "Quand l’avion traverse une zone de turbulences et que l’hôtesse arrête de sourire.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand l avion traverse une zone de turbulences et que l hotesse arrete de sourire"
+  },
+  {
+   "id": "s-0423",
+   "text": "Quand tu entends ton genou craquer à 25 ans.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu entends ton genou craquer a 25 ans"
+  },
+  {
+   "id": "s-0424",
+   "text": "Quand la voyante refuse de te lire l’avenir.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand la voyante refuse de te lire l avenir"
+  },
+  {
+   "id": "s-0425",
+   "text": "Quand tu lis tes symptômes sur Internet.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu lis tes symptomes sur internet"
+  },
+  {
+   "id": "s-0426",
+   "text": "Quand ta mamie dit « profite, après ça passe vite ».",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta mamie dit profite apres ca passe vite"
+  },
+  {
+   "id": "s-0427",
+   "text": "Quand ton fantôme hante ton ex.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton fantome hante ton ex"
+  },
+  {
+   "id": "s-0428",
+   "text": "Quand tu fais une liste de tes rêves et qu’elle est plus courte que ta liste de courses.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu fais une liste de tes reves et qu elle est plus courte que ta liste de courses"
+  },
+  {
+   "id": "s-0429",
+   "text": "Quand le dentiste dit « ça va piquer un peu ».",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand le dentiste dit ca va piquer un peu"
+  },
+  {
+   "id": "s-0430",
+   "text": "Quand tu découvres le prix d’un enterrement.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu decouvres le prix d un enterrement"
+  },
+  {
+   "id": "s-0431",
+   "text": "Quand ta motivation meurt avant la fin du premier jour de régime.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta motivation meurt avant la fin du premier jour de regime"
+  },
+  {
+   "id": "s-0432",
+   "text": "Quand l’apocalypse arrive et que tu n’as pas fini ta série.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand l apocalypse arrive et que tu n as pas fini ta serie"
+  },
+  {
+   "id": "s-0433",
+   "text": "Quand tu entends le mot « contrôle fiscal ».",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu entends le mot controle fiscal"
+  },
+  {
+   "id": "s-0434",
+   "text": "Quand ton dernier neurone fait des heures supplémentaires.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton dernier neurone fait des heures supplementaires"
+  },
+  {
+   "id": "s-0435",
+   "text": "Quand tu reçois un e-mail qui commence par « nous avons le regret ».",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu recois un e mail qui commence par nous avons le regret"
+  },
+  {
+   "id": "s-0436",
+   "text": "Quand tu te réveilles et que la vie continue malgré tout.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu te reveilles et que la vie continue malgre tout"
+  },
+  {
+   "id": "s-0437",
+   "text": "Quand tu te rends compte que tu as l’âge de tes parents sur les vieilles photos.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu te rends compte que tu as l age de tes parents sur les vieilles photos"
+  },
+  {
+   "id": "s-0438",
+   "text": "Quand ton jeu vidéo te dit « tu es mort » pour la 47e fois.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton jeu video te dit tu es mort pour la 47e fois"
+  },
+  {
+   "id": "s-0439",
+   "text": "Quand ta chance prend des vacances indéfinies.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta chance prend des vacances indefinies"
+  },
+  {
+   "id": "s-0440",
+   "text": "Ce que tu dis quand la zombie apocalypse commence.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "ce que tu dis quand la zombie apocalypse commence"
+  },
+  {
+   "id": "s-0441",
+   "text": "Quand tu cherches un sens à ta vie un dimanche soir.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu cherches un sens a ta vie un dimanche soir"
+  },
+  {
+   "id": "s-0442",
+   "text": "Quand ta joie de vivre est restée dans les années 2010.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta joie de vivre est restee dans les annees 2010"
+  },
+  {
+   "id": "s-0443",
+   "text": "Quand ton psy te demande « et comment ça vous fait vous sentir ? ».",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton psy te demande et comment ca vous fait vous sentir"
+  },
+  {
+   "id": "s-0444",
+   "text": "Quand ton alarme incendie sonne parce que tu fais cuire des pâtes.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ton alarme incendie sonne parce que tu fais cuire des pates"
+  },
+  {
+   "id": "s-0445",
+   "text": "Quand le chirurgien te demande si tu as des questions avant l’opération.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand le chirurgien te demande si tu as des questions avant l operation"
+  },
+  {
+   "id": "s-0446",
+   "text": "Quand tu regardes ton relevé de compte après les fêtes.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu regardes ton releve de compte apres les fetes"
+  },
+  {
+   "id": "s-0447",
+   "text": "Quand tu découvres que ton signe astrologique annonce une année catastrophique.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que ton signe astrologique annonce une annee catastrophique"
+  },
+  {
+   "id": "s-0448",
+   "text": "Quand la seule chose qui t’attend à la maison, c’est la vaisselle.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand la seule chose qui t attend a la maison c est la vaisselle"
+  },
+  {
+   "id": "s-0449",
+   "text": "Quand tu penses à ton avenir et que ton cerveau affiche un écran noir.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu penses a ton avenir et que ton cerveau affiche un ecran noir"
+  },
+  {
+   "id": "s-0450",
+   "text": "Quand les pompiers te connaissent par ton prénom.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand les pompiers te connaissent par ton prenom"
+  },
+  {
+   "id": "s-0451",
+   "text": "Quand tu survis à un lundi et que mardi arrive.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu survis a un lundi et que mardi arrive"
+  },
+  {
+   "id": "s-0452",
+   "text": "Quand tu fais ton CV et que tes qualités tiennent sur un post-it.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu fais ton cv et que tes qualites tiennent sur un post it"
+  },
+  {
+   "id": "s-0453",
+   "text": "Quand le médecin t’appelle personnellement pour tes résultats.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand le medecin t appelle personnellement pour tes resultats"
+  },
+  {
+   "id": "s-0454",
+   "text": "Quand ta voiture fait un bruit qui ressemble à un adieu.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand ta voiture fait un bruit qui ressemble a un adieu"
+  },
+  {
+   "id": "s-0455",
+   "text": "Quand tu fais un vœu en soufflant tes bougies et que tu ne crois plus en rien.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu fais un v u en soufflant tes bougies et que tu ne crois plus en rien"
+  },
+  {
+   "id": "s-0456",
+   "text": "Quand tu vois ta tête sur la photo d’identité.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu vois ta tete sur la photo d identite"
+  },
+  {
+   "id": "s-0457",
+   "text": "Quand la fin du monde est annoncée pour demain et que tu as encore une machine à lancer.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand la fin du monde est annoncee pour demain et que tu as encore une machine a lancer"
+  },
+  {
+   "id": "s-0458",
+   "text": "Quand tu découvres que tu es l’ex toxique de quelqu’un.",
+   "category": "humour-noir",
+   "active": true,
+   "dedupeKey": "quand tu decouvres que tu es l ex toxique de quelqu un"
+  },
+  {
+   "id": "s-0459",
+   "text": "Quand tu passes 20 minutes à choisir un film et que tu finis par revoir le même.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu passes 20 minutes a choisir un film et que tu finis par revoir le meme"
+  },
+  {
+   "id": "s-0460",
+   "text": "Ton état quand tu as 37 onglets ouverts.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "ton etat quand tu as 37 onglets ouverts"
+  },
+  {
+   "id": "s-0461",
+   "text": "Quand le Wi-Fi tombe pendant un téléchargement à 99 %.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le wi fi tombe pendant un telechargement a 99"
+  },
+  {
+   "id": "s-0462",
+   "text": "Quand tu acceptes les cookies sans lire, comme tout le monde.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu acceptes les cookies sans lire comme tout le monde"
+  },
+  {
+   "id": "s-0463",
+   "text": "Quand un site te demande de prouver que tu n’es pas un robot pour la cinquième fois.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand un site te demande de prouver que tu n es pas un robot pour la cinquieme fois"
+  },
+  {
+   "id": "s-0464",
+   "text": "Quand tu regardes un tuto et que la personne va beaucoup trop vite.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu regardes un tuto et que la personne va beaucoup trop vite"
+  },
+  {
+   "id": "s-0465",
+   "text": "Quand ton colis indique « livré » mais qu’il n’y a rien devant ta porte.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton colis indique livre mais qu il n y a rien devant ta porte"
+  },
+  {
+   "id": "s-0466",
+   "text": "Quand tu perds 2 heures à lire les commentaires d’une vidéo.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu perds 2 heures a lire les commentaires d une video"
+  },
+  {
+   "id": "s-0467",
+   "text": "Quand ta série préférée est annulée sur un cliffhanger.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ta serie preferee est annulee sur un cliffhanger"
+  },
+  {
+   "id": "s-0468",
+   "text": "Quand le spoiler arrive par une notification.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le spoiler arrive par une notification"
+  },
+  {
+   "id": "s-0469",
+   "text": "Quand tu cherches un truc simple et que tu tombes sur un forum de 2009.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu cherches un truc simple et que tu tombes sur un forum de 2009"
+  },
+  {
+   "id": "s-0470",
+   "text": "Quand le jeu vidéo te demande une mise à jour de 40 Go.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le jeu video te demande une mise a jour de 40 go"
+  },
+  {
+   "id": "s-0471",
+   "text": "Quand l’appli te demande de noter ton expérience.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand l appli te demande de noter ton experience"
+  },
+  {
+   "id": "s-0472",
+   "text": "Quand tu regardes le dernier épisode et qu’il n’y a pas de saison suivante.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu regardes le dernier episode et qu il n y a pas de saison suivante"
+  },
+  {
+   "id": "s-0473",
+   "text": "Quand ta vidéo met 10 minutes à charger pour une pub de 30 secondes.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ta video met 10 minutes a charger pour une pub de 30 secondes"
+  },
+  {
+   "id": "s-0474",
+   "text": "Quand tu oublies ton mot de passe pour la huitième fois.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu oublies ton mot de passe pour la huitieme fois"
+  },
+  {
+   "id": "s-0475",
+   "text": "Quand un site te dit que ton mot de passe doit contenir une majuscule, un chiffre et un hiéroglyphe.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand un site te dit que ton mot de passe doit contenir une majuscule un chiffre et un hieroglyphe"
+  },
+  {
+   "id": "s-0476",
+   "text": "Quand ton jeu plante juste avant la sauvegarde.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton jeu plante juste avant la sauvegarde"
+  },
+  {
+   "id": "s-0477",
+   "text": "Quand tu cliques sur « suivant » et que l’épisode commence directement.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu cliques sur suivant et que l episode commence directement"
+  },
+  {
+   "id": "s-0478",
+   "text": "Quand ton personnage de jeu vidéo tombe d’une falaise ridicule.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton personnage de jeu video tombe d une falaise ridicule"
+  },
+  {
+   "id": "s-0479",
+   "text": "Quand tu découvres un mème que tout le monde connaît depuis 3 ans.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu decouvres un meme que tout le monde connait depuis 3 ans"
+  },
+  {
+   "id": "s-0480",
+   "text": "Quand l’assistant vocal comprend « appelle maman » au lieu de « mets de la musique ».",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand l assistant vocal comprend appelle maman au lieu de mets de la musique"
+  },
+  {
+   "id": "s-0481",
+   "text": "Quand ton panier en ligne atteint le prix d’un loyer.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton panier en ligne atteint le prix d un loyer"
+  },
+  {
+   "id": "s-0482",
+   "text": "Quand tu achètes un truc en ligne et qu’il fait la taille d’un timbre.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu achetes un truc en ligne et qu il fait la taille d un timbre"
+  },
+  {
+   "id": "s-0483",
+   "text": "Quand un inconnu commente ta photo avec un avis que personne n’a demandé.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand un inconnu commente ta photo avec un avis que personne n a demande"
+  },
+  {
+   "id": "s-0484",
+   "text": "Quand tu vois la tendance du moment et que tu ne comprends rien.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu vois la tendance du moment et que tu ne comprends rien"
+  },
+  {
+   "id": "s-0485",
+   "text": "Quand le livreur sonne pendant que tu es sous la douche.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le livreur sonne pendant que tu es sous la douche"
+  },
+  {
+   "id": "s-0486",
+   "text": "Quand ton appel vidéo freeze sur ta pire grimace.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton appel video freeze sur ta pire grimace"
+  },
+  {
+   "id": "s-0487",
+   "text": "Quand l’ordinateur dit « Ne pas éteindre » pendant une heure.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand l ordinateur dit ne pas eteindre pendant une heure"
+  },
+  {
+   "id": "s-0488",
+   "text": "Quand tu regardes « juste un épisode » à minuit.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu regardes juste un episode a minuit"
+  },
+  {
+   "id": "s-0489",
+   "text": "Quand ton téléphone te rappelle ton temps d’écran de la semaine.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton telephone te rappelle ton temps d ecran de la semaine"
+  },
+  {
+   "id": "s-0490",
+   "text": "Quand tu lis les conditions d’utilisation pour la première fois et que tu regrettes.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu lis les conditions d utilisation pour la premiere fois et que tu regrettes"
+  },
+  {
+   "id": "s-0491",
+   "text": "Quand ta chanson préférée devient une trend et que tout le monde la massacre.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ta chanson preferee devient une trend et que tout le monde la massacre"
+  },
+  {
+   "id": "s-0492",
+   "text": "Quand tu passes en mode avion et que tu te sens libre.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu passes en mode avion et que tu te sens libre"
+  },
+  {
+   "id": "s-0493",
+   "text": "Quand le streaming coupe pile au moment du but.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le streaming coupe pile au moment du but"
+  },
+  {
+   "id": "s-0494",
+   "text": "Quand tu réalises que tu es abonnée à 7 plateformes et que tu regardes toujours la même série.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu realises que tu es abonnee a 7 plateformes et que tu regardes toujours la meme serie"
+  },
+  {
+   "id": "s-0495",
+   "text": "Quand tu fais une recherche gênante et que la pub te suit partout.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu fais une recherche genante et que la pub te suit partout"
+  },
+  {
+   "id": "s-0496",
+   "text": "Quand ton jeu te met en équipe avec des joueurs qui ne comprennent rien.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ton jeu te met en equipe avec des joueurs qui ne comprennent rien"
+  },
+  {
+   "id": "s-0497",
+   "text": "Quand tu découvres un filtre qui te rend méconnaissable.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu decouvres un filtre qui te rend meconnaissable"
+  },
+  {
+   "id": "s-0498",
+   "text": "Quand tu fais une erreur de frappe dans ton e-mail de candidature.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu fais une erreur de frappe dans ton e mail de candidature"
+  },
+  {
+   "id": "s-0499",
+   "text": "Quand ta tablette tombe sur le carrelage en slow motion.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand ta tablette tombe sur le carrelage en slow motion"
+  },
+  {
+   "id": "s-0500",
+   "text": "Quand tu te bats avec la reconnaissance faciale le matin.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu te bats avec la reconnaissance faciale le matin"
+  },
+  {
+   "id": "s-0501",
+   "text": "Quand le chargeur ne marche que dans une position précise.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand le chargeur ne marche que dans une position precise"
+  },
+  {
+   "id": "s-0502",
+   "text": "Quand tu réalises que ton mot de passe est le même partout.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu realises que ton mot de passe est le meme partout"
+  },
+  {
+   "id": "s-0503",
+   "text": "Quand tu termines un jeu et que tu ne sais plus quoi faire de ta vie.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu termines un jeu et que tu ne sais plus quoi faire de ta vie"
+  },
+  {
+   "id": "s-0504",
+   "text": "Quand tu cherches le bouton « passer la pub » qui n’existe pas.",
+   "category": "internet",
+   "active": true,
+   "dedupeKey": "quand tu cherches le bouton passer la pub qui n existe pas"
+  }
+ ]
+}

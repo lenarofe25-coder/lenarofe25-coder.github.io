@@ -1,0 +1,60 @@
+name: Jeu MDR (tests et déploiement du serveur)
+
+on:
+  push:
+    branches: [main]
+    paths: ['server/**', 'jeu/**', '.github/workflows/mdr-server.yml']
+  pull_request:
+    paths: ['server/**', 'jeu/**', '.github/workflows/mdr-server.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: server
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Bibliothèques de contenu valides
+        run: npm run content:check
+      - name: Règles du jeu et contenu
+        run: npm test
+      - name: Tests de bout en bout sur le Worker local
+        run: |
+          printf 'CONTENT_URL=\nACTIONS_PER_10S=200\n' > .dev.vars
+          npx wrangler dev --port 8787 --ip 127.0.0.1 > wrangler.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:8787/api/health && break; sleep 1; done
+          npm run test:e2e
+      - if: failure()
+        run: cat wrangler.log || true
+
+  deploy:
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Déployer le Worker sur Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::Secrets Cloudflare absents : déploiement ignoré (voir jeu/README.md)."
+            exit 0
+          fi
+          npx wrangler deploy

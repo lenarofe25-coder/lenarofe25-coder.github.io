@@ -1,0 +1,59 @@
+{
+ "amitie": {
+  "label": "Amitié",
+  "emoji": "👯‍♀️"
+ },
+ "couple": {
+  "label": "Couple & crush",
+  "emoji": "💘"
+ },
+ "gene": {
+  "label": "Situations gênantes",
+  "emoji": "🫣"
+ },
+ "ecole-travail": {
+  "label": "École & travail",
+  "emoji": "📚"
+ },
+ "famille": {
+  "label": "Famille",
+  "emoji": "🏡"
+ },
+ "soirees": {
+  "label": "Soirées",
+  "emoji": "🪩"
+ },
+ "reseaux": {
+  "label": "Réseaux & messages",
+  "emoji": "📱"
+ },
+ "absurde": {
+  "label": "Humour absurde",
+  "emoji": "🦆"
+ },
+ "excuses": {
+  "label": "Mensonges & excuses",
+  "emoji": "🤥"
+ },
+ "humour-noir": {
+  "label": "Humour noir",
+  "emoji": "💀",
+  "optIn": true
+ },
+ "internet": {
+  "label": "Culture Internet",
+  "emoji": "🌐"
+ },
+ "reactions": {
+  "label": "Réactions",
+  "emoji": "😱"
+ },
+ "classiques-internet": {
+  "label": "Classiques d’Internet",
+  "emoji": "✨"
+ },
+ "cultes": {
+  "label": "Expressions cultes",
+  "emoji": "🗣️"
+ }
+}
