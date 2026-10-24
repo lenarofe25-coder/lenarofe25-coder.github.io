@@ -1,0 +1,159 @@
+
+Terms of Use - Imgflip
+Create
+					Make a Meme
+					Make a GIF or Short Video
+					Meme Templates
+					GIF Templates
+Terms of Use
+By using any services ("Services") provided by or originating from imgflip.com ("Imgflip"), you are agreeing to these terms. Please read them carefully.
+		Because some of our Services may be very specific, additional terms or product requirements (including age requirements) may apply.
+		Additional terms will be available with the relevant Services, and those additional terms become part of your agreement with us if you use those Services.
+Hotlinking
+If you embed or "hotlink" an image hosted on Imgflip servers within another website, such as using the following markup
+<img src='https://i.imgflip.com/abcd.gif'/>
+			then you must include a hyperlink back to https://imgflip.com, or the main image page on imgflip.com (eg 
+https://imgflip.com/i/abcd
+).
+			If you create an image with Imgflip, it is preferred that you include a link to the generator page so that people will
+			know how to make their own images from our generator as well. Since Imgflip does not currently charge
+			you money for the bandwidth on your images, we think these link-backs are a reasonable request.
+Images that are hotlinked and are not accompanied by one of the links mentioned above are subject to removal.
+Example markup:
+		<a href='https://imgflip.com/i/abcd'><img src='https://i.imgflip.com/abcd.gif'/></a><a href='https://imgflip.com/gif-maker'> via Imgflip GIF Maker</a>		
+Spam
+Do not spam. Spamming includes posting links exclusively to your own content or monetization, posting malware links,
+			posting irrelevant content, posting lengthy or irrelevant "copypastas", and anything else that is clearly
+			a detriment to the Imgflip community. Spam which is stylistic or just-for-fun such as copypastas is allowed
+			in user-created streams 
+if and only if
+ the moderators of the streams explicitly allow it.
+Conduct
+In any content that you create or modify while using Imgflip, do not discriminate against any sect, commit or condone illegal acts,
+			harass others, or otherwise make it less fun for other people. Imgflip is a place to be creative
+			and have fun! While Imgflip highly values freedom of expression, please express your opinions in a way that
+			is kind and respectful to all people of the world, or if stating your opinion does not follow these terms, please
+			keep it to yourself or post it elsewhere. Memes, comments, or other images whose sole purpose is to attack a person
+			or group of people in a condemning and non-humorous way are subject to deletion, and the user account
+			that posted such content is also subject to deletion. In particular, please be careful when authoring content
+			around sensitive subjects such as politics, religion, and race.
+Imgflip is not a pornographic website
+The Imgflip generators can be used for anything that does not violate these terms, but please set any pornographic images you create
+			as "private", and then post them elsewhere if you wish to share. Any pornographic images that are not created with the "private"
+			setting are subject to removal. This includes images that are pornographic or primarily erotic in nature,
+			even if private parts are censored or technically covered. If it's allowed at a public beach or a non-x-rated
+			magazine cover, it's probably okay on Imgflip.
+Age
+			You must be at least 13 years of age to use our Services. Content on Imgflip is
+			not targeted to people under 13 years of age.
+Media/Uploading
+			By uploading any type of media or other content (including but not limited to images, video, and audio)
+			to Imgflip, or by pasting a url into the Imgflip GIF Maker or other Imgflip tools, you are agreeing that
+			(i) doing so does not violate or infringe anyone else’s rights, (ii) you have the rights to use
+			whatever content you are uploading or requesting, (iii) that you have the rights to modify that content
+			in whichever ways you decide to modify it while using Imgflip, and (iv) if you make the original or
+			edited content publicly available, other users of the Services can also use the content with the Service
+			with no obligation to you.
+Using our Services
+You must follow any policies made available to you within the Services.
+Don’t misuse our Services. For example, don’t interfere with our Services or try to access them using a method other than the interface and the instructions that we provide.
+	You may use our Services only as permitted by law, including applicable export and re-export control laws and regulations.
+	We may suspend or stop providing our Services to you if you do not comply with our terms or policies or if we are investigating suspected misconduct.
+Using our Services does not give you ownership of any intellectual property rights in our Services or the content you access.
+	You may not use content from our Services unless you obtain permission from its owner or are otherwise permitted by law.
+	These terms do not grant you the right to use any branding or logos used in our Services.
+	Don’t remove, obscure, or alter any legal notices displayed in or along with our Services.
+Our Services display some content that is not Imgflip’s. This content is the sole responsibility of the entity that makes it available.
+	We may review content to determine whether it is illegal or violates our policies,
+	and we may remove or refuse to display content that we reasonably believe violates our policies or the law.
+	But that does not necessarily mean that we review content, so please don’t assume that we do.
+In connection with your use of the Services, we may send you service announcements, administrative messages, and other information. You may opt out of some of those communications.
+Privacy and Copyright Protection
+Imgflip's privacy policies explain how we treat your personal data and protect your privacy when you use our Services.
+By using our Services, you agree that Imgflip can use such data in accordance with our privacy policies.
+We respond to notices of alleged copyright infringement and terminate accounts of repeat infringers according to the process set out in the U.S. Digital Millennium Copyright Act.
+If you think somebody is violating your copyrights and want to notify us, you can contact 
+[email protected]
+ with details of the infringement.
+	This email address is the primary contact for Imgflip LLC's DMCA designated agent and the fastest way to resolve complaints,
+	but additional contact information is available to you by clicking 
+here
+.
+Your Content in our Services
+Some of our Services allow you to submit content. You retain ownership of any intellectual property rights that you hold in that content. In short, what belongs to you stays yours.
+When you upload or otherwise submit content to our Services, you give Imgflip (and those we work with) a worldwide license to use, host, store, reproduce, modify,
+	create derivative works (such as those resulting from translations, adaptations or other changes we make so that your content works better with our Services),
+	communicate, publish, publicly perform, publicly display and distribute such content. The rights you grant in this license are for the limited purpose of operating,
+	promoting, and improving our Services, and to develop new ones. This license continues even if you stop using our Services.
+	Some Services may offer you ways to access and remove content that has been provided to that Service.
+About Software in our Services
+Imgflip gives you a personal, worldwide, royalty-free, non-assignable and non-exclusive license to use the software provided to you by Imgflip as part of the Services.
+	This license is for the sole purpose of enabling you to use and enjoy the benefit of the Services as provided by Imgflip, in the manner permitted by these terms.
+	You may not copy, modify, distribute, sell, or lease any part of our Services or included software,
+	nor may you reverse engineer or attempt to extract the source code of that software, unless laws prohibit those restrictions or you have our written permission.
+Modifying and Terminating our Services
+We are constantly changing and improving our Services. We may add or remove functionalities or features, and we may suspend or stop a Service altogether.
+You can stop using our Services at any time, although we’ll be sorry to see you go.
+	Imgflip may also stop providing Services to you, or add or create new limits to our Services at any time.
+Our Warranties and Disclaimers
+We provide our Services using a commercially reasonable level of skill and care and we hope that you will enjoy using them.
+	But there are certain things that we don’t promise about our Services.
+OTHER THAN AS EXPRESSLY SET OUT IN THESE TERMS OR ADDITIONAL TERMS,
+	NEITHER IMGFLIP NOR ITS SUPPLIERS OR DISTRIBUTORS MAKE ANY SPECIFIC PROMISES ABOUT THE SERVICES.
+	FOR EXAMPLE, WE DON’T MAKE ANY COMMITMENTS ABOUT THE CONTENT WITHIN THE SERVICES, THE SPECIFIC FUNCTION OF THE SERVICES,
+	OR THEIR RELIABILITY, AVAILABILITY, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE,
+	OR ABILITY TO MEET YOUR NEEDS. WE PROVIDE THE SERVICES “AS IS”.
+SOME JURISDICTIONS PROVIDE FOR CERTAIN WARRANTIES, LIKE THE IMPLIED WARRANTY OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. TO THE EXTENT PERMITTED BY LAW, WE EXCLUDE ALL WARRANTIES.
+Liability for our Services
+WHEN PERMITTED BY LAW, IMGFLIP, AND IMGFLIP'S SUPPLIERS AND DISTRIBUTORS, WILL NOT BE RESPONSIBLE FOR LOST PROFITS,
+	REVENUES, OR DATA, FINANCIAL LOSSES OR INDIRECT, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES.
+TO THE EXTENT PERMITTED BY LAW, THE TOTAL LIABILITY OF IMGFLIP, AND ITS SUPPLIERS AND DISTRIBUTORS, FOR ANY CLAIM UNDER THESE TERMS,
+	INCLUDING FOR ANY IMPLIED WARRANTIES, IS LIMITED TO THE AMOUNT YOU PAID US TO USE THE SERVICES (OR, IF WE CHOOSE, TO SUPPLYING YOU THE SERVICES AGAIN).
+IN ALL CASES, IMGFLIP, AND ITS SUPPLIERS AND DISTRIBUTORS, WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE THAT IS NOT REASONABLY FORESEEABLE.
+Indemnity
+YOU WILL INDEMNIFY AND HOLD IMGFLIP (AND ITS EMPLOYEES, AGENTS, AFFILIATES AND REPRESENTATIVES)
+	HARMLESS FROM AND AGAINST ANY AND ALL CLAIMS, COSTS, LOSSES, DAMAGES, JUDGMENTS, PENALTIES,
+	INTEREST, AND EXPENSES (INCLUDING WITHOUT LIMITATION REASONABLE ATTORNEYS' FEES) ARISING OUT OF
+	ANY CLAIM, ACTION, AUDIT, INVESTIGATION, INQUIRY, OR OTHER PROCEEDING INSTITUTED BY A PERSON
+	OR ENTITY THAT ARISES OUT OF OR RELATES TO:  (I) YOUR VIOLATION OF THESE TERMS, (II) YOUR
+	INFRINGEMENT OF ANY THIRD PARTY'S RIGHTS, AND (III) ANY HARM CAUSED TO ANY THIRD PARTY
+	AS A RESULT OF YOUR UPLOADING OF MEDIA OR OTHER CONTENT (INCLUDING BUT NOT LIMITED TO
+	IMAGES, VIDEO, AND AUDIO) TO IMGFLIP.
+Business uses of our Services
+If you are using our Services on behalf of a business, that business accepts these terms.
+	It will hold harmless and indemnify Imgflip and its affiliates, officers, agents, and employees from any claim,
+	suit or action arising from or related to the use of the Services or violation of these terms,
+	including any liability or expense arising from claims, losses, damages, suits, judgments, litigation costs and attorneys’ fees.
+About these Terms
+We may modify these terms or any additional terms that apply to a Service to, for example,
+	reflect changes to the law or changes to our Services. You should look at the terms regularly.
+	Changes will not apply retroactively and will become effective at the time they are posted.
+	If you do not agree to the modified terms for a Service, you should discontinue your use of that Service.
+If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.
+These terms control the relationship between Imgflip and you. They do not create any third party beneficiary rights.
+If you do not comply with these terms, and we don’t take action right away, this doesn’t mean that we are giving up any rights that we may have (such as taking action in the future).
+If it turns out that a particular term is not enforceable, this will not affect any other terms.
+The laws of California, U.S.A., excluding California’s conflict of laws rules, will apply to any disputes arising out of or relating to these terms or the Services.
+Imgflip Pro
+GIF Maker
+Meme Generator
+Blank Meme Templates
+GIF Templates
+Chart Maker
+Demotivational Maker
+Image Resizer
+About
+Privacy
+Terms
+API
+Slack App
+Request Image Removal
+Send Feedback
+Facebook
+Twitter
+Android App
+Chrome Extension
+		Empowering creativity on teh interwebz
+Imgflip LLC 2026	
+

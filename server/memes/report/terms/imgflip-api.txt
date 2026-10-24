@@ -1,0 +1,678 @@
+
+Meme Generator API - Imgflip
+Create
+					Make a Meme
+					Make a GIF or Short Video
+					Meme Templates
+					GIF Templates
+Docs
+Settings / Usage
+Imgflip Meme Generator API
+			The Imgflip API exposes the worlds of classic memes, trending memes, animated GIFs, and AI memes
+			to your application or bot. Imgflip is the oldest available meme generator API and yet is still continually updated ;)
+			Making memes is totally free. Premium is available for advanced features like GIFs,
+			full database searching, AI, and watermark removal (our watermark is already minimal).
+			The Premium API has a base cost of $9.99 per month and includes some
+			Premium requests each month (details below). After that, there's a small
+			per-request cost. Note that the free API endpoints are still free if you have API Premium, you'll only be
+			charged for the Premium-only features.
+			The Imgflip API uses JSON on REST. Request parameters are HTTP form-urlencoded, return data is JSON.
+			Questions or comments? Contact us at 
+[email protected]
+Free
+Premium
+Get top memes
+Yes
+Yes
+Make memes for free
+Yes
+Yes
+Template upload
+Public only
+Yes
+Caption animated GIFs
+No
+Yes
+Search all 1M+ memes
+No
+Yes
+Make memes without watermark
+No
+Yes
+Make memes with AI (automeme and ai_meme)
+No
+Yes
+Get Premium
+Authentication
+			Auth uses the industry standard Bearer token in the HTTP Authorization header. You can create and view your API keys on the
+API Settings
+ page. Then, include the API key in an HTTP header like this:
+Authorization: Bearer 
+YOUR_API_KEY
+.
+			Note that we do not store raw API keys, only a hash of them. When you create an API key, we show it to you once and then you must store it securely on your end.
+/get_memes
+				Gets an array of popular user-uploaded memes that may be captioned with this API.
+				The size of this array and the order of memes may change at any time.
+				When this description was written, it returned 100 memes ordered by
+				how many times they were captioned in the last 30 days. Additional properties
+				other than those listed below may be added in the future without warning,
+				so do not assume the JSON structure of each meme will never have new properties.
+URL: https://api.imgflip.com/get_memes
+Method: GET
+Input Parameters
+Note: GET requests should include parameters in the URL.
+type
+[optional] The type of meme templates to return. Valid values are "gif" or "image".
+						Specify one (e.g. type=gif) or multiple separated by commas (e.g. type=gif,image).
+						Defaults to "image".
+Example Request:
+curl 'https://api.imgflip.com/get_memes'
+Example Success Response:
+box_count
+ is the default number of boxes each meme uses. Some memes have many text boxes.
+{
+   "success": true,
+   "data": {
+      "memes": [
+         {
+            "id": "61579",
+            "name": "One Does Not Simply",
+            "url": "https://i.imgflip.com/1bij.jpg",
+            "width": 568,
+            "height": 335,
+            "box_count": 2,
+            "captions": 1750 // estimated number of all-time captions of this meme, rounded
+         },
+         {
+            "id": "101470",
+            "name": "Ancient Aliens",
+            "url": "https://i.imgflip.com/26am.jpg",
+            "width": 500,
+            "height": 437,
+            "box_count": 2,
+            "captions": 1000
+         }
+         // probably a lot more memes here..
+      ]
+   }
+}
+/caption_image
+					Add a caption to an Imgflip meme template.
+					Images created with this API will be publicly accessible by anyone through
+					the url in the response - there is no "private" option. This does not mean
+					these memes will be posted publicly though, one still needs to know the
+					exact URL to find the image.
+					If the image hangs around on Imgflip servers for a while and gets
+					very few views (direct image views and image page views both count),
+					it will be auto-deleted to save space.
+URL: https://api.imgflip.com/caption_image
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+				All memes on Imgflip can have custom default font settings which will be used if you do not specify
+				the exact settings you want. For example, this allows a meme such as
+Two Buttons
+ to default to
+				uncapitalized black text with rotation applied, because it fits the template better.
+key
+value
+template_id
+						A template ID as returned by the get_memes response.
+						Any ID that was ever returned from the get_memes response should
+						work for this parameter. For custom template uploads, the template ID
+						can be found in the memegenerator URL, e.g.
+						https://imgflip.com/
+memegenerator/
+14859329/
+Charlie-Sheen-DERP.
+						Also, here is a list of the 
+top 100 Imgflip meme IDs
+.
+text0
+Top text for the meme (do not use this parameter if you are using the boxes parameter below)
+text1
+Bottom text for the meme (do not use this parameter if you are using the boxes parameter below)
+font
+						[optional] The font family to use for the text. Defaults to impact. You can also use "arial" or
+						any of the 1,500+ Google Fonts which you can see in the font menu at
+imgflip.com/memegenerator
+.
+max_font_size
+						[optional] Maximum font size in pixels. Defaults to 50px.
+no_watermark
+Get Premium
+[optional] [premium only] Remove the imgflip.com watermark.
+						Any non-empty value is treated as true. First 100 per month included, then $0.01 per creation.
+watermark_text
+						[optional] The text to display in the watermark. Free accounts are limited to the following
+						values: 'imgflip.com', 'made at imgflip.com'.
+						Any other text requires an API premium subscription, and counts toward the same 100 free
+						creations per month as no_watermark, then $0.01 per creation.
+watermark_position
+						[optional] Where the watermark should be placed on the image. Valid values are:
+						bottom-left, bottom-right, top-left, top-right, huge.
+boxes
+						[optional] For creating memes with more than two text boxes, or for further customization.
+						If boxes is specified, text0 and text1 will be ignored,
+						and text will not be automatically converted to uppercase, so you'll have to handle capitalization
+						yourself if you want the standard uppercase meme text.
+						The API is currently limited to 20 text boxes per image.
+						All options below are optional, except "text".
+						The exception is that you may leave the first box completely empty, so that the second
+						box will automatically be used for the bottom text.
+							x, y, width, and height are for the bounding box of the text box. x and y are the coordinates
+							of the top left corner. If you specify bounding coordinates, be sure to specify
+							all four (x, y, width, height), otherwise your text may not show up correctly. If you
+							do not specify bounding box coordinates, the same automatic default coordinates
+							from imgflip.com/memegenerator will be used, which is very useful for memes with special
+							text box positioning other than the simple top/bottom.
+Example "boxes" array:
+(remember these are form-urlencoded, your code/library must output boxes[0][text]=XXX, etc.)
+[
+   {
+      "text": "One does not simply",
+      "x": 10,
+      "y": 10,
+      "width": 548,
+      "height": 100,
+      "color": "#ffffff",
+      "outline_color": "#000000"
+   },
+   {
+      "text": "Make custom memes on the web via imgflip API",
+      "x": 10,
+      "y": 225,
+      "width": 548,
+      "height": 100,
+      "color": "#ffffff",
+      "outline_color": "#000000"
+   }
+]
+Example Request:
+curl https://api.imgflip.com/caption_image \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+--data-urlencode "template_id=61579" \
+--data-urlencode "boxes[0][text]=One does not simply" \
+--data-urlencode "boxes[1][text]=Make custom memes on the web via imgflip API"
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "url": "https://i.imgflip.com/123abc.jpg",
+      "page_url": "https://imgflip.com/i/123abc"
+   }
+}
+Example Failure Response:
+{
+   "success": false,
+   "error_message": "Some hopefully-useful statement about why it failed"
+}
+/caption_gif 
+Get Premium
+					Add a caption to an Imgflip animated GIF template. Mostly identical to /caption_image above, except
+					the older text0/text1 format is not supported (use boxes instead).
+					/caption_gif requires API Premium. First 50 creations per month are included, then $0.02 per creation.
+URL: https://api.imgflip.com/caption_gif
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+key
+value
+template_id
+						An animated template ID.
+font
+						[optional] The font family to use for the text. Defaults to impact. You can also use "arial" or
+						any of the 1,500+ Google Fonts which you can see in the font menu at
+imgflip.com/memegenerator
+.
+max_font_size
+						[optional] Maximum font size in pixels. Defaults to 50px.
+no_watermark
+[optional] Remove the imgflip.com watermark.
+watermark_text
+[optional] The text to display in the watermark.
+watermark_position
+[optional] Where the watermark should be placed on the image. Valid values are:
+						bottom-left, bottom-right, top-left, top-right.
+boxes
+See /caption_image
+Example Request:
+curl -sS https://api.imgflip.com/caption_gif \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d template_id=222516354 \
+--data-urlencode 'boxes[0][text]=the wifi every time I join a zoom meeting'
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "url": "https://i.imgflip.com/b28kkg.gif",
+      "page_url": "https://imgflip.com/gif/b28kkg"
+   }
+}			
+Example Failure Response:
+{
+   "success": false,
+   "error_message": "Some hopefully-useful statement about why it failed"
+}
+/search_memes 
+Get Premium
+					Search for meme templates that can be captioned with the /caption_image or /caption_gif endpoints. This allows you to
+					give users a search input to find which of the 1M+ templates from the Imgflip database they want to use.
+					If you plan to use search-as-you-type and send multiple searches per user, you may want to use caching
+					on your frontend. Do not cache the results globally for all users on your backend though, as memes are
+					constantly updated.
+					IMPORTANT NOTE: The Imgflip database is user-generated content, NOT curated content. We have some
+					basic mechanisms to help prevent spam/inappropriate/unauthorized content, but you may want to filter based on
+					your own criteria such as language or number of captions (aka popularity).
+					Searching memes requires API Premium. First 200 searches per month are included, then $0.005 per search.
+URL: https://api.imgflip.com/search_memes
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+key
+value
+query
+A text query to search the meme database for. Searches both names and alternate names.
+type
+[optional] The type of meme templates to search for. Valid values are "gif" or "image".
+						Specify one (e.g. type=gif) or multiple separated by commas (e.g. type=gif,image).
+						Defaults to "image".
+include_nsfw
+[optional] Use include_nsfw=1 to allow not-safe-for-work memes to be returned. Defaults to 0.
+						NSFW memes may contain adult language, comedy, or minimal clothing, but should not contain porn
+						or other content forbidden in the 
+Imgflip Terms
+.
+Example Request:
+curl 'https://api.imgflip.com/search_memes' -H 'Authorization: Bearer YOUR_API_KEY' --data-urlencode 'query=Boromir lord of the rings'
+Example Success Response:
+box_count
+ is the default number of boxes each meme uses. Some memes have many text boxes.
+{
+   "success": true,
+   "data": {
+      "memes": [
+         {
+            "id": "61579",
+            "name": "One Does Not Simply",
+            "url": "https://i.imgflip.com/1bij.jpg",
+            "width": 568,
+            "height": 335,
+            "box_count": 2,
+            "captions": 1750 // estimated number of all-time captions of this meme, rounded
+         },
+         // probably a lot more memes here..
+      ]
+   }
+}
+/get_meme 
+Get Premium
+					Get a meme by ID. Same return format as /search_memes. Helpful if your users want to upload templates
+					to Imgflip and then give you the ID directly to use in your app/website/bot. Currently Premium only.
+URL: https://api.imgflip.com/get_meme
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+key
+value
+template_id
+Any template ID. The template ID can be found in the memegenerator URL, e.g. https://imgflip.com/
+memegenerator/
+14859329/
+Charlie-Sheen-DERP
+Example Request:
+curl 'https://api.imgflip.com/get_meme' -H 'Authorization: Bearer YOUR_API_KEY' -d 'template_id=61579'
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "meme": {
+         "id": "61579",
+         "name": "One Does Not Simply",
+         "url": "https://i.imgflip.com/1bij.jpg",
+         "width": 568,
+         "height": 335,
+         "box_count": 2,
+         "captions": 1750 // estimated number of all-time captions of this meme, rounded
+      }
+   }
+}
+/automeme 
+Get Premium
+					Automatically caption one of the top 2,048 memes based only on the input text. This allows someone to
+					simply type the phrase they want turned into a meme, and Imgflip magically picks the correct meme and
+					adds their text. Automeme uses a deep neural network trained on millions of public Imgflip memes.
+					Keep in mind that some memes work much better than others for this style of creation, namely shorter,
+					simpler memes. Memes with many text locations and no discernible patterns are less likely to work well.
+					To see how it works, try it yourself at 
+imgflip.com/automeme
+. This is also what
+					powers the 
+Imgflip Slack App
+ where you can type phrases like
+					"/imgflip nobody got time for reading long API docs".
+					Automeme requires API Premium. First 50 creations per month are included, then $0.02 per creation.
+URL: https://api.imgflip.com/automeme
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+key
+value
+text
+The text to display on the meme. This will also be used to determine which meme template to use.
+no_watermark
+[optional] Remove the imgflip.com watermark.
+Example Request:
+curl 'https://api.imgflip.com/automeme' -H 'Authorization: Bearer YOUR_API_KEY' --data-urlencode 'text=i missed the bus'
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "url": "https://i.imgflip.com/123abc.jpg",
+      "page_url": "https://imgflip.com/i/123abc",
+      "template_id": 61579
+   }
+}
+Example Failure Response:
+Same as /caption_image
+/ai_meme 
+Get Premium
+					Generates a fresh meme from scratch using either OpenAI GPT or Imgflip's own deep neural network
+					trained on millions of public memes.
+					IMPORTANT NOTE (only if using classic model): The classic Imgflip AI is trained on all public
+					user-generated content, so it is NOT censored or curated in any way, and therefore may contain
+					vulgarities or other potentially unsuitable content. If this doesn't fit your use case,
+					you may want to filter the output based on language.
+					To see how it works, try it yourself at 
+imgflip.com/ai-meme
+.
+					AI Meme requires API Premium. First 50 creations per month are included, then $0.02 per creation.
+URL: https://api.imgflip.com/ai_meme
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+key
+value
+model
+						[optional] Which neural network model to use, can be either "openai" or "classic".
+						Corresponds to the OpenAI GPT and Imgflip Classic Model available on 
+imgflip.com/ai-meme
+.
+						The current default is "openai" if left unspecified.
+template_id
+						[optional] This allows you to choose one of the 48 templates from 
+imgflip.com/ai-meme
+						if using the classic model, otherwise 
+any
+ popular Imgflip template if using the openai model.
+						If not specified, it will randomly select one of those 48 memes (or top 94 memes for openai).
+						You can find the top 100 template IDs here: 
+imgflip.com/popular-meme-ids
+,
+						or any other template ID from the template detail page when searching 
+meme templates
+.
+prefix_text
+						[optional] Max 64 chars. Initial prefix text to seed the meme text, e.g. "Eric" to make the meme
+						about Eric. For the openai model, it's used as a general topic rather than strictly prefix text.
+						For the classic model, shorter is generally better as it gives the AI more room for creative variety.
+no_watermark
+[optional] Remove the imgflip.com watermark.
+watermark_text
+[optional] The text to display in the watermark.
+watermark_position
+[optional] Where the watermark should be placed on the image. Valid values are:
+						bottom-left, bottom-right, top-left, top-right, huge.
+Example Request:
+curl 'https://api.imgflip.com/ai_meme' -H 'Authorization: Bearer YOUR_API_KEY' --data-urlencode 'prefix_text=life hack'
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "url": "https://i.imgflip.com/123abc.jpg",
+      "page_url": "https://imgflip.com/i/123abc",
+      "template_id": 89370399,
+      "texts":["Using a complicated app to remember passwords","Typing them in the Notes app and naming it \"definitely_not_passwords\""]
+   }
+}
+/upload_template
+				Upload a new meme template, the same as uploading at 
+imgflip.com/memegenerator
+				or 
+imgflip.com/gif-maker
+. The returned template_id can then be used with
+				/caption_image or /caption_gif. Must provide one of image, video, image_url, or video_url parameters.
+URL: https://api.imgflip.com/upload_template
+Method: POST
+Authentication: Required. See 
+Authentication
+.
+Input Parameters
+				Note: Requests that include raw binary data in image or video parameters must use
+multipart/form-data
+. All other requests use 
+application/x-www-form-urlencoded
+.
+				See the examples below.
+key
+value
+image
+[exactly one required] The image or video as a binary file or a public http(s) URL.
+video
+image_url
+video_url
+name
+[required if not private] Max 64 chars.
+alt_names
+						[optional] Comma-separated alternate names, max 255 chars and
+						8 names.
+description
+[optional] Max 512 chars.
+start
+[optional] Start time of the video segment to use in seconds. GIF templates only. Default 0.
+end
+						[optional] End time of the video segment to use in seconds. GIF templates only. Default is the
+						end of the video, or 5 seconds after start, whichever is sooner.
+default_boxes
+						[optional] Default text box settings for the template. x, y, width, and height are required and
+						in pixels of the image or video. For GIF templates, each box may also have start and end, the
+						percent (0 to 100) of the GIF duration when the box is shown. For GIFs, more than one default
+						box requires an active API Premium subscription. This example lists all possible fields:
+default_boxes[0][x]=10
+default_boxes[0][y]=10
+default_boxes[0][width]=100
+default_boxes[0][height]=50
+default_boxes[0][rotation]=270
+default_boxes[0][font]=arial
+GIF templates only
+default_boxes[0][start]=25
+default_boxes[0][end]=100
+private
+Get Premium
+						[optional] [premium only] Make this template private so other users cannot see or use it.
+						Any non-empty value is treated as true and requires an active API Premium subscription.
+						The default is false.
+anonymous
+[optional] Do not show your username with the template. Any non-empty value is treated as true. The default is false.
+Example Request Using Image Url:
+curl -sS https://api.imgflip.com/upload_template \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+--data-urlencode 'image_url=https://example.com/image.png' \
+--data-urlencode 'name=My Template' \
+--data-urlencode 'alt_names=another,name' \
+--data-urlencode 'description=versatile and funny' \
+-d 'default_boxes[0][x]=10' \
+-d 'default_boxes[0][y]=10' \
+-d 'default_boxes[0][width]=100' \
+-d 'default_boxes[0][height]=50' \
+-d 'default_boxes[0][rotation]=270' \
+-d 'default_boxes[0][font]=arial'
+Example Request Using Image File:
+curl -sS https://api.imgflip.com/upload_template \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-F 'image=@/path/to/image.png' \
+-F 'name=My Template' \
+-F 'alt_names=another,name' \
+-F 'description=versatile and funny'
+Example Request Using Video Url:
+curl https://api.imgflip.com/upload_template \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+--data-urlencode 'video_url=https://example.com/video.mp4' \
+--data-urlencode 'name=My Gif Template' \
+--data-urlencode 'alt_names=another,name' \
+--data-urlencode 'description=versatile and funny' \
+-d 'default_boxes[0][x]=10' \
+-d 'default_boxes[0][y]=10' \
+-d 'default_boxes[0][width]=100' \
+-d 'default_boxes[0][height]=50' \
+-d 'default_boxes[0][rotation]=30' \
+-d 'default_boxes[0][font]=arial' \
+-d 'default_boxes[0][start]=25' \
+-d 'default_boxes[0][end]=100'
+Example Request Using Video File:
+curl https://api.imgflip.com/upload_template \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-F 'video=@/path/to/video.mp4' \
+-F "start=1.5" \
+-F "end=4" \
+-F "name=My GIF Template"
+Example Success Response:
+{
+   "success": true,
+   "data": {
+      "template_id": 123456789,
+      "page_url": "https://imgflip.com/memetemplate/123456789/My-Template"
+   }
+}
+What is a meme API?
+		A meme API is an HTTP interface that lets software developers (realistically anyone these days!) create
+		memes programmatically instead of making them by hand with a tool like the
+Imgflip Meme Generator
+. The Imgflip Meme API returns meme image URLs that
+		you can link, embed, or even download and host yourself in your own app, bot, or website.
+		The meme API also has auxiliary functions like listing top templates, searching the full template database,
+		automatically choosing templates with AI, generating GIF/video memes, or generating entire memes with just AI.
+Is the Imgflip API free?
+		Yes. Making a meme with our API is totally free and has been for over a decade. You can also list the top
+		memes for free, or 
+Search 1M+ Meme Templates
+ for any memes you want and then use
+		their template ID to make free memes with them. For more advanced features, a Premium tier is also available
+		at $9.99/month plus unit-based costs for overages on paid endpoints.
+How do I make memes programmatically / with code?
+		Realistically, you go ask your favorite AI coding tool to read this documentation and then build your app for you.
+		Basically, you'll create an API key from the 
+API Settings
+ page, then use that to GET the
+/get_memes
+ endpoint, then choose one of those meme IDs and POST it with some text to the 
+/caption_image
+ endpoint, and
+		voila, API memes!
+How do I build a meme bot for Discord, Slack, Telegram, etc.?
+		Create an API key from the 
+API Settings
+ page. Hit 
+/get_memes
+ or pick some memes you like from
+Meme Search
+, and then caption them with text using 
+/caption_image
+.
+		You can use code in any language, backend or frontend, including CORS permissions.
+		Or, if you just want a Slack bot, check out our 
+Imgflip Slack App
+.
+Can I generate memes with AI via API?
+		Yes, the 
+/ai_meme
+ and 
+/automeme
+ endpoints are two AI-enabled meme creation flavors.
+Can I make animated memes or GIFs with the API?
+		Yes, animated GIFs are central to Imgflip! Not just static images. Use 
+/caption_gif
+.
+		Any video that's been saved as a template via the 
+Imgflip GIF Maker
+		can be captioned via API.
+What programming languages does the API support?
+		It's HTTP JSON REST, so all of them: Python, Node, PHP, JavaScript, command line bash, take your pick!
+How many memes / templates are available?
+		The full Imgflip meme catalog is available in the API, which is one of the largest in the world at 1M+ templates.
+		Please note that Imgflip is a user-generated content platform, so memes will come and go over time,
+		but most popular templates will be available.
+How does authentication work?
+		Auth uses the industry standard Bearer token in the HTTP Authorization header. You can create and view your API keys on the
+API Settings
+ page. Then, include the API key in an HTTP header like this:
+Authorization: Bearer 
+YOUR_API_KEY
+.
+		Note that we do not store raw API keys, only a hash of them. When you create an API key, we show it to you once and then you must store it securely on your end.
+Are there any rate limits to the API?
+		Imgflip has high rate limits that you won't likely hit with normal usage. If our systems detect abnormal
+		or abusive usage, you may be rate-limited. If you are a big corp or will otherwise send us 100,000+ requests
+		per day, please give us warning at 
+[email protected]
+.
+Can I use the API with my own custom templates?
+		Yes, absolutely! Anything you upload at 
+imgflip.com/memegenerator
+ or
+imgflip.com/gif-maker
+ works with the API, just grab the template ID from its
+		/memetemplate/ page. You can also upload templates with the /upload_template endpoint.
+Free
+Premium
+Get top memes
+Yes
+Yes
+Make memes for free
+Yes
+Yes
+Search all 1M+ memes
+No
+Yes
+Make memes without watermark
+No
+Yes
+Make memes with AI (automeme and ai_meme)
+No
+Yes
+		$9.99 / month
+Imgflip Pro
+GIF Maker
+Meme Generator
+Blank Meme Templates
+GIF Templates
+Chart Maker
+Demotivational Maker
+Image Resizer
+About
+Privacy
+Terms
+API
+Slack App
+Request Image Removal
+Send Feedback
+Facebook
+Twitter
+Android App
+Chrome Extension
+		Empowering creativity on teh interwebz
+Imgflip LLC 2026	
+
