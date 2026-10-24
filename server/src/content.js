@@ -1,26 +1,23 @@
-// Bibliothèques de contenu : les situations et les cartes réponses sont deux fichiers
-// indépendants (jeu/data/*.json). Le Worker embarque une copie au déploiement et peut
-// recharger la version publiée sur le site (CONTENT_URL) pour ajouter des cartes sans redéployer.
+// Bibliothèques de contenu : les situations (jeu/data/situations.json) et les memes
+// (jeu/data/memes.json) sont deux fichiers indépendants. Le Worker embarque une copie au
+// déploiement et peut recharger la version publiée sur le site (CONTENT_URL) pour ajouter
+// des memes ou des situations sans redéployer.
 
-export const CARD_TYPES = ['text', 'image', 'image_text'];
+const MISSING_CARD = (id) => ({ id, type: 'meme', name: 'Meme indisponible', missing: true });
 
-const MISSING_CARD = (id) => ({ id, type: 'text', text: 'Carte indisponible', category: '', missing: true });
-
-export function validateLibrary({ cards, situations }) {
+export function validateLibrary({ memes, situations }) {
   const errors = [];
   const ids = new Set();
-  const keys = new Map();
-  for (const c of cards) {
-    if (!c.id || ids.has(c.id)) errors.push(`carte : identifiant manquant ou dupliqué (${c.id})`);
-    ids.add(c.id);
-    if (!CARD_TYPES.includes(c.type)) errors.push(`carte ${c.id} : type inconnu ${c.type}`);
-    if ((c.type === 'text' || c.type === 'image_text') && !c.text) errors.push(`carte ${c.id} : texte manquant`);
-    if ((c.type === 'image' || c.type === 'image_text') && !c.image) errors.push(`carte ${c.id} : image manquante`);
-    if (c.image && !c.source?.license) errors.push(`carte ${c.id} : licence manquante`);
-    if (!c.category) errors.push(`carte ${c.id} : catégorie manquante`);
-    if (c.dedupeKey) {
-      if (keys.has(c.dedupeKey)) errors.push(`carte ${c.id} : doublon de ${keys.get(c.dedupeKey)}`);
-      keys.set(c.dedupeKey, c.id);
+  const hashes = new Map();
+  for (const m of memes) {
+    if (!m.id || ids.has(m.id)) errors.push(`meme : identifiant manquant ou dupliqué (${m.id})`);
+    ids.add(m.id);
+    if (!m.name) errors.push(`meme ${m.id} : nom manquant`);
+    if (!/^https:\/\//.test(m.image || '')) errors.push(`meme ${m.id} : image absente ou non HTTPS`);
+    if (!m.source?.name || !m.source?.page) errors.push(`meme ${m.id} : source manquante`);
+    if (m.active && m.sha256) {
+      if (hashes.has(m.sha256)) errors.push(`meme ${m.id} : même image que ${hashes.get(m.sha256)}`);
+      hashes.set(m.sha256, m.id);
     }
   }
   const sids = new Set();
@@ -33,31 +30,25 @@ export function validateLibrary({ cards, situations }) {
   return errors;
 }
 
-export function buildContent({ cards, situations }) {
-  const cardMap = new Map(cards.map((c) => [c.id, c]));
+export function buildContent({ memes, situations }) {
+  const memeMap = new Map(memes.map((m) => [m.id, m]));
   const sitMap = new Map(situations.map((s) => [s.id, s]));
   return {
-    cards,
+    cards: memes,
     situations,
+    // Seul ce qui sert à l'affichage part vers le navigateur.
     cardById: (id) => {
-      const c = cardMap.get(id);
-      if (!c) return MISSING_CARD(id);
-      // On n'envoie au navigateur que ce qui sert à l'affichage.
-      const out = { id: c.id, type: c.type, category: c.category };
-      if (c.text) out.text = c.text;
-      if (c.image) {
-        out.image = c.image;
-        out.alt = c.alt || '';
-        // Attribution affichée sur la carte quand la licence l'exige (CC BY…).
-        if (c.source?.attribution) out.credit = `${c.source.name} · ${c.source.license}`;
-      }
-      if (!c.active) out.missing = true;
+      const m = memeMap.get(id);
+      if (!m) return MISSING_CARD(id);
+      const out = { id: m.id, type: 'meme', name: m.name, image: m.image, credit: m.source.name };
+      if (m.width && m.height) out.ratio = Math.round((m.width / m.height) * 100) / 100;
+      if (!m.active) out.missing = true;
       return out;
     },
     situationById: (id) => sitMap.get(id) || null,
     stats: () => ({
-      cards: cards.length,
-      activeCards: cards.filter((c) => c.active).length,
+      memes: memes.length,
+      activeMemes: memes.filter((m) => m.active).length,
       situations: situations.length,
       activeSituations: situations.filter((s) => s.active).length,
     }),
@@ -71,8 +62,8 @@ export async function loadRemoteContent(baseUrl, fetchImpl = fetch) {
     if (!res.ok) throw new Error(`${name}: HTTP ${res.status}`);
     return res.json();
   };
-  const [cards, situations] = await Promise.all([get('cards.json'), get('situations.json')]);
-  const lib = { cards: cards.cards, situations: situations.situations };
+  const [memes, situations] = await Promise.all([get('memes.json'), get('situations.json')]);
+  const lib = { memes: memes.memes, situations: situations.situations };
   const errors = validateLibrary(lib);
   if (errors.length) throw new Error(`bibliothèque distante invalide : ${errors.slice(0, 3).join(' ; ')}`);
   return lib;

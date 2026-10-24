@@ -61,6 +61,7 @@ const ICONS = {
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
   close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
   copy: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></svg>',
+  zoom: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg>',
   share: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>',
 };
 
@@ -197,7 +198,6 @@ function showFatal(title, message, actions) {
   ui.mounted = 'fatal';
   banner.hidden = true;
   app.innerHTML = `<main class="wrap"><div class="fatal">
-    <img src="cards/img/face-with-spiral-eyes.svg" alt="" width="88" height="88">
     <h1>${esc(title)}</h1><p>${esc(message)}</p><div class="final-actions">${actions}</div></div></main>`;
 }
 
@@ -237,21 +237,16 @@ const playerColor = (view, id) => AVATAR_COLORS[Math.max(0, view.players.findInd
 const avatar = (view, p) => `<span class="avatar" style="--c:${playerColor(view, p.id)}" aria-hidden="true">${esc([...p.name][0]?.toUpperCase() || '?')}</span>`;
 const nameOf = (view, id) => view.players.find((p) => p.id === id)?.name || 'Une joueuse partie';
 
-function cardHtml(card, { tag = 'div', attrs = '', extra = '', cls = '', i = 0 } = {}) {
+function cardHtml(card, { tag = 'div', attrs = '', extra = '', cls = '', i = 0, zoom = false } = {}) {
   const tilt = ((hash(card.id) % 5) - 2) * 0.6;
-  const style = `--tilt:${tilt}deg;--i:${i};--art:${ART_COLORS[hash(card.id) % ART_COLORS.length]}`;
-  let body;
-  if (card.missing && !card.image) {
-    body = `<div class="card-text card-fallback">Carte indisponible</div>`;
-  } else if (card.type === 'text') {
-    body = `<div class="card-text">${fr(card.text)}</div>`;
-  } else {
-    const img = `<div class="card-art"><img class="card-img" src="${esc(card.image)}" alt="${esc(card.alt || '')}" loading="lazy" decoding="async" width="128" height="128"></div>`;
-    body = card.type === 'image_text' ? `${img}<div class="card-caption">${fr(card.text)}</div>` : img;
-  }
-  if (card.credit) body += `<span class="card-credit">${esc(card.credit)}</span>`;
-  const label = card.type === 'image' ? card.alt : card.text;
-  return `<${tag} class="card type-${card.type}${card.missing ? ' missing' : ''} ${cls}" style="${style}" ${attrs} ${tag === 'button' ? `type="button" aria-label="${esc(label || 'Carte')}"` : ''}>${extra}${body}</${tag}>`;
+  const style = `--tilt:${tilt}deg;--i:${i}`;
+  const body = card.image
+    ? `<div class="card-art"><img class="card-img" src="${esc(card.image)}" alt="${esc(card.name || 'Meme')}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>`
+    : `<div class="card-fallback">Meme indisponible</div>`;
+  const label = card.name || 'Meme';
+  const el = `<${tag} class="card type-meme${card.missing ? ' missing' : ''} ${cls}" style="${style}" ${attrs} ${tag === 'button' ? `type="button" aria-label="${esc(label)}"` : ''}>${extra}${body}</${tag}>`;
+  if (!zoom || !card.image) return el;
+  return `<div class="card-slot">${el}<button class="zoom" type="button" data-act="zoom" data-src="${esc(card.image)}" data-name="${esc(label)}" aria-label="Agrandir ${esc(label)}">${ICONS.zoom}</button></div>`;
 }
 
 // Image cassée : on affiche sa description au lieu d'un trou.
@@ -261,7 +256,7 @@ document.addEventListener(
     const img = e.target;
     if (!(img instanceof HTMLImageElement) || !img.classList.contains('card-img')) return;
     const art = img.closest('.card-art');
-    if (art) art.innerHTML = `<div class="card-fallback">${esc(img.alt || 'Image indisponible')}<br><small>(image indisponible)</small></div>`;
+    if (art) art.innerHTML = `<div class="card-fallback">${esc(img.alt || 'Meme')}<br><small>Image momentanément indisponible</small></div>`;
   },
   true,
 );
@@ -295,11 +290,20 @@ function updateBanner() {
 }
 
 // ── accueil ───────────────────────────────────────────────
-const SAMPLE = [
-  { id: 'demo1', type: 'image_text', image: 'cards/img/skull.svg', alt: '', text: 'Décédée. Paix à mon âme.' },
-  { id: 'demo-2', type: 'text', text: 'Vu à 23 h 14.' },
-  { id: 'demo3', type: 'image', image: 'cards/img/face-holding-back-tears.svg', alt: 'Visage qui retient ses larmes' },
-];
+// L'éventail de l'accueil montre trois vrais memes de la bibliothèque.
+const FAN = ['Drake Hotline Bling', 'Distracted Boyfriend', 'Woman Yelling At Cat'];
+async function fillFan() {
+  try {
+    const { memes } = await (await fetch('data/memes.json')).json();
+    const on = memes.filter((m) => m.active);
+    const pickName = (n) => on.find((m) => m.name.toLowerCase() === n.toLowerCase()) || on[Math.floor(Math.random() * on.length)];
+    const cards = FAN.map(pickName).map((m) => ({ id: m.id, type: 'meme', image: m.image, name: m.name }));
+    const fan = app.querySelector('.fan');
+    if (fan) fan.innerHTML = cards.map((c) => cardHtml(c)).join('');
+  } catch {
+    // l'accueil reste utilisable sans l'éventail
+  }
+}
 
 function renderHome(prefill = '') {
   const code = (prefill || '').toUpperCase();
@@ -309,7 +313,7 @@ function renderHome(prefill = '') {
   banner.hidden = true;
   app.innerHTML = `<main class="wrap"><div class="home">
     <header class="hero">
-      <div class="fan" aria-hidden="true">${SAMPLE.map((c) => cardHtml(c)).join('')}</div>
+      <div class="fan" aria-hidden="true"></div>
       <h1 class="wordmark">MDR!</h1>
       <p class="tagline">Une situation, dix cartes, une seule qui fera rire tout le groupe.</p>
     </header>
@@ -338,9 +342,9 @@ function renderHome(prefill = '') {
         <h2 id="rulesTitle">Comment on joue</h2>
         <ol class="steps">
           <li><div><b>Une situation pour tout le monde</b><span>« Quand ton crush te répond après 8 heures. »</span></div></li>
-          <li><div><b>Tu joues ta carte en secret</b><span>Choisis la plus drôle parmi tes 10 cartes : meme, réaction ou phrase.</span></div></li>
-          <li><div><b>Vote à l’aveugle</b><span>Les cartes sont mélangées et anonymes. Impossible de voter pour la tienne.</span></div></li>
-          <li><div><b>1 point pour la plus votée</b><span>10 manches, puis le classement final désigne la reine du MDR.</span></div></li>
+          <li><div><b>Tu joues ton meme en secret</b><span>Tu as 10 memes en main, nouveaux à chaque manche : choisis celui qui colle le mieux.</span></div></li>
+          <li><div><b>Vote à l’aveugle</b><span>Les memes joués sont mélangés et anonymes. Impossible de voter pour le tien.</span></div></li>
+          <li><div><b>1 point pour le plus voté</b><span>10 manches, puis le classement final désigne la reine du MDR.</span></div></li>
         </ol>
       </section>
     </div>
@@ -354,6 +358,7 @@ function renderHome(prefill = '') {
     homeAction(joinMode ? 'join' : 'create');
   });
   if (joinMode) peekRoom(code);
+  fillFan();
 }
 
 async function peekRoom(code) {
@@ -453,10 +458,7 @@ function renderLobby(v) {
       ? `<div class="setting"><label for="cfg-${key}">${label}</label><select class="select" id="cfg-${key}" data-config="${key}">${options.map((o) => `<option value="${o}"${o === c[key] ? ' selected' : ''}>${fmt(o)}</option>`).join('')}</select></div>`
       : `<div class="setting"><span>${label}</span><b>${fmt(c[key])}</b></div>`,
   ).join('');
-  const dark = host
-    ? `<div class="setting"><label for="cfg-dark">Humour noir<small>Ajoute des situations et cartes plus grinçantes</small></label><span class="switch"><input type="checkbox" id="cfg-dark" data-config="darkHumor"${c.darkHumor ? ' checked' : ''}><i></i></span></div>`
-    : `<div class="setting"><span>Humour noir</span><b>${c.darkHumor ? 'Activé' : 'Désactivé'}</b></div>`;
-  part('settings', settings + dark);
+  part('settings', settings);
   const me = v.players.find((p) => p.id === v.you);
   let dock;
   if (host) {
@@ -472,8 +474,8 @@ function renderLobby(v) {
 
 // ── manche ────────────────────────────────────────────────
 const CATEGORY_LABELS = {
-  amitie: 'Amitié', couple: 'Couple & crush', gene: 'Situation gênante', 'ecole-travail': 'École & travail', famille: 'Famille',
-  soirees: 'Soirée', reseaux: 'Réseaux & messages', absurde: 'Absurde', excuses: 'Mensonges & excuses', 'humour-noir': 'Humour noir', internet: 'Culture Internet',
+  crush: 'Crushs & flirts', ex: 'Ex & ruptures', amies: 'Meilleures amies', dramas: 'Dramas & secrets', beaute: 'Beauté & tenues',
+  dates: 'Dates & couples', reseaux: 'Réseaux & messages', soirees: 'Soirées', quotidien: 'Famille & quotidien', absurde: 'Absurde & gênant',
 };
 
 function renderRound(v) {
@@ -521,17 +523,17 @@ function renderPick(v, r, fresh) {
   const picked = r.myPick;
   part(
     'status',
-    `<div class="status-line"><strong>${!r.playing ? 'Tu regardes cette manche' : picked ? 'Carte validée !' : 'Choisis ta carte'}</strong></div>
-     ${progressHtml(r, 'ont choisi leur carte')}${chipsHtml(v, 'picked')}`,
+    `<div class="status-line"><strong>${!r.playing ? 'Tu regardes cette manche' : picked ? 'Meme validé !' : 'Choisis ton meme'}</strong></div>
+     ${progressHtml(r, 'ont choisi leur meme')}${chipsHtml(v, 'picked')}`,
   );
   if (!r.playing) {
-    part('board', `<div class="waiting"><p>Tu n’as pas de cartes pour cette manche. Tu joueras la suivante.</p></div>`);
+    part('board', `<div class="waiting"><p>Tu n’as pas de memes pour cette manche. Tu joueras la suivante.</p></div>`);
     part('dock', '');
     return;
   }
   if (picked) {
     const card = r.hand.find((c) => c.id === picked);
-    part('board', `<div class="waiting">${cardHtml(card, { extra: '<span class="sticker mint">Ma carte</span>' })}<p>Les autres choisissent encore. Personne ne voit ta carte avant la révélation.</p></div>`);
+    part('board', `<div class="waiting">${cardHtml(card, { extra: '<span class="sticker mint">Mon meme</span>' })}<p>Les autres choisissent encore. Personne ne voit ton meme avant la révélation.</p></div>`);
     part('dock', '');
     return;
   }
@@ -539,7 +541,7 @@ function renderPick(v, r, fresh) {
   const drew = part(
     'board',
     `<div class="grid hand" data-grid>${r.hand
-      .map((c, i) => cardHtml(c, { tag: 'button', i, attrs: `data-act="select" data-id="${esc(c.id)}" aria-pressed="${ui.selected === c.id}"`, cls: ui.selected === c.id ? 'is-selected' : '' }))
+      .map((c, i) => cardHtml(c, { tag: 'button', i, zoom: true, attrs: `data-act="select" data-id="${esc(c.id)}" aria-pressed="${ui.selected === c.id}"`, cls: ui.selected === c.id ? 'is-selected' : '' }))
       .join('')}</div>`,
   );
   if (drew && fresh) animateOnce('[data-grid]', 'deal');
@@ -549,20 +551,20 @@ function renderPick(v, r, fresh) {
 function updatePickDock(r) {
   part(
     'dock',
-    `<button class="btn btn-wide" data-act="confirm-pick" ${ui.selected && !ui.busy ? '' : 'disabled'}>${ui.selected ? 'Valider cette carte' : 'Touche une carte'}</button>
+    `<button class="btn btn-wide" data-act="confirm-pick" ${ui.selected && !ui.busy ? '' : 'disabled'}>${ui.selected ? 'Valider ce meme' : 'Touche un meme'}</button>
      <p class="hint">Tu peux changer d’avis tant que tu n’as pas validé.</p>`,
   );
 }
 
 const NOTICES = {
-  pick_missed: (n) => `Temps écoulé : ${n.names.join(', ')} ${n.names.length > 1 ? 'n’ont' : 'n’a'} pas validé de carte et passe${n.names.length > 1 ? 'nt' : ''} son tour. Tout le monde peut voter.`,
+  pick_missed: (n) => `Temps écoulé : ${n.names.join(', ')} ${n.names.length > 1 ? 'n’ont' : 'n’a'} pas validé de meme et passe${n.names.length > 1 ? 'nt' : ''} son tour. Tout le monde peut voter.`,
 };
 
 function renderVote(v, r, fresh) {
   const voted = r.myVote;
   part(
     'status',
-    `<div class="status-line"><strong>${voted ? 'Vote enregistré !' : r.canVote ? 'Vote pour la carte la plus drôle' : 'Les autres votent'}</strong></div>
+    `<div class="status-line"><strong>${voted ? 'Vote enregistré !' : r.canVote ? 'Vote pour le meme le plus drôle' : 'Les autres votent'}</strong></div>
      ${r.notice ? `<p class="notice">${esc(NOTICES[r.notice.kind]?.(r.notice) || '')}</p>` : ''}
      ${progressHtml(r, 'ont voté')}${chipsHtml(v, 'voted')}`,
   );
@@ -573,10 +575,10 @@ function renderVote(v, r, fresh) {
       .map((a, i) => {
         const mine = a.aid === r.myAnswer;
         const chosen = voted === a.aid;
-        const extra = `<span class="letter">${a.label}</span>${mine ? '<span class="sticker gum">Ta carte</span>' : ''}${chosen ? '<span class="sticker">Ton vote</span>' : ''}`;
+        const extra = `<span class="letter">${a.label}</span>${mine ? '<span class="sticker gum">Ton meme</span>' : ''}${chosen ? '<span class="sticker">Ton vote</span>' : ''}`;
         const disabled = mine || voted || !r.canVote;
         const cls = [ui.selected === a.aid && !voted ? 'is-selected' : '', mine ? 'is-mine' : '', voted && !chosen && !mine ? 'is-dim' : ''].join(' ');
-        return cardHtml(a.card, { tag: 'button', i, extra, cls, attrs: `data-act="select" data-id="${esc(a.aid)}" ${disabled ? 'disabled' : ''} aria-pressed="${ui.selected === a.aid}" aria-describedby="lbl-${a.aid}"` }) + `<span class="sr" id="lbl-${a.aid}">Carte ${a.label}${mine ? ', ta carte' : ''}</span>`;
+        return cardHtml(a.card, { tag: 'button', i, extra, cls, zoom: true, attrs: `data-act="select" data-id="${esc(a.aid)}" ${disabled ? 'disabled' : ''} aria-pressed="${ui.selected === a.aid}" aria-describedby="lbl-${a.aid}"` }) + `<span class="sr" id="lbl-${a.aid}">Meme ${a.label}${mine ? ', ton meme' : ''}</span>`;
       })
       .join('')}</div>`,
   );
@@ -586,19 +588,19 @@ function renderVote(v, r, fresh) {
 
 function updateVoteDock(r) {
   if (r.myVote || !r.canVote) {
-    part('dock', r.canVote ? '' : '<p class="hint">Tu ne peux pas voter cette manche : il n’y a pas d’autre carte que la tienne.</p>');
+    part('dock', r.canVote ? '' : '<p class="hint">Tu ne peux pas voter cette manche : il n’y a pas d’autre meme que le tien.</p>');
     return;
   }
   const label = r.answers.find((a) => a.aid === ui.selected)?.label;
   part(
     'dock',
-    `<button class="btn btn-gum btn-wide" data-act="confirm-vote" ${label && !ui.busy ? '' : 'disabled'}>${label ? `Voter pour la carte ${label}` : 'Touche ta carte préférée'}</button>
-     <p class="hint">Un seul vote, et pas pour ta propre carte.</p>`,
+    `<button class="btn btn-gum btn-wide" data-act="confirm-vote" ${label && !ui.busy ? '' : 'disabled'}>${label ? `Voter pour le meme ${label}` : 'Touche ton meme préféré'}</button>
+     <p class="hint">Un seul vote, et pas pour ton propre meme.</p>`,
   );
 }
 
 const RESULT_REASONS = {
-  not_enough_answers: 'Pas assez de cartes jouées : pas de vote cette manche.',
+  not_enough_answers: 'Pas assez de memes joués : pas de vote cette manche.',
   no_voters: 'Personne ne pouvait voter : aucun point cette manche.',
 };
 
@@ -681,7 +683,7 @@ function renderFinal(v) {
   let sub;
   if (top === 0) {
     title = 'Personne n’a marqué';
-    sub = 'Aucune carte n’a reçu de vote. Revanche ?';
+    sub = 'Aucun meme n’a reçu de vote. Revanche ?';
   } else if (leaders.length > 1) {
     title = 'Égalité !';
     sub = `${leaders.map((p) => p.name).join(' et ')} terminent ex æquo avec ${plural(top, 'point', 'points')}.`;
@@ -694,10 +696,10 @@ function renderFinal(v) {
   const fresh = mount(
     `final:${v.game.id}`,
     `<main class="wrap"><div class="final">
-      <section class="podium"><img src="cards/img/${leaders.length > 1 || top === 0 ? 'handshake' : 'trophy'}.svg" alt="" width="96" height="96">
+      <section class="podium">
         <h1>${esc(title)}</h1><p>${esc(sub)}</p>${reason ? `<p>${esc(reason)}</p>` : ''}</section>
       <section><h2 class="block-title">Classement</h2><div data-part="standings"></div></section>
-      <section><h2 class="block-title">Les cartes gagnantes</h2><div class="history">${
+      <section><h2 class="block-title">Les memes gagnants</h2><div class="history">${
         v.history.length
           ? v.history
               .map(
@@ -756,9 +758,9 @@ function openMenu() {
 }
 
 function openCredits() {
-  openSheet(`<h2>Crédits et licences</h2>
-    <p>Situations, phrases et légendes : textes originaux écrits pour MDR.</p>
-    <p>Illustrations des cartes : <a href="https://github.com/microsoft/fluentui-emoji" target="_blank" rel="noopener">Fluent Emoji</a> © Microsoft Corporation, licence MIT (<a href="cards/img/LICENSE-fluent-emoji.txt" target="_blank">texte de la licence</a>).</p>
+  openSheet(`<h2>Crédits et droits</h2>
+    <p>Situations : textes écrits pour MDR.</p>
+    <p>Memes : images célèbres d’Internet, dont les droits appartiennent à leurs auteurs. MDR ne les copie pas : elles s’affichent directement depuis les serveurs d’<a href="https://imgflip.com/memetemplates" target="_blank" rel="noopener">Imgflip</a>, de <a href="https://memegen.link" target="_blank" rel="noopener">memegen.link</a> et de <a href="https://memebo.at" target="_blank" rel="noopener">Memeboat</a>, via leurs API publiques.</p>
     <p>Aucune donnée n’est conservée après la partie : seulement ton pseudo, le temps de la salle.</p>
     <button class="btn btn-wide" data-act="close-sheet">Fermer</button>`);
 }
@@ -857,6 +859,9 @@ document.addEventListener('click', (e) => {
       break;
     case 'menu':
       openMenu();
+      break;
+    case 'zoom':
+      openSheet(`<img class="zoom-img" src="${esc(el.dataset.src)}" alt="${esc(el.dataset.name)}" referrerpolicy="no-referrer"><button class="btn btn-wide" data-act="close-sheet">Fermer</button>`);
       break;
     case 'credits':
       openCredits();

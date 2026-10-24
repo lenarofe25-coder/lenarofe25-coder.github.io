@@ -25,10 +25,7 @@ export const DEFAULT_CONFIG = {
   pickSeconds: 60,
   voteSeconds: 45,
   resultsSeconds: 12,
-  darkHumor: false,
 };
-
-export const OPT_IN_CATEGORIES = ['humour-noir'];
 
 export class GameError extends Error {
   constructor(code, message) {
@@ -194,17 +191,14 @@ export function sanitizeConfig(input, current = DEFAULT_CONFIG) {
         out[key] = v;
       }
     }
-    if ('darkHumor' in input) out.darkHumor = input.darkHumor === true;
   }
   return out;
 }
 
 // ── contenu ─────────────────────────────────────────────────
 
-const allowedCategory = (room, category) => room.config.darkHumor || !OPT_IN_CATEGORIES.includes(category);
-
 function pickSituation(room, ctx) {
-  const pool = ctx.content.situations.filter((s) => s.active && allowedCategory(room, s.category));
+  const pool = ctx.content.situations.filter((s) => s.active);
   if (!pool.length) fail('NO_CONTENT', 'Aucune situation disponible.');
   const used = new Set(room.game.usedSituations);
   let fresh = pool.filter((s) => !used.has(s.id));
@@ -218,7 +212,7 @@ function pickSituation(room, ctx) {
   return s.id;
 }
 
-// 10 cartes distinctes par joueuse, tirées indépendamment ; on évite de redonner
+// 10 memes distincts par joueuse, tirées indépendamment ; on évite de redonner
 // à une joueuse des cartes qu'elle a déjà eues dans la partie tant que c'est possible.
 export function dealHand(pool, seenIds, size, rng) {
   const seen = new Set(seenIds);
@@ -232,7 +226,7 @@ export function dealHand(pool, seenIds, size, rng) {
 }
 
 function cardPool(room, ctx) {
-  return ctx.content.cards.filter((c) => c.active && allowedCategory(room, c.category)).map((c) => c.id);
+  return ctx.content.cards.filter((c) => c.active).map((c) => c.id);
 }
 
 // ── partie ──────────────────────────────────────────────────
@@ -255,7 +249,7 @@ function startGame(room, ctx) {
   const check = canStart(room);
   if (!check.ok) fail('CANNOT_START', check.reason);
   const pool = cardPool(room, ctx);
-  if (pool.length < LIMITS.handSize) fail('NO_CONTENT', 'Pas assez de cartes disponibles.');
+  if (pool.length < LIMITS.handSize) fail('NO_CONTENT', 'Pas assez de memes disponibles.');
   room.gameCount += 1;
   room.status = 'playing';
   room.game = {

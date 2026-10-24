@@ -6,7 +6,13 @@ import * as E from '../src/engine.js';
 import { buildContent } from '../src/content.js';
 
 const lib = (p) => JSON.parse(readFileSync(new URL(`../../jeu/data/${p}`, import.meta.url), 'utf8'));
-const content = buildContent({ cards: lib('cards.json').cards, situations: lib('situations.json').situations });
+// Les règles ne dépendent pas des images : une bibliothèque synthétique de 320 memes suffit.
+// La vraie bibliothèque (jeu/data/memes.json) est vérifiée dans content.test.mjs.
+const fakeMemes = Array.from({ length: 320 }, (_, i) => ({
+  id: `m-test-${i}`, name: `Meme ${i}`, image: `https://exemple.test/${i}.jpg`, active: true,
+  source: { name: 'Test', page: 'https://exemple.test' }, sha256: `h${i}`,
+}));
+const content = buildContent({ memes: fakeMemes, situations: lib('situations.json').situations });
 
 // Générateur pseudo-aléatoire déterministe (mulberry32).
 function seeded(seed = 42) {
@@ -56,11 +62,9 @@ const voteAll = (room, ids, act) => {
 
 const expectCode = (fn, code) => assert.throws(fn, (e) => e instanceof E.GameError && e.code === code);
 
-test('bibliothèques : au moins 500 situations et 500 cartes actives, identifiants uniques', () => {
-  const s = content.stats();
-  assert.ok(s.activeSituations >= 500, `situations : ${s.activeSituations}`);
-  assert.ok(s.activeCards >= 500, `cartes : ${s.activeCards}`);
-  assert.equal(new Set(content.cards.map((c) => c.id)).size, content.cards.length);
+test('bibliothèque de situations : 500 situations actives, identifiants uniques', () => {
+  const st = content.stats();
+  assert.equal(st.activeSituations, 500);
   assert.equal(new Set(content.situations.map((c) => c.id)).size, content.situations.length);
 });
 
@@ -230,22 +234,16 @@ test('cartes renouvelées à chaque manche, sans redonner une carte déjà vue t
   }
 });
 
-test('humour noir : exclu par défaut, inclus si l’hôte l’active', () => {
-  const dark = (cfg) => {
-    const { room, ids, act, start } = setup(2, cfg);
-    start();
-    const cards = new Set();
-    for (let n = 0; n < 10; n++) {
-      for (const pid of ids) round(room).hands[pid].forEach((id) => cards.add(content.cardById(id).category));
-      cards.add(content.situationById(round(room).situationId).category);
-      pickAll(room, ids, act);
-      voteAll(room, ids, act);
-      act('p0', { t: 'next' });
+test('les cartes distribuées sont uniquement des memes visuels', () => {
+  const { room, ids, start } = setup(4);
+  start();
+  for (const pid of ids) {
+    for (const c of E.viewFor(room, pid, content).round.hand) {
+      assert.equal(c.type, 'meme');
+      assert.match(c.image, /^https:\/\//);
+      assert.equal(c.text, undefined);
     }
-    return cards.has('humour-noir');
-  };
-  assert.equal(dark({}), false);
-  assert.equal(dark({ darkHumor: true }), true);
+  }
 });
 
 test('chrono : la sélection se clôt à l’échéance, les retardataires passent leur tour (annoncé)', () => {
@@ -381,9 +379,8 @@ test('réglages : seules les valeurs prévues sont acceptées, uniquement par l�
   const { act, room } = setup(2);
   expectCode(() => act('p0', { t: 'config', config: { pickSeconds: 7 } }), 'BAD_CONFIG');
   expectCode(() => act('p1', { t: 'config', config: { pickSeconds: 30 } }), 'NOT_HOST');
-  act('p0', { t: 'config', config: { pickSeconds: 30, darkHumor: true } });
+  act('p0', { t: 'config', config: { pickSeconds: 30 } });
   assert.equal(room.config.pickSeconds, 30);
-  assert.equal(room.config.darkHumor, true);
 });
 
 test('expiration : salle fermée après inactivité sans personne connectée', () => {
@@ -398,5 +395,5 @@ test('expiration : salle fermée après inactivité sans personne connectée', (
 test('carte retirée de la bibliothèque : affichée comme indisponible au lieu de casser la vue', () => {
   const c = content.cardById('c-9999');
   assert.equal(c.missing, true);
-  assert.equal(c.text, 'Carte indisponible');
+  assert.equal(c.name, 'Meme indisponible');
 });

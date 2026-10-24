@@ -123,16 +123,19 @@ def memeboat_search(query, log):
         log["memeboat_sample"] = json.dumps(data)[:1500]
     out = []
     for t in first_list(data):
+        # Schéma Memeboat : id, urlName, name, img (miniature), imgFull, width, height, safeForWork.
+        if str(t.get("safeForWork", "yes")).lower() != "yes":
+            continue
         name = pick(t, "name", "title")
-        image = pick(t, "imageUrl", "image_url", "image", "url", "templateUrl", "src")
-        slug = pick(t, "slug", "id")
+        image = pick(t, "imgFull", "img", "imageUrl", "image_url", "image", "url")
+        slug = pick(t, "urlName", "slug", "id")
         if isinstance(image, dict):
             image = pick(image, "url", "src")
         if not (name and image and isinstance(image, str)):
             continue
         if image.startswith("/"):
             image = "https://memebo.at" + image
-        out.append({"src": "memeboat", "name": name, "image": image, "page": f"https://memebo.at/templates/{slug}" if slug else "https://memebo.at/templates", "key": f"memeboat:{slug or image}"})
+        out.append({"src": "memeboat", "name": name, "image": image, "page": f"https://memebo.at/templates/{slug}" if slug else "https://memebo.at/templates", "key": f"memeboat:{t.get('id') or slug}"})
     return out
 
 
@@ -197,13 +200,20 @@ def main():
             chosen[best["key"]]["wanted"] = w
             continue
         results = memeboat_search(w, log)
-        time.sleep(0.35)
+        time.sleep(1.0)  # usage modéré, conformément aux conditions de Memeboat
         scored = sorted(results, key=lambda c: -similarity(w, c["name"]))
         if scored and similarity(w, scored[0]["name"]) >= 0.6:
             c = scored[0]
             chosen.setdefault(c["key"], dict(c, wanted=w))
         else:
             misses.append({"wanted": w, "best": scored[0]["name"] if scored else None})
+
+    sample = next((c for c in chosen.values() if c["src"] == "memeboat"), None)
+    if sample:
+        try:
+            log["memeboat_page_check"] = {"url": sample["page"], "status": session.get(sample["page"], timeout=30).status_code}
+        except Exception as e:  # noqa: BLE001
+            log["memeboat_page_check"] = {"url": sample["page"], "error": str(e)[:120]}
 
     # 2. Vérification réelle de chaque image et déduplication (identique ou quasi identique).
     ordered = sorted(chosen.values(), key=lambda c: PRIORITY[c["src"]])

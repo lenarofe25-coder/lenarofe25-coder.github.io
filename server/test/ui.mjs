@@ -85,8 +85,14 @@ for (let n = 1; n <= 10; n++) {
     await noHScroll(a);
     await noHScroll(b);
     // Changer d'avis avant de valider
-    await a.page.click('[data-grid] .card:nth-child(2)');
-    await a.page.click('[data-grid] .card:nth-child(4)');
+    await a.page.click('[data-grid] .card-slot:nth-child(2) .card');
+    await a.page.click('[data-grid] .card-slot:nth-child(4) .card');
+    // La loupe agrandit le meme sans le sélectionner.
+    await a.page.click('[data-grid] .card-slot:nth-child(1) .zoom');
+    await a.page.waitForSelector('dialog[open] .zoom-img');
+    await shot(a, '04b-loupe-mobile');
+    await a.page.click('dialog[open] [data-act="close-sheet"]');
+    assert.equal(await a.page.locator('.card.is-selected').count(), 1);
     assert.equal(await a.page.locator('.card.is-selected').count(), 1);
     await shot(a, '04-selection-mobile');
   }
@@ -99,7 +105,7 @@ for (let n = 1; n <= 10; n++) {
     assert.deepEqual(after, before);
   }
   for (const p of players) {
-    await p.page.click(`[data-grid] .card:nth-child(${(n % 10) + 1})`);
+    await p.page.click(`[data-grid] .card-slot:nth-child(${(n % 10) + 1}) .card`);
     await p.page.click('[data-act="confirm-pick"]');
   }
   if (n === 1) {
@@ -157,6 +163,9 @@ await a.page.waitForFunction(() => document.querySelectorAll('.player').length =
 
 await browser.close();
 // Les 404/409 provoqués exprès (code inconnu, pseudo pris, image cassée) ne sont pas des erreurs.
-const relevant = errors.filter((e) => !/Failed to load resource: the server responded with a status of (404|409)/.test(e));
+// Les 404/409 provoqués exprès (code inconnu, pseudo pris, image cassée) ne sont pas des erreurs ;
+// MDR_OFFLINE_IMAGES=1 : images des memes injoignables depuis l'environnement de test (réseau filtré).
+const offline = process.env.MDR_OFFLINE_IMAGES === '1';
+const relevant = errors.filter((e) => !/Failed to load resource: the server responded with a status of (404|409)/.test(e) && !(offline && /ERR_|Failed to load resource/.test(e)));
 assert.deepEqual(relevant, [], relevant.join('\n'));
 console.log(`OK : partie complète à 3 dans le navigateur, salle ${code}`);

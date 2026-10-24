@@ -4,11 +4,11 @@
 import { DurableObject } from 'cloudflare:workers';
 import * as engine from './engine.js';
 import { buildContent, loadRemoteContent } from './content.js';
-import bundledCards from '../../jeu/data/cards.json';
+import bundledMemes from '../../jeu/data/memes.json';
 import bundledSituations from '../../jeu/data/situations.json';
 
 const REFRESH_MS = 10 * 60_000;
-let contentCache = { content: buildContent({ cards: bundledCards.cards, situations: bundledSituations.situations }), loadedAt: 0, source: 'bundled' };
+let contentCache = { content: buildContent({ memes: bundledMemes.memes, situations: bundledSituations.situations }), loadedAt: 0, source: 'bundled' };
 
 async function getContent(env) {
   if (env.CONTENT_URL && Date.now() - contentCache.loadedAt > REFRESH_MS) {
