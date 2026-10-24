@@ -1,0 +1,45 @@
+# Memes écartés après vérification visuelle des planches contact (identifiant  # raison).
+# Un meme listé ici reste dans jeu/data/memes.json avec active: false et n’est jamais distribué.
+m-bernie-sanders-once-again-asking  # Bernie Sanders Once Again Asking — variante d’un meme déjà présent
+m-marked-safe-from  # Marked Safe From — presque uniquement du texte
+m-george-bush-9-11  # George Bush 9/11 — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-no-yes  # No - Yes — variante d’un meme déjà présent
+m-megamind-no-bitches  # Megamind no bitches — variante d’un meme déjà présent
+m-drake-blank  # Drake Blank — variante d’un meme déjà présent
+m-look-at-me  # Look At Me — variante d’un meme déjà présent
+m-american-chopper-argument  # American Chopper Argument — variante d’un meme déjà présent
+m-whe-i-m-in-competition-and-my-opponent-is  # whe i'm in a competition and my opponent is — presque uniquement du texte
+m-socially-awesome-penguin  # Socially Awesome Penguin — variante d’un meme déjà présent
+m-socially-awesome-awkward-penguin  # Socially Awesome Awkward Penguin — variante d’un meme déjà présent
+m-socially-awkward-awesome-penguin  # Socially Awkward Awesome Penguin — variante d’un meme déjà présent
+m-butthurt-dweller  # Butthurt Dweller — moquerie du physique d’une personne réelle
+m-bad-luck-brian-2  # Bad Luck Brian — variante d’un meme déjà présent
+m-two-guys-on-bus-2  # Two Guys on a Bus — variante d’un meme déjà présent
+m-x-x-everywhere-2  # X, X Everywhere — variante d’un meme déjà présent
+m-communist-bugs-bunny  # Communist Bugs Bunny — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-change-my-mind-2  # Change My Mind — variante d’un meme déjà présent
+m-soccer-celebration-in-bar  # Soccer Celebration In A Bar — modèle incomplet ou cassé
+m-expectation-vs-reality  # Expectation vs. Reality — modèle incomplet ou cassé
+m-drakeposting  # Drakeposting — variante d’un meme déjà présent
+m-dating-site-murderer  # Dating Site Murderer — thème meurtre
+m-elmo-choosing-cocaine  # Elmo Choosing Cocaine — drogue
+m-left-exit-12-off-ramp-2  # Left Exit 12 Off Ramp — variante d’un meme déjà présent
+m-this-is-fine-2  # This is Fine — variante d’un meme déjà présent
+m-grant-gustin-next-to-oliver-queen-s-grave  # Grant Gustin Next To Oliver Queen's Grave — variante d’un meme déjà présent
+m-hide-pain-harold-2  # Hide the Pain Harold — variante d’un meme déjà présent
+m-we-have-food-at-home  # We Have Food at Home — image presque vide, illisible
+m-you-guys-are-getting-paid-2  # You Guys Are Getting Paid? — variante d’un meme déjà présent
+m-is-this-pigeon-2  # Is This a Pigeon? — variante d’un meme déjà présent
+m-tuxedo-winnie-pooh-2  # Tuxedo Winnie the Pooh — variante d’un meme déjà présent
+m-mother-ignoring-kid-drowning-in-pool-2  # Mother Ignoring Kid Drowning In A Pool — variante d’un meme déjà présent
+m-sad-joe-biden  # Sad Joe Biden — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-john-boehner  # Sad John Boehner — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-george-bush  # Sad George Bush — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-bill-clinton  # Sad Bill Clinton — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-barack-obama  # Sad Barack Obama — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-say-line-bart  # Say the Line, Bart! — variante d’un meme déjà présent
+m-inhaling-seagull-2  # Inhaling Seagull — variante d’un meme déjà présent
+m-skeptical-third-world-kid  # Skeptical Third World Kid — variante d’un meme déjà présent
+m-spider-man-pointing-at-spider-man  # Spider-Man Pointing at Spider-Man — variante d’un meme déjà présent
+m-rent-is-too-damn-high  # The Rent Is Too Damn High — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-donald-trump  # Donald Trump — personnalité ou symbole politique : hors sujet pour une soirée entre amies

@@ -327,3 +327,8 @@ button.card:disabled { cursor: default; }
   .card, .prompt { transform: none; }
   .confetti { display: none; }
 }
+
+.via { margin-top: 28px; text-align: center; font-size: 0.85rem; color: var(--on-table-2); }
+.via a { color: inherit; }
+.sheet .via { margin: 0; color: var(--ink-2); }
+.sheet .via a { color: var(--ink); }

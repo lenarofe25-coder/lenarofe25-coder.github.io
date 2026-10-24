@@ -40,7 +40,8 @@ export function buildContent({ memes, situations }) {
     cardById: (id) => {
       const m = memeMap.get(id);
       if (!m) return MISSING_CARD(id);
-      const out = { id: m.id, type: 'meme', name: m.name, image: m.image, credit: m.source.name };
+      // source et page : lien retour exigé par Imgflip et Memeboat pour l'affichage de leurs images.
+      const out = { id: m.id, type: 'meme', name: m.name, image: m.image, source: m.source.name, page: m.source.page };
       if (m.width && m.height) out.ratio = Math.round((m.width / m.height) * 100) / 100;
       if (!m.active) out.missing = true;
       return out;

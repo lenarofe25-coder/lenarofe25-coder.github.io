@@ -233,6 +233,9 @@ function animateOnce(selector, cls) {
   setTimeout(() => el.classList.remove(cls), 1600);
 }
 
+// Lien retour vers les sources des images, exigé par les conditions d'Imgflip et de Memeboat.
+const VIA = `<p class="via">Memes affichés depuis <a href="https://imgflip.com" target="_blank" rel="noopener">Imgflip</a>, <a href="https://memegen.link" target="_blank" rel="noopener">memegen.link</a> et <a href="https://memebo.at" target="_blank" rel="noopener">Memeboat</a>.</p>`;
+
 const playerColor = (view, id) => AVATAR_COLORS[Math.max(0, view.players.findIndex((p) => p.id === id)) % AVATAR_COLORS.length];
 const avatar = (view, p) => `<span class="avatar" style="--c:${playerColor(view, p.id)}" aria-hidden="true">${esc([...p.name][0]?.toUpperCase() || '?')}</span>`;
 const nameOf = (view, id) => view.players.find((p) => p.id === id)?.name || 'Une joueuse partie';
@@ -246,7 +249,7 @@ function cardHtml(card, { tag = 'div', attrs = '', extra = '', cls = '', i = 0, 
   const label = card.name || 'Meme';
   const el = `<${tag} class="card type-meme${card.missing ? ' missing' : ''} ${cls}" style="${style}" ${attrs} ${tag === 'button' ? `type="button" aria-label="${esc(label)}"` : ''}>${extra}${body}</${tag}>`;
   if (!zoom || !card.image) return el;
-  return `<div class="card-slot">${el}<button class="zoom" type="button" data-act="zoom" data-src="${esc(card.image)}" data-name="${esc(label)}" aria-label="Agrandir ${esc(label)}">${ICONS.zoom}</button></div>`;
+  return `<div class="card-slot">${el}<button class="zoom" type="button" data-act="zoom" data-src="${esc(card.image)}" data-name="${esc(label)}" data-page="${esc(card.page || '')}" data-source="${esc(card.source || '')}" aria-label="Agrandir ${esc(label)}">${ICONS.zoom}</button></div>`;
 }
 
 // Image cassée : on affiche sa description au lieu d'un trou.
@@ -348,7 +351,8 @@ function renderHome(prefill = '') {
         </ol>
       </section>
     </div>
-    <footer class="footer"><button class="link" data-act="credits">Crédits et licences</button><a href="../">Retour au site</a></footer>
+    <footer class="footer"><button class="link" data-act="credits">Crédits et droits</button><a href="../">Retour au site</a></footer>
+    ${VIA}
   </div></main>`;
   ui.homeError = '';
   const codeInput = document.getElementById('code');
@@ -492,6 +496,7 @@ function renderRound(v) {
       <div class="status" data-part="status"></div>
       <div data-part="board"></div>
       <div data-part="standings"></div>
+      ${VIA}
     </main>
     <div class="dock"><div class="dock-inner" data-part="dock"></div></div>`,
   );
@@ -710,6 +715,7 @@ function renderFinal(v) {
           : '<p class="hint">Aucune manche terminée.</p>'
       }</div></section>
       <div class="final-actions" data-part="actions"></div>
+      ${VIA}
     </div></main>`,
   );
   part('standings', standingsHtml(v));
@@ -861,7 +867,9 @@ document.addEventListener('click', (e) => {
       openMenu();
       break;
     case 'zoom':
-      openSheet(`<img class="zoom-img" src="${esc(el.dataset.src)}" alt="${esc(el.dataset.name)}" referrerpolicy="no-referrer"><button class="btn btn-wide" data-act="close-sheet">Fermer</button>`);
+      openSheet(`<img class="zoom-img" src="${esc(el.dataset.src)}" alt="${esc(el.dataset.name)}" referrerpolicy="no-referrer">
+        ${el.dataset.page ? `<p class="via">Image : <a href="${esc(el.dataset.page)}" target="_blank" rel="noopener">${esc(el.dataset.source)}</a></p>` : ''}
+        <button class="btn btn-wide" data-act="close-sheet">Fermer</button>`);
       break;
     case 'credits':
       openCredits();
