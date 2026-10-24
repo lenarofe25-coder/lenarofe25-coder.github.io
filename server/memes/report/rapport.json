@@ -1,17 +1,21 @@
 {
- "started": "2026-10-24T23:29:25Z",
+ "started": "2026-10-24T23:38:01Z",
  "imgflip": 100,
- "memegen": 211,
+ "memegen": 209,
  "memeboat_sample": "{\"templates\": [{\"id\": 540, \"urlName\": \"seriously-face\", \"name\": \"Trollface\", \"tags\": [\"Are You Fing Kidding Me\"], \"safeForWork\": \"yes\", \"img\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540-small\", \"imgFull\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540\", \"createdAt\": \"2025-06-06T22:02:47.737Z\", \"width\": 500, \"height\": 479, \"fileType\": \"jpg\", \"hasTransparency\": false, \"popularity\": 95, \"defaultItems\": [{\"id\": \"text-0\", \"type\": \"text\", \"properties\": {\"top\": 14.37, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}, {\"id\": \"text-1\", \"type\": \"text\", \"properties\": {\"top\": 368.83, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}], \"captionsOverTime\": [[\"2025-01\", 33909], [\"2025-02\", 39355], [\"2",
+ "memeboat_page_check": {
+  "url": "https://memebo.at/templates/seriously-face",
+  "status": 200
+ },
  "wanted": 471,
- "candidates": 309,
- "verified_unique": 282,
- "active": 282,
+ "candidates": 559,
+ "verified_unique": 522,
+ "active": 522,
  "manually_rejected": 0,
  "by_source": {
   "imgflip": 99,
   "memegen": 183,
-  "memeboat": 0
+  "memeboat": 240
  },
  "rejected": [
   {
@@ -175,199 +179,91 @@
    "source": "memegen",
    "image": "https://api.memegen.link/images/yodawg.jpg",
    "reason": "doublon de « Yo Dawg Heard You »"
+  },
+  {
+   "name": "Sully Wazowski",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sully-wazowski-2994",
+   "reason": "trop petite (75, 78)"
+  },
+  {
+   "name": "Ermahgerd Gersberms",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/Ermahgerd-Berks-144",
+   "reason": "doublon de « Ermahgerd »"
+  },
+  {
+   "name": "Brace Yourselves X is Coming",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/Brace-Yourselves-X-is-Coming-77",
+   "reason": "doublon de « Winter is coming »"
+  },
+  {
+   "name": "Jim Halpert Explains",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/jim-halpert-explains-1007",
+   "reason": "doublon de « Jim Halpert Pointing to Whiteboard »"
+  },
+  {
+   "name": "Tom Cat Scared Reaction",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/tom-cat-scared-reaction-201914",
+   "reason": "doublon de « Unsettled Tom »"
+  },
+  {
+   "name": "Sad Hamster",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sad-hamster-75904",
+   "reason": "doublon de « Sad Hamster »"
+  },
+  {
+   "name": "Disappointed Black Guy",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/smile-frown-83877",
+   "reason": "doublon de « Expectation vs. Reality »"
+  },
+  {
+   "name": "Pablo escobar waiting",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/pablo-escobar-waiting-88075",
+   "reason": "doublon de « Sad Pablo Escobar »"
+  },
+  {
+   "name": "Corporate needs you to find the differences",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/corporate-needs-you-to-find-the-differences-5774",
+   "reason": "doublon de « They're The Same Picture »"
+  },
+  {
+   "name": "Sus Among Us",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sus-45837",
+   "reason": "trop petite (120, 120)"
   }
  ],
  "not_found": [
-  {
-   "wanted": "Trollface",
-   "best": null
-  },
-  {
-   "wanted": "Crying Cat",
-   "best": null
-  },
-  {
-   "wanted": "Gigachad",
-   "best": null
-  },
-  {
-   "wanted": "Not Stonks",
-   "best": null
-  },
-  {
-   "wanted": "Side Eye Chloe",
-   "best": null
-  },
-  {
-   "wanted": "Leonardo DiCaprio Pointing",
-   "best": null
-  },
-  {
-   "wanted": "Mr Incredible Becoming Uncanny",
-   "best": null
-  },
-  {
-   "wanted": "Mr Incredible Becoming Canny",
-   "best": null
-  },
-  {
-   "wanted": "Hard To Swallow Pills",
-   "best": null
-  },
-  {
-   "wanted": "Car Salesman Slaps Roof Of Car",
-   "best": null
-  },
-  {
-   "wanted": "Kermit Sipping Tea",
-   "best": null
-  },
-  {
-   "wanted": "Handsome Squidward",
-   "best": null
-  },
-  {
-   "wanted": "Surprised Patrick",
-   "best": null
-  },
-  {
-   "wanted": "Savage Patrick",
-   "best": null
-  },
-  {
-   "wanted": "Ight Imma Head Out",
-   "best": null
-  },
-  {
-   "wanted": "Tired Spongebob",
-   "best": null
-  },
-  {
-   "wanted": "Krusty Krab vs Chum Bucket",
-   "best": null
-  },
-  {
-   "wanted": "Mr Krabs Blur Meme",
-   "best": null
-  },
-  {
-   "wanted": "Caveman Spongebob",
-   "best": null
-  },
-  {
-   "wanted": "Confused Nick Young",
-   "best": null
-  },
-  {
-   "wanted": "Math Lady",
-   "best": null
-  },
-  {
-   "wanted": "Blinking White Guy",
-   "best": null
-  },
-  {
-   "wanted": "Surprised Koala",
-   "best": null
-  },
-  {
-   "wanted": "Arthur Fist",
-   "best": null
-  },
-  {
-   "wanted": "Crying Michael Jordan",
-   "best": null
-  },
-  {
-   "wanted": "Captain Picard Facepalm",
-   "best": null
-  },
   {
    "wanted": "Annoyed Picard",
    "best": null
   },
   {
-   "wanted": "Jackie Chan WTF",
-   "best": null
-  },
-  {
-   "wanted": "Big Chungus",
-   "best": null
-  },
-  {
-   "wanted": "Pepe the Frog",
-   "best": null
-  },
-  {
    "wanted": "Feels Good Man",
-   "best": null
-  },
-  {
-   "wanted": "Sad Pepe",
-   "best": null
-  },
-  {
-   "wanted": "Wojak",
-   "best": null
-  },
-  {
-   "wanted": "Doomer",
-   "best": null
-  },
-  {
-   "wanted": "Yes Chad",
-   "best": null
-  },
-  {
-   "wanted": "NPC Wojak",
-   "best": null
-  },
-  {
-   "wanted": "Two Soyjaks Pointing",
-   "best": null
-  },
-  {
-   "wanted": "Virgin vs Chad",
-   "best": null
+   "best": "smug pepe"
   },
   {
    "wanted": "Ok Boomer",
-   "best": null
-  },
-  {
-   "wanted": "Mike Wazowski Face Swap",
-   "best": null
-  },
-  {
-   "wanted": "Sully Wazowski",
-   "best": null
+   "best": "Annoying Orange"
   },
   {
    "wanted": "Walter White Falling",
    "best": null
   },
   {
-   "wanted": "Jesse Pinkman",
-   "best": null
-  },
-  {
-   "wanted": "Saul Goodman",
-   "best": null
-  },
-  {
-   "wanted": "Patrick Bateman",
-   "best": null
-  },
-  {
    "wanted": "Ryan Gosling Literally Me",
-   "best": null
+   "best": "Sad Ryan Gosling Contemplating - \"Bladerunner 2049\""
   },
   {
    "wanted": "Thomas Shelby",
-   "best": null
-  },
-  {
-   "wanted": "Joker Stairs",
    "best": null
   },
   {
@@ -375,51 +271,7 @@
    "best": null
   },
   {
-   "wanted": "Ben Affleck Smoking",
-   "best": null
-  },
-  {
-   "wanted": "Sad Keanu",
-   "best": null
-  },
-  {
-   "wanted": "Keanu Reeves You're Breathtaking",
-   "best": null
-  },
-  {
-   "wanted": "Conceited Reaction",
-   "best": null
-  },
-  {
-   "wanted": "Courage Wolf",
-   "best": null
-  },
-  {
-   "wanted": "Paranoid Parrot",
-   "best": null
-  },
-  {
-   "wanted": "Lazy College Senior",
-   "best": null
-  },
-  {
-   "wanted": "College Freshman",
-   "best": null
-  },
-  {
-   "wanted": "Ermahgerd Berks",
-   "best": null
-  },
-  {
    "wanted": "Unhelpful High School Teacher",
-   "best": null
-  },
-  {
-   "wanted": "Third World Success Kid",
-   "best": null
-  },
-  {
-   "wanted": "Aaaaand Its Gone",
    "best": null
   },
   {
@@ -427,15 +279,7 @@
    "best": null
   },
   {
-   "wanted": "Brace Yourselves X is Coming",
-   "best": null
-  },
-  {
    "wanted": "Ain't Nobody Got Time For That",
-   "best": null
-  },
-  {
-   "wanted": "Jim Halpert Explains",
    "best": null
   },
   {
@@ -447,23 +291,7 @@
    "best": null
   },
   {
-   "wanted": "Ross Geller",
-   "best": null
-  },
-  {
-   "wanted": "Chandler Bing",
-   "best": null
-  },
-  {
    "wanted": "Pivot",
-   "best": null
-  },
-  {
-   "wanted": "Homer Simpson Backing Into Bushes",
-   "best": null
-  },
-  {
-   "wanted": "Lisa Simpson's Presentation",
    "best": null
   },
   {
@@ -475,95 +303,19 @@
    "best": null
   },
   {
-   "wanted": "Bart Simpson Chalkboard",
-   "best": null
-  },
-  {
    "wanted": "Shaggy Rose",
    "best": null
   },
   {
    "wanted": "Garfield",
-   "best": null
-  },
-  {
-   "wanted": "Bugs Bunny No",
-   "best": null
-  },
-  {
-   "wanted": "Unsettled Tom",
-   "best": null
-  },
-  {
-   "wanted": "Tom Cat Shocked",
-   "best": null
-  },
-  {
-   "wanted": "Tom Reading Newspaper",
-   "best": null
-  },
-  {
-   "wanted": "Cat Vibing",
-   "best": null
-  },
-  {
-   "wanted": "Polite Cat",
-   "best": null
-  },
-  {
-   "wanted": "Nyan Cat",
-   "best": null
-  },
-  {
-   "wanted": "Keyboard Cat",
-   "best": null
-  },
-  {
-   "wanted": "Pop Cat",
-   "best": null
-  },
-  {
-   "wanted": "Big Floppa",
-   "best": null
-  },
-  {
-   "wanted": "Bingus",
-   "best": null
+   "best": "Garfield You Fat Cat"
   },
   {
    "wanted": "Huh Cat",
-   "best": null
+   "best": "Side Eye Eyebrow Raise Cat"
   },
   {
    "wanted": "Banana Cat Crying",
-   "best": null
-  },
-  {
-   "wanted": "Sad Hamster",
-   "best": null
-  },
-  {
-   "wanted": "Thumbs Up Crying Cat",
-   "best": null
-  },
-  {
-   "wanted": "Wet Cat",
-   "best": null
-  },
-  {
-   "wanted": "Screaming Cat",
-   "best": null
-  },
-  {
-   "wanted": "Smudge The Cat",
-   "best": null
-  },
-  {
-   "wanted": "Shocked Cat",
-   "best": null
-  },
-  {
-   "wanted": "Maxwell The Cat",
    "best": null
   },
   {
@@ -572,142 +324,26 @@
   },
   {
    "wanted": "Walter Dog",
-   "best": null
+   "best": "Suspicious Bull Terrier"
   },
   {
    "wanted": "Kabosu",
-   "best": null
-  },
-  {
-   "wanted": "Dog Side Eye",
-   "best": null
-  },
-  {
-   "wanted": "Monkey Looking Away",
-   "best": null
-  },
-  {
-   "wanted": "Harambe",
-   "best": null
-  },
-  {
-   "wanted": "Moo Deng",
-   "best": null
-  },
-  {
-   "wanted": "Sad Hamster Violin",
-   "best": null
-  },
-  {
-   "wanted": "Screaming Possum",
-   "best": null
-  },
-  {
-   "wanted": "Elmo Rise",
-   "best": null
-  },
-  {
-   "wanted": "Elmo Fire",
-   "best": null
+   "best": "wow doge"
   },
   {
    "wanted": "Elmo Shrug",
    "best": null
   },
   {
-   "wanted": "Baby Yoda",
-   "best": null
-  },
-  {
-   "wanted": "Kermit The Frog",
-   "best": null
-  },
-  {
-   "wanted": "Miss Piggy",
-   "best": null
-  },
-  {
-   "wanted": "Detective Pikachu",
-   "best": null
-  },
-  {
    "wanted": "Psyduck",
-   "best": null
-  },
-  {
-   "wanted": "Shrek",
-   "best": null
-  },
-  {
-   "wanted": "Donkey Shrek",
-   "best": null
-  },
-  {
-   "wanted": "Puss In Boots Eyes",
-   "best": null
+   "best": "Psyduck at Computer"
   },
   {
    "wanted": "Lord Farquaad Some Of You May Die",
-   "best": null
-  },
-  {
-   "wanted": "Gollum",
-   "best": null
-  },
-  {
-   "wanted": "Gandalf You Shall Not Pass",
-   "best": null
-  },
-  {
-   "wanted": "Thanos Perfectly Balanced",
-   "best": null
-  },
-  {
-   "wanted": "Thanos Impossible",
-   "best": null
-  },
-  {
-   "wanted": "Spiderman Desk",
-   "best": null
-  },
-  {
-   "wanted": "Tobey Maguire Crying",
-   "best": null
-  },
-  {
-   "wanted": "Green Goblin",
-   "best": null
-  },
-  {
-   "wanted": "Black Panther We Don't Do That Here",
-   "best": null
-  },
-  {
-   "wanted": "Wolverine Crush",
-   "best": null
-  },
-  {
-   "wanted": "Deadpool",
-   "best": null
-  },
-  {
-   "wanted": "I Have The High Ground",
-   "best": null
-  },
-  {
-   "wanted": "Hello There Obi Wan",
-   "best": null
-  },
-  {
-   "wanted": "It's A Trap Admiral Ackbar",
-   "best": null
+   "best": "Lord Farquaad Sacrifice"
   },
   {
    "wanted": "Palpatine Do It",
-   "best": null
-  },
-  {
-   "wanted": "Palpatine Ironic",
    "best": null
   },
   {
@@ -715,23 +351,7 @@
    "best": null
   },
   {
-   "wanted": "Darth Vader Noooo",
-   "best": null
-  },
-  {
-   "wanted": "Yoda",
-   "best": null
-  },
-  {
-   "wanted": "Chewbacca",
-   "best": null
-  },
-  {
    "wanted": "Dumbledore Asked Calmly",
-   "best": null
-  },
-  {
-   "wanted": "Jack Sparrow You Have Heard Of Me",
    "best": null
   },
   {
@@ -739,23 +359,7 @@
    "best": null
   },
   {
-   "wanted": "Jim Carrey Typing",
-   "best": null
-  },
-  {
-   "wanted": "Ace Ventura",
-   "best": null
-  },
-  {
-   "wanted": "Michael Jackson Eating Popcorn",
-   "best": null
-  },
-  {
    "wanted": "Nicolas Cage You Don't Say",
-   "best": null
-  },
-  {
-   "wanted": "Confused Travolta",
    "best": null
   },
   {
@@ -763,67 +367,15 @@
    "best": null
   },
   {
-   "wanted": "American Psycho Business Card",
-   "best": null
-  },
-  {
-   "wanted": "Here's Johnny",
-   "best": null
-  },
-  {
-   "wanted": "Pickle Rick",
-   "best": null
-  },
-  {
    "wanted": "Show Me What You Got",
    "best": null
   },
   {
-   "wanted": "Zoidberg Why Not",
-   "best": null
-  },
-  {
    "wanted": "Bender",
-   "best": null
-  },
-  {
-   "wanted": "Peter Griffin",
-   "best": null
-  },
-  {
-   "wanted": "They Took Our Jobs",
-   "best": null
-  },
-  {
-   "wanted": "Hank Hill",
-   "best": null
-  },
-  {
-   "wanted": "Nani",
-   "best": null
-  },
-  {
-   "wanted": "Omae Wa Mou Shindeiru",
-   "best": null
-  },
-  {
-   "wanted": "Saitama OK",
-   "best": null
-  },
-  {
-   "wanted": "Naruto Run",
-   "best": null
-  },
-  {
-   "wanted": "It's Over 9000",
-   "best": null
+   "best": "Bender Fur Coat"
   },
   {
    "wanted": "Zero Two Dance",
-   "best": null
-  },
-  {
-   "wanted": "Aqua Crying",
    "best": null
   },
   {
@@ -832,138 +384,42 @@
   },
   {
    "wanted": "Jojo Menacing",
-   "best": null
+   "best": "Jojo Thinking Emoji"
   },
   {
    "wanted": "Za Warudo",
    "best": null
   },
   {
-   "wanted": "Speedwagon",
-   "best": null
-  },
-  {
    "wanted": "Light Yagami Writing",
-   "best": null
+   "best": "Hajime Moriyasu Death Note"
   },
   {
    "wanted": "Gendo Pose",
    "best": null
   },
   {
-   "wanted": "Shinji Chair",
-   "best": null
-  },
-  {
    "wanted": "Me Gusta",
-   "best": null
-  },
-  {
-   "wanted": "Challenge Accepted",
-   "best": null
-  },
-  {
-   "wanted": "Okay Guy",
-   "best": null
-  },
-  {
-   "wanted": "Cereal Guy",
-   "best": null
+   "best": "Gus Fring Suit"
   },
   {
    "wanted": "Poker Face Rage",
    "best": null
   },
   {
-   "wanted": "LOL Face",
-   "best": null
-  },
-  {
-   "wanted": "Derp",
-   "best": null
-  },
-  {
    "wanted": "Problem Troll",
-   "best": null
-  },
-  {
-   "wanted": "Yao Ming Face",
-   "best": null
-  },
-  {
-   "wanted": "Not Bad Obama",
-   "best": null
+   "best": "Trolley Problem Crowd Puller"
   },
   {
    "wanted": "Aww Yeah",
-   "best": null
-  },
-  {
-   "wanted": "True Story",
-   "best": null
-  },
-  {
-   "wanted": "Rage Guy",
-   "best": null
-  },
-  {
-   "wanted": "Mother Of God",
-   "best": null
+   "best": "Aw Yeah Rage Face"
   },
   {
    "wanted": "Bad Joke Eel",
-   "best": null
-  },
-  {
-   "wanted": "Actual Advice Mallard",
-   "best": null
-  },
-  {
-   "wanted": "Business Cat",
-   "best": null
-  },
-  {
-   "wanted": "Advice Dog",
-   "best": null
-  },
-  {
-   "wanted": "Sad Affleck",
-   "best": null
-  },
-  {
-   "wanted": "Disappointed Black Guy",
-   "best": null
-  },
-  {
-   "wanted": "Gru",
-   "best": null
-  },
-  {
-   "wanted": "Minions",
-   "best": null
+   "best": "Moray Eel Stare"
   },
   {
    "wanted": "Baby Groot",
-   "best": null
-  },
-  {
-   "wanted": "Kim Kardashian Crying",
-   "best": null
-  },
-  {
-   "wanted": "Ryan Reynolds But Why",
-   "best": null
-  },
-  {
-   "wanted": "Gordon Ramsay Idiot Sandwich",
-   "best": null
-  },
-  {
-   "wanted": "Gordon Ramsay",
-   "best": null
-  },
-  {
-   "wanted": "Nene Leakes",
    "best": null
   },
   {
@@ -971,151 +427,35 @@
    "best": null
   },
   {
-   "wanted": "Cat Staring",
-   "best": null
-  },
-  {
    "wanted": "Cat With Sunglasses",
-   "best": null
+   "best": "Cool cat"
   },
   {
    "wanted": "Seal",
-   "best": null
-  },
-  {
-   "wanted": "Penguin Of Madagascar",
-   "best": null
-  },
-  {
-   "wanted": "Capybara",
-   "best": null
-  },
-  {
-   "wanted": "Pondering My Orb",
-   "best": null
-  },
-  {
-   "wanted": "Pablo Escobar Waiting",
-   "best": null
-  },
-  {
-   "wanted": "Spongebob Burning Paper",
-   "best": null
-  },
-  {
-   "wanted": "Spongebob Rainbow",
-   "best": null
-  },
-  {
-   "wanted": "Squidward Chair",
-   "best": null
-  },
-  {
-   "wanted": "Plankton",
-   "best": null
-  },
-  {
-   "wanted": "Sandy Cheeks",
-   "best": null
-  },
-  {
-   "wanted": "Spongebob Ight Imma Head Out",
-   "best": null
-  },
-  {
-   "wanted": "Dancing Pallbearers Coffin Dance",
-   "best": null
-  },
-  {
-   "wanted": "Coffin Dance",
-   "best": null
-  },
-  {
-   "wanted": "Rick Roll",
-   "best": null
-  },
-  {
-   "wanted": "Rick Astley",
-   "best": null
-  },
-  {
-   "wanted": "Trollge",
-   "best": null
-  },
-  {
-   "wanted": "Woman Pointing At Cat",
-   "best": null
-  },
-  {
-   "wanted": "Guy Holding Cardboard Sign",
-   "best": null
+   "best": "Seal of Approval  -"
   },
   {
    "wanted": "Weird Flex But Ok",
    "best": null
   },
   {
-   "wanted": "Sweating Jordan Peele",
-   "best": null
-  },
-  {
-   "wanted": "Key And Peele Sweating",
-   "best": null
-  },
-  {
-   "wanted": "Black Guy Hiding Behind Tree",
-   "best": null
-  },
-  {
-   "wanted": "Hey Can I Copy Your Homework",
-   "best": null
-  },
-  {
    "wanted": "Always Sunny Pepe Silvia",
-   "best": null
-  },
-  {
-   "wanted": "Kowalski Analysis",
-   "best": null
-  },
-  {
-   "wanted": "Me And The Boys",
-   "best": null
+   "best": "Conspiracy Wall Guy"
   },
   {
    "wanted": "Absolute Unit",
    "best": null
   },
   {
-   "wanted": "Corporate Needs You To Find The Differences",
-   "best": null
-  },
-  {
    "wanted": "Cat In Water",
-   "best": null
-  },
-  {
-   "wanted": "Panik",
-   "best": null
+   "best": "Cat Pressing Coffee Button"
   },
   {
    "wanted": "Kalm",
-   "best": null
-  },
-  {
-   "wanted": "Trojan Horse",
-   "best": null
-  },
-  {
-   "wanted": "Who Would Win",
-   "best": null
+   "best": "kalm panik"
   },
   {
    "wanted": "Water Gun",
-   "best": null
-  },
-  {
-   "wanted": "Bonk Go To Horny Jail",
    "best": null
   },
   {
@@ -1131,203 +471,51 @@
    "best": null
   },
   {
-   "wanted": "Jason Momoa Henry Cavill",
-   "best": null
-  },
-  {
    "wanted": "Distracted Dog",
    "best": null
   },
   {
-   "wanted": "Monkey Thinking",
-   "best": null
-  },
-  {
-   "wanted": "Ah Shit Here We Go Again",
-   "best": null
-  },
-  {
-   "wanted": "CJ GTA",
-   "best": null
-  },
-  {
-   "wanted": "Mario Bros Views",
-   "best": null
-  },
-  {
-   "wanted": "Luigi Death Stare",
-   "best": null
-  },
-  {
-   "wanted": "Crash Bandicoot",
-   "best": null
-  },
-  {
-   "wanted": "Sonic Says",
-   "best": null
-  },
-  {
-   "wanted": "Dr Eggman",
-   "best": null
-  },
-  {
-   "wanted": "Steve Minecraft",
-   "best": null
-  },
-  {
-   "wanted": "Creeper",
-   "best": null
-  },
-  {
-   "wanted": "Among Us",
-   "best": null
-  },
-  {
-   "wanted": "Sus Among Us",
-   "best": null
-  },
-  {
-   "wanted": "Fortnite Default Dance",
-   "best": null
-  },
-  {
-   "wanted": "Thomas The Tank Engine",
-   "best": null
-  },
-  {
-   "wanted": "Bob The Builder",
-   "best": null
-  },
-  {
    "wanted": "Dora",
-   "best": null
-  },
-  {
-   "wanted": "Arthur",
-   "best": null
-  },
-  {
-   "wanted": "Caillou",
-   "best": null
+   "best": "Dora the Explorer"
   },
   {
    "wanted": "Hey Arnold",
-   "best": null
-  },
-  {
-   "wanted": "Courage The Cowardly Dog",
-   "best": null
+   "best": "Helga I hate you but I love you"
   },
   {
    "wanted": "Johnny Bravo",
    "best": null
   },
   {
-   "wanted": "Dexter",
-   "best": null
-  },
-  {
-   "wanted": "Perry The Platypus",
-   "best": null
-  },
-  {
-   "wanted": "Phineas And Ferb",
-   "best": null
-  },
-  {
-   "wanted": "Doofenshmirtz",
-   "best": null
-  },
-  {
-   "wanted": "Mr Bean",
-   "best": null
-  },
-  {
-   "wanted": "Mr Bean Waiting",
-   "best": null
-  },
-  {
-   "wanted": "Mr Bean Copying",
-   "best": null
-  },
-  {
-   "wanted": "Charlie Chaplin",
-   "best": null
-  },
-  {
    "wanted": "Gene Wilder Wonka",
-   "best": null
+   "best": "Willy Wonka Blank"
   },
   {
    "wanted": "Tony Stark Was Able To Build This",
    "best": null
   },
   {
-   "wanted": "Iron Man",
-   "best": null
-  },
-  {
    "wanted": "Thor Is This A",
-   "best": null
-  },
-  {
-   "wanted": "Hulk",
-   "best": null
-  },
-  {
-   "wanted": "Nick Fury",
-   "best": null
-  },
-  {
-   "wanted": "Doctor Strange",
-   "best": null
+   "best": "Paper Mario \"This Post Right Here Officer\""
   },
   {
    "wanted": "Loki",
-   "best": null
+   "best": "Loki You Had One Job"
   },
   {
    "wanted": "Avengers",
-   "best": null
-  },
-  {
-   "wanted": "Captain Marvel",
-   "best": null
-  },
-  {
-   "wanted": "Superman",
-   "best": null
-  },
-  {
-   "wanted": "Batman",
-   "best": null
+   "best": "avengers power at 400"
   },
   {
    "wanted": "Joker",
-   "best": null
-  },
-  {
-   "wanted": "Harley Quinn",
-   "best": null
-  },
-  {
-   "wanted": "The Office Congratulations",
-   "best": null
+   "best": "Joker stairs"
   },
   {
    "wanted": "Michael Scott Thank You",
-   "best": null
+   "best": "employee of the month"
   },
   {
    "wanted": "Leslie Knope",
-   "best": null
-  },
-  {
-   "wanted": "Ron Swanson",
-   "best": null
-  },
-  {
-   "wanted": "Andy Dwyer",
    "best": null
   },
   {
@@ -1339,40 +527,12 @@
    "best": null
   },
   {
-   "wanted": "Joey Tribbiani",
-   "best": null
-  },
-  {
-   "wanted": "Sheldon Cooper",
-   "best": null
-  },
-  {
-   "wanted": "Barney Stinson",
-   "best": null
-  },
-  {
    "wanted": "Ted Mosby",
    "best": null
   },
   {
-   "wanted": "Daenerys",
-   "best": null
-  },
-  {
-   "wanted": "Jon Snow",
-   "best": null
-  },
-  {
    "wanted": "Tyrion",
-   "best": null
-  },
-  {
-   "wanted": "Ned Stark Brace Yourselves",
-   "best": null
-  },
-  {
-   "wanted": "Hodor",
-   "best": null
+   "best": "Unimpressed Tyrion"
   },
   {
    "wanted": "Gilmore Girls",
@@ -1388,35 +548,15 @@
   },
   {
    "wanted": "Big Bang Theory",
-   "best": null
-  },
-  {
-   "wanted": "Stranger Things",
-   "best": null
+   "best": "Angry Sheldon Cooper"
   },
   {
    "wanted": "Eleven",
-   "best": null
-  },
-  {
-   "wanted": "Steve Harrington",
-   "best": null
-  },
-  {
-   "wanted": "Wednesday Addams",
-   "best": null
-  },
-  {
-   "wanted": "Squid Game Doll",
-   "best": null
-  },
-  {
-   "wanted": "Money Heist",
-   "best": null
+   "best": "ELEVENZ staring"
   },
   {
    "wanted": "Lupin",
-   "best": null
+   "best": "Lupin III Hand Stop"
   },
   {
    "wanted": "Kaamelott",
@@ -1444,18 +584,14 @@
   },
   {
    "wanted": "Booba",
-   "best": null
+   "best": "Mr Krabs Blank Eyes"
   },
   {
    "wanted": "Jul",
-   "best": null
+   "best": "Julian Assange 2016"
   },
   {
    "wanted": "Aya Nakamura",
-   "best": null
-  },
-  {
-   "wanted": "Kylian Mbappe",
    "best": null
   },
   {
@@ -1467,40 +603,16 @@
    "best": null
   },
   {
-   "wanted": "Baguette",
-   "best": null
-  },
-  {
-   "wanted": "Napoleon Dynamite",
-   "best": null
-  },
-  {
-   "wanted": "Mean Girls",
-   "best": null
-  },
-  {
-   "wanted": "Regina George",
-   "best": null
-  },
-  {
    "wanted": "Elle Woods",
-   "best": null
+   "best": "What, like it's hard?"
   },
   {
    "wanted": "Bridget Jones",
    "best": null
   },
   {
-   "wanted": "The Devil Wears Prada",
-   "best": null
-  },
-  {
    "wanted": "Miranda Priestly",
-   "best": null
-  },
-  {
-   "wanted": "Clueless",
-   "best": null
+   "best": "The Devil Wears Prada Anne Hathaway Running"
   },
   {
    "wanted": "Legally Blonde",
@@ -1508,55 +620,31 @@
   },
   {
    "wanted": "High School Musical",
-   "best": null
-  },
-  {
-   "wanted": "Hannah Montana",
-   "best": null
-  },
-  {
-   "wanted": "Lizzie McGuire",
-   "best": null
+   "best": "T As In Troy"
   },
   {
    "wanted": "Sharpay",
    "best": null
   },
   {
-   "wanted": "Shrek Fiona",
-   "best": null
-  },
-  {
-   "wanted": "Cinderella",
-   "best": null
-  },
-  {
    "wanted": "Ariel",
-   "best": null
-  },
-  {
-   "wanted": "Moana",
-   "best": null
-  },
-  {
-   "wanted": "Elsa Let It Go",
-   "best": null
+   "best": "Ariel Drake Format"
   },
   {
    "wanted": "Olaf",
-   "best": null
+   "best": "Olaf Impaled"
   },
   {
    "wanted": "Rapunzel",
-   "best": null
+   "best": "Rapunzel Smiling Nervously"
   },
   {
    "wanted": "Mulan",
-   "best": null
+   "best": "Mulan Avalanche"
   },
   {
    "wanted": "Simba",
-   "best": null
+   "best": "Simba Stampede"
   },
   {
    "wanted": "Pumbaa",
@@ -1564,55 +652,23 @@
   },
   {
    "wanted": "Timon",
-   "best": null
+   "best": "Anthony Fauci Testifying"
   },
   {
    "wanted": "Scar",
-   "best": null
-  },
-  {
-   "wanted": "Stitch",
-   "best": null
+   "best": "Scared Cat"
   },
   {
    "wanted": "Lilo",
-   "best": null
-  },
-  {
-   "wanted": "Eeyore",
-   "best": null
+   "best": "Lilo Accusing Stitch"
   },
   {
    "wanted": "Tigger",
-   "best": null
+   "best": "Pooh Tigger Freakout"
   },
   {
    "wanted": "Piglet",
-   "best": null
-  },
-  {
-   "wanted": "Mickey Mouse",
-   "best": null
-  },
-  {
-   "wanted": "Goofy",
-   "best": null
-  },
-  {
-   "wanted": "Donald Duck",
-   "best": null
-  },
-  {
-   "wanted": "Squidward Dab",
-   "best": null
-  },
-  {
-   "wanted": "Mr Krabs",
-   "best": null
-  },
-  {
-   "wanted": "Gary The Snail",
-   "best": null
+   "best": "Curious Baby Piglet"
   }
  ]
 }
