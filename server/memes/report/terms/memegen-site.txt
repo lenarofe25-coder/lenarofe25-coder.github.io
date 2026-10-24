@@ -1,0 +1,256 @@
+
+Memegen.link
+Memegen.link
+Home
+Clients
+Examples
+        GitHub
+        Swagger
+        Bluesky
+        Facebook
+        Create a Meme
+Images
+Available Formats
+Custom Dimensions
+Alternate Layouts
+Text
+Special Characters
+Custom Fonts
+Custom Colors
+Templates
+Alternate Styles
+Image Overlays
+Custom Backgrounds
+An API to programmatically generate memes based solely on requested URLs.
+Buy me a coffee to help keep this service running!
+Images
+The API is stateless so URLs contain all the information necessary to generate meme images. For example, 
+https://api.memegen.link/images/buzz/memes/memes_everywhere.webp
+ produces:
+Available Formats
+Clients can request 
+.jpg
+ instead of 
+.png
+ for smaller files. The 
+.gif
+ and 
+.webp
+ extensions can be used if an animated background is available or to animate text on static backgrounds:
+Format
+Example
+PNG
+/images/ds/small_file/high_quality.png
+JPEG
+/images/ds/high_quality/small_file.jpg
+GIF (animated background)
+/images/oprah/you_get/animated_text.gif
+GIF (static background)
+/images/iw/animates_text/in_production.gif
+WebP (animated background)
+/images/oprah/you_get/animated_text.webp
+WebP (static background)
+/images/iw/animates_text/in_production.webp
+Custom Dimensions
+Images can be scaled to a specific width or height using the 
+width=<int>
+ and 
+height=<int>
+ query parameters. If both are provided (
+width=<int>&height=<int>
+), the image will be padded to the exact dimensions.
+For example, 
+https://api.memegen.link/images/both/width_or_height/why_not_both~q.png?height=450&width=800
+ produces:
+Alternate Layouts
+Add the 
+layout=<str>
+ query parameter to switch between the default and 
+top
+ text positioning.
+For example, 
+https://api.memegen.link/images/rollsafe/When_you_have_a_really_good_idea.webp?layout=top
+ produces:
+Text
+Each template uses the optimal font and text color but those can be overridden.
+Special Characters
+In URLs, spaces can be inserted using underscores or dashes:
+underscore (
+_
+) → space (
+)
+dash (
+-
+) → space (
+)
+2 underscores (
+__
+) → underscore (
+_
+)
+2 dashes (
+--
+) → dash (
+-
+)
+tilde + N (
+~n
+) → newline character
+Reserved URL characters can be included using escape patterns:
+tilde + Q (
+~q
+) → question mark (
+?
+)
+tilde + A (
+~a
+) → ampersand (
+&
+)
+tilde + P (
+~p
+) → percentage (
+%
+)
+tilde + H (
+~h
+) → hashtag/pound (
+#
+)
+tilde + S (
+~s
+) → slash (
+/
+)
+tilde + B (
+~b
+) → backslash (
+\
+)
+tilde + L (
+~l
+) → less-than sign (
+<
+)
+tilde + G (
+~g
+) → greater-than sign (
+>
+)
+2 single quotes (
+''
+) → double quote (
+"
+)
+Emojis are also supported, both as characters (👍) and aliases (
+:thumbsup:
+).
+For example, 
+https://api.memegen.link/images/ugandanknuck/~hspecial_characters~q/underscore__-dash--_:thumbsup:.png
+ produces:
+All of the 
+POST
+ endpoints will return image URLs with special characters replaced with these alternatives.
+Custom Fonts
+The list of fonts is available here: 
+https://api.memegen.link/fonts/
+Add the 
+font=<str>
+ query parameter to customize the look of your meme:
+Name
+ID
+Alias
+Titillium Web Black
+font=titilliumweb
+font=thick
+Kalam Regular
+font=kalam
+font=comic
+Impact
+font=impact
+-
+Noto Sans Bold
+font=notosans
+-
+Noto Sans Bold Hebrew
+font=notosanshebrew
+font=he
+HG Mincho B
+font=hgminchob
+font=jp
+Custom Colors
+Add the 
+color=<str>,<str>
+ query parameter to customize the color of text lines. Colors can be specified as:
+HTML color names (e.g. 
+red
+, 
+blue
+, 
+DarkSeaGreen
+)
+HTML color codes (e.g. 
+FF80ED
+, 
+DEADBEEF
+, 
+ABC
+)
+Templates
+The list of predefined meme templates is available here: 
+https://api.memegen.link/templates/
+Alternate Styles
+Some memes come in multiple forms, which can be selected using the 
+style=<str>
+ query parameter.
+For example, the 
+https://api.memegen.link/templates/ds/
+ template provides these styles:
+/images/ds.png
+/images/ds.png?style=maga
+Image Overlays
+The 
+style=<str>
+ query parameter can also be an image URL to overlay on the default background image.
+For example, 
+https://api.memegen.link/images/pigeon/Engineer/_/Is_this_Photoshop~q.png?style=https://i.imgur.com/W0NXFpQ.png
+ produces:
+The overlay image can be customized with the following additional query parameters:
+Name
+Type
+Description
+center
+<float>,<float>
+Position of overlay relative to the top-left corner
+scale
+<float>
+Ratio of the background image's dimensions
+Custom Backgrounds
+You can also use your own image URL as the background.
+For example, 
+https://api.memegen.link/images/custom/_/my_background.png?background=http://www.gstatic.com/webp/gallery/1.png
+ produces:
+This can be combined with 
+custom overlays
+ to augment the background image.
+Explore the full 
+API docs
+ or browse the 
+API guide
+ for more details.
+    Copyright © 2026
+Jace Browning
+Keyboard Shortcuts
+×
+Close
+Keys
+Action
+?
+Open this help
+n
+Next page
+p
+Previous page
+s
+Search
+

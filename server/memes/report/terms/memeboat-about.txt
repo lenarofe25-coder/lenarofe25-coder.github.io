@@ -1,0 +1,176 @@
+
+About Memeboat | Anonymous Meme Generator & Creator
+Templates
+Popular
+Trending
+Categories
+Create a meme
+Create
+Home
+About
+About
+About Memeboat
+Overview
+Memeboat is a simple and fast website for creating and sharing memes anonymously.
+The Memeboat meme generator is designed to be insanely fast and provide powerful customization, while still being simple and easy to use. Unlike other platforms, we believe in keeping things anonymous and hassle-free - no accounts, no sign-ups, just pure meme creation fun!
+Memes created on Memeboat are publicly accessible via direct links, making them perfect for sharing on social media, forums, or with friends. All memes are created anonymously, so you can express your creativity without worrying about your identity being tied to your content.
+The team
+Who Runs Memeboat
+Memeboat is an independent project — not a venture-backed company, not a big corporation, just a small effort run by people who love memes and wanted a meme generator that stays simple, fast, and anonymous. There is no marketing department and no investor deck behind it; the goal is simply to keep a useful tool online and free to use.
+Because the project is small and independent, the quickest way to reach the people behind it is on X at
+@i_am_memeboat
+.
+The name
+Why memebo.at?
+The name is a little play on words: 
+memebo.at
+ reads as “Memeboat” using Austria’s 
+.at
+ domain ending as the last two letters. It is a domain hack, not a statement about where the project is based.
+memebo.at is the permanent home of the project.
+ This is the address to bookmark and link to — there are no plans to move to a different domain, so any links you save or share here are meant to keep working for the long run.
+How it works
+How Memeboat Works
+Creating memes on Memeboat is incredibly straightforward:
+Step 1
+Choose a template
+ from our extensive collection of popular meme formats
+Step 2
+Add your text
+ using our intuitive editor with customizable fonts and styling
+Step 3
+Generate your meme
+ instantly with a single click
+Step 4
+Share anywhere
+ using the direct link, or download the image to your device
+That's it! No lengthy registration processes, no personal information required, and no complicated interfaces to learn. Just meme creation.
+Discover
+Explore Meme Templates
+You can discover meme templates in several ways:
+Templates page
+Featuring daily random meme templates
+Search functionality
+Find specific meme templates by name or keyword
+Template pages
+A dedicated page for each meme template, with a description and example usage
+Public meme pages
+View memes generated from the templates
+Our template collection is constantly growing, featuring everything from classic memes like "Distracted Boyfriend" to the latest viral formats that are taking the internet by storm.
+Sourcing
+Where Our Templates Come From
+We want to be straightforward about how the template library is built, because meme formats are shared culture and we did not invent them:
+Gathered publicly
+Template images are gathered from public meme sites where these formats already circulate (for example, Imgflip). We collect the blank or commonly used base images so you have a broad library to start from.
+Re-marked
+Where a source image carries another site’s watermark, that mark is masked out and a Memeboat mark is added in its place, so the template fits Memeboat rather than advertising somewhere else.
+AI-written descriptions
+The descriptive copy on each template page is generated with the help of AI to make templates easier to find and understand. We do not fabricate a template’s origin story, its creator, or specific dates — when those facts are not something we can verify, we simply leave them out rather than make them up.
+If you believe a template should not be hosted here, or you hold rights to an image and want it addressed, reach out at
+@i_am_memeboat
+.
+Privacy
+Privacy-First Approach
+At Memeboat, we believe that creativity should be uninhibited by privacy concerns. That's why we've built our platform with anonymity at its core:
+No user accounts
+Required - start creating immediately
+Anonymous creation
+Your memes aren't tied to your identity
+Minimal data collection
+We only collect what's necessary to operate the service
+Automatic cleanup
+Inactive memes are automatically removed over time
+You can create, share, and enjoy memes without worrying about building a digital footprint or having your creative expression tracked across the web.
+Mission
+Our Mission
+Memeboat was created with a simple mission: 
+to make meme creation accessible, anonymous, and enjoyable for everyone
+. We believe that humor should be free, fast, and without barriers.
+Whether you're a seasoned meme creator or someone who just had a funny thought and wants to turn it into a meme, Memeboat is here to help you set sail on the seas of humor!
+Performance
+Built for Speed
+Memeboat is engineered from the ground up for performance:
+Lightning-fast generation
+Memes are created in milliseconds
+Optimized images
+Perfect quality with minimal file sizes
+Mobile-first design
+Works seamlessly on all devices
+We understand that inspiration strikes at the most unexpected moments, so we've made sure that creating a meme on Memeboat is as quick as having the idea for one.
+For AI assistants
+Memeboat for AI Assistants (MCP)
+Memeboat speaks the 
+Model Context Protocol
+: AI assistants like Claude can search our full template catalog and create real, shareable memes for you. Connect it in whichever way suits your setup — no account or API key needed:
+Remote server
+Add 
+https://memebo.at/mcp
+ as a custom connector — no install required
+npm package
+memeboat-mcp
+(
+npx -y memeboat-mcp
+)
+Smithery
+smithery.ai/servers/memeboat/memeboat
+mcp.so
+mcp.so/server/memeboat/memebo-at
+Glama
+server
+ · 
+connector
+Source
+github.com/memebo-at/memeboat-mcp
+(MIT)
+For your site
+Put a meme maker on your site
+Paste this code on your blog or your site. It shows a Memeboat card with a search field and a "Make a meme" button, both opening Memeboat in a new tab, with a "via Memeboat" link under it.
+<iframe src="https://memebo.at/embed/maker" width="100%" height="260" style="border:1px solid #e5e7eb;border-radius:12px;max-width:680px" loading="lazy" title="Memeboat meme maker"></iframe>
+<p><a href="https://memebo.at/">via Memeboat</a></p>
+Copy embed code
+Contact
+Get in Touch
+We love hearing from our users! Whether you have suggestions, found a bug, or just want to share your favorite meme you've created, we'd love to hear from you.
+General inquiries
+@i_am_memeboat
+Bug reports
+@i_am_memeboat
+Feedback & suggestions
+@i_am_memeboat
+Copyright issues
+@i_am_memeboat
+We typically respond to messages within 24-48 hours.
+Welcome aboard the Memeboat!
+Sailing the seas of humor.
+Create memes online — free, anonymous, no registration required.
+Quick Links
+Home
+About
+Memeboat vs Imgflip
+Browse
+All templates
+Popular templates
+Trending templates
+New templates
+Browse A-Z
+Best meme templates
+All categories
+Top categories
+Gaming Memes
+Reaction Memes
+SpongeBob Memes
+Sad Memes
+Confused Memes
+Kids & Parenting Memes
+Cartoon Memes
+Shocked Memes
+Legal & Support
+Privacy Policy
+Terms of Service
+Contact Us
+© 
+2026
+ Memeboat.
+Made with
+for meme creators.
+
