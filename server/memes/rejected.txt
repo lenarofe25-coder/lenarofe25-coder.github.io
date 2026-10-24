@@ -43,3 +43,41 @@ m-skeptical-third-world-kid  # Skeptical Third World Kid — variante d’un mem
 m-spider-man-pointing-at-spider-man  # Spider-Man Pointing at Spider-Man — variante d’un meme déjà présent
 m-rent-is-too-damn-high  # The Rent Is Too Damn High — personnalité ou symbole politique : hors sujet pour une soirée entre amies
 m-donald-trump  # Donald Trump — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-mr-incredible-becoming-canny  # mr incredible becoming canny — image illisible ou sans rapport (icône, pixel art)
+m-pepe-frog  # pepe the frog — variante d’un meme déjà présent
+m-aaaaand-its-gone  # Aaaaand Its Gone — variante d’un meme déjà présent
+m-mood-vibing-announcement-cat  # Mood Vibing Announcement Cat — modèle vide ou presque uniquement du texte
+m-screaming-cat  # Screaming Cat — variante d’un meme déjà présent
+m-monkey-puppet-looking-away  # Monkey Puppet Looking Away — variante d’un meme déjà présent
+m-harambe  # Harambe — sujet sensible (mort d’un animal, détournements racistes)
+m-we-don-t-do-that-here-2  # we don't do that here — variante d’un meme déjà présent
+m-peter-griffin-news  # Peter Griffin News — variante d’un meme déjà présent
+m-speedwagon-shocked  # Speedwagon Shocked — modèle vide ou presque uniquement du texte
+m-cereal-guy  # Cereal Guy — modèle vide ou presque uniquement du texte
+m-not-bad-obama  # Not Bad Obama — personnalité politique
+m-spongebob-rainbow  # Spongebob Rainbow — variante d’un meme déjà présent
+m-spongebob-ight-imma-head-out  # Spongebob Ight Imma Head Out — variante d’un meme déjà présent
+m-coffin-dance  # Coffin Dance — variante d’un meme déjà présent
+m-rick-astley  # Rick Astley — variante d’un meme déjà présent
+m-woman-shouting-at-cat  # Woman shouting at cat — variante d’un meme déjà présent
+m-sweating-key-and-peele  # Sweating Key and Peele — variante d’un meme déjà présent
+m-hey-can-i-copy-your-homework  # "Hey, Can I Copy Your Homework?" — modèle vide ou presque uniquement du texte
+m-panik-kalm  # panik kalm — variante d’un meme déjà présent
+m-who-would-win  # Who Would Win? — modèle vide ou presque uniquement du texte
+m-fortnite-default-dance  # Fortnite default dance — image illisible ou sans rapport (icône, pixel art)
+m-iron-man-throne  # Iron Man Throne — image illisible ou sans rapport (icône, pixel art)
+m-captain-marvel-poster  # Captain Marvel Poster — simple photo ou affiche, pas un meme
+m-superman-flying  # Superman Flying — simple photo ou affiche, pas un meme
+m-batman  # Batman — simple photo ou affiche, pas un meme
+m-harley-quinn  # Harley Quinn — simple photo ou affiche, pas un meme
+m-jon-snow  # jon snow — simple photo ou affiche, pas un meme
+m-brace-yourselves-ned-stark  # Brace Yourselves Ned Stark — variante d’un meme déjà présent
+m-hodor-death  # hodor death — image illisible ou sans rapport (icône, pixel art)
+m-wednesday-addams  # Wednesday Addams — simple photo ou affiche, pas un meme
+m-professor-money-heist  # The Professor Money Heist — image illisible ou sans rapport (icône, pixel art)
+m-regina-george-santa-hat  # Regina George Santa Hat — variante d’un meme déjà présent
+m-clueless  # clueless — mauvaise correspondance (ce n’est pas le film Clueless)
+m-hilary-duff-performance-lizzie-mcguire-movie  # Hilary Duff performance - ‘The Lizzie McGuire Movie’ — simple photo ou affiche, pas un meme
+m-cinderella  # cinderella — simple photo ou affiche, pas un meme
+m-moana-cast  # moana cast — modèle vide ou presque uniquement du texte
+m-elsa-let-it-go  # Elsa Let It Go — simple photo ou affiche, pas un meme

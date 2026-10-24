@@ -235,7 +235,11 @@ def main():
         kept.append({**c, "sha256": sha, "_ph": ph, "_img": img, "width": img.width, "height": img.height, "aka": []})
 
     # 3. Identifiants stables (conservés d'une collecte à l'autre) et rejets manuels.
-    previous = {m["sourceKey"]: m["id"] for m in json.loads(OUT.read_text())["memes"]} if OUT.exists() else {}
+    prev_list = json.loads(OUT.read_text())["memes"] if OUT.exists() else []
+    previous = {m["sourceKey"]: m["id"] for m in prev_list}
+    # Tout meme déjà présent a été vérifié visuellement ; un nouveau arrive désactivé
+    # (pendingReview) jusqu'à sa vérification sur les planches contact.
+    reviewed = {m["id"] for m in prev_list if not m.get("pendingReview")}
     used = set(previous.values())
     memes = []
     for k in kept:
@@ -260,9 +264,11 @@ def main():
             "sha256": k["sha256"],
             "phash": str(k["_ph"]),
             "sourceKey": k["key"],
-            "active": mid not in rejected_ids,
+            "active": mid not in rejected_ids and (not prev_list or mid in reviewed),
+            "pendingReview": bool(prev_list) and mid not in reviewed,
         })
-    contact_sheets([dict(k, name=m["id"] if m["active"] else f"[REJETÉ] {m['id']}") for k, m in zip(kept, memes)])
+    label = lambda m: f"[À VÉRIFIER] {m['id']}" if m["pendingReview"] else (m["id"] if m["active"] else f"[ÉCARTÉ] {m['id']}")
+    contact_sheets([dict(k, name=label(m)) for k, m in zip(kept, memes)])
 
     active = [m for m in memes if m["active"]]
     OUT.write_text(json.dumps({"version": time.strftime("%Y-%m-%d"), "count": len(active), "memes": memes}, ensure_ascii=False, indent=1) + "\n")
@@ -272,7 +278,8 @@ def main():
         "candidates": len(chosen),
         "verified_unique": len(memes),
         "active": len(active),
-        "manually_rejected": len(memes) - len(active),
+        "manually_rejected": sum(1 for m in memes if m["id"] in rejected_ids),
+        "pending_review": sum(1 for m in memes if m["pendingReview"]),
         "by_source": {s: sum(1 for m in active if m["sourceKey"].startswith(s)) for s in PRIORITY},
         "rejected": rejects,
         "not_found": misses,
