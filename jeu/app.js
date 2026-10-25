@@ -344,7 +344,7 @@ function renderHome(prefill = '') {
       <section class="rules" aria-labelledby="rulesTitle">
         <h2 id="rulesTitle">Comment on joue</h2>
         <ol class="steps">
-          <li><div><b>Une situation pour tout le monde</b><span>« Quand ton crush te répond après 8 heures. »</span></div></li>
+          <li><div><b>Une situation pour tout le monde</b><span>« Quand tu cherches ton téléphone alors qu’il est dans ta main. »</span></div></li>
           <li><div><b>Tu joues ton meme en secret</b><span>Tu as 10 memes en main, nouveaux à chaque manche : choisis celui qui colle le mieux.</span></div></li>
           <li><div><b>Vote à l’aveugle</b><span>Les memes joués sont mélangés et anonymes. Impossible de voter pour le tien.</span></div></li>
           <li><div><b>1 point pour le plus voté</b><span>10 manches, puis le classement final désigne la reine du MDR.</span></div></li>
@@ -478,8 +478,8 @@ function renderLobby(v) {
 
 // ── manche ────────────────────────────────────────────────
 const CATEGORY_LABELS = {
-  crush: 'Crushs & flirts', ex: 'Ex & ruptures', amies: 'Meilleures amies', dramas: 'Dramas & secrets', beaute: 'Beauté & tenues',
-  dates: 'Dates & couples', reseaux: 'Réseaux & messages', soirees: 'Soirées', quotidien: 'Famille & quotidien', absurde: 'Absurde & gênant',
+  famille: 'Parents & famille', malaise: 'Malaise', cerveau: 'Cerveau en panne', catastrophes: 'Catastrophes', telephone: 'Téléphone & Internet',
+  ecole: 'École & travail', amis: 'Amis & conversations', fatigue: 'Fatigue & flemme', paranoia: 'Paranoïa', absurde: 'Absurde & memes',
 };
 
 function renderRound(v) {
