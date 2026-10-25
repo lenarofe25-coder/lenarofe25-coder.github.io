@@ -3,5 +3,5 @@
 //   server: 'https://mdr-memes.mon-compte.workers.dev'
 // En local (localhost), le jeu utilise automatiquement http://127.0.0.1:8787.
 window.MDR_CONFIG = {
-  server: '',
+  server: 'https://mdr-memes.lenarofe25.workers.dev',
 };
