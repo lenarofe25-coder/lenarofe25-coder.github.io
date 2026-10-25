@@ -1,7 +1,7 @@
 {
- "started": "2026-10-25T10:21:30Z",
+ "started": "2026-10-25T19:02:31Z",
  "imgflip": 100,
- "memegen": 209,
+ "memegen": 216,
  "memeboat_sample": "{\"templates\": [{\"id\": 540, \"urlName\": \"seriously-face\", \"name\": \"Trollface\", \"tags\": [\"Are You Fing Kidding Me\"], \"safeForWork\": \"yes\", \"img\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540-small\", \"imgFull\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540\", \"createdAt\": \"2025-06-06T22:02:47.737Z\", \"width\": 500, \"height\": 479, \"fileType\": \"jpg\", \"hasTransparency\": false, \"popularity\": 95, \"defaultItems\": [{\"id\": \"text-0\", \"type\": \"text\", \"properties\": {\"top\": 14.37, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}, {\"id\": \"text-1\", \"type\": \"text\", \"properties\": {\"top\": 368.83, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}], \"captionsOverTime\": [[\"2025-01\", 33909], [\"2025-02\", 39355], [\"2",
  "memeboat_page_check": {
   "url": "https://memebo.at/templates/seriously-face",
