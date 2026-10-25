@@ -268,6 +268,11 @@ def main():
             "pendingReview": bool(prev_list) and mid not in reviewed,
         })
     label = lambda m: f"[À VÉRIFIER] {m['id']}" if m["pendingReview"] else (m["id"] if m["active"] else f"[ÉCARTÉ] {m['id']}")
+    # Ordre stable d'un import à l'autre (l'ordre de popularité d'Imgflip change chaque jour) :
+    # les memes déjà connus gardent leur place, les nouveaux sont ajoutés à la fin.
+    rank = {m["id"]: i for i, m in enumerate(prev_list)}
+    pairs = sorted(zip(kept, memes), key=lambda km: rank.get(km[1]["id"], len(rank)))
+    kept, memes = [k for k, _ in pairs], [m for _, m in pairs]
     contact_sheets([dict(k, name=label(m)) for k, m in zip(kept, memes)])
 
     active = [m for m in memes if m["active"]]
