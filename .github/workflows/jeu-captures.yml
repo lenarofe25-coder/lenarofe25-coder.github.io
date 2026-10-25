@@ -1,14 +1,14 @@
 name: Partie test avec les vrais memes (MDR)
 
 # Joue une partie complète dans Chromium (2 iPhone + 1 ordinateur) contre le Worker local,
-# avec les images de memes réellement chargées, et enregistre les captures d'écran.
+# avec les images de memes réellement chargées ; captures téléchargeables dans l'onglet Actions.
 on:
   workflow_dispatch:
   push:
     paths: ['jeu/**', 'server/src/**', 'server/test/ui.mjs', '.github/workflows/jeu-captures.yml']
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   partie:
@@ -38,12 +38,10 @@ jobs:
           node server/test/ui.mjs server/memes/report/jeu
       - if: failure()
         run: cat wrangler.log || true
-      - name: Enregistrer les captures
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/memes/report/jeu
-          git diff --cached --quiet && exit 0
-          git commit -m "Captures d'une partie test avec les vrais memes"
-          git pull --rebase -q origin "${GITHUB_REF_NAME}"
-          git push
+      - name: Captures de la partie
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-partie
+          path: server/memes/report/jeu/*.png
+          retention-days: 30

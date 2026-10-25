@@ -46,11 +46,21 @@ jobs:
           npm install --no-save playwright@1.48.2
           npx playwright install --with-deps chromium
           node server/memes/check-browser.mjs
+      # Les planches contact contiennent des vignettes d'images protégées : elles restent
+      # téléchargeables dans l'onglet Actions (30 jours) mais ne sont pas publiées sur le site.
+      - name: Planches contact pour la vérification visuelle
+        uses: actions/upload-artifact@v4
+        with:
+          name: planches-memes
+          path: |
+            server/memes/report/planche-*.jpg
+            server/memes/report/navigateur.jpg
+          retention-days: 30
       - name: Enregistrer le résultat sur la branche
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add jeu/data/memes.json server/memes/report
+          git add jeu/data/memes.json server/memes/report/rapport.json server/memes/report/navigateur.json server/memes/report/terms
           git diff --cached --quiet && exit 0
           git commit -m "Import des memes : bibliothèque et rapport de vérification"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"

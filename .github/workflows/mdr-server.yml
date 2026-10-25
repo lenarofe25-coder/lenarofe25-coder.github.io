@@ -38,6 +38,8 @@ jobs:
 
   deploy:
     needs: test
+    permissions:
+      contents: write
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -57,4 +59,19 @@ jobs:
             echo "::notice::Secrets Cloudflare absents : déploiement ignoré (voir jeu/README.md)."
             exit 0
           fi
-          npx wrangler deploy
+          npx wrangler deploy | tee deploy.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          if [ -z "$url" ]; then
+            echo "::warning::Adresse du Worker introuvable dans la sortie de wrangler : renseigne jeu/config.js à la main."
+            exit 0
+          fi
+          echo "Worker publié : $url"
+          # Le site doit connaître l'adresse du serveur : on l'écrit dans jeu/config.js si elle a changé.
+          cd ..
+          if ! grep -q "server: '$url'" jeu/config.js; then
+            sed -i "s|^  server: .*|  server: '$url',|" jeu/config.js
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Adresse du serveur du jeu : $url"
+            git push
+          fi

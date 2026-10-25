@@ -121,23 +121,37 @@ Le workflow `.github/workflows/memes-import.yml` (GitHub Actions, réseau ouvert
    (pHash, distance ≤ 8) ;
 4. conserve les identifiants d’un import à l’autre ; un meme nouveau arrive désactivé
    (`pendingReview`) jusqu’à sa vérification visuelle ;
-5. produit des planches contact numérotées (`server/memes/report/planche-XX.jpg`) pour la
-   vérification à l’œil, qui alimente `server/memes/rejected.txt` (variantes, photos qui ne
+5. produit des planches contact numérotées (artefact « planches-memes » du workflow, onglet
+   Actions de GitHub ; elles ne sont pas publiées sur le site) pour la vérification à l’œil, qui alimente `server/memes/rejected.txt` (variantes, photos qui ne
    sont pas des memes, sujets politiques ou sensibles, modèles vides) ;
 6. ouvre enfin chaque meme actif dans Chromium pour vérifier qu’il s’affiche réellement
    (`server/memes/report/navigateur.json`).
+
+Le workflow « Partie test avec les vrais memes » joue en plus une partie complète dans Chromium à
+chaque changement de l’interface ; ses captures d’écran sont dans l’artefact « captures-partie ».
 
 Pour ajouter des memes : ajoute des noms dans `wanted.txt` et pousse. Ensuite, relis les planches
 (entrées « [À VÉRIFIER] »), ajoute les refus éventuels dans `rejected.txt`, puis retire
 `pendingReview` des memes validés dans `jeu/data/memes.json`. Le Worker recharge la bibliothèque
 publiée sur le site toutes les 10 minutes.
 
-## Mise en ligne (à faire une fois)
+## Mise en ligne (une seule fois, environ 5 minutes)
 
-1. Crée un compte Cloudflare gratuit.
-2. Dans `server/`, lance `npm ci`, puis `npx wrangler login`, puis `npx wrangler deploy`. Note l’URL affichée, par exemple `https://mdr-memes.<ton-compte>.workers.dev`.
-3. Mets cette URL dans `jeu/config.js` (`server: '…'`), puis commite et pousse.
-4. Facultatif, pour un déploiement automatique : crée les secrets GitHub `CLOUDFLARE_API_TOKEN` (modèle « Edit Cloudflare Workers ») et `CLOUDFLARE_ACCOUNT_ID`. Le workflow `.github/workflows/mdr-server.yml` testera puis déploiera à chaque push sur `main`.
+Le site est déjà servi par GitHub Pages ; il ne manque que le serveur du jeu, hébergé gratuitement
+chez Cloudflare. Tout le reste est automatique.
+
+1. Crée un compte gratuit sur https://dash.cloudflare.com/sign-up, puis ouvre une fois
+   **Workers & Pages** : Cloudflare te propose alors ton sous-domaine `*.workers.dev` (accepte-le).
+2. Dans Cloudflare, **My Profile → API Tokens → Create Token**, modèle **Edit Cloudflare Workers** :
+   copie le jeton. Note aussi ton **Account ID** (affiché dans la colonne de droite de Workers & Pages).
+3. Dans GitHub, dépôt `lenarofe25-coder.github.io` → **Settings → Secrets and variables → Actions →
+   New repository secret** : crée `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID`.
+4. Fusionne la branche du jeu dans `main` (ou relance le workflow « Jeu MDR » sur `main`).
+
+Le workflow `.github/workflows/mdr-server.yml` teste tout, déploie le Worker, puis écrit lui-même
+son adresse dans `jeu/config.js` et la publie : le jeu est jouable sur
+https://lenarofe25-coder.github.io/jeu/ quelques minutes plus tard. Tant que le serveur n’est pas
+déployé, la page du jeu l’indique clairement au lieu de proposer des parties qui échoueraient.
 
 Si le site change d’adresse, mets à jour `ALLOWED_ORIGINS` et `CONTENT_URL` dans `server/wrangler.toml`.
 
