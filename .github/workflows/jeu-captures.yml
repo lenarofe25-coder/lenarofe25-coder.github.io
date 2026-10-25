@@ -5,7 +5,7 @@ name: Partie test avec les vrais memes (MDR)
 on:
   workflow_dispatch:
   push:
-    paths: ['server/test/ui.mjs', '.github/workflows/jeu-captures.yml']
+    paths: ['jeu/**', 'server/src/**', 'server/test/ui.mjs', '.github/workflows/jeu-captures.yml']
 
 permissions:
   contents: write
