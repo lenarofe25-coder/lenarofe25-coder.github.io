@@ -44,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -73,5 +75,14 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -am "Adresse du serveur du jeu : $url"
-            git push
+            # L'import des memes peut écrire sur main en même temps : on intègre ses commits avant d'envoyer.
+            envoye=0
+            for essai in 1 2 3; do
+              if git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push; then envoye=1; break; fi
+              sleep 10
+            done
+            if [ "$envoye" != 1 ]; then
+              echo "::error::Worker déployé ($url) mais adresse non enregistrée : mets-la dans jeu/config.js."
+              exit 1
+            fi
           fi
