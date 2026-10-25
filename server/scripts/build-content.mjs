@@ -14,16 +14,16 @@ const dataDir = join(root, 'jeu', 'data');
 const checkOnly = process.argv.includes('--check');
 
 export const CATEGORIES = {
-  crush: 'Crushs & flirts',
-  ex: 'Ex & ruptures',
-  amies: 'Meilleures amies',
-  dramas: 'Dramas, secrets & trahisons',
-  beaute: 'Beauté, tenues & confiance',
-  dates: 'Dates, couples & jalousie',
-  reseaux: 'Réseaux sociaux & messages',
-  soirees: 'Sorties, soirées & groupes',
-  quotidien: 'Famille, études & quotidien',
-  absurde: 'Situations absurdes & gênantes',
+  famille: 'Parents et famille',
+  malaise: 'Malaise et situations gênantes',
+  cerveau: 'Cerveau en panne',
+  catastrophes: 'Catastrophes du quotidien',
+  telephone: 'Téléphone et Internet',
+  ecole: 'École, travail et obligations',
+  amis: 'Amis et conversations',
+  fatigue: 'Fatigue, flemme et habitudes',
+  paranoia: 'Réactions disproportionnées et paranoïa',
+  absurde: "L'absurde pur et les memes",
 };
 
 export const textKey = (s) =>
