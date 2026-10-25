@@ -156,7 +156,8 @@ button, input, select { font: inherit; color: inherit; }
   transition: transform 0.25s var(--ease), box-shadow 0.25s ease;
 }
 /* L'image est sortie du flux : quelles que soient ses proportions, la carte garde sa forme. */
-.card-art { position: relative; flex: 1; min-height: 0; background: #f1efe6; }
+/* Le cadre remplit la carte en absolu : même rendu pour un <button> que pour un <div>, sur tous les navigateurs. */
+.card-art { position: absolute; inset: 0; background: #f1efe6; }
 .card-art img { position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: contain; border-radius: 10px; }
 .card-fallback { padding: 12px; text-align: center; font-weight: 700; color: var(--ink-2); display: grid; place-items: center; height: 100%; }
 .card-slot { position: relative; min-width: 0; }
