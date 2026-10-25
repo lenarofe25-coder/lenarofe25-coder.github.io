@@ -1,0 +1,88 @@
+name: Jeu MDR (tests et déploiement du serveur)
+
+on:
+  push:
+    branches: [main]
+    paths: ['server/**', 'jeu/**', '.github/workflows/mdr-server.yml']
+  pull_request:
+    paths: ['server/**', 'jeu/**', '.github/workflows/mdr-server.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: server
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Bibliothèques de contenu valides
+        run: npm run content:check
+      - name: Règles du jeu et contenu
+        run: npm test
+      - name: Tests de bout en bout sur le Worker local
+        run: |
+          printf 'CONTENT_URL=\nACTIONS_PER_10S=200\n' > .dev.vars
+          npx wrangler dev --port 8787 --ip 127.0.0.1 > wrangler.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:8787/api/health && break; sleep 1; done
+          npm run test:e2e
+      - if: failure()
+        run: cat wrangler.log || true
+
+  deploy:
+    needs: test
+    permissions:
+      contents: write
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Déployer le Worker sur Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::Secrets Cloudflare absents : déploiement ignoré (voir jeu/README.md)."
+            exit 0
+          fi
+          npx wrangler deploy | tee deploy.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          if [ -z "$url" ]; then
+            echo "::warning::Adresse du Worker introuvable dans la sortie de wrangler : renseigne jeu/config.js à la main."
+            exit 0
+          fi
+          echo "Worker publié : $url"
+          # Le site doit connaître l'adresse du serveur : on l'écrit dans jeu/config.js si elle a changé.
+          cd ..
+          if ! grep -q "server: '$url'" jeu/config.js; then
+            sed -i "s|^  server: .*|  server: '$url',|" jeu/config.js
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Adresse du serveur du jeu : $url"
+            # L'import des memes peut écrire sur main en même temps : on intègre ses commits avant d'envoyer.
+            envoye=0
+            for essai in 1 2 3; do
+              if git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push; then envoye=1; break; fi
+              sleep 10
+            done
+            if [ "$envoye" != 1 ]; then
+              echo "::error::Worker déployé ($url) mais adresse non enregistrée : mets-la dans jeu/config.js."
+              exit 1
+            fi
+          fi

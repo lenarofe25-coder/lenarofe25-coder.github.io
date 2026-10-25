@@ -1,0 +1,47 @@
+name: Partie test avec les vrais memes (MDR)
+
+# Joue une partie complète dans Chromium (2 iPhone + 1 ordinateur) contre le Worker local,
+# avec les images de memes réellement chargées ; captures téléchargeables dans l'onglet Actions.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['jeu/**', 'server/src/**', 'server/test/ui.mjs', '.github/workflows/jeu-captures.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  partie:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+        working-directory: server
+      - run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Worker et site en local
+        run: |
+          printf 'CONTENT_URL=\nACTIONS_PER_10S=200\nJOIN_LIMIT=1000\n' > server/.dev.vars
+          (cd server && npx wrangler dev --port 8787 --ip 127.0.0.1 > ../wrangler.log 2>&1 &)
+          python3 -m http.server 8080 --bind 127.0.0.1 > /dev/null 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:8787/api/health && break; sleep 1; done
+      - name: Partie complète avec captures
+        run: |
+          mkdir -p server/memes/report/jeu
+          node server/test/ui.mjs server/memes/report/jeu
+      - if: failure()
+        run: cat wrangler.log || true
+      - name: Captures de la partie
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-partie
+          path: server/memes/report/jeu/*.png
+          retention-days: 30

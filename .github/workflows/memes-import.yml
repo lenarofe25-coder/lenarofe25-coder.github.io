@@ -1,0 +1,67 @@
+name: Import des memes (MDR)
+
+# Lancé quand la liste des memes ou le collecteur change, ou à la main.
+on:
+  push:
+    paths: ['server/memes/wanted.txt', 'server/memes/rejected.txt', 'server/memes/collect.py', 'server/memes/check-browser.mjs', '.github/workflows/memes-import.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: memes-import-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow imagehash requests
+      - name: Conditions d'utilisation des sources (archivées pour vérification)
+        run: |
+          mkdir -p server/memes/report/terms
+          fetch() { curl -sL -A "MDR-jeu-de-memes/1.0" --max-time 30 "$2" | python3 -c "import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?is)<(script|style).*?</\1>','',t);t=re.sub(r'<[^>]+>','\n',t);t=html.unescape(t);print(re.sub(r'\n\s*\n+','\n',t))" > "server/memes/report/terms/$1.txt" || true; }
+          fetch imgflip-terms https://imgflip.com/terms
+          fetch imgflip-api https://imgflip.com/api
+          fetch memeboat-terms https://memebo.at/terms
+          fetch memeboat-about https://memebo.at/about
+          fetch memeboat-home https://memebo.at/
+          fetch memegen-readme https://raw.githubusercontent.com/jacebrowning/memegen/main/README.md
+          fetch memegen-license https://raw.githubusercontent.com/jacebrowning/memegen/main/LICENSE.txt
+          fetch memegen-site https://memegen.link/
+          wc -c server/memes/report/terms/*
+      - name: Collecte, vérification des images et déduplication
+        run: python server/memes/collect.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Affichage réel de chaque meme dans Chromium
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          node server/memes/check-browser.mjs
+      # Les planches contact contiennent des vignettes d'images protégées : elles restent
+      # téléchargeables dans l'onglet Actions (30 jours) mais ne sont pas publiées sur le site.
+      - name: Planches contact pour la vérification visuelle
+        uses: actions/upload-artifact@v4
+        with:
+          name: planches-memes
+          path: |
+            server/memes/report/planche-*.jpg
+            server/memes/report/navigateur.jpg
+          retention-days: 30
+      - name: Enregistrer le résultat sur la branche
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jeu/data/memes.json server/memes/report/rapport.json server/memes/report/navigateur.json server/memes/report/terms
+          git diff --cached --quiet && exit 0
+          git commit -m "Import des memes : bibliothèque et rapport de vérification"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push

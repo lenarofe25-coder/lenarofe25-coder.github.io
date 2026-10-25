@@ -289,6 +289,11 @@ td{font-variant-numeric:tabular-nums}
 .dv .spk{fill:none;stroke:var(--a1);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 .dv .spk2{fill:none;stroke:var(--a2);stroke-width:2;opacity:.6}
 .dv-pass{display:grid;place-content:center;gap:16px;justify-items:center}
+.dv-mdr{display:flex;align-items:center;justify-content:center;gap:0}
+.dv-mdr b{display:grid;place-items:center;width:78px;height:96px;border-radius:14px;background:#fffdf7;color:#18173b;border:2px solid #18173b;box-shadow:0 4px 0 #18173b;font:800 2.4rem var(--sans)}
+.dv-mdr b:nth-child(1){transform:rotate(-10deg) translateX(10px);background:#ffd43b}
+.dv-mdr b:nth-child(2){transform:translateY(-8px);z-index:1}
+.dv-mdr b:nth-child(3){transform:rotate(10deg) translateX(-10px);background:#ff86bf}
 .dv-pass b{font-family:var(--mono);font-weight:400;font-size:1.5rem;letter-spacing:.2em}
 .dv-pass .m4{display:flex;gap:6px}
 .dv-pass .m4 i{width:44px;height:6px;border-radius:3px;background:var(--line-2)}
@@ -720,6 +725,13 @@ Liaison routeurs : 2</textarea></label>
         <h3>Packet <em class="s grad">Run</em></h3>
         <p>Vous êtes un paquet. Esquivez les règles DENY, attrapez les ACK. Au clavier, ou en touchant l'écran.</p>
         <button class="pill solid" type="button" data-open="run">Jouer ↗</button>
+      </article>
+      <article class="card demo tilt">
+        <div class="dv dv-mdr" aria-hidden="true"><b>M</b><b>D</b><b>R</b></div>
+        <div class="meta"><span>Jeu multijoueur en ligne</span><span>Parties privées</span></div>
+        <h3>M<em class="s grad">DR</em></h3>
+        <p>Un jeu de memes entre amies : une situation, dix memes chacune, un vote anonyme. Salles privées par code, synchronisées en temps réel par un serveur Cloudflare.</p>
+        <a class="pill solid" href="jeu/">Jouer ↗</a>
       </article>
     </div>
   </div>

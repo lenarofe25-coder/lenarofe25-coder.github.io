@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+*.log
+# Planches et captures : artefacts des workflows (onglet Actions), pas dans le dépôt.
+server/memes/report/*.jpg
+server/memes/report/jeu/
+__pycache__/
+*.pyc

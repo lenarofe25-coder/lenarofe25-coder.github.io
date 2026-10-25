@@ -1,0 +1,675 @@
+{
+ "started": "2026-10-25T10:21:30Z",
+ "imgflip": 100,
+ "memegen": 209,
+ "memeboat_sample": "{\"templates\": [{\"id\": 540, \"urlName\": \"seriously-face\", \"name\": \"Trollface\", \"tags\": [\"Are You Fing Kidding Me\"], \"safeForWork\": \"yes\", \"img\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540-small\", \"imgFull\": \"https://ik.imagekit.io/memeboat/memes/Seriously-Face-540\", \"createdAt\": \"2025-06-06T22:02:47.737Z\", \"width\": 500, \"height\": 479, \"fileType\": \"jpg\", \"hasTransparency\": false, \"popularity\": 95, \"defaultItems\": [{\"id\": \"text-0\", \"type\": \"text\", \"properties\": {\"top\": 14.37, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}, {\"id\": \"text-1\", \"type\": \"text\", \"properties\": {\"top\": 368.83, \"bold\": false, \"font\": \"impact\", \"left\": 25, \"text\": \"TEXT\", \"angle\": 0, \"width\": 450, \"height\": 95.80000000000001, \"italic\": false, \"stroke\": \"#000000\", \"zIndex\": 1, \"fontSize\": 23, \"overline\": false, \"fontColor\": \"#ffffff\", \"forceCaps\": true, \"textAlign\": \"center\", \"underline\": false, \"fontBorder\": \"shadow\", \"linethrough\": false, \"strokeWidth\": 3, \"verticalAlign\": \"middle\", \"fontBackground\": false, \"textBackgroundColor\": \"#000000\"}}], \"captionsOverTime\": [[\"2025-01\", 33909], [\"2025-02\", 39355], [\"2",
+ "memeboat_page_check": {
+  "url": "https://memebo.at/templates/seriously-face",
+  "status": 200
+ },
+ "wanted": 471,
+ "candidates": 559,
+ "verified_unique": 522,
+ "active": 441,
+ "manually_rejected": 81,
+ "pending_review": 0,
+ "by_source": {
+  "imgflip": 90,
+  "memegen": 149,
+  "memeboat": 202
+ },
+ "rejected": [
+  {
+   "name": "is this butterfly",
+   "source": "imgflip",
+   "image": "https://i.imgflip.com/2cjr7j.jpg",
+   "reason": "doublon de « Is This A Pigeon »"
+  },
+  {
+   "name": "Three-Headed Dragon",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/3hd.jpg",
+   "reason": "doublon de « Three-headed Dragon »"
+  },
+  {
+   "name": "Ancient Aliens Guy",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/aag.jpg",
+   "reason": "doublon de « Ancient Aliens »"
+  },
+  {
+   "name": "Always Has Been",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/astronaut.jpg",
+   "reason": "doublon de « Always Has Been »"
+  },
+  {
+   "name": "Running Away Balloon",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/balloon.jpg",
+   "reason": "doublon de « Running Away Balloon »"
+  },
+  {
+   "name": "I am the Captain Now",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/captain.jpg",
+   "reason": "doublon de « I'm The Captain Now »"
+  },
+  {
+   "name": "Distracted Boyfriend",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/db.jpg",
+   "reason": "doublon de « Distracted Boyfriend »"
+  },
+  {
+   "name": "Disaster Girl",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/disastergirl.jpg",
+   "reason": "doublon de « Disaster Girl »"
+  },
+  {
+   "name": "Daily Struggle",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/ds.jpg",
+   "reason": "doublon de « Two Buttons »"
+  },
+  {
+   "name": "Futurama Fry",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/fry.jpg",
+   "reason": "doublon de « Futurama Fry »"
+  },
+  {
+   "name": "Galaxy Brain",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/gb.jpg",
+   "reason": "doublon de « Expanding Brain »"
+  },
+  {
+   "name": "Gru's Plan",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/gru.jpg",
+   "reason": "doublon de « Gru's Plan »"
+  },
+  {
+   "name": "Epic Handshake",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/handshake.jpg",
+   "reason": "doublon de « Epic Handshake »"
+  },
+  {
+   "name": "Types of Headaches",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/headaches.jpg",
+   "reason": "doublon de « Types of Headaches meme »"
+  },
+  {
+   "name": "Midwit",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/midwit.jpg",
+   "reason": "doublon de « Bell Curve »"
+  },
+  {
+   "name": "One Does Not Simply Walk into Mordor",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/mordor.jpg",
+   "reason": "doublon de « One Does Not Simply »"
+  },
+  {
+   "name": "Oprah You Get a Car",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/oprah.jpg",
+   "reason": "doublon de « Oprah You Get A »"
+  },
+  {
+   "name": "Panik Kalm Panik",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/panik-kalm-panik.jpg",
+   "reason": "doublon de « Panik Kalm Panik »"
+  },
+  {
+   "name": "Scooby Doo Reveal",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/reveal.jpg",
+   "reason": "doublon de « Scooby doo mask reveal »"
+  },
+  {
+   "name": "Anakin and Padme Change the World For the Better",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/right.jpg",
+   "reason": "doublon de « Anakin Padme 4 Panel »"
+  },
+  {
+   "name": "Roll Safe",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/rollsafe.jpg",
+   "reason": "doublon de « Roll Safe Think About It »"
+  },
+  {
+   "name": "They're The Same Picture",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/same.jpg",
+   "reason": "doublon de « They're The Same Picture »"
+  },
+  {
+   "name": "Mocking Spongebob",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/spongebob.jpg",
+   "reason": "doublon de « Mocking Spongebob »"
+  },
+  {
+   "name": "Who Killed Hannibal?",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/wkh.jpg",
+   "reason": "doublon de « Who Killed Hannibal »"
+  },
+  {
+   "name": "Woman Yelling at a Cat",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/woman-cat.jpg",
+   "reason": "doublon de « Woman Yelling At Cat »"
+  },
+  {
+   "name": "Y'all Got Any More of Them",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/yallgot.jpg",
+   "reason": "doublon de « Y'all Got Any More Of That »"
+  },
+  {
+   "name": "Xzibit Yo Dawg",
+   "source": "memegen",
+   "image": "https://api.memegen.link/images/yodawg.jpg",
+   "reason": "doublon de « Yo Dawg Heard You »"
+  },
+  {
+   "name": "Sully Wazowski",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sully-wazowski-2994",
+   "reason": "trop petite (75, 78)"
+  },
+  {
+   "name": "Ermahgerd Gersberms",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/Ermahgerd-Berks-144",
+   "reason": "doublon de « Ermahgerd »"
+  },
+  {
+   "name": "Brace Yourselves X is Coming",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/Brace-Yourselves-X-is-Coming-77",
+   "reason": "doublon de « Winter is coming »"
+  },
+  {
+   "name": "Jim Halpert Explains",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/jim-halpert-explains-1007",
+   "reason": "doublon de « Jim Halpert Pointing to Whiteboard »"
+  },
+  {
+   "name": "Tom Cat Scared Reaction",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/tom-cat-scared-reaction-201914",
+   "reason": "doublon de « Unsettled Tom »"
+  },
+  {
+   "name": "Sad Hamster",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sad-hamster-75904",
+   "reason": "doublon de « Sad Hamster »"
+  },
+  {
+   "name": "Disappointed Black Guy",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/smile-frown-83877",
+   "reason": "doublon de « Expectation vs. Reality »"
+  },
+  {
+   "name": "Pablo escobar waiting",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/pablo-escobar-waiting-88075",
+   "reason": "doublon de « Sad Pablo Escobar »"
+  },
+  {
+   "name": "Corporate needs you to find the differences",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/corporate-needs-you-to-find-the-differences-5774",
+   "reason": "doublon de « They're The Same Picture »"
+  },
+  {
+   "name": "Sus Among Us",
+   "source": "memeboat",
+   "image": "https://ik.imagekit.io/memeboat/memes/sus-45837",
+   "reason": "trop petite (120, 120)"
+  }
+ ],
+ "not_found": [
+  {
+   "wanted": "Annoyed Picard",
+   "best": null
+  },
+  {
+   "wanted": "Feels Good Man",
+   "best": "smug pepe"
+  },
+  {
+   "wanted": "Ok Boomer",
+   "best": "Annoying Orange"
+  },
+  {
+   "wanted": "Walter White Falling",
+   "best": null
+  },
+  {
+   "wanted": "Ryan Gosling Literally Me",
+   "best": "Sad Ryan Gosling Contemplating - \"Bladerunner 2049\""
+  },
+  {
+   "wanted": "Thomas Shelby",
+   "best": null
+  },
+  {
+   "wanted": "We Live In A Society",
+   "best": null
+  },
+  {
+   "wanted": "Unhelpful High School Teacher",
+   "best": null
+  },
+  {
+   "wanted": "Am I The Only One Around Here",
+   "best": null
+  },
+  {
+   "wanted": "Ain't Nobody Got Time For That",
+   "best": null
+  },
+  {
+   "wanted": "Dwight Schrute False",
+   "best": null
+  },
+  {
+   "wanted": "Kevin's Famous Chili",
+   "best": null
+  },
+  {
+   "wanted": "Pivot",
+   "best": null
+  },
+  {
+   "wanted": "Am I So Out Of Touch Skinner",
+   "best": null
+  },
+  {
+   "wanted": "Grandpa Simpson Walking In And Out",
+   "best": null
+  },
+  {
+   "wanted": "Shaggy Rose",
+   "best": null
+  },
+  {
+   "wanted": "Garfield",
+   "best": "Garfield You Fat Cat"
+  },
+  {
+   "wanted": "Huh Cat",
+   "best": "Side Eye Eyebrow Raise Cat"
+  },
+  {
+   "wanted": "Banana Cat Crying",
+   "best": null
+  },
+  {
+   "wanted": "Chipi Chipi Cat",
+   "best": null
+  },
+  {
+   "wanted": "Walter Dog",
+   "best": "Suspicious Bull Terrier"
+  },
+  {
+   "wanted": "Kabosu",
+   "best": "wow doge"
+  },
+  {
+   "wanted": "Elmo Shrug",
+   "best": null
+  },
+  {
+   "wanted": "Psyduck",
+   "best": "Psyduck at Computer"
+  },
+  {
+   "wanted": "Lord Farquaad Some Of You May Die",
+   "best": "Lord Farquaad Sacrifice"
+  },
+  {
+   "wanted": "Palpatine Do It",
+   "best": null
+  },
+  {
+   "wanted": "Anakin I Hate Sand",
+   "best": null
+  },
+  {
+   "wanted": "Dumbledore Asked Calmly",
+   "best": null
+  },
+  {
+   "wanted": "Draw Me Like One Of Your French Girls",
+   "best": null
+  },
+  {
+   "wanted": "Nicolas Cage You Don't Say",
+   "best": null
+  },
+  {
+   "wanted": "Say What Again Samuel L Jackson",
+   "best": null
+  },
+  {
+   "wanted": "Show Me What You Got",
+   "best": null
+  },
+  {
+   "wanted": "Bender",
+   "best": "Bender Fur Coat"
+  },
+  {
+   "wanted": "Zero Two Dance",
+   "best": null
+  },
+  {
+   "wanted": "To Be Continued Jojo",
+   "best": null
+  },
+  {
+   "wanted": "Jojo Menacing",
+   "best": "Jojo Thinking Emoji"
+  },
+  {
+   "wanted": "Za Warudo",
+   "best": null
+  },
+  {
+   "wanted": "Light Yagami Writing",
+   "best": "Hajime Moriyasu Death Note"
+  },
+  {
+   "wanted": "Gendo Pose",
+   "best": null
+  },
+  {
+   "wanted": "Me Gusta",
+   "best": "Gus Fring Suit"
+  },
+  {
+   "wanted": "Poker Face Rage",
+   "best": null
+  },
+  {
+   "wanted": "Problem Troll",
+   "best": "Trolley Problem Crowd Puller"
+  },
+  {
+   "wanted": "Aww Yeah",
+   "best": "Aw Yeah Rage Face"
+  },
+  {
+   "wanted": "Bad Joke Eel",
+   "best": "Moray Eel Stare"
+  },
+  {
+   "wanted": "Baby Groot",
+   "best": null
+  },
+  {
+   "wanted": "Dog Ight Imma Head Out",
+   "best": null
+  },
+  {
+   "wanted": "Cat With Sunglasses",
+   "best": "Cool cat"
+  },
+  {
+   "wanted": "Seal",
+   "best": "Seal of Approval  -"
+  },
+  {
+   "wanted": "Weird Flex But Ok",
+   "best": null
+  },
+  {
+   "wanted": "Always Sunny Pepe Silvia",
+   "best": "Conspiracy Wall Guy"
+  },
+  {
+   "wanted": "Absolute Unit",
+   "best": null
+  },
+  {
+   "wanted": "Cat In Water",
+   "best": "Cat Pressing Coffee Button"
+  },
+  {
+   "wanted": "Kalm",
+   "best": "kalm panik"
+  },
+  {
+   "wanted": "Water Gun",
+   "best": null
+  },
+  {
+   "wanted": "Woman Holding Cat",
+   "best": null
+  },
+  {
+   "wanted": "Batman Smiling",
+   "best": null
+  },
+  {
+   "wanted": "Bane Silence",
+   "best": null
+  },
+  {
+   "wanted": "Distracted Dog",
+   "best": null
+  },
+  {
+   "wanted": "Dora",
+   "best": "Dora the Explorer"
+  },
+  {
+   "wanted": "Hey Arnold",
+   "best": "Helga I hate you but I love you"
+  },
+  {
+   "wanted": "Johnny Bravo",
+   "best": null
+  },
+  {
+   "wanted": "Gene Wilder Wonka",
+   "best": "Willy Wonka Blank"
+  },
+  {
+   "wanted": "Tony Stark Was Able To Build This",
+   "best": null
+  },
+  {
+   "wanted": "Thor Is This A",
+   "best": "Paper Mario \"This Post Right Here Officer\""
+  },
+  {
+   "wanted": "Loki",
+   "best": "Loki You Had One Job"
+  },
+  {
+   "wanted": "Avengers",
+   "best": "avengers power at 400"
+  },
+  {
+   "wanted": "Joker",
+   "best": "Joker stairs"
+  },
+  {
+   "wanted": "Michael Scott Thank You",
+   "best": "employee of the month"
+  },
+  {
+   "wanted": "Leslie Knope",
+   "best": null
+  },
+  {
+   "wanted": "Schitt's Creek Moira",
+   "best": null
+  },
+  {
+   "wanted": "Phoebe Buffay",
+   "best": null
+  },
+  {
+   "wanted": "Ted Mosby",
+   "best": null
+  },
+  {
+   "wanted": "Tyrion",
+   "best": "Unimpressed Tyrion"
+  },
+  {
+   "wanted": "Gilmore Girls",
+   "best": null
+  },
+  {
+   "wanted": "Rachel Green",
+   "best": null
+  },
+  {
+   "wanted": "Monica Geller",
+   "best": null
+  },
+  {
+   "wanted": "Big Bang Theory",
+   "best": "Angry Sheldon Cooper"
+  },
+  {
+   "wanted": "Eleven",
+   "best": "ELEVENZ staring"
+  },
+  {
+   "wanted": "Lupin",
+   "best": "Lupin III Hand Stop"
+  },
+  {
+   "wanted": "Kaamelott",
+   "best": null
+  },
+  {
+   "wanted": "OSS 117",
+   "best": null
+  },
+  {
+   "wanted": "Les Visiteurs",
+   "best": null
+  },
+  {
+   "wanted": "Jean Dujardin",
+   "best": null
+  },
+  {
+   "wanted": "Celine Dion",
+   "best": null
+  },
+  {
+   "wanted": "Johnny Hallyday",
+   "best": null
+  },
+  {
+   "wanted": "Booba",
+   "best": "Mr Krabs Blank Eyes"
+  },
+  {
+   "wanted": "Jul",
+   "best": "Julian Assange 2016"
+  },
+  {
+   "wanted": "Aya Nakamura",
+   "best": null
+  },
+  {
+   "wanted": "Zinedine Zidane Headbutt",
+   "best": null
+  },
+  {
+   "wanted": "French Cafe Waiter",
+   "best": null
+  },
+  {
+   "wanted": "Elle Woods",
+   "best": "What, like it's hard?"
+  },
+  {
+   "wanted": "Bridget Jones",
+   "best": null
+  },
+  {
+   "wanted": "Miranda Priestly",
+   "best": "The Devil Wears Prada Anne Hathaway Running"
+  },
+  {
+   "wanted": "Legally Blonde",
+   "best": null
+  },
+  {
+   "wanted": "High School Musical",
+   "best": "T As In Troy"
+  },
+  {
+   "wanted": "Sharpay",
+   "best": null
+  },
+  {
+   "wanted": "Ariel",
+   "best": "Ariel Drake Format"
+  },
+  {
+   "wanted": "Olaf",
+   "best": "Olaf Impaled"
+  },
+  {
+   "wanted": "Rapunzel",
+   "best": "Rapunzel Smiling Nervously"
+  },
+  {
+   "wanted": "Mulan",
+   "best": "Mulan Avalanche"
+  },
+  {
+   "wanted": "Simba",
+   "best": "Simba Stampede"
+  },
+  {
+   "wanted": "Pumbaa",
+   "best": null
+  },
+  {
+   "wanted": "Timon",
+   "best": "Anthony Fauci Testifying"
+  },
+  {
+   "wanted": "Scar",
+   "best": "Scared Cat"
+  },
+  {
+   "wanted": "Lilo",
+   "best": "Lilo Accusing Stitch"
+  },
+  {
+   "wanted": "Tigger",
+   "best": "Pooh Tigger Freakout"
+  },
+  {
+   "wanted": "Piglet",
+   "best": "Curious Baby Piglet"
+  }
+ ]
+}

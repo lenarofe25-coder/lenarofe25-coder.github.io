@@ -1,0 +1,83 @@
+# Memes écartés après vérification visuelle des planches contact (identifiant  # raison).
+# Un meme listé ici reste dans jeu/data/memes.json avec active: false et n’est jamais distribué.
+m-bernie-sanders-once-again-asking  # Bernie Sanders Once Again Asking — variante d’un meme déjà présent
+m-marked-safe-from  # Marked Safe From — presque uniquement du texte
+m-george-bush-9-11  # George Bush 9/11 — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-no-yes  # No - Yes — variante d’un meme déjà présent
+m-megamind-no-bitches  # Megamind no bitches — variante d’un meme déjà présent
+m-drake-blank  # Drake Blank — variante d’un meme déjà présent
+m-look-at-me  # Look At Me — variante d’un meme déjà présent
+m-american-chopper-argument  # American Chopper Argument — variante d’un meme déjà présent
+m-whe-i-m-in-competition-and-my-opponent-is  # whe i'm in a competition and my opponent is — presque uniquement du texte
+m-socially-awesome-penguin  # Socially Awesome Penguin — variante d’un meme déjà présent
+m-socially-awesome-awkward-penguin  # Socially Awesome Awkward Penguin — variante d’un meme déjà présent
+m-socially-awkward-awesome-penguin  # Socially Awkward Awesome Penguin — variante d’un meme déjà présent
+m-butthurt-dweller  # Butthurt Dweller — moquerie du physique d’une personne réelle
+m-bad-luck-brian-2  # Bad Luck Brian — variante d’un meme déjà présent
+m-two-guys-on-bus-2  # Two Guys on a Bus — variante d’un meme déjà présent
+m-x-x-everywhere-2  # X, X Everywhere — variante d’un meme déjà présent
+m-communist-bugs-bunny  # Communist Bugs Bunny — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-change-my-mind-2  # Change My Mind — variante d’un meme déjà présent
+m-soccer-celebration-in-bar  # Soccer Celebration In A Bar — modèle incomplet ou cassé
+m-expectation-vs-reality  # Expectation vs. Reality — modèle incomplet ou cassé
+m-drakeposting  # Drakeposting — variante d’un meme déjà présent
+m-dating-site-murderer  # Dating Site Murderer — thème meurtre
+m-elmo-choosing-cocaine  # Elmo Choosing Cocaine — drogue
+m-left-exit-12-off-ramp-2  # Left Exit 12 Off Ramp — variante d’un meme déjà présent
+m-this-is-fine-2  # This is Fine — variante d’un meme déjà présent
+m-grant-gustin-next-to-oliver-queen-s-grave  # Grant Gustin Next To Oliver Queen's Grave — variante d’un meme déjà présent
+m-hide-pain-harold-2  # Hide the Pain Harold — variante d’un meme déjà présent
+m-we-have-food-at-home  # We Have Food at Home — image presque vide, illisible
+m-you-guys-are-getting-paid-2  # You Guys Are Getting Paid? — variante d’un meme déjà présent
+m-is-this-pigeon-2  # Is This a Pigeon? — variante d’un meme déjà présent
+m-tuxedo-winnie-pooh-2  # Tuxedo Winnie the Pooh — variante d’un meme déjà présent
+m-mother-ignoring-kid-drowning-in-pool-2  # Mother Ignoring Kid Drowning In A Pool — variante d’un meme déjà présent
+m-sad-joe-biden  # Sad Joe Biden — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-john-boehner  # Sad John Boehner — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-george-bush  # Sad George Bush — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-bill-clinton  # Sad Bill Clinton — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-sad-barack-obama  # Sad Barack Obama — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-say-line-bart  # Say the Line, Bart! — variante d’un meme déjà présent
+m-inhaling-seagull-2  # Inhaling Seagull — variante d’un meme déjà présent
+m-skeptical-third-world-kid  # Skeptical Third World Kid — variante d’un meme déjà présent
+m-spider-man-pointing-at-spider-man  # Spider-Man Pointing at Spider-Man — variante d’un meme déjà présent
+m-rent-is-too-damn-high  # The Rent Is Too Damn High — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-donald-trump  # Donald Trump — personnalité ou symbole politique : hors sujet pour une soirée entre amies
+m-mr-incredible-becoming-canny  # mr incredible becoming canny — image illisible ou sans rapport (icône, pixel art)
+m-pepe-frog  # pepe the frog — variante d’un meme déjà présent
+m-aaaaand-its-gone  # Aaaaand Its Gone — variante d’un meme déjà présent
+m-mood-vibing-announcement-cat  # Mood Vibing Announcement Cat — modèle vide ou presque uniquement du texte
+m-screaming-cat  # Screaming Cat — variante d’un meme déjà présent
+m-monkey-puppet-looking-away  # Monkey Puppet Looking Away — variante d’un meme déjà présent
+m-harambe  # Harambe — sujet sensible (mort d’un animal, détournements racistes)
+m-we-don-t-do-that-here-2  # we don't do that here — variante d’un meme déjà présent
+m-peter-griffin-news  # Peter Griffin News — variante d’un meme déjà présent
+m-speedwagon-shocked  # Speedwagon Shocked — modèle vide ou presque uniquement du texte
+m-cereal-guy  # Cereal Guy — modèle vide ou presque uniquement du texte
+m-not-bad-obama  # Not Bad Obama — personnalité politique
+m-spongebob-rainbow  # Spongebob Rainbow — variante d’un meme déjà présent
+m-spongebob-ight-imma-head-out  # Spongebob Ight Imma Head Out — variante d’un meme déjà présent
+m-coffin-dance  # Coffin Dance — variante d’un meme déjà présent
+m-rick-astley  # Rick Astley — variante d’un meme déjà présent
+m-woman-shouting-at-cat  # Woman shouting at cat — variante d’un meme déjà présent
+m-sweating-key-and-peele  # Sweating Key and Peele — variante d’un meme déjà présent
+m-hey-can-i-copy-your-homework  # "Hey, Can I Copy Your Homework?" — modèle vide ou presque uniquement du texte
+m-panik-kalm  # panik kalm — variante d’un meme déjà présent
+m-who-would-win  # Who Would Win? — modèle vide ou presque uniquement du texte
+m-fortnite-default-dance  # Fortnite default dance — image illisible ou sans rapport (icône, pixel art)
+m-iron-man-throne  # Iron Man Throne — image illisible ou sans rapport (icône, pixel art)
+m-captain-marvel-poster  # Captain Marvel Poster — simple photo ou affiche, pas un meme
+m-superman-flying  # Superman Flying — simple photo ou affiche, pas un meme
+m-batman  # Batman — simple photo ou affiche, pas un meme
+m-harley-quinn  # Harley Quinn — simple photo ou affiche, pas un meme
+m-jon-snow  # jon snow — simple photo ou affiche, pas un meme
+m-brace-yourselves-ned-stark  # Brace Yourselves Ned Stark — variante d’un meme déjà présent
+m-hodor-death  # hodor death — image illisible ou sans rapport (icône, pixel art)
+m-wednesday-addams  # Wednesday Addams — simple photo ou affiche, pas un meme
+m-professor-money-heist  # The Professor Money Heist — image illisible ou sans rapport (icône, pixel art)
+m-regina-george-santa-hat  # Regina George Santa Hat — variante d’un meme déjà présent
+m-clueless  # clueless — mauvaise correspondance (ce n’est pas le film Clueless)
+m-hilary-duff-performance-lizzie-mcguire-movie  # Hilary Duff performance - ‘The Lizzie McGuire Movie’ — simple photo ou affiche, pas un meme
+m-cinderella  # cinderella — simple photo ou affiche, pas un meme
+m-moana-cast  # moana cast — modèle vide ou presque uniquement du texte
+m-elsa-let-it-go  # Elsa Let It Go — simple photo ou affiche, pas un meme
