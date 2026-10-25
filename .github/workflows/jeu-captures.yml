@@ -28,7 +28,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Worker et site en local
         run: |
-          printf 'CONTENT_URL=\nACTIONS_PER_10S=200\n' > server/.dev.vars
+          printf 'CONTENT_URL=\nACTIONS_PER_10S=200\nJOIN_LIMIT=1000\n' > server/.dev.vars
           (cd server && npx wrangler dev --port 8787 --ip 127.0.0.1 > ../wrangler.log 2>&1 &)
           python3 -m http.server 8080 --bind 127.0.0.1 > /dev/null 2>&1 &
           for i in $(seq 1 60); do curl -sf http://127.0.0.1:8787/api/health && break; sleep 1; done

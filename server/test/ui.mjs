@@ -28,7 +28,11 @@ const mk = async (name, device) => {
   page.on('console', (m) => m.type() === 'error' && errors.push(`${name} console: ${m.text()}`));
   return { name, ctx, page };
 };
-const shot = (p, file) => p.page.screenshot({ path: `${OUT}/${file}.png`, fullPage: false });
+// Avant chaque capture, on attend que les images visibles aient fini de charger.
+const shot = async (p, file) => {
+  await p.page.waitForFunction(() => [...document.images].filter((i) => i.getBoundingClientRect().top < innerHeight).every((i) => i.complete), null, { timeout: 15000 }).catch(() => {});
+  await p.page.screenshot({ path: `${OUT}/${file}.png`, fullPage: false });
+};
 const noHScroll = async (p) => assert.ok(await p.page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${p.name} : débordement horizontal`);
 
 const a = await mk('Alice', devices['iPhone 13']);
@@ -38,6 +42,7 @@ const c = await mk('Chloé', { viewport: { width: 1366, height: 860 } });
 // Accueil + création
 await a.page.goto(SITE);
 await a.page.waitForSelector('.wordmark');
+await a.page.waitForSelector('.fan .card').catch(() => {});
 await noHScroll(a);
 await shot(a, '01-accueil-mobile');
 await c.page.goto(SITE);

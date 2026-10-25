@@ -109,7 +109,39 @@ button, input, select { font: inherit; color: inherit; }
   .fan .card { width: 108px; height: 140px; padding: 8px; }
   .fan .card:nth-child(1) { transform: translateX(-112%) rotate(-12deg); }
   .fan .card:nth-child(3) { transform: translateX(12%) rotate(12deg); }
-  }
+}
+.wordmark {
+  font-size: clamp(4.4rem, 22vw, 8.5rem); font-weight: 800; letter-spacing: -0.06em; line-height: 0.85;
+  color: var(--sun); text-shadow: 0 6px 0 var(--ink);
+  -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill;
+}
+.tagline { font-size: clamp(1.1rem, 3.6vw, 1.35rem); max-width: 30ch; color: var(--on-table); font-weight: 600; }
+.home-grid { display: grid; gap: 28px; }
+@media (min-width: 860px) { .home-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; } }
+.panel {
+  background: var(--paper); color: var(--ink);
+  border: 2.5px solid var(--ink); border-radius: 24px; box-shadow: 0 6px 0 var(--ink);
+  padding: 22px; display: grid; gap: 18px;
+}
+.panel .hint { color: var(--ink-2); }
+.panel .btn-ghost { color: var(--ink); border-color: var(--ink); }
+.split { display: flex; align-items: center; gap: 12px; color: var(--ink-2); font-weight: 600; }
+.split::before, .split::after { content: ''; flex: 1; height: 2px; background: #e5e3ef; border-radius: 2px; }
+.join-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.join-row .btn { min-height: 56px; }
+.room-peek { display: flex; align-items: center; gap: 10px; background: #eef0ff; border-radius: 12px; padding: 10px 14px; font-weight: 600; }
+.rules { display: grid; gap: 16px; }
+.rules h2 { font-size: 1.6rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.steps li::before {
+  content: counter(step); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--paper); color: var(--ink); border: 2.5px solid var(--ink); font: 800 1.2rem var(--display);
+}
+.steps b { font-family: var(--display); font-size: 1.12rem; display: block; }
+.steps span { color: var(--on-table-2); }
+.footer { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: center; color: var(--on-table-2); font-size: 0.9rem; padding-top: 8px; }
+.footer a { color: inherit; }
 
 /* ── cartes ──────────────────────────────────────────────── */
 .card {

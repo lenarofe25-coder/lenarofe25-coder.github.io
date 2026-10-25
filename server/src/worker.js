@@ -77,7 +77,7 @@ export default {
     }
 
     if (url.pathname === '/api/rooms' && request.method === 'POST') {
-      if (await limited(env, request, 'create', 10, 10 * 60_000)) return json({ code: 'RATE_LIMITED', message: 'Trop de parties créées. Réessaie dans quelques minutes.' }, 429, origin);
+      if (await limited(env, request, 'create', Number(env.CREATE_LIMIT) || 10, 10 * 60_000)) return json({ code: 'RATE_LIMITED', message: 'Trop de parties créées. Réessaie dans quelques minutes.' }, 429, origin);
       const body = await readJson(request);
       if (!body) return json({ code: 'BAD_REQUEST', message: 'Requête invalide.' }, 400, origin);
       for (let attempt = 0; attempt < 6; attempt++) {
@@ -94,7 +94,7 @@ export default {
     if (m) {
       const code = m[1].toUpperCase();
       const action = m[2];
-      if (action !== 'ws' && (await limited(env, request, 'join', 40, 10 * 60_000))) {
+      if (action !== 'ws' && (await limited(env, request, 'join', Number(env.JOIN_LIMIT) || 40, 10 * 60_000))) {
         return json({ code: 'RATE_LIMITED', message: 'Trop de tentatives. Réessaie dans quelques minutes.' }, 429, origin);
       }
       if (!CODE_RE.test(code)) return json({ code: 'ROOM_NOT_FOUND', message: 'Ce code de salle n’existe pas.' }, 404, origin);
