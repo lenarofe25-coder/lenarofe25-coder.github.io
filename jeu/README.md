@@ -1,7 +1,7 @@
 # MDR : le jeu des memes entre copines
 
 Jeu multijoueur en ligne : une salle privée, un code à partager, une situation par manche,
-10 cartes par joueuse, une carte jouée en secret, un vote anonyme, 1 point pour la carte la plus votée.
+10 memes par joueuse, un meme joué en secret, un vote anonyme, 1 point pour le meme le plus voté.
 10 manches par défaut (5 ou 15 au choix de l’hôte).
 
 - Jeu : `https://lenarofe25-coder.github.io/jeu/`
@@ -15,7 +15,7 @@ Le site reste un site statique GitHub Pages. Le jeu est découpé en deux partie
 | --- | --- | --- |
 | Interface | Pages statiques en HTML, CSS et JS sans étape de build, comme le portfolio | `jeu/` |
 | Serveur temps réel | Cloudflare Worker et un Durable Object par salle : source de vérité, WebSocket, chronos | `server/` |
-| Bibliothèques | `situations.json` et `cards.json`, deux fichiers indépendants et versionnés | `jeu/data/` |
+| Bibliothèques | `situations.json` et `memes.json`, deux fichiers indépendants et versionnés | `jeu/data/` |
 
 Pourquoi Cloudflare Durable Objects ? GitHub Pages ne peut pas exécuter de serveur. Un Durable Object
 par salle donne exactement ce qu’il faut à un jeu en salles privées :
@@ -80,50 +80,57 @@ Aucune donnée personnelle hormis le pseudo. Tout est effacé à la fermeture de
 
 ## Bibliothèques de contenu
 
-| | Nombre | Détail |
+Deux fichiers indépendants, versionnés dans `jeu/data/` :
+
+| Fichier | Contenu |
+| --- | --- |
+| `situations.json` | Les 500 situations de Léna, 10 catégories de 50, tirées au hasard sans répétition dans une partie. |
+| `memes.json` | La bibliothèque de memes visuels réels (seules cartes du jeu ; aucune phrase, aucun emoji). |
+
+Chaque manche : une situation commune, 10 memes différents par joueuse (tirés indépendamment,
+renouvelés à chaque manche, en évitant les memes déjà reçus dans la partie), un meme joué
+en secret, puis le vote anonyme.
+
+### D’où viennent les memes
+
+Trois API publiques et gratuites, conçues pour que des applications affichent leurs modèles :
+
+| Source | API | Conditions relevées (archivées dans `server/memes/report/terms/`) |
 | --- | --- | --- |
-| Situations | 504 | 11 catégories, dont « Humour noir » qui reste désactivée tant que l’hôte ne l’active pas |
-| Cartes réponses | 621 | 294 phrases, 120 illustrations de réaction, 207 illustrations avec légende |
+| Imgflip | `api.imgflip.com/get_memes` (100 modèles populaires) | Affichage des images hébergées autorisé à condition de mettre un lien vers imgflip.com |
+| memegen.link | `api.memegen.link/templates` | API libre (code MIT), images servies par URL, pas de restriction d’affichage |
+| Memeboat | `memebo.at/api/templates?search=` | Affichage autorisé avec un lien vers memebo.at ; usage automatisé modéré (1 requête/s) |
 
-Les phrases, légendes et situations sont des textes originaux écrits pour le jeu. Les illustrations
-viennent de [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) (Microsoft, licence MIT) : il
-y en a 209 dans `jeu/cards/img/`, avec la licence MIT.
+**Droits** : ces images (Drake, Distracted Boyfriend, Pikachu…) appartiennent à leurs auteurs.
+Aucune source n’accorde de licence de redistribution, et aucune ne prétend en avoir. MDR ne copie
+donc pas les images : il les affiche depuis les serveurs des sources, comme leurs conditions le
+permettent, avec les liens retour exigés (pied de page de chaque écran de jeu, et lien vers la page
+du meme dans la loupe). L’usage repose sur l’exception de parodie et de pastiche (art. L122-5 4° du
+Code de la propriété intellectuelle) dans le cadre d’un jeu privé et non commercial. Si un ayant
+droit le demande, désactive le meme (`active: false`).
 
-**Pourquoi pas de « vrais » memes ?** Les modèles de memes connus (Imgflip, Know Your Meme…) sont des
-images protégées par le droit d’auteur. L’API Imgflip ne donne aucun droit de redistribution sur
-ses modèles. Le jeu n’en contient donc pas. Pour ajouter des photos de réaction sous licence libre,
-utilise l’import Wikimedia Commons décrit plus bas.
+### Import automatisé et vérifications
 
-### Ajouter ou modifier des cartes
+Le workflow `.github/workflows/memes-import.yml` (GitHub Actions, réseau ouvert) lance
+`server/memes/collect.py`, qui :
 
-1. Modifie `server/scripts/content-src/situations.mjs` ou `cards.mjs`.
-2. Lance `npm run content` dans `server/`. Le script :
-   - conserve les identifiants existants ;
-   - garde les entrées retirées en `active: false` ;
-   - détecte les doublons exacts et les quasi-doublons ;
-   - vérifie chaque illustration, puis régénère `jeu/data/*.json`.
-3. Commite et pousse. Le Worker recharge la bibliothèque publiée (`CONTENT_URL`) toutes les 10 minutes : **pas besoin de le redéployer**.
+1. récupère les catalogues Imgflip et memegen, puis cherche dans Memeboat chaque nom de
+   `server/memes/wanted.txt` (≈ 470 memes connus) absent des deux premiers ;
+2. télécharge chaque image et vérifie le statut HTTP, le type, le décodage et une taille minimale de 150 px ;
+3. écarte les doublons, même sous un autre nom : empreinte SHA-256 et empreinte perceptuelle
+   (pHash, distance ≤ 8) ;
+4. conserve les identifiants d’un import à l’autre ; un meme nouveau arrive désactivé
+   (`pendingReview`) jusqu’à sa vérification visuelle ;
+5. produit des planches contact numérotées (`server/memes/report/planche-XX.jpg`) pour la
+   vérification à l’œil, qui alimente `server/memes/rejected.txt` (variantes, photos qui ne
+   sont pas des memes, sujets politiques ou sensibles, modèles vides) ;
+6. ouvre enfin chaque meme actif dans Chromium pour vérifier qu’il s’affiche réellement
+   (`server/memes/report/navigateur.json`).
 
-Pour désactiver une carte défectueuse sans la supprimer, passe son `active` à `false` dans `jeu/data/cards.json`.
-
-### Importer des photos de réaction libres (Wikimedia Commons)
-
-```sh
-cd server
-node scripts/import-commons.mjs --category "Category:Yawning cats" --game-category absurde --limit 30 --dry-run
-node scripts/import-commons.mjs --category "Category:Yawning cats" --game-category absurde --limit 30
-npm run content
-```
-
-Le script :
-
-- ne garde que les licences domaine public, CC0, CC BY et CC BY-SA (pas de NC ni de ND) ;
-- vérifie le type et la taille de chaque image ;
-- écarte les doublons grâce à une empreinte SHA-256 ;
-- enregistre l’auteur, la licence et l’URL source. L’attribution s’affiche sur la carte.
-
-Relis les images avant de publier. Ce script n’a pas pu être exécuté contre l’API réelle depuis
-l’environnement de développement (réseau bloqué). Seule sa logique de filtrage est testée.
+Pour ajouter des memes : ajoute des noms dans `wanted.txt` et pousse. Ensuite, relis les planches
+(entrées « [À VÉRIFIER] »), ajoute les refus éventuels dans `rejected.txt`, puis retire
+`pendingReview` des memes validés dans `jeu/data/memes.json`. Le Worker recharge la bibliothèque
+publiée sur le site toutes les 10 minutes.
 
 ## Mise en ligne (à faire une fois)
 
@@ -140,7 +147,8 @@ Si le site change d’adresse, mets à jour `ALLOWED_ORIGINS` et `CONTENT_URL` d
 cd server && npm ci
 npm run dev                                        # Worker local sur :8787 (copier .dev.vars.example en .dev.vars)
 python3 -m http.server 8080 --directory ..          # le site sur :8080 → http://localhost:8080/jeu/
-npm test                                           # règles du jeu, contenu, import (31 tests)
+npm test                                           # règles du jeu et bibliothèques (28 tests)
 npm run test:e2e                                   # vrais clients WebSocket contre le Worker local (9 tests)
-node test/ui.mjs                                   # partie complète dans Chromium : 2 iPhone + 1 ordinateur (Playwright)
+node test/ui.mjs                                   # partie complète dans Chromium : 2 iPhone + 1 ordinateur
+                                                   # (MDR_OFFLINE_IMAGES=1 si les images de memes sont injoignables)
 ```

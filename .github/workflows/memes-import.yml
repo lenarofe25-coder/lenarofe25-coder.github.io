@@ -53,4 +53,5 @@ jobs:
           git add jeu/data/memes.json server/memes/report
           git diff --cached --quiet && exit 0
           git commit -m "Import des memes : bibliothèque et rapport de vérification"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
           git push
