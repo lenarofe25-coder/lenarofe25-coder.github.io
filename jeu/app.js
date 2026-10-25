@@ -477,11 +477,6 @@ function renderLobby(v) {
 }
 
 // ── manche ────────────────────────────────────────────────
-const CATEGORY_LABELS = {
-  famille: 'Parents & famille', malaise: 'Malaise', cerveau: 'Cerveau en panne', catastrophes: 'Catastrophes', telephone: 'Téléphone & Internet',
-  ecole: 'École & travail', amis: 'Amis & conversations', fatigue: 'Fatigue & flemme', paranoia: 'Paranoïa', absurde: 'Absurde & memes',
-};
-
 function renderRound(v) {
   const r = v.round;
   const fresh = mount(
@@ -492,7 +487,7 @@ function renderRound(v) {
         <span class="timer" data-timer></span>
         <button class="icon-btn" data-act="menu" aria-label="Menu de la partie">${ICONS.menu}</button>
       </div>
-      <section class="prompt"><span class="cat">${esc(CATEGORY_LABELS[r.situation.category] || 'Situation')}</span><h1>${fr(r.situation.text)}</h1></section>
+      <section class="prompt"><h1>${fr(r.situation.text)}</h1></section>
       <div class="status" data-part="status"></div>
       <div data-part="board"></div>
       <div data-part="standings"></div>

@@ -1,6 +1,6 @@
 {
  "version": "2026-10-25",
- "count": 462,
+ "count": 500,
  "situations": [
   {
    "id": "s-0501",
@@ -3235,6 +3235,272 @@
    "category": "absurde",
    "active": true,
    "dedupeKey": "quand tu dis ca ne peut pas etre pire et que l univers prend ca comme un defi"
+  },
+  {
+   "id": "s-0960",
+   "text": "Quand tu te prépares mentalement à une conversation qui dure finalement quatre secondes.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu te prepares mentalement a une conversation qui dure finalement quatre secondes"
+  },
+  {
+   "id": "s-0961",
+   "text": "Quand tu chuchotes un secret et que la personne à l’autre bout de la pièce l’entend.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu chuchotes un secret et que la personne a l autre bout de la piece l entend"
+  },
+  {
+   "id": "s-0962",
+   "text": "Quand tu as une idée tellement stupide que tu dois la raconter immédiatement à quelqu’un.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu as une idee tellement stupide que tu dois la raconter immediatement a quelqu un"
+  },
+  {
+   "id": "s-0963",
+   "text": "Quand tu regardes un chat fixer un mur et que tu commences à te méfier du mur.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes un chat fixer un mur et que tu commences a te mefier du mur"
+  },
+  {
+   "id": "s-0964",
+   "text": "Quand tu vois quelqu’un marcher très vite avec un air sérieux et que tu imagines qu’il est en mission secrète.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois quelqu un marcher tres vite avec un air serieux et que tu imagines qu il est en mission secrete"
+  },
+  {
+   "id": "s-0965",
+   "text": "Quand tu entends une chanson et que ton cerveau invente des paroles complètement différentes.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu entends une chanson et que ton cerveau invente des paroles completement differentes"
+  },
+  {
+   "id": "s-0966",
+   "text": "Quand tu vois une personne courir après un bus et que tu l’encourages mentalement comme aux Jeux olympiques.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois une personne courir apres un bus et que tu l encourages mentalement comme aux jeux olympiques"
+  },
+  {
+   "id": "s-0967",
+   "text": "Quand tu essaies de raconter une blague et que tu ris tellement que personne ne comprend la chute.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies de raconter une blague et que tu ris tellement que personne ne comprend la chute"
+  },
+  {
+   "id": "s-0968",
+   "text": "Quand tu regardes un objet tomber au ralenti et que tu sais que tu ne peux plus rien faire.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes un objet tomber au ralenti et que tu sais que tu ne peux plus rien faire"
+  },
+  {
+   "id": "s-0969",
+   "text": "Quand tu vois quelqu’un se battre avec un distributeur et que tu comprends immédiatement sa douleur.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois quelqu un se battre avec un distributeur et que tu comprends immediatement sa douleur"
+  },
+  {
+   "id": "s-0970",
+   "text": "Quand tu dis un mot au hasard et que tout le monde décide soudainement que c’est le nouveau surnom du groupe.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu dis un mot au hasard et que tout le monde decide soudainement que c est le nouveau surnom du groupe"
+  },
+  {
+   "id": "s-0971",
+   "text": "Quand tu fais un bruit bizarre sans raison et que tu dois l’assumer devant les témoins.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu fais un bruit bizarre sans raison et que tu dois l assumer devant les temoins"
+  },
+  {
+   "id": "s-0972",
+   "text": "Quand tu vois une personne courir pour attraper un ascenseur et que les portes se ferment devant elle.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois une personne courir pour attraper un ascenseur et que les portes se ferment devant elle"
+  },
+  {
+   "id": "s-0973",
+   "text": "Quand tu essaies de faire une photo sérieuse mais que quelqu’un fait une tête bizarre derrière toi.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies de faire une photo serieuse mais que quelqu un fait une tete bizarre derriere toi"
+  },
+  {
+   "id": "s-0974",
+   "text": "Quand tu regardes une vidéo absurde et que tu ne sais pas pourquoi tu es encore en train de rire dix minutes après.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes une video absurde et que tu ne sais pas pourquoi tu es encore en train de rire dix minutes apres"
+  },
+  {
+   "id": "s-0975",
+   "text": "Quand quelqu’un raconte une histoire tellement improbable que tu demandes des preuves.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand quelqu un raconte une histoire tellement improbable que tu demandes des preuves"
+  },
+  {
+   "id": "s-0976",
+   "text": "Quand tu vois un pigeon marcher avec beaucoup trop d’assurance.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois un pigeon marcher avec beaucoup trop d assurance"
+  },
+  {
+   "id": "s-0977",
+   "text": "Quand tu te demandes ce que les objets de ta maison diraient s’ils pouvaient parler.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu te demandes ce que les objets de ta maison diraient s ils pouvaient parler"
+  },
+  {
+   "id": "s-0978",
+   "text": "Quand tu vois un chien courir comme s’il avait reçu une mission urgente.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois un chien courir comme s il avait recu une mission urgente"
+  },
+  {
+   "id": "s-0979",
+   "text": "Quand tu essaies de rester calme mais qu’un petit détail inutile te fait exploser de rire.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies de rester calme mais qu un petit detail inutile te fait exploser de rire"
+  },
+  {
+   "id": "s-0980",
+   "text": "Quand quelqu’un dit une phrase normale avec une intonation tellement étrange que tu ne peux plus l’oublier.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand quelqu un dit une phrase normale avec une intonation tellement etrange que tu ne peux plus l oublier"
+  },
+  {
+   "id": "s-0981",
+   "text": "Quand tu regardes une vieille photo et que tu te demandes ce que tu avais dans la tête.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes une vieille photo et que tu te demandes ce que tu avais dans la tete"
+  },
+  {
+   "id": "s-0982",
+   "text": "Quand tu essaies d’expliquer un meme à quelqu’un et que tu réalises que le contexte est impossible à expliquer.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies d expliquer un meme a quelqu un et que tu realises que le contexte est impossible a expliquer"
+  },
+  {
+   "id": "s-0983",
+   "text": "Quand tu inventes une théorie absurde et que plus tu l’expliques, plus elle semble logique.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu inventes une theorie absurde et que plus tu l expliques plus elle semble logique"
+  },
+  {
+   "id": "s-0984",
+   "text": "Quand tu regardes une personne chercher ses lunettes alors qu’elles sont sur sa tête.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes une personne chercher ses lunettes alors qu elles sont sur sa tete"
+  },
+  {
+   "id": "s-0985",
+   "text": "Quand tu vois quelqu’un parler à son GPS comme s’il pouvait l’entendre.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois quelqu un parler a son gps comme s il pouvait l entendre"
+  },
+  {
+   "id": "s-0986",
+   "text": "Quand tu essaies d’imiter un bruit et que le résultat ne ressemble à rien.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies d imiter un bruit et que le resultat ne ressemble a rien"
+  },
+  {
+   "id": "s-0987",
+   "text": "Quand tu fais un geste dramatique pour expliquer quelque chose de totalement banal.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu fais un geste dramatique pour expliquer quelque chose de totalement banal"
+  },
+  {
+   "id": "s-0988",
+   "text": "Quand tu regardes une mouche voler en rond et que tu commences à te demander ce qu’elle prépare.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes une mouche voler en rond et que tu commences a te demander ce qu elle prepare"
+  },
+  {
+   "id": "s-0989",
+   "text": "Quand tu entends une phrase tellement mal formulée que tu dois la relire à voix haute.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu entends une phrase tellement mal formulee que tu dois la relire a voix haute"
+  },
+  {
+   "id": "s-0990",
+   "text": "Quand tu vois un objet posé de travers et que tu ne peux plus regarder autre chose.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois un objet pose de travers et que tu ne peux plus regarder autre chose"
+  },
+  {
+   "id": "s-0991",
+   "text": "Quand tu regardes quelqu’un essayer d’ouvrir une porte qui est déjà ouverte.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu regardes quelqu un essayer d ouvrir une porte qui est deja ouverte"
+  },
+  {
+   "id": "s-0992",
+   "text": "Quand tu fais une blague tellement nulle que le silence qui suit devient la meilleure partie.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu fais une blague tellement nulle que le silence qui suit devient la meilleure partie"
+  },
+  {
+   "id": "s-0993",
+   "text": "Quand quelqu’un répond très sérieusement à une question complètement absurde.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand quelqu un repond tres serieusement a une question completement absurde"
+  },
+  {
+   "id": "s-0994",
+   "text": "Quand tu vois un enfant courir sans raison et que tu te demandes s’il sait quelque chose que tu ignores.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu vois un enfant courir sans raison et que tu te demandes s il sait quelque chose que tu ignores"
+  },
+  {
+   "id": "s-0995",
+   "text": "Quand tu essaies de faire peur à quelqu’un et que tu te fais peur toi-même.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu essaies de faire peur a quelqu un et que tu te fais peur toi meme"
+  },
+  {
+   "id": "s-0996",
+   "text": "Quand tu dis « attends, tu vas comprendre » puis que tu réalises que toi-même tu ne comprends plus.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand tu dis attends tu vas comprendre puis que tu realises que toi meme tu ne comprends plus"
+  },
+  {
+   "id": "s-0997",
+   "text": "Quand toute la situation est tellement absurde que le seul meme possible est celui de quelqu’un qui regarde la caméra en silence.",
+   "category": "absurde",
+   "active": true,
+   "dedupeKey": "quand toute la situation est tellement absurde que le seul meme possible est celui de quelqu un qui regarde la camera en silence"
   },
   {
    "id": "s-0001",

@@ -91,6 +91,15 @@ Chaque manche : une situation commune, 10 memes différents par joueuse (tirés 
 renouvelés à chaque manche, en évitant les memes déjà reçus dans la partie), un meme joué
 en secret, puis le vote anonyme.
 
+### Modifier les situations
+
+Les situations s’écrivent dans `server/scripts/content-src/situations.mjs`, une phrase par ligne
+entre guillemets, rangées en 10 catégories de 50. Après une modification, `npm run content`
+(dans `server/`) régénère `jeu/data/situations.json` ; les tests vérifient qu’il y en a bien 500.
+Une situation retirée reste dans le fichier avec `active: false` et n’est plus jamais tirée.
+Une fois la modification fusionnée dans `main`, le jeu en ligne la prend en compte tout seul
+(redéploiement automatique, puis rechargement des fichiers publiés sous 10 minutes).
+
 ### D’où viennent les memes
 
 Trois API publiques et gratuites, conçues pour que des applications affichent leurs modèles :
