@@ -110,8 +110,22 @@ button, input, select { font: inherit; color: inherit; }
   .fan .card:nth-child(1) { transform: translateX(-112%) rotate(-12deg); }
   .fan .card:nth-child(3) { transform: translateX(12%) rotate(12deg); }
   }
-.fan .card .card-art { flex: 1; display: grid; place-items: center; min-height: 0; padding: 6px; background: #f1efe6; }
-.card-art img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+
+/* ── cartes ──────────────────────────────────────────────── */
+.card {
+  --tilt: 0deg;
+  position: relative; display: flex; flex-direction: column;
+  aspect-ratio: 3 / 4; min-width: 0;
+  background: var(--paper); color: var(--ink);
+  border: 2.5px solid var(--ink); border-radius: var(--r-card);
+  box-shadow: 0 5px 0 var(--ink);
+  overflow: hidden; text-align: left;
+  transform: rotate(var(--tilt));
+  transition: transform 0.25s var(--ease), box-shadow 0.25s ease;
+}
+/* L'image est sortie du flux : quelles que soient ses proportions, la carte garde sa forme. */
+.card-art { position: relative; flex: 1; min-height: 0; background: #f1efe6; }
+.card-art img { position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: contain; border-radius: 10px; }
 .card-fallback { padding: 12px; text-align: center; font-weight: 700; color: var(--ink-2); display: grid; place-items: center; height: 100%; }
 .card-slot { position: relative; min-width: 0; }
 .card-slot > .card { width: 100%; }

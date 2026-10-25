@@ -6,6 +6,7 @@ import { createRequire } from 'node:module';
 const { chromium, devices } = createRequire(import.meta.url)('playwright');
 import assert from 'node:assert/strict';
 
+const offline = process.env.MDR_OFFLINE_IMAGES === '1';
 const SITE = process.env.MDR_SITE || 'http://localhost:8080/jeu/';
 const OUT = process.argv[2] || '.';
 const browser = await chromium.launch();
@@ -13,6 +14,16 @@ const errors = [];
 const mk = async (name, device) => {
   const ctx = await browser.newContext(device);
   const page = await ctx.newPage();
+  // Sans accès réseau aux sources, on sert des images de remplacement aux proportions variées
+  // (larges, carrées, très hautes) pour reproduire la mise en page avec de vrais memes.
+  if (offline) {
+    await page.route(/^https:\/\/(?!127\.0\.0\.1|localhost)[^/]*\/.*\.(jpe?g|png|webp|gif)|memebo|imagekit|memegen|imgflip/i, (route) => {
+      const n = [...route.request().url()].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+      const [w, h] = [[1200, 600], [500, 500], [400, 1300], [800, 1000], [1600, 400]][n % 5];
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="100%" height="100%" fill="hsl(${n % 360},60%,60%)"/><text x="20" y="60" font-size="48">${w}x${h}</text></svg>`;
+      route.fulfill({ status: 200, contentType: 'image/svg+xml', body: svg });
+    });
+  }
   page.on('pageerror', (e) => errors.push(`${name}: ${e.message}`));
   page.on('console', (m) => m.type() === 'error' && errors.push(`${name} console: ${m.text()}`));
   return { name, ctx, page };
@@ -106,7 +117,13 @@ for (let n = 1; n <= 10; n++) {
   }
   for (const p of players) {
     await p.page.click(`[data-grid] .card-slot:nth-child(${(n % 10) + 1}) .card`);
-    await p.page.click('[data-act="confirm-pick"]');
+    try {
+      await p.page.click('[data-act="confirm-pick"]', { timeout: 5000 });
+    } catch (e) {
+      await p.page.screenshot({ path: `${OUT}/echec-${p.name}-${n}.png` });
+      const sel = await p.page.$$eval('.card.is-selected', (els) => els.length);
+      throw new Error(`manche ${n}, ${p.name} : validation impossible (cartes sélectionnées : ${sel})`);
+    }
   }
   if (n === 1) {
     await players[0].page.waitForTimeout(100);
@@ -165,7 +182,6 @@ await browser.close();
 // Les 404/409 provoqués exprès (code inconnu, pseudo pris, image cassée) ne sont pas des erreurs.
 // Les 404/409 provoqués exprès (code inconnu, pseudo pris, image cassée) ne sont pas des erreurs ;
 // MDR_OFFLINE_IMAGES=1 : images des memes injoignables depuis l'environnement de test (réseau filtré).
-const offline = process.env.MDR_OFFLINE_IMAGES === '1';
 const relevant = errors.filter((e) => !/Failed to load resource: the server responded with a status of (404|409)/.test(e) && !(offline && /ERR_|Failed to load resource/.test(e)));
 assert.deepEqual(relevant, [], relevant.join('\n'));
 console.log(`OK : partie complète à 3 dans le navigateur, salle ${code}`);
