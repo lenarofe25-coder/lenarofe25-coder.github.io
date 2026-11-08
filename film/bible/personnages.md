@@ -24,7 +24,7 @@ Les couleurs ci-dessous ont été **mesurées pixel par pixel** sur la photo dev
 | Bouche | Lèvres pleines, rose nude `#C38786` | Lèvres pleines, coins de bouche expressifs |
 | Peau | Teint chaud, doré clair `#D69A77`, quelques taches de rousseur sur le nez et les pommettes (photo porte) | Peau chaude, **taches de rousseur légères conservées**, joues rosées |
 | Signe distinctif | Petit grain de beauté sur la joue, près du nez (photo ascenseur métal) | À placer — **côté à confirmer** (les selfies miroir inversent la gauche et la droite) |
-| Cheveux | Brun très foncé `#241B1D`, longs (sous la poitrine), lisses, raie légèrement décentrée, mèches qui encadrent le visage | Coiffure principale du film. Variante « boucles » (photo ascenseur noir) pour les soirées |
+| Cheveux | Brun très foncé `#241B1D`, longs (sous la poitrine), lisses, raie légèrement décentrée, mèches qui encadrent le visage | **Coiffure par défaut du film (validée) : longs, lisses, brun très foncé.** Variante « boucles » (photo ascenseur noir) seulement pour une occasion précise, sur votre demande |
 | Silhouette | Fine, taille marquée | 6,4 têtes de haut (stylisé) |
 | Accessoires | **Bracelet fil rouge** (2 photos), fine chaînette, ongles amande nude | Le fil rouge est porté dans tout le film (voir direction artistique) |
 | Style | Minimaliste : débardeurs côtelés gris / crème, col montant, jean large brut, pantalon daim camel, baskets blanches | Garde-robe neutre et lumineuse |
@@ -79,13 +79,13 @@ Ce sera une expression officielle du film pour chacun, et un gag récurrent poss
 
 | Mesure | Léna | Ruben |
 |---|---|---|
-| Taille | **1,62 m (à confirmer)** | **1,78 m (à confirmer)** |
+| Taille | **1,55 m** (confirmé) | **1,75 m** (confirmé) |
 | Hauteur en têtes | 6,4 | 6,9 |
 | Largeur d'épaules | 1,55 tête | 1,95 tête |
 | Largeur de hanches | 1,50 tête | 1,40 tête |
 | Entrejambe | 48,5 % de la taille | 47,5 % de la taille |
 | Taille des yeux | ×1,30 | ×1,15 |
-| Écart de taille entre eux | Le haut de la tête de Léna arrive environ au niveau du nez / des yeux de Ruben (cohérent avec les photos d'ascenseur) | |
+| Écart de taille entre eux | **20 cm** : le haut de la tête de Léna arrive au niveau de la bouche de Ruben. Pour se regarder dans les yeux, elle lève la tête et il la baisse : à utiliser dans la mise en scène (bisous, « boop » sur le nez) | |
 
 ---
 
@@ -117,15 +117,15 @@ personnage, avec ce nom exact, puis réutilisée dans toutes les scènes.
 | Code | Léna | Ruben | Source |
 |---|---|---|---|
 | `C1_ville` | Débardeur côtelé gris clair, jean brut large, baskets blanches, fil rouge | T-shirt blanc épais, jean foncé, baskets grises, casquette grise (option) | Photo porte |
-| `C2_soir` | Haut col montant écru sans manches, pantalon daim camel, cheveux bouclés | Pull fin écru manches raglan, pantalon lin clair | Photo ascenseur noir |
+| `C2_soir` | Haut col montant écru sans manches, pantalon daim camel, cheveux lisses (boucles seulement sur demande) | Pull fin écru manches raglan, pantalon lin clair | Photo ascenseur noir |
 | `C3_ete` | Haut col montant crème ajusté, cheveux lisses | Manches longues blanc cassé, cheveux mouillés plaqués | Photo ascenseur métal |
 | Autres | À définir chapitre par chapitre (anniversaire, restaurant, Marrakech, Milan…) avec vos photos de ces moments | | |
 
 ---
 
 ## 6. Points à confirmer par Léna
-- [ ] Vos tailles réelles (Léna / Ruben)
-- [ ] Coiffure par défaut de Léna : lisse (2 photos sur 3) ou bouclée ?
+- [x] Tailles réelles : Léna 1,55 m, Ruben 1,75 m
+- [x] Coiffure par défaut de Léna : longs cheveux lisses, brun très foncé
 - [ ] Côté du grain de beauté de Léna
 - [ ] « La moue selfie » comme expression officielle et gag récurrent : oui / non
 - [ ] Le motif magique du « fil rouge » (voir direction artistique) : oui / non

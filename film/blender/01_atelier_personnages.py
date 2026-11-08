@@ -36,9 +36,9 @@ import bpy
 # 1. RÉGLAGES À VÉRIFIER (les seules lignes que vous aurez peut-être à changer)
 # ---------------------------------------------------------------------------
 
-# Tailles réelles en mètres : À CONFIRMER par Léna (valeurs provisoires).
-TAILLE_LENA = 1.62
-TAILLE_RUBEN = 1.78
+# Tailles réelles en mètres (confirmées par Léna).
+TAILLE_LENA = 1.55
+TAILLE_RUBEN = 1.75
 
 # Stylisation « film d'animation moderne » : nombre de hauteurs de tête dans le corps.
 # Un humain réel ≈ 7,5 têtes. On réduit un peu pour une tête plus grande, plus expressive.

@@ -10,13 +10,13 @@ Un film d'animation 3D de 30 à 45 minutes sur votre histoire, fait avec des out
 | [`bible/outils_gratuits.md`](bible/outils_gratuits.md) | Chaque outil, ses limites vérifiées, ce qui est indispensable ou non |
 | [`bible/prompts_concept_art.md`](bible/prompts_concept_art.md) | Prompts pour les dessins de recherche dans ChatGPT gratuit |
 | [`blender/01_atelier_personnages.py`](blender/01_atelier_personnages.py) | Script testé : palette, maquettes de proportions, toise, photos de référence, studio lumière, caméras |
-| `references/photos/` | **Vos photos, uniquement sur votre ordinateur** (exclues du dépôt public, voir `.gitignore`) |
+| `references/photos/` | **Vos photos, uniquement sur votre ordinateur** (exclues du dépôt par `.gitignore`, même privé) |
 
 ## Le plan de production
 | Phase | Contenu | Statut |
 |---|---|---|
 | 0 | Analyse des photos, direction artistique, bible, outils | ✅ fait |
-| 1 | Installer Blender, lancer l'atelier personnages | 👉 **en cours** |
+| 1 | Dépôt privé, installer Blender, lancer l'atelier personnages | 👉 **en cours** |
 | 2 | Installer MPFB2, créer la base du corps de Léna puis de Ruben | |
 | 3 | Sculpter les visages d'après les photos (ressemblance) | |
 | 4 | Cheveux, yeux, peau, vêtements | |
@@ -37,47 +37,71 @@ Compter **plusieurs mois** pour le film complet. Le premier chapitre terminé es
 
 ---
 
-## 👉 ÉTAPE 1 · Installer Blender et ouvrir l'atelier des personnages
+## 👉 ÉTAPE 1 · Préparer l'atelier des personnages
 
-**Ce qu'on fait** : installer Blender, puis lancer le script qui installe vos deux maquettes,
-la palette officielle, vos photos de référence et le studio lumière.
+L'étape 1 est découpée en 4 petites parties. **On valide chaque partie avant la suivante.**
 
-**Logiciel** : Blender (gratuit). **Durée** : 20 à 30 minutes.
+| Partie | Quoi | Statut |
+|---|---|---|
+| 1.A | Mettre le projet à l'abri dans un dépôt GitHub **privé** | 👉 maintenant |
+| 1.B | Installer Blender (en français) | 👉 maintenant |
+| 1.C | Télécharger le dossier du film et y ranger vos photos | après validation |
+| 1.D | Lancer le script de l'atelier et enregistrer le fichier | après validation |
 
-### 1.1 Installer Blender
-1. Allez sur **blender.org** › bouton bleu **Download**.
-2. Prenez la version proposée pour votre système (Windows / macOS / Linux). Installez-la normalement.
-3. Ouvrez Blender. Une fenêtre d'accueil apparaît : cliquez **n'importe où à côté** pour la fermer.
-4. Mettez Blender en français : menu **Edit › Preferences › Interface › Translation**,
-   *Language* : **Français**. Fermez la fenêtre des préférences.
+---
 
-### 1.2 Récupérer le dossier du film
-1. Sur GitHub, ouvrez la branche `claude/adoring-mccarthy-k024xs` de ce dépôt.
-2. Bouton vert **Code › Download ZIP**. Décompressez-le.
-3. Copiez le dossier **`film`** où vous voulez (par exemple *Documents/film*).
-4. Dans `film/references/`, créez un dossier **`photos`** et mettez-y vos 3 photos
-   (et toutes celles que vous voulez, en JPG ou PNG). Nommez-les par exemple
-   `lena_porte.jpg`, `couple_ascenseur_noir.jpg`…
+### 1.A · Créer un dépôt privé pour le film (5 minutes)
 
-### 1.3 Lancer le script
-1. Dans Blender, tout en haut, cliquez sur l'onglet **Scripting**.
-2. Au centre, cliquez sur **Ouvrir** (icône de dossier), choisissez
-   `film/blender/01_atelier_personnages.py`.
-3. Cliquez sur le bouton **▶** (*Exécuter le script*) en haut de la zone de texte.
-4. Revenez sur l'onglet **Layout** (en haut à gauche).
-5. Survolez la grande vue 3D avec la souris et appuyez sur la touche **1 du pavé numérique** (vue de face)
-   — sans pavé numérique : menu **Vue › Point de vue › Face**.
-6. En haut à droite de la vue 3D, cliquez sur la 3ᵉ petite sphère (**Aperçu du matériau**).
-7. **Fichier › Enregistrer sous…** › `film/blender/atelier_personnages.blend`.
+**Pourquoi un nouveau dépôt, et pas passer `lenarofe25-coder.github.io` en privé ?**
+Ce dépôt-là fait tourner votre portfolio et le jeu MDR. Avec un compte GitHub gratuit,
+**un site GitHub Pages ne peut être publié que depuis un dépôt public** : si on le passe
+en privé, votre portfolio et le jeu disparaissent d'Internet (sauf à payer GitHub Pro).
+Solution gratuite : le film part dans **son propre dépôt privé**, le portfolio reste public.
 
-### Résultat attendu
-- Deux silhouettes côte à côte (Léna à gauche, Ruben à droite) qui ressemblent à
-  [cette image](bible/images/maquettes_1_face.jpg), avec une toise entre les deux.
-- Vos photos affichées à gauche de la scène (elles n'apparaissent pas au rendu).
-- À droite de l'écran, dans la liste des objets : les collections **LENA**, **RUBEN**,
-  **REFERENCES**, **STUDIO**.
+1. Ouvrez **github.com** et connectez-vous.
+2. En haut à droite, cliquez sur le **+**, puis **New repository**.
+3. *Repository name* : tapez `film-lena-ruben`.
+4. Cochez **Private** (cadenas). Ne cochez **rien d'autre** (pas de README, pas de .gitignore, pas de licence).
+5. Cliquez sur le bouton vert **Create repository**.
+6. Donnez-moi l'accès : ouvrez https://github.com/apps/claude/installations/select_target ,
+   choisissez votre compte `lenarofe25-coder`, puis dans **Repository access** :
+   - si « All repositories » est coché : rien à faire ;
+   - sinon, cliquez **Select repositories**, ajoutez `film-lena-ruben`, puis **Save**.
 
-**Envoyez-moi une capture d'écran quand c'est fait**, et répondez aux questions de la
-fin de [`bible/personnages.md`](bible/personnages.md) + votre ordinateur. On passera ensuite à l'étape 2.
+**Résultat attendu** : une page « Quick setup » vide, avec un cadenas 🔒 à côté du nom `film-lena-ruben`.
 
-En cas de problème : copiez-moi le message d'erreur (menu *Fenêtre › Afficher/masquer la console système* sous Windows).
+Ensuite, c'est moi qui y transfère tout le dossier `film`, puis je le retire du dépôt public.
+
+### 1.B · Installer Blender (15 minutes)
+
+1. Allez sur **blender.org**, cliquez sur le gros bouton bleu **Download**.
+2. Le site propose automatiquement la bonne version :
+   - **Windows** : téléchargez le fichier *Installer (.msi)*, double-cliquez dessus,
+     puis *Next › Next › Install › Finish* sans rien changer.
+   - **Mac** : vérifiez qu'il est écrit *Apple Silicon* (Mac M1, M2, M3, M4…) ou *Intel*
+     (menu  › *À propos de ce Mac* pour savoir). Ouvrez le fichier `.dmg` et glissez
+     l'icône Blender dans le dossier **Applications**.
+3. Lancez Blender. Au premier lancement, une fenêtre **Quick Setup** apparaît :
+   - *Language* : choisissez **Français** ;
+   - laissez le reste tel quel, cliquez sur **Next** / **Continuer** jusqu'à la fin.
+   - Si la fenêtre n'apparaît pas : menu **Edit › Preferences › Interface › Translation**,
+     *Language* : **Français**, puis fermez la fenêtre (les préférences s'enregistrent seules).
+4. Vérifiez la version : menu **Aide › À propos de Blender** (ou le grand écran d'accueil).
+   Le numéro doit être **4.2 ou plus** (5.x, c'est parfait).
+5. Fermez la fenêtre d'accueil en cliquant à côté. Vous voyez un **cube gris** au centre :
+   c'est normal, le script le supprimera.
+
+**Résultat attendu** : Blender ouvert, menus en français, un cube au centre.
+
+### ✋ Avant de continuer, envoyez-moi :
+- « 1.A fait » + le nom exact du dépôt privé ;
+- « 1.B fait » + le **numéro de version** de Blender (ou une capture d'écran) ;
+- votre ordinateur : **PC ou Mac**, et si possible la mémoire vive et la carte graphique
+  (Windows : *Paramètres › Système › Informations système* ; Mac :  › *À propos de ce Mac*).
+
+En cas de blocage à n'importe quel moment : envoyez une capture d'écran, on règle ça ensemble.
+
+---
+
+### 1.C · Télécharger le dossier du film *(instructions détaillées données après validation de 1.A et 1.B)*
+### 1.D · Lancer le script de l'atelier *(instructions détaillées données après validation de 1.C)*
