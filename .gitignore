@@ -8,3 +8,8 @@ server/memes/report/*.jpg
 server/memes/report/jeu/
 __pycache__/
 *.pyc
+# Film : photos et images personnelles hors du dépôt public ; fichiers Blender lourds
+film/references/photos/
+film/references/concept/
+film/**/*.blend1
+film/rendus/
