@@ -1,2 +1,4 @@
 build/
 dist/*.pdf
+dist/*.epub
+dist/kindle/*.epub
