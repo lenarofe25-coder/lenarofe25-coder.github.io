@@ -1,0 +1,265 @@
+/* =====================================================================
+   L'ART DE LA PÂTISSERIE — feuille de style de l'édition (A4, 210 × 297 mm)
+   ===================================================================== */
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-400.ttf"); font-weight: 400; }
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-500.ttf"); font-weight: 500; }
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-600.ttf"); font-weight: 600; }
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-700.ttf"); font-weight: 700; }
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-400i.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Cormorant"; src: url("../assets/fonts/Cormorant-500i.ttf"); font-weight: 500; font-style: italic; }
+@font-face { font-family: "Garamond"; src: url("../assets/fonts/EBGaramond-400.ttf"); font-weight: 400; }
+@font-face { font-family: "Garamond"; src: url("../assets/fonts/EBGaramond-500.ttf"); font-weight: 500; }
+@font-face { font-family: "Garamond"; src: url("../assets/fonts/EBGaramond-600.ttf"); font-weight: 600; }
+@font-face { font-family: "Garamond"; src: url("../assets/fonts/EBGaramond-400i.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Jost"; src: url("../assets/fonts/Jost-300.ttf"); font-weight: 300; }
+@font-face { font-family: "Jost"; src: url("../assets/fonts/Jost-400.ttf"); font-weight: 400; }
+@font-face { font-family: "Jost"; src: url("../assets/fonts/Jost-500.ttf"); font-weight: 500; }
+@font-face { font-family: "Jost"; src: url("../assets/fonts/Jost-600.ttf"); font-weight: 600; }
+@font-face { font-family: "Pinyon"; src: url("../assets/fonts/Pinyon-400.ttf"); }
+
+:root {
+  --ivory: #FBF7F0;
+  --paper: #F8F2E8;
+  --cream: #F2E8D8;
+  --beige: #E4D3BA;
+  --sand: #CDB797;
+  --choc: #3A2A22;
+  --choc-2: #2B1F19;
+  --brown: #6E4F3E;
+  --ink: #3B2D25;
+  --ink-soft: #6F5E52;
+  --gold: #B48E4F;
+  --gold-l: #D4B57A;
+  --rose: #E9D6CC;
+  --fs: 1;               /* facteur d'ajustement automatique (voir render_pdf.js) */
+}
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #8d8379; }
+body { font-family: "Garamond", serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact;
+       font-variant-numeric: oldstyle-nums proportional-nums; hyphens: auto; }
+@media screen { .page { margin: 10mm auto; box-shadow: 0 4px 30px rgba(0,0,0,.25); } }
+
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--ivory);
+        page-break-after: always; break-after: page; }
+
+
+/* ---------- éléments communs ---------- */
+.kicker { font-family: "Jost"; font-weight: 500; font-size: 7.4pt; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.folio { position: absolute; bottom: 10mm; left: 0; right: 0; text-align: center; font-family: "Jost"; font-size: 7.5pt;
+         letter-spacing: .25em; color: var(--ink-soft); z-index: 3; }
+.folio b { font-weight: 500; color: var(--gold); letter-spacing: .1em; margin: 0 2.2mm; }
+.runhead { position: absolute; top: 10mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between;
+           font-family: "Jost"; font-size: 6.8pt; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft); z-index: 3; }
+.runhead span:last-child { color: var(--gold); }
+.orn { display: block; margin: 3mm auto; width: 46mm; height: 4mm; }
+.orn.left { margin-left: 0; }
+.h-display { font-family: "Cormorant"; font-weight: 500; letter-spacing: .01em; line-height: .98; color: var(--choc); }
+.script { font-family: "Pinyon"; color: var(--gold); font-weight: 400; }
+p { font-size: calc(var(--fs) * 10.6pt); line-height: 1.5; text-align: justify; }
+p + p { margin-top: 2.4mm; }
+em { font-style: italic; }
+strong { font-weight: 600; color: var(--choc); }
+
+/* ---------- couverture ---------- */
+.cover { background: var(--ivory); }
+.cover .frame { position: absolute; inset: 9mm; border: .35mm solid var(--gold); }
+.cover .frame::before { content: ""; position: absolute; inset: 1.6mm; border: .15mm solid var(--gold-l); }
+.cover .top { position: absolute; top: 22mm; left: 0; right: 0; text-align: center; }
+.cover .t1 { font-family: "Cormorant"; font-style: italic; font-size: 30pt; color: var(--brown); margin-top: 6mm; }
+.cover .t2 { font-family: "Cormorant"; font-weight: 500; font-size: 64pt; letter-spacing: .06em; color: var(--choc); line-height: .9; text-transform: uppercase; }
+.cover .sub { font-family: "Garamond"; font-style: italic; font-size: 15pt; color: var(--brown); margin-top: 2mm; }
+.cover .arch { position: absolute; left: 37mm; right: 37mm; top: 112mm; height: 140mm; border-radius: 68mm 68mm 0 0; overflow: hidden;
+               box-shadow: 0 0 0 1.4mm var(--ivory), 0 0 0 1.75mm var(--gold); }
+.cover .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
+.cover .bottom { position: absolute; bottom: 20mm; left: 0; right: 0; text-align: center; }
+.cover .bottom .kicker { color: var(--brown); }
+.cover .badge { position: absolute; top: 96mm; right: 24mm; width: 30mm; height: 30mm; border-radius: 50%; background: var(--choc);
+                color: var(--ivory); text-align: center; display: flex; flex-direction: column; justify-content: center; z-index: 4;
+                box-shadow: 0 0 0 .8mm var(--ivory), 0 0 0 1.1mm var(--gold); }
+.cover .badge b { font-family: "Cormorant"; font-size: 30pt; font-weight: 500; line-height: .8; color: var(--gold-l); }
+.cover .badge span { font-family: "Jost"; font-size: 5.6pt; letter-spacing: .22em; text-transform: uppercase; margin-top: 1.5mm; }
+
+/* ---------- pages de texte (intro, guides) ---------- */
+.txt { position: absolute; top: 24mm; left: 22mm; right: 22mm; bottom: 22mm; }
+.txt h1 { font-family: "Cormorant"; font-weight: 500; font-size: 36pt; color: var(--choc); line-height: 1; margin: 2mm 0 1mm; }
+.txt .h2 { font-family: "Cormorant"; font-weight: 600; font-size: calc(var(--fs) * 15pt); color: var(--choc); margin: 4.5mm 0 1.2mm; }
+.txt .h3 { font-family: "Jost"; font-weight: 500; font-size: calc(var(--fs) * 7.6pt); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin: 3.4mm 0 1mm; }
+.txt .lead { font-family: "Cormorant"; font-style: italic; font-size: calc(var(--fs) * 15pt); line-height: 1.35; color: var(--brown); text-align: left; margin: 2mm 0 4mm; }
+.txt ul.dots { list-style: none; }
+.txt ul.dots li { font-size: calc(var(--fs) * 10.4pt); line-height: 1.45; padding-left: 5mm; position: relative; margin-bottom: 1.2mm; }
+.txt ul.dots li::before { content: ""; position: absolute; left: .6mm; top: 2.1mm; width: 1.5mm; height: 1.5mm; transform: rotate(45deg); background: var(--gold-l); }
+.cols2 { column-count: 2; column-gap: 9mm; }
+.cols2 > * { break-inside: avoid; }
+.dropcap::first-letter { font-family: "Cormorant"; font-size: 46pt; float: left; line-height: .8; padding: 1.4mm 2mm 0 0; color: var(--gold); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm 6mm; }
+.card { background: var(--paper); border: .2mm solid var(--beige); padding: 3.6mm 4mm; }
+.card h4 { font-family: "Cormorant"; font-weight: 600; font-size: calc(var(--fs) * 13pt); color: var(--choc); margin-bottom: 1mm; display: flex; align-items: center; gap: 2.5mm; }
+.card p { font-size: calc(var(--fs) * 9.6pt); line-height: 1.42; text-align: left; }
+.card .tag { font-family: "Jost"; font-size: 6.2pt; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-left: auto; }
+.icon { width: 9mm; height: 9mm; flex: none; }
+
+/* tableaux */
+table.tbl { width: 100%; border-collapse: collapse; font-size: calc(var(--fs) * 9.8pt); }
+table.tbl th { font-family: "Jost"; font-weight: 500; font-size: calc(var(--fs) * 6.8pt); letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+               text-align: left; padding: 2mm 2.4mm; border-bottom: .35mm solid var(--gold); }
+table.tbl td { padding: 1.55mm 2.4mm; border-bottom: .15mm solid var(--beige); vertical-align: top; line-height: 1.35; }
+table.tbl tr:nth-child(even) td { background: rgba(242,232,216,.45); }
+table.tbl td:first-child { font-weight: 500; color: var(--choc); }
+
+/* ---------- sommaire ---------- */
+.toc { position: absolute; top: 26mm; left: 20mm; right: 20mm; bottom: 22mm; }
+.toc .tcols { column-count: 2; column-gap: 10mm; margin-top: 5mm; }
+.toc .sec { font-family: "Cormorant"; font-weight: 600; font-size: 12pt; color: var(--choc); display: flex; margin: 2.6mm 0 .8mm; break-after: avoid; }
+.toc .sec .n { font-family: "Jost"; font-size: 6.5pt; letter-spacing: .2em; color: var(--gold); width: 7mm; padding-top: 1.4mm; }
+.toc a { color: inherit; text-decoration: none; }
+.toc .it { display: flex; font-size: 9.2pt; line-height: 1.38; padding-left: 7mm; }
+.toc .it .lbl { white-space: nowrap; overflow: hidden; }
+.toc .dots, .idx .dots { flex: 1; border-bottom: .2mm dotted var(--sand); margin: 0 1.5mm 1.3mm; }
+.toc .pg, .idx .pg { font-family: "Jost"; font-size: 7.6pt; color: var(--gold); padding-top: .5mm; }
+.toc .sec .pg { padding-top: 1mm; }
+
+/* ---------- ouvertures de chapitre ---------- */
+.opener { background: var(--choc); color: var(--ivory); }
+.opener .frame { position: absolute; inset: 10mm; border: .3mm solid rgba(212,181,122,.6); }
+.opener .num { position: absolute; top: 30mm; left: 0; right: 0; text-align: center; }
+.opener .num .script { font-size: 26pt; color: var(--gold-l); }
+.opener .num .roman { font-family: "Jost"; font-size: 7.5pt; letter-spacing: .5em; color: var(--gold-l); display: block; margin-top: 2mm; }
+.opener h1 { position: absolute; top: 52mm; left: 20mm; right: 20mm; text-align: center; font-family: "Cormorant"; font-weight: 500; font-size: 44pt; line-height: 1; color: var(--ivory); letter-spacing: .01em; }
+.opener .circle { position: absolute; top: 96mm; left: 50%; transform: translateX(-50%); width: 78mm; height: 78mm; border-radius: 50%; overflow: hidden;
+                  box-shadow: 0 0 0 1.6mm var(--choc), 0 0 0 1.9mm var(--gold-l); }
+.opener .circle img { width: 100%; height: 100%; object-fit: cover; }
+.opener .intro { position: absolute; top: 182mm; left: 34mm; right: 34mm; text-align: center; font-family: "Cormorant"; font-style: italic;
+                 font-size: 13.5pt; line-height: 1.4; color: #E9DCC8; }
+.opener .list { position: absolute; top: 212mm; left: 26mm; right: 26mm; column-count: 2; column-gap: 12mm; }
+.opener .list a { display: flex; text-decoration: none; color: #E9DCC8; font-family: "Garamond"; font-size: 9.6pt; line-height: 1.5; }
+.opener .list .dots { flex: 1; border-bottom: .2mm dotted rgba(212,181,122,.45); margin: 0 1.5mm 1.4mm; }
+.opener .list .pg { font-family: "Jost"; font-size: 7.4pt; color: var(--gold-l); padding-top: .6mm; }
+.opener .folio { color: #CDB797; }
+
+/* ---------- fiches recettes ---------- */
+.r1 .hero { position: absolute; left: 0; right: 0; top: 0; height: 122mm; overflow: hidden; }
+.r1 .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; }
+.r1 .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 9mm; background: linear-gradient(transparent, rgba(251,247,240,.0)); }
+.r1 .head { text-align: center; }
+.rt { font-family: "Cormorant"; font-weight: 500; font-size: calc(var(--fs) * 33pt); line-height: 1; color: var(--choc); margin-top: 1.5mm; }
+.r1 .desc { font-family: "Cormorant"; font-style: italic; font-size: calc(var(--fs) * 13.2pt); line-height: 1.32; color: var(--brown); text-align: center; margin: 0 8mm; }
+.r1 .fit { position: absolute; left: 18mm; right: 18mm; top: 128mm; bottom: 19mm; display: flex; flex-direction: column; overflow: hidden; }
+
+/* variante B : image en colonne */
+.vB .hero { right: auto; width: 88mm; height: 297mm; }
+.vB .hero img { object-position: 50% 55%; }
+.vB .fit { left: 98mm; right: 15mm; top: 18mm; }
+.vB .head { text-align: left; }
+.vB .desc { text-align: left; margin: 0; }
+.vB .orn { margin-left: 0; }
+.vB .meta { grid-template-columns: repeat(3, 1fr); }
+.vB .cols { grid-template-columns: 1fr; }
+.vB .tools { margin-top: 1mm; }
+
+/* variante C : image encadrée */
+.vC .hero { left: 14mm; right: 14mm; top: 14mm; height: 112mm; box-shadow: 0 0 0 1.2mm var(--ivory), 0 0 0 1.45mm var(--gold); }
+.vC .fit { top: 132mm; }
+
+.meta { display: grid; grid-template-columns: repeat(6, 1fr); border-top: .3mm solid var(--gold); border-bottom: .3mm solid var(--gold); margin: 4.2mm 0 4.6mm; }
+.meta > div { text-align: center; padding: 2.2mm 1mm 2mm; border-left: .15mm solid var(--beige); }
+.meta > div:first-child { border-left: 0; }
+.vB .meta > div:nth-child(4) { border-left: 0; }
+.vB .meta > div:nth-child(n+4) { border-top: .15mm solid var(--beige); }
+.meta svg { width: 5.4mm; height: 5.4mm; display: block; margin: 0 auto 1mm; }
+.meta .k { font-family: "Jost"; font-size: 5.7pt; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
+.meta .v { font-family: "Cormorant"; font-weight: 600; font-size: calc(var(--fs) * 11.5pt); color: var(--choc); line-height: 1.1; margin-top: .6mm; }
+.meta .v.small { font-size: calc(var(--fs) * 9.6pt); }
+.lvl i { display: inline-block; width: 1.7mm; height: 1.7mm; transform: rotate(45deg); border: .25mm solid var(--gold); margin: 0 .7mm; }
+.lvl i.on { background: var(--gold); }
+
+.cols { display: grid; grid-template-columns: 1.55fr 1fr; gap: 8mm; flex: 1; min-height: 0; }
+.blk-title { font-family: "Jost"; font-weight: 500; font-size: 7.4pt; letter-spacing: .26em; text-transform: uppercase; color: var(--gold);
+             display: flex; align-items: center; gap: 2.5mm; margin-bottom: 2mm; }
+.blk-title::after { content: ""; flex: 1; height: .2mm; background: var(--beige); }
+.ing .grp { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-size: calc(var(--fs) * 12pt); color: var(--brown); margin: 2.2mm 0 .6mm; }
+.ing .g:first-of-type .grp { margin-top: 0; }
+.ing ul { list-style: none; }
+.ing li { font-size: calc(var(--fs) * 10.2pt); line-height: 1.36; padding: .55mm 0 .55mm 4.2mm; position: relative; border-bottom: .12mm dotted #E3D6C3; }
+.ing li::before { content: ""; position: absolute; left: .4mm; top: 2.3mm; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: var(--gold-l); }
+.ing.two { column-count: 2; column-gap: 8mm; }
+.ing.two .blk-title { column-span: all; }
+.ing .g { break-inside: avoid; }
+.tools { background: var(--paper); border: .2mm solid var(--beige); padding: 3.4mm 4mm; align-self: start; }
+.tools li { list-style: none; font-size: calc(var(--fs) * 9.6pt); line-height: 1.35; padding: .5mm 0 .5mm 4mm; position: relative; }
+.tools li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+.tools .oven { margin-top: 3mm; padding-top: 2.6mm; border-top: .2mm solid var(--beige); font-family: "Cormorant"; font-size: calc(var(--fs) * 11pt); color: var(--choc); }
+.tools .oven .kicker { display: block; font-size: 6pt; margin-bottom: .6mm; }
+.see { font-family: "Jost"; font-size: 6.6pt; letter-spacing: .08em; color: var(--gold); white-space: nowrap; }
+.see a { color: inherit; text-decoration: none; }
+
+/* page 2 : préparation */
+.r2 .fit { position: absolute; left: 18mm; right: 18mm; top: 21mm; bottom: 19mm; display: grid; grid-template-columns: 1fr 56mm; grid-template-rows: auto 1fr; align-content: start; gap: 6mm 9mm; overflow: hidden; }
+.r2 .hd { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 4mm; border-bottom: .3mm solid var(--gold); padding-bottom: 2.4mm; }
+.r2 .hd .h2 { font-family: "Cormorant"; font-weight: 500; font-size: 25pt; color: var(--choc); line-height: 1; }
+.r2 .hd .kicker { margin-left: auto; }
+.steps { counter-reset: st; }
+.step { display: grid; grid-template-columns: 9mm 1fr; gap: 2.2mm; margin-bottom: calc(var(--fs) * 3.1mm); break-inside: avoid; }
+.step .n { font-family: "Cormorant"; font-weight: 500; font-style: italic; font-size: calc(var(--fs) * 21pt); color: var(--gold); line-height: .9; text-align: right; }
+.step p { font-size: calc(var(--fs) * 10.35pt); line-height: 1.47; text-align: left; hyphens: manual; }
+.step p b { font-family: "Jost"; font-weight: 500; font-size: calc(var(--fs) * 7pt); letter-spacing: .16em; text-transform: uppercase; color: var(--choc); margin-right: 1.4mm; }
+.side { display: flex; flex-direction: column; gap: 3.4mm; }
+.box { background: var(--paper); border: .2mm solid var(--beige); padding: 3.4mm 3.6mm 3mm; position: relative; }
+.box.tip { background: #F4ECDD; }
+.box.err { background: var(--ivory); border-color: #E2CDBE; }
+.box.cons { background: var(--cream); }
+.box .bh { font-family: "Cormorant"; font-weight: 600; font-size: calc(var(--fs) * 12.6pt); color: var(--choc); margin-bottom: 1.4mm; display: flex; align-items: center; gap: 2mm; }
+.box .bh svg { width: 4.6mm; height: 4.6mm; flex: none; }
+.box li { list-style: none; font-size: calc(var(--fs) * 9.25pt); line-height: 1.38; padding-left: 3.4mm; position: relative; margin-bottom: 1.2mm; text-align: left; }
+.box li::before { content: ""; position: absolute; left: 0; top: 1.9mm; width: 1.2mm; height: 1.2mm; transform: rotate(45deg); background: var(--gold-l); }
+.box.err li::before { background: #C99A86; }
+.box p { font-size: calc(var(--fs) * 9.25pt); line-height: 1.38; text-align: left; }
+.notes-lines { flex: 1; min-height: 14mm; background-image: repeating-linear-gradient(transparent 0 6.6mm, var(--beige) 6.6mm 6.8mm); margin-top: 1mm; }
+.signature { font-family: "Pinyon"; color: var(--gold); font-size: 15pt; text-align: center; margin-top: 2mm; }
+
+/* préparations de base (1 page) */
+.rb .fit { position: absolute; left: 18mm; right: 18mm; top: 20mm; bottom: 19mm; overflow: hidden; display: flex; flex-direction: column; }
+.rb .head { display: grid; grid-template-columns: 1fr 52mm; gap: 8mm; align-items: end; border-bottom: .3mm solid var(--gold); padding-bottom: 3mm; margin-bottom: 4mm; }
+.rb .rt { font-size: calc(var(--fs) * 29pt); }
+.rb .desc { font-family: "Cormorant"; font-style: italic; font-size: calc(var(--fs) * 12.4pt); line-height: 1.3; color: var(--brown); margin-top: 1.6mm; text-align: left; }
+.rb .mini { font-family: "Jost"; font-size: calc(var(--fs) * 7pt); letter-spacing: .08em; color: var(--ink-soft); line-height: 1.9; border-left: .2mm solid var(--beige); padding-left: 4mm; }
+.rb .mini b { color: var(--choc); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; font-size: calc(var(--fs) * 6.2pt); display: inline-block; width: 22mm; }
+.rb .grid { display: grid; grid-template-columns: 62mm 1fr; gap: 8mm; flex: 1; min-height: 0; }
+.rb .grid .side { margin-top: 4mm; }
+.rb .badge-num { font-family: "Cormorant"; font-style: italic; color: var(--gold); font-size: 13pt; }
+
+/* lexique & index */
+.lex dt { font-family: "Cormorant"; font-weight: 600; font-size: calc(var(--fs) * 11.4pt); color: var(--choc); break-after: avoid; }
+.lex dd { font-size: calc(var(--fs) * 9.4pt); line-height: 1.38; margin: 0 0 1.9mm; text-align: left; break-before: avoid; }
+.lex div { break-inside: avoid; }
+.idx { column-count: 3; column-gap: 7mm; margin-top: 4mm; }
+.idx .L { font-family: "Cormorant"; font-weight: 600; font-size: 15pt; color: var(--gold); margin: 2mm 0 .5mm; break-after: avoid; }
+.idx a { display: flex; color: inherit; text-decoration: none; font-size: 8.9pt; line-height: 1.42; }
+.idx a .lbl { overflow: hidden; }
+.idx a.base { font-style: italic; }
+
+.notes-page .lines { position: absolute; top: 52mm; left: 22mm; right: 22mm; bottom: 26mm;
+  background-image: repeating-linear-gradient(transparent 0 8.4mm, var(--beige) 8.4mm 8.6mm); }
+
+.charte .sw { display: flex; gap: 3mm; flex-wrap: wrap; }
+.charte .sw div { width: 26mm; }
+.charte .sw i { display: block; height: 18mm; border: .2mm solid var(--beige); }
+.charte .sw span { font-family: "Jost"; font-size: 6.4pt; letter-spacing: .1em; display: block; margin-top: 1mm; color: var(--ink-soft); }
+.card h4 svg { width: 9mm; height: 9mm; flex: none; }
+.r1 .fit > .head .orn { margin: 2.2mm auto 2.6mm; }
+.r1.short .hero { height: 98mm; }
+.r1.short .fit { top: 104mm; }
+.r1.vC.short .hero { height: 92mm; }
+.r1.vC.short .fit { top: 112mm; }
+/* sommaire / index : hauteurs de ligne fixes */
+.toc a.it { height: 4.45mm; align-items: flex-end; overflow: hidden; font-size: 8.9pt; line-height: 1; }
+.toc a.sec { height: 6.4mm; align-items: flex-end; overflow: hidden; margin: 2.2mm 0 .6mm; line-height: 1; font-size: 11.5pt; }
+.toc a .dots, .idx a .dots { margin-bottom: .5mm; }
+.toc a .pg, .idx a .pg { padding-top: 0; }
+.idx a { height: 4.3mm; align-items: flex-end; overflow: hidden; line-height: 1; }
+.lbl { flex: none; max-width: 85%; }
+.r2 .side { min-height: 100%; }
+.box.notes { flex: 1; display: flex; flex-direction: column; }
