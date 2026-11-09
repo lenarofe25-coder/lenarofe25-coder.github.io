@@ -1,0 +1,196 @@
+/* =====================================================================
+   MES RECETTES DE PÂTISSERIE — feuille de style (A4 portrait)
+   Fraunces (titres) · DM Sans (texte) · Caveat (notes manuscrites)
+   ===================================================================== */
+@import url("../fonts/fonts.css");
+
+:root {
+  --page: #FBF7F2;
+  --sand: #F3EBE1;
+  --sand-2: #EADFD2;
+  --rose: #F4DFDA;
+  --rose-2: #E9C6BF;
+  --rose-ink: #C0796D;
+  --brown: #6B4433;
+  --ink: #33251F;
+  --muted: #86736A;
+  --line: #E4D8CC;
+  --r: 5mm;              /* rayon des encadrés */
+}
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #9c918a; }
+body { font-family: "DM Sans", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.55;
+       -webkit-print-color-adjust: exact; print-color-adjust: exact; font-optical-sizing: auto; }
+@media screen { .page { margin: 12mm auto; box-shadow: 0 6px 40px rgba(0,0,0,.25); } }
+
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--page); break-after: page; }
+img { display: block; }
+.photo { position: absolute; overflow: hidden; background: var(--sand); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+h1, h2, .serif { font-family: "Fraunces", serif; font-weight: 400; font-variation-settings: "SOFT" 100, "WONK" 0; letter-spacing: -.01em; }
+.label { font-size: 7pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-ink); }
+.hand { font-family: "Caveat", cursive; font-weight: 600; color: var(--rose-ink); }
+.muted { color: var(--muted); }
+p + p { margin-top: 2.6mm; }
+
+.folio { position: absolute; bottom: 9mm; font-size: 7pt; letter-spacing: .08em; color: var(--muted); }
+.folio b { font-weight: 600; color: var(--ink); margin-right: 3mm; }
+.folio.l { left: 16mm; } .folio.r { right: 16mm; text-align: right; }
+.folio.r b { margin: 0 0 0 3mm; }
+
+.pill { display: inline-block; background: var(--rose); color: var(--brown); border-radius: 99px; padding: 1.1mm 3.4mm; font-size: 7.2pt; font-weight: 600; letter-spacing: .04em; }
+
+/* --------------------------------------------------------- couverture */
+.cover .photo { left: 0; top: 0; width: 210mm; height: 182mm; }
+.cover .photo img { object-position: 50% 60%; }
+.cover .band { position: absolute; left: 16mm; right: 16mm; top: 196mm; }
+.cover h1 { font-size: 50pt; line-height: .98; color: var(--ink); font-variation-settings: "SOFT" 100, "opsz" 144; }
+.cover h1 em { font-style: italic; color: var(--brown); }
+.cover .sub { font-size: 13pt; margin-top: 5mm; color: var(--ink); max-width: 130mm; line-height: 1.4; }
+.cover .foot { position: absolute; left: 16mm; right: 16mm; bottom: 13mm; display: flex; justify-content: space-between; align-items: center;
+               border-top: .25mm solid var(--line); padding-top: 4mm; font-size: 8pt; color: var(--muted); letter-spacing: .02em; }
+.cover .sticker { position: absolute; right: 18mm; top: 168mm; width: 31mm; height: 31mm; border-radius: 50%; background: var(--rose);
+                  display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(-8deg);
+                  font-family: "Caveat"; font-weight: 600; font-size: 15pt; line-height: 1; color: var(--brown); }
+
+/* --------------------------------------------------------- sommaire */
+.toc .photo { right: 0; top: 0; width: 66mm; height: 297mm; }
+.toc .photo img { object-position: 40% 50%; }
+.toc .inner { position: absolute; left: 16mm; top: 18mm; width: 112mm; }
+.toc h1 { font-size: 40pt; line-height: 1; }
+.toc .start { display: flex; gap: 2.5mm; flex-wrap: wrap; margin: 6mm 0 7mm; }
+.toc .start span { background: var(--sand); border-radius: 99px; padding: 1.3mm 3.6mm; font-size: 8pt; }
+.toc .start b { font-weight: 600; margin-left: 1.5mm; color: var(--rose-ink); }
+.toc ol { list-style: none; }
+.toc li { display: grid; grid-template-columns: 11mm 1fr 10mm; align-items: baseline; padding: 3.1mm 0; border-top: .25mm solid var(--line); }
+.toc li:last-child { border-bottom: .25mm solid var(--line); }
+.toc .n { font-family: "Fraunces"; font-style: italic; font-size: 12pt; color: var(--rose-ink); }
+.toc .t { font-family: "Fraunces"; font-size: 14.5pt; line-height: 1.15; }
+.toc .d { display: block; font-family: "DM Sans"; font-size: 7.8pt; color: var(--muted); margin-top: .8mm; }
+.toc .p { text-align: right; font-size: 8.5pt; font-weight: 600; }
+
+/* --------------------------------------------------------- introduction */
+.intro .photo { right: 0; top: 0; width: 92mm; height: 160mm; }
+.intro .photo img { object-position: 50% 40%; }
+.intro .col { position: absolute; left: 16mm; top: 20mm; width: 92mm; }
+.intro h1 { font-size: 29pt; line-height: 1.06; margin: 3mm 0 6mm; }
+.intro .lead { font-family: "Fraunces"; font-size: 12.5pt; line-height: 1.45; color: var(--brown); margin-bottom: 4mm; }
+.intro .sign { font-size: 20pt; margin-top: 4mm; }
+.intro .how { position: absolute; left: 16mm; right: 16mm; top: 178mm; }
+.intro .how h2 { font-size: 17pt; margin-bottom: 4mm; }
+.cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.card { background: var(--sand); border-radius: var(--r); padding: 5mm 5mm 4.5mm; }
+.card.rose { background: var(--rose); }
+.card h3 { font-family: "DM Sans"; font-size: 9pt; font-weight: 700; margin-bottom: 1.8mm; }
+.card p { font-size: 8.6pt; line-height: 1.5; }
+.dots { display: inline-flex; gap: 1.1mm; vertical-align: middle; margin-right: 1.5mm; }
+.dots i { width: 2.2mm; height: 2.2mm; border-radius: 50%; border: .3mm solid var(--brown); }
+.dots i.on { background: var(--brown); }
+.lvl-row { display: flex; align-items: center; font-size: 8.4pt; margin-top: 1.3mm; }
+
+/* --------------------------------------------------------- matériel */
+.tools .photo { left: 0; top: 0; width: 210mm; height: 92mm; }
+.tools .photo img { object-position: 50% 45%; }
+.tools .inner { position: absolute; left: 16mm; right: 16mm; top: 104mm; }
+.tools h1 { font-size: 30pt; line-height: 1.05; }
+.tools .lead { font-size: 10.5pt; color: var(--muted); margin: 3mm 0 7mm; max-width: 140mm; }
+.tlist { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; }
+.titem { display: grid; grid-template-columns: 7mm 1fr; padding: 2.5mm 0; border-top: .25mm solid var(--line); }
+.titem .ck { width: 4mm; height: 4mm; border: .3mm solid var(--rose-ink); border-radius: 1.2mm; margin-top: .8mm; }
+.titem b { font-weight: 600; }
+.titem span { display: block; font-size: 8.4pt; color: var(--muted); line-height: 1.4; }
+.tools .bonus { margin-top: 7mm; display: grid; grid-template-columns: 1fr 60mm; gap: 6mm; align-items: center; }
+.tools .bonus img { width: 58mm; opacity: .55; }
+
+/* --------------------------------------------------------- fiche recette */
+.meta { display: flex; flex-wrap: wrap; gap: 0; margin: 5mm 0 6mm; border-top: .25mm solid var(--line); border-bottom: .25mm solid var(--line); }
+.meta div { padding: 2.6mm 5mm 2.4mm 0; margin-right: 5mm; border-right: .25mm solid var(--line); }
+.meta div:last-child { border-right: 0; margin-right: 0; }
+.meta small { display: block; font-size: 6.6pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.meta strong { font-family: "Fraunces"; font-weight: 500; font-size: 11.5pt; }
+.ing { background: var(--sand); border-radius: var(--r); padding: 5.5mm 5.5mm 5mm; align-self: start; }
+.ing h3, .steps h3 { font-family: "Fraunces"; font-weight: 500; font-size: 14pt; margin-bottom: 3mm; }
+.ing ul { list-style: none; }
+.ing li { padding: 1.35mm 0; border-bottom: .25mm dashed #D8CABB; font-size: 9.2pt; line-height: 1.35; }
+.ing li:last-child { border-bottom: 0; }
+.ing li b { font-weight: 600; }
+.ing .note { font-size: 7.8pt; color: var(--muted); margin-top: 2.5mm; line-height: 1.4; }
+.steps ol { list-style: none; counter-reset: s; }
+.steps li { counter-increment: s; position: relative; padding-left: 10mm; margin-bottom: 2.7mm; font-size: 9.4pt; line-height: 1.5; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: -.3mm; width: 6.4mm; height: 6.4mm; border-radius: 50%;
+                    background: var(--rose); color: var(--brown); font-family: "Fraunces"; font-weight: 600; font-size: 9.5pt;
+                    display: flex; align-items: center; justify-content: center; }
+.tip { background: var(--rose); border-radius: var(--r); padding: 4.5mm 5.5mm 4.5mm; margin-top: 4mm; }
+.tip .hand { font-size: 17pt; line-height: 1; display: block; margin-bottom: 1.2mm; }
+.tip p { font-size: 9pt; line-height: 1.5; }
+.recipe h1 { font-size: 33pt; line-height: 1.02; margin-top: 3mm; }
+.recipe .desc { font-size: 10.6pt; color: var(--muted); margin-top: 3mm; max-width: 150mm; line-height: 1.5; }
+
+/* variante A : photo en haut */
+.rA .photo { left: 0; top: 0; width: 210mm; height: 112mm; }
+.rA .photo img { object-position: 50% 55%; }
+.rA .inner { position: absolute; left: 16mm; right: 16mm; top: 121mm; }
+.rA .grid { display: grid; grid-template-columns: 62mm 1fr; gap: 8mm; }
+
+/* variante B : photo en colonne */
+.rB .photo { left: 0; top: 0; width: 84mm; height: 297mm; }
+.rB .inner { position: absolute; left: 96mm; right: 15mm; top: 18mm; }
+.rB .meta div { padding-right: 3.6mm; margin-right: 3.6mm; }
+.rB .ing { margin-bottom: 5mm; }
+.rB .ing ul { columns: 2; column-gap: 6mm; }
+.rB .ing li { break-inside: avoid; }
+
+/* --------------------------------------------------------- conseils */
+.tips .inner { position: absolute; left: 16mm; right: 16mm; top: 18mm; }
+.tips .photo { right: 16mm; top: 18mm; width: 62mm; height: 76mm; border-radius: var(--r); }
+.tips h1 { font-size: 30pt; line-height: 1.05; width: 100mm; margin-top: 3mm; }
+.tips .lead { width: 100mm; margin-top: 4mm; font-size: 10.5pt; color: var(--muted); }
+.tgrid { position: absolute; left: 16mm; right: 16mm; top: 104mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
+.tgrid div { display: grid; grid-template-columns: 11mm 1fr; padding: 3.2mm 0; border-top: .25mm solid var(--line); }
+.tgrid .n { font-family: "Fraunces"; font-style: italic; font-size: 20pt; line-height: 1; color: var(--rose-ink); }
+.tgrid b { display: block; font-weight: 600; font-size: 9.6pt; margin-bottom: .6mm; }
+.tgrid p { font-size: 8.7pt; line-height: 1.45; color: #57463E; }
+.tips .kids { position: absolute; left: 16mm; right: 16mm; bottom: 20mm; }
+
+/* ---- ajustements après relecture ---- */
+.cover .photo { height: 196mm; }
+.cover .sticker { top: 182mm; }
+.cover .band { top: 208mm; }
+.cover h1 { font-size: 56pt; }
+.toc li { padding: 3.9mm 0; }
+
+.rA .photo { height: 98mm; }
+.rA .inner { top: 106mm; }
+.rA h1 { font-size: 30pt; }
+.rA .meta { margin: 4mm 0 5mm; }
+.rA .grid { grid-template-columns: 60mm 1fr; gap: 7mm; }
+.rA .ing li { padding: 1mm 0; font-size: 8.9pt; }
+.rA .steps li { font-size: 9pt; margin-bottom: 2.1mm; line-height: 1.45; }
+.rA .tip { margin-top: 4mm; }
+
+.rB .inner { top: 16mm; }
+.rB h1 { font-size: 27pt; }
+.rB .meta div { padding-right: 3mm; margin-right: 3mm; }
+.rB .meta strong { font-size: 10.5pt; white-space: nowrap; }
+.rB .steps li { margin-bottom: 2.2mm; }
+
+.tools .titem { padding: 3.4mm 0; }
+.tools .titem b { font-size: 10.3pt; }
+.tools .titem span { font-size: 8.8pt; }
+.tools .bonus { margin-top: 9mm; }
+
+.tgrid { top: 108mm; }
+.tgrid div { padding: 4.4mm 0; }
+.tgrid b { font-size: 10.6pt; margin-bottom: 1mm; }
+.tgrid p { font-size: 9.3pt; }
+.tips .kids { bottom: 24mm; padding: 6mm 7mm; }
+.tips .kids h3 { font-size: 10pt; }
+.tips .kids p { font-size: 9.2pt; }
+.rA .photo { height: 90mm; }
+.rA .inner { top: 98mm; }
+.rA .tip { margin-top: 3mm; padding: 3.6mm 5mm; }
+.tools .titem { padding: 4.3mm 0; }
+.tools .lead { margin-bottom: 8mm; }
