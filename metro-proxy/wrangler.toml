@@ -1,0 +1,11 @@
+name = "metro-prim"
+main = "src/worker.js"
+compatibility_date = "2025-09-01"
+
+# Origines autorisées à appeler le relais (site GitHub Pages + développement local).
+# La clé PRIM est un secret : `npx wrangler secret put PRIM_API_KEY` (ou secret GitHub PRIM_API_KEY).
+[vars]
+ALLOWED_ORIGINS = "https://lenarofe25-coder.github.io,http://localhost:8080,http://127.0.0.1:8080"
+
+[observability]
+enabled = true

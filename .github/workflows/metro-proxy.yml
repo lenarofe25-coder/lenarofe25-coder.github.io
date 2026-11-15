@@ -1,0 +1,81 @@
+name: Relais PRIM (appli Quai)
+
+on:
+  push:
+    branches: [main]
+    paths: ['metro-proxy/**', '.github/workflows/metro-proxy.yml']
+  pull_request:
+    paths: ['metro-proxy/**', '.github/workflows/metro-proxy.yml']
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: metro-proxy
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: metro-proxy/package-lock.json
+      - run: npm ci
+      - run: npm test
+
+  deploy:
+    needs: test
+    permissions:
+      contents: write
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: metro-proxy/package-lock.json
+      - run: npm ci
+      - name: Déployer le relais sur Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PRIM_API_KEY: ${{ secrets.PRIM_API_KEY }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::Secrets Cloudflare absents : déploiement ignoré (voir metro/README.md)."
+            exit 0
+          fi
+          if [ -z "$PRIM_API_KEY" ]; then
+            echo "::warning::Secret PRIM_API_KEY absent : ajoute ta clé PRIM dans Settings → Secrets → Actions."
+            exit 0
+          fi
+          npx wrangler deploy | tee deploy.log
+          printf '%s' "$PRIM_API_KEY" | npx wrangler secret put PRIM_API_KEY
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          if [ -z "$url" ]; then
+            echo "::warning::Adresse du relais introuvable : renseigne metro/config.js à la main."
+            exit 0
+          fi
+          echo "Relais publié : $url"
+          cd ..
+          if ! grep -q "proxy: '$url'" metro/config.js; then
+            sed -i "s|^  proxy: .*|  proxy: '$url',|" metro/config.js
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Adresse du relais PRIM : $url"
+            envoye=0
+            for essai in 1 2 3; do
+              if git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push; then envoye=1; break; fi
+              sleep 10
+            done
+            if [ "$envoye" != 1 ]; then
+              echo "::error::Relais déployé ($url) mais adresse non enregistrée : mets-la dans metro/config.js."
+              exit 1
+            fi
+          fi

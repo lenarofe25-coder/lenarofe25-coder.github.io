@@ -1,0 +1,4 @@
+{
+  "_format": "Clé : arrêt de montée|ligne|arrêt de descente|correspondance (id de ligne) ou sortie. Valeur : pos (avant, milieu, arriere, dans le sens de la marche), detail (voiture, porte, sortie) facultatif. Exporte tes conseils depuis Réglages pour les ajouter ici.",
+  "conseils": {}
+}
