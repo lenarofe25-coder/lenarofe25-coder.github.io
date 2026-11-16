@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quai · départs en temps réel</title>
+<meta name="description" content="Itinéraires et panneaux de départ en temps réel pour le métro, le RER, le Transilien et le tram en Île-de-France.">
+<meta name="theme-color" content="#0b1020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#/">Quai</a>
+  <button class="icon-btn" id="btn-settings" aria-label="Réglages">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Zm7.43-2.53a7.8 7.8 0 0 0 0-1.94l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.3 7.3 0 0 0-1.68-.98l-.38-2.65A.5.5 0 0 0 14 2h-4a.5.5 0 0 0-.5.43l-.38 2.65c-.6.25-1.17.58-1.68.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.65a7.8 7.8 0 0 0 0 1.94l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46c.13.22.39.3.61.22l2.49-1c.51.4 1.08.73 1.68.98l.38 2.65c.04.24.25.43.5.43h4c.25 0 .46-.19.5-.43l.38-2.65c.6-.25 1.17-.58 1.68-.98l2.49 1c.22.08.48 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65Z"/></svg>
+  </button>
+</header>
+
+<main id="app" aria-live="polite"></main>
+
+<dialog id="settings">
+  <form method="dialog" class="sheet">
+    <h2>Réglages</h2>
+    <p class="muted">Les horaires viennent de PRIM, la plateforme de données d’Île-de-France Mobilités.</p>
+    <label class="field">
+      <span>Adresse du relais</span>
+      <input id="set-proxy" type="url" placeholder="https://metro-prim.…workers.dev" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Ou ta clé PRIM personnelle</span>
+      <input id="set-key" type="password" placeholder="Clé API PRIM" autocomplete="off">
+      <small class="muted">Gardée uniquement sur cet appareil. Clé gratuite sur prim.iledefrance-mobilites.fr (Mon jeton).</small>
+    </label>
+    <h3>Mes conseils de quai</h3>
+    <p class="muted" id="tips-count"></p>
+    <div class="row-btns">
+      <button type="button" class="btn ghost" id="tips-export">Copier (JSON)</button>
+      <button type="button" class="btn ghost" id="tips-import">Coller (JSON)</button>
+    </div>
+    <div class="row-btns end">
+      <button value="cancel" class="btn ghost">Annuler</button>
+      <button value="save" class="btn" id="set-save">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

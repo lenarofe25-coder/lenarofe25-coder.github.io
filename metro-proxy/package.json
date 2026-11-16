@@ -1,0 +1,14 @@
+{
+  "name": "metro-prim",
+  "private": true,
+  "type": "module",
+  "description": "Relais vers l'API PRIM d'Île-de-France Mobilités pour l'appli Métro",
+  "scripts": {
+    "dev": "wrangler dev --port 8788",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/worker.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}
