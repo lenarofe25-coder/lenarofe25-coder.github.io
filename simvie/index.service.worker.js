@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1795528889|5286344';
+const CACHE_VERSION = '1795530031|5433947';
 /** @type {string} */
 const CACHE_PREFIX = 'SimVie — prototy-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
