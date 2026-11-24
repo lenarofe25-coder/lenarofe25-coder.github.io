@@ -96,9 +96,10 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="index.js"></script>
+		<script>window.SIMVIE_VERSION = '1795528891';</script>
+		<script src="index.js?v=1795528891"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":489792,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[],"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":489904,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[],"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -195,6 +196,15 @@ const engine = new Engine(GODOT_CONFIG);
 	}
 }());
 		</script>
-	</body>
+	<script>
+if ('serviceWorker' in navigator) {
+	let recharge = false;
+	navigator.serviceWorker.addEventListener('controllerchange', () => {
+		if (!recharge) { recharge = true; window.location.reload(); }
+	});
+	navigator.serviceWorker.getRegistration().then((r) => { if (r) { r.update(); } });
+}
+</script>
+</body>
 </html>
 

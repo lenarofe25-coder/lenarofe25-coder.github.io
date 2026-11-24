@@ -829,7 +829,7 @@ const Engine = (function () {
 				const me = this;
 				return Promise.all([
 					this.init(exe),
-					this.preloadFile(pack, pack),
+					this.preloadFile(pack + (window.SIMVIE_VERSION ? '?v=' + window.SIMVIE_VERSION : ''), pack),
 				]).then(function () {
 					return me.start.apply(me);
 				});

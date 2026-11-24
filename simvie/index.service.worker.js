@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1795528467|5927821';
+const CACHE_VERSION = '1795528889|5286344';
 /** @type {string} */
 const CACHE_PREFIX = 'SimVie — prototy-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
@@ -21,6 +21,7 @@ const CACHABLE_FILES = ["index.wasm","index.pck"];
 const FULL_CACHE = CACHED_FILES.concat(CACHABLE_FILES);
 
 self.addEventListener('install', (event) => {
+	self.skipWaiting();
 	event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(CACHED_FILES)));
 });
 
@@ -32,6 +33,7 @@ self.addEventListener('activate', (event) => {
 		}
 	).then(function () {
 		// Enable navigation preload if available.
+		self.clients.claim();
 		return ('navigationPreload' in self.registration) ? self.registration.navigationPreload.enable() : Promise.resolve();
 	}));
 });
