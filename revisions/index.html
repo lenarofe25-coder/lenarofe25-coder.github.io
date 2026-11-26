@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planner E6 SISR</title>
+<meta name="description" content="Planner de révision de deux semaines pour l’épreuve E6 Administration des systèmes et des réseaux du BTS SIO option SISR : planning, cases à cocher, ressources vérifiées, suivi de progression et deux BTS blancs.">
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="toolbar noprint">
+  <div class="in">
+    <a class="brand" href="#couverture">Planner E6 <small>BTS SIO · SISR</small></a>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="tools">
+      <label for="start">Début (lundi) <input type="date" id="start"></label>
+      <div class="gprog" title="Progression globale des 10 jours"><span id="gpct">0 %</span><div class="bar"><i id="gbar"></i></div></div>
+      <button class="btn solid" id="btn-print" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3.5h10V9"/><rect x="3.5" y="9" width="17" height="8" rx="1.8"/><path d="M7 14.5h10v6H7z"/></svg>Imprimer</button>
+      <a class="btn" href="planning-e6-sisr.pdf" download>PDF vierge</a>
+      <button class="btn" id="btn-export" type="button" title="Télécharger une sauvegarde de tes cases et notes">Exporter</button>
+      <label class="btn" title="Recharger une sauvegarde">Importer<input type="file" id="file-import" accept="application/json,.json" hidden></label>
+      <button class="btn" id="btn-reset" type="button">Réinitialiser</button>
+    </div>
+  </div>
+</div>
+<main class="sheets" id="sheets"></main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

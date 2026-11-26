@@ -15,3 +15,9 @@ mise en ligne : [jeu/README.md](jeu/README.md).
 Le dossier [`metro/`](metro/) contient Quai, une appli d’itinéraires et de panneaux de départ en temps réel
 (métro, RER, Transilien, tram) : https://lenarofe25-coder.github.io/metro/. Son relais vers l’API PRIM
 est dans [`metro-proxy/`](metro-proxy/). Mise en route : [metro/README.md](metro/README.md).
+
+## Planner de révision E6
+
+Le dossier [`revisions/`](revisions/) contient mon planner de révision de l’épreuve E6 (BTS SIO SISR) :
+version interactive https://lenarofe25-coder.github.io/revisions/ et PDF A4 paysage imprimable.
+Détails : [revisions/README.md](revisions/README.md).
