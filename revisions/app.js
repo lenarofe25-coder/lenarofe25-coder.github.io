@@ -160,67 +160,55 @@ function pageOverview() {
   </div>${foot('Vue d’ensemble')}</section>`;
 }
 
-function pageDayA(d) {
+function pageDay(d) {
   const n = workNum(d);
-  const blocsOfDay = d.bloc ? [d.bloc] : d.blocs;
-  const chips = d.bloc ? chip(d.bloc) : blocsOfDay.map(b => chip(b, 'soft')).join(' ');
+  const chips = d.bloc ? chip(d.bloc) : d.blocs.map(b => chip(b, 'soft')).join(' ');
   const progs = d.chapters.map((c, i) => {
-    const bs = itemBlocs(d, c);
-    const tagB = c.b !== undefined ? ` <span style="font-weight:500;color:var(--faint);font-size:6.6pt">· bloc ${[].concat(c.b).join(' et ')}</span>` : '';
-    return ck(`${d.key}.ch${i}`, `<span class="lbl">${esc(c.t)}${tagB}</span><span class="key">${esc(c.k)}</span>`, { b: bAttr(bs), html: true });
+    const tagB = c.b !== undefined ? ` <span class="bref">· bloc ${[].concat(c.b).join(' et ')}</span>` : '';
+    return ck(`${d.key}.ch${i}`, `<span class="lbl">${esc(c.t)}${tagB}</span><span class="key">${esc(c.k)}</span>`, { b: bAttr(itemBlocs(d, c)), html: true });
   }).join('');
   const meth = METHOD.map((m, i) => ck(`${d.key}.m${i}`, m, { b: bAttr(itemBlocs(d)) })).join('');
   const lv = { f: ['Facile', 1], i: ['Intermédiaire', 2], d: ['Difficile', 3], p: ['Pratique', 4] };
   const exos = Object.entries(lv).map(([k, [name, dots]]) => `<div class="exo ${k === 'p' ? 'tp' : ''}">
       <div class="lv">${k === 'p' ? ico('flask', 'tpi') : `<span class="dots">${[1, 2, 3].map(x => `<b class="${x <= dots ? 'on' : ''}"></b>`).join('')}</span>`}${name}${ck(`${d.key}.x${k}`, '', { b: bAttr(itemBlocs(d)) })}</div>
       <p>${d.exos[k]}</p></div>`).join('');
+  const top = d.top || d.res.slice(0, 7);
+  const more = d.res.filter(r => !top.includes(r)).length;
+  const mastery = ['Découverte', 'Fragile', 'Solide', 'Maîtrisé'].map(m => ck('', m, { radio: `${d.key}.lvl`, value: m })).join('');
   const title = `${d.dow} — <em>${esc(d.title)}</em>${d.part ? ` · ${d.part}` : ''}`;
-  return `<section class="page dayA" id="${d.key}" data-label="S${d.week} · ${d.dow}">
+  return `<section class="page day1" id="${d.key}" data-label="S${d.week} · ${d.dow}">
   ${head({ eyebrow: `Semaine ${d.week} · Jour ${n} sur 10${d.bloc ? ` · Bloc ${d.bloc}` : ''}`, title, sub: chips,
       meta: `${dateBox(d)}<div class="dayprog"><span>Progression <em data-count="${d.key}"></em></span><div class="bar"><i data-prog="${d.key}"></i></div></div>` })}
   <div class="body">
     <div class="col">
-      <div class="card white grow"><div class="ctitle">${ico('book')}Au programme<span class="aside">je coche quand c’est vu</span></div><div class="prog">${progs}</div></div>
-      <div class="card"><div class="ctitle">${ico('list')}Méthode du jour</div><div class="method">${meth}</div></div>
+      <div class="card white grow"><div class="ctitle">${ico('book')}Au programme</div><div class="prog">${progs}</div></div>
+      <div class="card"><div class="ctitle">${ico('list')}Méthode du jour</div><div class="method one">${meth}</div></div>
+    </div>
+    <div class="card"><div class="ctitle">${ico('pencil')}Exercices<span class="aside">corrigés en fin de planner</span></div><div class="exos one">${exos}</div></div>
+    <div class="col">
+      <div class="card white"><div class="ctitle">${ico('quiz')}Quiz express<span class="aside">4 pts / question</span></div><ol class="quiz">${d.quiz.map(q => `<li><span>${q}</span></li>`).join('')}</ol></div>
+      <div class="card white grow"><div class="ctitle">${ico('link')}Ressources du jour</div><ul class="res mini">${top.map(id => resItem(id, true)).join('')}</ul>${more ? `<p class="more">+ ${more} autres ressources pour ce jour dans le catalogue, en fin de planner.</p>` : ''}</div>
     </div>
     <div class="col">
-      <div class="card grow"><div class="ctitle">${ico('pencil')}Exercices<span class="aside">corrigés en fin de planner</span></div><div class="exos">${exos}</div></div>
-      <div class="card white"><div class="ctitle">${ico('quiz')}Quiz express<span class="aside">4 points par question</span></div>
-        <div style="display:flex;gap:5mm;align-items:flex-end"><ol class="quiz" style="flex:1">${d.quiz.map(q => `<li><span>${q}</span></li>`).join('')}</ol>
-        <div class="score" style="flex-direction:column;align-items:flex-end;gap:1mm"><span style="font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600">Ma note</span>${score(`${d.key}.quiz`)}</div></div>
+      <div class="card white grow">${writeZone(`${d.key}.notes`, 'Mes notes', 'pencil')}</div>
+      <div class="card white grow">${writeZone(`${d.key}.flou`, 'Ce que je n’ai pas compris', 'quiz')}</div>
+      <div class="card white grow">${writeZone(`${d.key}.retra`, 'À retravailler', 'redo')}</div>
+      <div class="card gold bilan">
+        <div class="ctitle">${ico('check')}Bilan</div>
+        <div class="brow"><span class="k">Note au quiz</span>${score(`${d.key}.quiz`)}</div>
+        <span class="k">Niveau de maîtrise</span><div class="mastery">${mastery}</div>
       </div>
     </div>
-  </div>${foot(`S${d.week} · ${d.dow} · programme`)}</section>`;
+  </div>${foot(`S${d.week} · ${d.dow}`)}</section>`;
 }
 
-function resItem(id) {
+function resItem(id, mini = false) {
   const r = R[id];
   if (!r) { console.warn('ressource inconnue', id); return ''; }
   return `<li><span class="ico">${ico(typeIcon(r.y))}</span><div>
     <div class="rt"><a href="${r.u}" target="_blank" rel="noopener">${esc(r.t)}</a></div>
-    <div class="rs">${esc(r.s)}</div>
-    <div class="tags"><span class="tag lvl-${r.n}">${LVL[r.n]}</span>${r.y.split(' + ').map(t => `<span class="tag type">${t}</span>`).join('')}<span class="tag lang">${r.src} · ${r.lang}</span></div>
-    <div class="url">${esc(shortUrl(r.u))}</div></div></li>`;
-}
-
-function pageDayB(d) {
-  const mastery = ['Découverte', 'Fragile', 'Solide', 'Maîtrisé'].map(m => ck('', m, { radio: `${d.key}.lvl`, value: m })).join('');
-  return `<section class="page dayB" id="${d.key}-b" data-label="S${d.week} · ${d.dow} (suite)">
-  ${head({ eyebrow: `Semaine ${d.week} · Jour ${workNum(d)} · suite`, title: `Ressources <em>&amp;</em> bilan`, sub: `${d.dow} — ${esc(d.title)}${d.part ? ` · ${d.part}` : ''}`, meta: dateBox(d) })}
-  <div class="body">
-    <div class="card white"><div class="ctitle">${ico('link')}Ressources du jour<span class="aside">titre cliquable · niveau · type · source · lien direct</span></div><ul class="res">${d.res.map(resItem).join('')}</ul></div>
-    <div class="wrow">
-      <div class="card white">${writeZone(`${d.key}.notes`, 'Mes notes', 'pencil')}</div>
-      <div class="card white">${writeZone(`${d.key}.flou`, 'Ce que je n’ai pas compris', 'quiz')}</div>
-      <div class="card white">${writeZone(`${d.key}.retra`, 'À retravailler', 'redo')}</div>
-      <div class="card gold bilan">
-        <div class="ctitle">${ico('check')}Bilan de la journée</div>
-        <span class="k">Note au quiz</span>${score(`${d.key}.quiz`)}
-        <span class="k">Niveau de maîtrise</span><div class="mastery">${mastery}</div>
-        <span class="k">En une phrase</span><textarea class="mini" data-k="${d.key}.bilan" aria-label="Bilan de la journée"></textarea>
-      </div>
-    </div>
-  </div>${foot(`S${d.week} · ${d.dow} · ressources et bilan`)}</section>`;
+    ${mini ? '' : `<div class="rs">${esc(r.s)}</div>`}
+    <div class="tags"><span class="tag lvl-${r.n}">${LVL[r.n]}</span>${r.y.split(' + ').map(t => `<span class="tag type">${t}</span>`).join('')}<span class="tag lang">${r.src} · ${r.lang}</span></div></div></li>`;
 }
 
 function examDay(n) { return DAYS.find(d => d.exam === n); }
@@ -230,39 +218,25 @@ function pageExamA(n) {
   const total = e.missions.reduce((s, m) => s + m.p, 0) + e.oralPts;
   const missions = e.missions.map((m, i) => `<div class="mission"><span class="num">${i + 1}</span><div><h5>${esc(m.t)} ${chip(m.b, 'soft')}</h5><p>${m.d}</p></div><span class="pts">${m.p} pts</span></div>`).join('');
   return `<section class="page examA" id="bts${n}" data-label="${e.title} · sujet">
-  ${head({ eyebrow: `Dimanche · semaine ${d.week} · mise en situation professionnelle`, title: `${e.title} — <em>${n === 1 ? 'blocs 1 à 4' : 'les 6 blocs'}</em>`, sub: 'Épreuve pratique et orale simulée : cas d’entreprise, manipulations, explication orale. Conditions réelles : chronomètre, maquette prête, pas de corrigé.', meta: `<div class="dayprog"><span>Avancement <em data-count="exam${n}"></em></span><div class="bar gold"><i data-prog="exam${n}"></i></div></div>` })}
+  ${head({ eyebrow: `Dimanche · semaine ${d.week} · mise en situation professionnelle`, title: `${e.title} — <em>${n === 1 ? 'blocs 1 à 4' : 'les 6 blocs'}</em>`, sub: 'Épreuve pratique et orale simulée. Conditions réelles : chronomètre, maquette prête, corrigé seulement après (en fin de planner).', meta: `<div class="dayprog"><span>Avancement <em data-count="exam${n}"></em></span><div class="bar gold"><i data-prog="exam${n}"></i></div></div>` })}
   <div class="infos">
     <div class="info"><span>Date</span><b data-date="${d.key}">&nbsp;</b></div>
     <div class="info"><span>Durée</span><b>${e.duree}</b></div>
-    <div class="info"><span>Blocs concernés</span><div class="chips">${e.blocs.map(b => chip(b)).join('')}</div></div>
-    <div class="info"><span>Évaluation</span><b>Note sur 20 · barème sur ${total} points</b></div>
+    <div class="info"><span>Blocs concernés</span><div class="chips">${e.blocs.map(b => `<span class="chip" style="--c:${bcolor(b)}" title="${esc(bloc(b).name)}"><i>${b}</i>${n === 1 ? esc(bloc(b).name) : ''}</span>`).join('')}${n === 2 ? '<b style="font-size:8.5pt;margin-left:1mm">les 6 blocs</b>' : ''}</div></div>
+    <div class="info"><span>Évaluation</span><b>Note sur 20 · barème ${total} pts</b></div>
   </div>
   <div class="body">
-    <div class="card white"><div class="ctitle">${ico('users')}Contexte</div><div class="ctxgrid">${e.ctx.map(c => `<p class="ctx">${c}</p>`).join('')}</div></div>
-    <div class="card white"><div class="ctitle">${ico('list')}Cas pratique — missions<span class="aside">${e.missions.length} missions · + ${e.oralPts} pts d’oral</span></div><div class="missions">${missions}</div></div>
-    <div class="card"><div class="ctitle">${ico('clock')}Déroulé — coche chaque phase terminée</div><div class="timeline">${e.timeline.map((t, i) => `<div style="--w:${t.w}"><b>${ck(`exam${n}.step${i}`, t.t, { cls: 'examitem' })}</b><span>${t.d}</span></div>`).join('')}</div></div>
-  </div>${foot(`${e.title} · sujet`)}</section>
-  <section class="page examQ" id="bts${n}-questions" data-label="${e.title} · questions et oral">
-  ${head({ eyebrow: `${e.title} · suite du sujet`, title: `Questions techniques, <em>manipulations et oral</em>`, sub: 'Réponds à voix haute, comme devant la commission, puis note l’essentiel dans le brouillon.' })}
-  <div class="body">
+    <div class="col">
+      <div class="card white"><div class="ctitle">${ico('users')}Contexte</div>${e.ctx.map(c => `<p class="ctx">${c}</p>`).join('')}</div>
+      <div class="card white grow"><div class="ctitle">${ico('list')}Cas pratique — missions<span class="aside">+ ${e.oralPts} pts d’oral</span></div>${missions}</div>
+    </div>
     <div class="col">
       <div class="card white"><div class="ctitle">${ico('quiz')}Questions techniques</div><ol class="qlist">${e.questions.map(q => `<li><span>${q}</span></li>`).join('')}</ol></div>
-      ${e.manips ? `<div class="card sky"><div class="ctitle">${ico('flask')}Manipulations pratiques à réaliser devant le jury</div><div class="method">${e.manips.map((m, i) => ck(`exam${n}.manip${i}`, m, { cls: 'examitem' })).join('')}</div></div>` : ''}
+      ${e.manips ? `<div class="card sky"><div class="ctitle">${ico('flask')}Manipulations devant le jury</div><div class="method">${e.manips.map((m, i) => ck(`exam${n}.manip${i}`, m, { cls: 'examitem' })).join('')}</div></div>` : ''}
       <div class="card gold"><div class="ctitle">${ico('mic')}Préparation orale</div><ol class="qlist">${e.oral.map(q => `<li><span>${q}</span></li>`).join('')}</ol></div>
     </div>
-    <div class="card white">${writeZone(`exam${n}.brouillon`, 'Brouillon et notes de préparation', 'pencil')}</div>
-  </div>${foot(`${e.title} · questions et oral`)}</section>`;
-}
-
-function pageExamB(n) {
-  const e = EXAMS[n];
-  const total = e.correction.reduce((s, c) => s + c.p, 0);
-  const blocks = e.correction.map(c => `<div class="corr"><h5>${esc(c.t)}<span class="pts">/ ${c.p}</span></h5>${c.code ? `<pre>${esc(c.code)}</pre>` : ''}<ul>${c.items.map(i => `<li>${i}</li>`).join('')}</ul></div>`);
-  const per = Math.ceil(blocks.length / 3);
-  const cols = [0, 1, 2].map(i => `<div class="card white">${blocks.slice(i * per, i * per + per).join('')}${i === 2 ? `<div class="corr"><h5>Total<span class="pts">/ ${total}</span></h5><ul><li>Note ramenée sur 20. Bloc validé à partir de 15/20, à condition d’avoir su expliquer et manipuler.</li></ul></div>` : ''}</div>`).join('');
-  return `<section class="page examB" id="bts${n}-corrige" data-label="${e.title} · corrigé">
-  ${head({ eyebrow: `${e.title} · à lire après l’épreuve`, title: 'Correction détaillée <em>et barème</em>', sub: 'Compare point par point, puis reporte ta note et tes erreurs sur la page bilan.' })}
-  <div class="body">${cols}</div>${foot(`${e.title} · correction`)}</section>`;
+    <div class="card tl"><div class="timeline">${e.timeline.map((t, i) => `<div style="--w:${t.w}"><b>${ck(`exam${n}.step${i}`, t.t, { cls: 'examitem' })}</b><span>${t.d}</span></div>`).join('')}</div></div>
+  </div>${foot(`${e.title} · sujet`)}</section>`;
 }
 
 function pageExamC(n) {
@@ -319,20 +293,33 @@ function catalogItems() {
   const items = [];
   BLOCS.forEach(b => {
     const list = Object.entries(R).filter(([, r]) => r.b === b.id);
-    items.push({ kind: 'h', html: `<div class="rgroup"><h3><span class="n" style="--c:${bcolor(b.id)}">${ico(b.icon)}</span>Bloc ${b.id} · ${esc(b.name)} <span style="margin-left:auto;font-weight:500;letter-spacing:.04em;text-transform:none;color:var(--faint)">${list.length} ressources</span></h3></div>`, b });
-    list.forEach(([, r]) => items.push({ kind: 'r', b, html: `<table class="rtab"><tr>
-      <td class="t"><a href="${r.u}" target="_blank" rel="noopener">${esc(r.t)}</a><span class="url">${esc(shortUrl(r.u))}</span></td>
-      <td class="s">${esc(r.s)}<br><span style="color:var(--faint)">${esc(r.src)} · ${r.lang}</span></td>
-      <td class="m"><span class="tag lvl-${r.n}">${LVL[r.n]}</span><br>${r.y.split(' + ').map(t => `<span class="tag type">${t}</span>`).join('')}</td></tr></table>` }));
+    items.push({ kind: 'h', html: `<div class="rgroup"><h3><span class="n" style="--c:${bcolor(b.id)}">${ico(b.icon)}</span>Bloc ${b.id} · ${esc(b.name)}</h3></div>`, b });
+    list.forEach(([, r]) => items.push({ kind: 'r', b, html: `<div class="rc">
+      <a href="${r.u}" target="_blank" rel="noopener">${esc(r.t)}</a>
+      <div class="rcs"><span class="tag lvl-${r.n}">${LVL[r.n]}</span> ${r.y.split(' + ').map(t => `<span class="tag type">${t}</span>`).join(' ')} ${esc(r.s)} <span>· ${esc(r.src)} · ${r.lang}</span></div>
+      <div class="url">${esc(shortUrl(r.u))}</div></div>` }));
   });
   items.push({ kind: 'x', html: `<div class="card gold" style="margin-top:2mm"><div class="ctitle">${ico('alert')}Sujets sans ressource fiable trouvée</div>${GAPS.map(g => `<p class="note-warn" style="margin-bottom:1.4mm">${g}</p>`).join('')}</div>` });
   return items;
 }
 
+function examCorrItems(n) {
+  const e = EXAMS[n];
+  const total = e.correction.reduce((s, c) => s + c.p, 0);
+  return e.correction.map((c, i) => ({ kind: 'a', html: `<div class="ans corrx">${i === 0 ? `<h4><span class="chip gold"><i>${ico('exam')}</i>${e.title} · correction</span><span>barème / ${total}</span></h4>` : ''}
+    <div class="corr"><h5>${esc(c.t)}<span class="pts">/ ${c.p}</span></h5>${c.code ? `<pre>${esc(c.code)}</pre>` : ''}<ul>${c.items.map(x => `<li>${x}</li>`).join('')}</ul></div>
+    ${i === e.correction.length - 1 ? '<p class="note-warn">Note ramenée sur 20. Bloc validé à partir de 15/20, si tu as su expliquer et manipuler.</p>' : ''}</div>` }));
+}
+
 function answerItems() {
-  return workDays.map(d => ({ kind: 'a', html: `<div class="ans"><h4>${d.bloc ? chip(d.bloc) : `<span class="chip soft"><i>${ico(d.icon)}</i>${esc(d.title)}</span>`}<span>S${d.week} · ${d.dow}</span></h4>
+  const out = [];
+  DAYS.forEach(d => { if (d.kind === 'work') out.push(dayAnsItem(d)); if (d.kind === 'exam') out.push(...examCorrItems(d.exam)); });
+  return out;
+}
+function dayAnsItem(d) {
+  return ({ kind: 'a', html: `<div class="ans"><h4>${d.bloc ? chip(d.bloc) : `<span class="chip soft"><i>${ico(d.icon)}</i>${esc(d.title)}</span>`}<span>S${d.week} · ${d.dow}</span></h4>
     <ol>${d.answers.map(a => `<li><span>${a}</span></li>`).join('')}</ol>
-    <div class="ex"><p><b>Facile —</b> ${d.exoAns.f}</p><p><b>Intermédiaire —</b> ${d.exoAns.i}</p><p><b>Difficile —</b> ${d.exoAns.d}</p></div></div>` }));
+    <div class="ex"><p><b>Facile —</b> ${d.exoAns.f}</p><p><b>Intermédiaire —</b> ${d.exoAns.i}</p><p><b>Difficile —</b> ${d.exoAns.d}</p></div></div>` });
 }
 
 function flow(container, { kind, id, label, header, cols, items, contHeader }) {
@@ -378,8 +365,8 @@ function flow(container, { kind, id, label, header, cols, items, contHeader }) {
 const root = document.getElementById('sheets');
 let html = pageCover() + pageOverview();
 DAYS.forEach(d => {
-  if (d.kind === 'work') html += pageDayA(d) + pageDayB(d);
-  if (d.kind === 'exam') html += pageExamA(d.exam) + pageExamB(d.exam) + pageExamC(d.exam);
+  if (d.kind === 'work') html += pageDay(d);
+  if (d.kind === 'exam') html += pageExamA(d.exam) + pageExamC(d.exam);
 });
 html += pageTrack();
 root.innerHTML = html;
@@ -459,14 +446,14 @@ async function layout() {
   try { await document.fonts.ready; } catch {}
   document.documentElement.classList.add('measuring');
   flow(root, {
-    kind: 'catalog', id: 'ressources', label: 'Ressources', cols: 2, items: catalogItems(),
+    kind: 'catalog', id: 'ressources', label: 'Ressources', cols: 3, items: catalogItems(),
     header: head({ eyebrow: 'Ressources de révision', title: 'Toutes les ressources, <em>bloc par bloc</em>', sub: 'Chaque lien a été ouvert et contrôlé le 26/11/2026 (page existante, contenu conforme). Clique sur le titre pour ouvrir la ressource.' }),
     contHeader: head({ eyebrow: 'Ressources de révision · suite', title: 'Ressources <em>(suite)</em>' }),
   });
   flow(root, {
     kind: 'answers', id: 'corriges', label: 'Corrigés', cols: 3, items: answerItems(),
-    header: head({ eyebrow: 'Corrigés', title: 'Quiz express <em>et exercices</em>', sub: 'À ouvrir seulement après avoir cherché. Les numéros correspondent aux questions du quiz de chaque jour.' }),
-    contHeader: head({ eyebrow: 'Corrigés · suite', title: 'Quiz express <em>et exercices (suite)</em>' }),
+    header: head({ eyebrow: 'Corrigés', title: 'Quiz, exercices <em>et BTS blancs</em>', sub: 'À ouvrir seulement après avoir cherché. Les numéros correspondent aux questions du quiz de chaque jour.' }),
+    contHeader: head({ eyebrow: 'Corrigés · suite', title: 'Corrigés <em>(suite)</em>' }),
   });
   document.documentElement.classList.remove('measuring');
   const pages = [...root.querySelectorAll('.page')];
