@@ -59,6 +59,7 @@ ul,ol{margin:0;padding:0}
 .btn:hover{border-color:var(--navy-2)}
 .btn.solid{background:var(--navy);color:#fff;border-color:var(--navy)}
 .btn.solid:hover{background:var(--navy-2)}
+.btn.danger{background:#8C2F2F;border-color:#8C2F2F;color:#fff}
 .btn svg{width:14px;height:14px}
 .gprog{display:flex;align-items:center;gap:8px;font-size:7.8pt;color:var(--muted);min-width:170px}
 .gprog .bar{flex:1}

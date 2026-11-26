@@ -514,14 +514,30 @@ document.getElementById('file-import')?.addEventListener('change', async e => {
     const data = JSON.parse(await f.text());
     if (typeof data !== 'object' || Array.isArray(data)) throw new Error('format');
     S = data; save(); if (startInput) startInput.value = S.start || ''; hydrate();
-    alert('Sauvegarde importée.');
-  } catch { alert('Ce fichier n’est pas une sauvegarde valide du planner.'); }
+    flash(e.target.closest('label'), 'Importé ✓');
+  } catch { flash(e.target.closest('label'), 'Fichier invalide'); }
   e.target.value = '';
 });
-document.getElementById('btn-reset')?.addEventListener('click', () => {
-  if (!confirm('Effacer toutes tes cases cochées, notes et commentaires ? Pense à exporter une sauvegarde avant.')) return;
+// confirmation en deux clics (pas de boîte de dialogue : elle est bloquée dans certains lecteurs)
+let resetArmed = null;
+document.getElementById('btn-reset')?.addEventListener('click', ev => {
+  const btn = ev.currentTarget;
+  if (!resetArmed) {
+    btn.textContent = 'Cliquer encore pour tout effacer';
+    btn.classList.add('danger');
+    resetArmed = setTimeout(() => { resetArmed = null; btn.textContent = 'Réinitialiser'; btn.classList.remove('danger'); }, 4000);
+    return;
+  }
+  clearTimeout(resetArmed); resetArmed = null;
   S = {}; save(); if (startInput) startInput.value = ''; hydrate();
+  btn.classList.remove('danger'); flash(btn, 'Effacé', 'Réinitialiser');
 });
+function flash(el, msg, back) {
+  if (!el) return;
+  const txt = back || el.firstChild.textContent;
+  el.firstChild.textContent = msg;
+  setTimeout(() => { el.firstChild.textContent = txt; }, 2200);
+}
 
 if (PRINT_MODE) document.documentElement.classList.add('vierge');
 layout();
